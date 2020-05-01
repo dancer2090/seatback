@@ -24,7 +24,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://sirinsoftware.com/wp-json"
+          "api": "https://seatback-admin.webbuilder.in.ua/wp-json"
         }
       }
     },
