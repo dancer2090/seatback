@@ -3,6 +3,7 @@ import { Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
 import List from "./list";
+// import Home from "./home";
 import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
@@ -14,7 +15,13 @@ import PageError from "./page-error";
  */
 const Theme = ({ state }) => {
   // Get information about the current URL.
+
+  // console.log(state.router.link);
+  // console.log("state.router.link");
+  // const data = state.source.get(state.router.link === '/' ? '/abouts/' : state.router.link);
   const data = state.source.get(state.router.link);
+
+  console.log(data);
 
   return (
     <>
@@ -30,6 +37,7 @@ const Theme = ({ state }) => {
       <Global styles={globalStyles} />
 
       {/* Add the header of the site. */}
+
       <HeadContainer>
         <Header />
       </HeadContainer>
@@ -39,8 +47,9 @@ const Theme = ({ state }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
+          {/* <Home when={data.isHome} /> */}
           <Post when={data.isPostType} />
+          <List when={data.isArchive} />
           <PageError when={data.isError} />
         </Switch>
       </Main>

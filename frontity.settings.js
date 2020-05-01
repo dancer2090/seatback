@@ -24,7 +24,9 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://seatback-admin.webbuilder.in.ua/wp-json"
+          "api": "https://seatback-admin.webbuilder.in.ua/wp-json",
+          "homepage": '/home',
+          "postsPage": '/blog',
         }
       }
     },

@@ -5,10 +5,14 @@ import Nav from "./nav";
 import MobileMenu from "./menu";
 
 const Header = ({ state }) => {
+  console.log(state);
   return (
     <>
       <Container>
+        13
         123
+
+        sdfdsf
       </Container>
       <Nav />
     </>

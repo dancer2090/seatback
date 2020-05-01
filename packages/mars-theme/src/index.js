@@ -19,7 +19,7 @@ const marsTheme = {
     theme: {
       menu: [
         ["Home", "/"],
-        ["About", "/about"]
+        ["About", "/abouts"]
       ],
       isMobileMenuOpen: false,
       featured: {
