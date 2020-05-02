@@ -60,6 +60,12 @@ const globalStyles = css`
     margin: 0;
     font-weight: 400;
     font-family: Montserrat, sans-serif;
+    min-width: 1920px;
+    max-width: 1920px;
+  }
+  a, button, input {
+    font-weight: 400;
+    font-family: Montserrat, sans-serif;
   }
   a,
   a:visited {

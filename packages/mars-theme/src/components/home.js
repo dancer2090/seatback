@@ -17,7 +17,8 @@ const Home = () => {
 export default Home;
 
 const Container = styled.div`
-  width: 800px;
+  width: 1920px;
   margin: 0;
-  padding: 24px;
+  padding: 24px 150px;
+  background: #F5F6FA 0% 0% no-repeat padding-box;
 `;
