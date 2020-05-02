@@ -33,14 +33,11 @@ const Theme = ({ state }) => {
       <Global styles={globalStyles} />
 
       {/* Add the header of the site. */}
-
-      <HeadContainer>
+      <SiteContainer>
         <Header />
-      </HeadContainer>
 
-      {/* Add the main section. It renders a different component depending
-      on the type of URL we are in. */}
-      <Main>
+        {/* Add the main section. It renders a different component depending
+        on the type of URL we are in. */}
         <Switch>
           <Loading when={data.isFetching} />          
           <Home when={data.isHome} />
@@ -48,7 +45,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <PageError when={data.isError} />
         </Switch>
-      </Main>
+      </SiteContainer>
     </>
   );
 };
@@ -56,14 +53,17 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  box-sizing: border-box;
+  padding: 0;
+  *, *:after, *:before {
+    box-sizing: border-box;
+  }
   body {
     margin: 0 auto;
     font-weight: 400;
     font-family: Montserrat, sans-serif;
-    min-width: 1440px;
-    max-width: 1920px;
   }
-  a, button, input {
+  button, input {
     font-weight: 400;
     font-family: Montserrat, sans-serif;
   }
@@ -73,24 +73,8 @@ const globalStyles = css`
     text-decoration: none;
   }
 
-  *, *:after, *:before {
-    box-sizing: border-box;
-  }
 `;
 
-const HeadContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #1f38c5;
-`;
-
-const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  );
+const SiteContainer = styled.div`
+  
 `;
