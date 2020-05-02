@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../Button';
 
 const Banner = () => {
   return (
@@ -18,6 +19,9 @@ const Banner = () => {
         goals and improving sitting quality
         </h5>
       </div>
+      
+        <Button> Get a demo </Button>
+      
     </div>
   );
 }
