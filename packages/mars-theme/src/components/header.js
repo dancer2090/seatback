@@ -9,10 +9,7 @@ const Header = ({ state }) => {
   return (
     <>
       <Container>
-        13
-        123
-
-        sdfdsf
+        
       </Container>
       <Nav />
     </>
