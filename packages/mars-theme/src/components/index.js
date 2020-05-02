@@ -57,10 +57,10 @@ export default connect(Theme);
 
 const globalStyles = css`
   body {
-    margin: 0;
+    margin: 0 auto;
     font-weight: 400;
     font-family: Montserrat, sans-serif;
-    min-width: 1920px;
+    min-width: 1440px;
     max-width: 1920px;
   }
   a, button, input {
@@ -71,6 +71,10 @@ const globalStyles = css`
   a:visited {
     color: inherit;
     text-decoration: none;
+  }
+
+  *, *:after, *:before {
+    box-sizing: border-box;
   }
 `;
 
