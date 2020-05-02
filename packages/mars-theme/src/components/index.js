@@ -3,7 +3,7 @@ import { Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
 import List from "./list";
-// import Home from "./home";
+import Home from "./home";
 import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
@@ -46,8 +46,8 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <Main>
         <Switch>
-          <Loading when={data.isFetching} />
-          {/* <Home when={data.isHome} /> */}
+          <Loading when={data.isFetching} />          
+          <Home when={data.isHome} />
           <Post when={data.isPostType} />
           <List when={data.isArchive} />
           <PageError when={data.isError} />
