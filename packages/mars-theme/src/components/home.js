@@ -1,12 +1,15 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Banner from './home/Banner';
+import Description from './home/Description';
 
 const Home = () => {
 
   return (
     <Container>
       <Banner />
+      <Description />
+
     </Container>
   );
 };

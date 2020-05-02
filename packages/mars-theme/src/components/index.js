@@ -16,18 +16,14 @@ import PageError from "./page-error";
 const Theme = ({ state }) => {
   // Get information about the current URL.
 
-  // console.log(state.router.link);
-  // console.log("state.router.link");
-  // const data = state.source.get(state.router.link === '/' ? '/abouts/' : state.router.link);
   const data = state.source.get(state.router.link);
-
-  console.log(data);
 
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
       </Head>
@@ -62,8 +58,8 @@ export default connect(Theme);
 const globalStyles = css`
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-family: Montserrat, sans-serif;
   }
   a,
   a:visited {
