@@ -19,7 +19,18 @@
     "@frontity/tiny-router": "^1.1.1",
     "@frontity/wp-source": "^1.6.2",
     "frontity": "^1.5.2",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "redux": "^4.0.5",
+    "video-react": "^0.14.1"
+=======
+    "react-items-carousel": "^2.8.0"
+>>>>>>> bb85bcb6d0671a080be08df03e749ed83ab89854
+=======
     "react-items-carousel": "^2.8.0",
     "react-slick": "^0.25.2"
+>>>>>>> cb24718e61dffcb83b6295c5e073e1f31d22b109
   }
 }

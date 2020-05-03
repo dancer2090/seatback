@@ -9,6 +9,9 @@ const Header = ({ state }) => {
   return (
     <>
       <Container>
+<<<<<<< HEAD
+        
+=======
         <MenuBox>
           <LogoSection>
             <img />
@@ -22,6 +25,7 @@ const Header = ({ state }) => {
             </Button>
           </ButtonSection>
         </MenuBox>
+>>>>>>> cb24718e61dffcb83b6295c5e073e1f31d22b109
       </Container>
     </>
   );
