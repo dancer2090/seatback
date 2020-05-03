@@ -124,7 +124,7 @@ const Description = () => {
     <>
       {data.map(d => {
         return (
-          <Container alignImage={d.alignImage}>
+          <Container key={d.title} alignImage={d.alignImage}>
             <Title>
               {d.title}
             </Title>

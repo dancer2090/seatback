@@ -1,11 +1,122 @@
-import React from 'react';
-import { styled } from 'frontity';
+import React, { useState } from 'react';
+import ItemsCarousel from 'react-items-carousel';
+import HappyImage from '../../../img/emoji-happy.svg';
+import GrammarlyImage from '../../../img/grammarly.svg';
+import Slider from "react-slick";
+import {
+  Title,
+  Container, 
+  CarouselContainer,
+  Item,
+  ImageBox,
+  SlickContainer,
+} from './styles';
+
+
+const data = [
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+  {
+    image: GrammarlyImage,
+  },
+];
+
+
 
 const Parthers = () => {
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 10,
+    slidesToScroll: 1
+  };
+
   return (
-    <div>
-      partners
-    </div>
+    <>
+      <Title>
+        Customers and partners already use Seatback to <span>lead</span> more active lives.
+      </Title>
+      <Container>
+        <CarouselContainer>
+          <SlickContainer>
+            <Slider {...settings}>
+                {data.length > 0 && data.map((d, n) => (
+                  <Item key={n}>
+                    <ImageBox>
+                      <img src={d.image} />
+                    </ImageBox>
+                  </Item>
+                ))}            
+            </Slider>
+          </SlickContainer>
+
+          {/* <ItemsCarousel
+            // Placeholder configurations
+            enablePlaceholder={false}
+            numberOfPlaceholderItems={5}
+            minimumPlaceholderTime={1000}
+            placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
+
+            // Carousel configurations
+            infiniteLoop={true}
+            numberOfCards={10}
+            gutter={0}
+            showSlither={true}
+            firstAndLastGutter={true}
+            freeScrolling={true}
+
+            // Active item configurations
+            requestToChangeActive={(index) => changeActiveItem(index)}
+            activeItemIndex={activeItemIndex}
+            activePosition={'center'}
+
+            chevronWidth={24}
+            rightChevron={'>'}
+            leftChevron={'<'}
+            outsideChevron={false}
+          >
+            {data.length > 0 && data.map((d, n) => (
+              <Item key={n}>
+                <ImageBox>
+                  <img src={d.image} />
+                </ImageBox>
+              </Item>
+            ))}
+            
+          </ItemsCarousel> */}
+        </CarouselContainer>
+      </Container>
+    </>
   )
 }
 

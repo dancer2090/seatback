@@ -101,12 +101,14 @@ const Help = () => {
     <Container>
       <Title>
         Seatback can help 
-        <br /><span>improve</span> business outcomes:
+        <br />
+        <span>improve</span> 
+        business outcomes:
       </Title>
       <Blocks>
-        {items.length > 0 && items.map(item => {
+        {items.length > 0 && items.map((item, key) => {
           return (
-            <Block>
+            <Block key={key}>
               <BlockContent>
                 <Icon>
                   <img src={item.image} alt="image" />
