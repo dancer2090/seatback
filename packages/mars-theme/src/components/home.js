@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import Banner from './home/Banner';
 import Description from './home/Description';
 import Help from './home/Help';
-//import Partners from './home/Partners';
+import Partners from './home/Partners';
 
 const Home = () => {
 
