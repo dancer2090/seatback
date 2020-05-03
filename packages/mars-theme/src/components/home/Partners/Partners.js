@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { styled, connect } from 'frontity';
 import ItemsCarousel from 'react-items-carousel';
-import HappyImage from '../../../img/emoji-happy.svg';
-import GrammarlyImage from '../../../img/grammarly.svg';
 import Slider from "react-slick";
+import GrammarlyImage from '../../../img/grammarly.svg';
 import {
   Title,
   Container, 
@@ -11,6 +11,8 @@ import {
   ImageBox,
   SlickContainer,
 } from './styles';
+
+
 
 
 const data = [
@@ -50,8 +52,12 @@ const data = [
 ];
 
 
+const Parthers = ({state}) => {
 
-const Parthers = () => {
+  const data_p = state.source.get(state.router.link);
+  const post = state.source[data_p.type][data_p.id];
+
+  const data1 = post.acf.customers;
 
   const settings = {
     dots: false,
@@ -70,10 +76,10 @@ const Parthers = () => {
         <CarouselContainer>
           <SlickContainer>
             <Slider {...settings}>
-                {data.length > 0 && data.map((d, n) => (
+                {data1.length > 0 && data1.map((d, n) => (
                   <Item key={n}>
                     <ImageBox>
-                      <img src={d.image} />
+                      <img src={d.url} />
                     </ImageBox>
                   </Item>
                 ))}            
@@ -120,4 +126,4 @@ const Parthers = () => {
   )
 }
 
-export default Parthers;
+export default connect(Parthers);
