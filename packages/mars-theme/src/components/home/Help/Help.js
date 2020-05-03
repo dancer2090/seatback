@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
-import { styled } from 'frontity';
-import HeartImage from '../../../img/heart.svg';
-import StartUpImage from '../../../img/stats-up.svg';
-import GiftImage from '../../../img/gift.svg';
-import HappyImage from '../../../img/emoji-happy.svg';
+import { styled, connect } from 'frontity';
 
 const Container = styled.div`
   padding: 207px 150px;
@@ -76,40 +72,27 @@ const Description = styled.div`
 `;
 
 
-const items = [
-  {
-    image: HeartImage,
-    text: 'A reduction in healthcare costs',
-  },
-  {
-    image: StartUpImage,
-    text: 'Stronger business performance',
-  },
-  {
-    image: HappyImage,
-    text: 'A positive, inspiring company culture',
-  },
-  {
-    image: GiftImage,
-    text: 'Optimized employment benefits & HR investments',
-  }
-];
+const Help = ({state}) => {
 
-const Help = () => {
+  const data_p = state.source.get(state.router.link);
+  const post = state.source[data_p.type][data_p.id];
+
+  const bo = post.acf.business_outcomes;
 
   return (
     <Container>
       <Title>
         Seatback can help 
-        <br /><span>improve</span> business outcomes:
+        <br />
+        <span>improve</span> business outcomes:
       </Title>
       <Blocks>
-        {items.length > 0 && items.map(item => {
+        {bo.length > 0 && bo.map((item, key) => {
           return (
-            <Block>
+            <Block key={key}>
               <BlockContent>
                 <Icon>
-                  <img src={item.image} alt="image" />
+                  <img src={item.image.url} alt="image" />
                 </Icon>
                 <Description>
                   {item.text}
@@ -123,4 +106,4 @@ const Help = () => {
   );
 }
 
-export default Help;
+export default connect(Help);

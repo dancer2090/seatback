@@ -18,8 +18,10 @@ const marsTheme = {
      */
     theme: {
       menu: [
-        ["Home", "/"],
-        ["About", "/abouts"]
+        ["Product", "/product", [["Product1", "/product1"], ["Product2", "/product2"]]], 
+        ["Engagement", "/engagements"],
+        ["Engagement", "/plans"],
+        ["About", "/about"],
       ],
       isMobileMenuOpen: false,
       featured: {
