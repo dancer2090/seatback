@@ -3,18 +3,26 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
+import Button from './Button';
 
 const Header = ({ state }) => {
-  console.log(state);
   return (
     <>
       <Container>
-        13
-        123
-
-        sdfdsf
+        <MenuBox>
+          <LogoSection>
+            <img />
+          </LogoSection>
+          <NavSection>
+            <Nav />
+          </NavSection>
+          <ButtonSection>
+            <Button>
+              Get a Demo
+            </Button>
+          </ButtonSection>
+        </MenuBox>
       </Container>
-      <Nav />
     </>
   );
 };
@@ -23,26 +31,34 @@ const Header = ({ state }) => {
 export default connect(Header);
 
 const Container = styled.div`
-  width: 848px;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 24px;
-  color: #fff;
+  width: 100%;
+  max-width: 1920px;
+  padding-left: 150px;
+  padding-right: 150px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 2px 2px 8px #0000000D;
+  opacity: 1;
+`;
+
+const ButtonSection = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
 `;
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 16px;
+const LogoSection = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
-const Description = styled.h4`
-  margin: 0;
-  color: rgba(255, 255, 255, 0.7);
+const NavSection = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
+const MenuBox = styled.div`
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 100px;
+  position: relative;
 `;

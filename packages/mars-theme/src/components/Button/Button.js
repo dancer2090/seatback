@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from "frontity";
+import { styled, css } from "frontity";
 
 const StyledButton = styled.button`
   background: #52DE97 0% 0% no-repeat padding-box;
@@ -22,6 +22,10 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   text-align: center;
+  ${props => props.size === 'large' && css`
+    font-size: 24px;
+    line-height: 29px;
+  `}
 
   &:hover {
     background: #2bad6b;
