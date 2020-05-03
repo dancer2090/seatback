@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { styled } from "frontity";
+import { styled, connect } from "frontity";
 import ImageSeatbackPlus from '../../../img/seatback_plus@2x.png';
 import ImageSeatbackChair from '../../../img/seat-element-chair.png';
 import ImageSeatbackProcessor from '../../../img/seat-element-processor.png';
@@ -79,68 +79,44 @@ const Image = styled.div`
   justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
 `;
 
+const Description = ({state}) => {
 
-const data = [
-  {
-    title: 'Seatback+',
-    subtitle: 'An integrated wellness platform.',
-    description: 'That uses AI and Machine Learning to help improve health outcomes. Seatback+ is home to Wellness on Demand, a onestop shop for personalized recommendations, advice for healthy workspace calibration, posture enhancement tips, wellness content, on-demand health classes and real-time personal training.',
-    image: ImageSeatbackPlus,
-    alignImage: 'right',
-    link: '/',
-    linkText: 'Learn more',
-  },
-  {
-    title: 'Office Chair',
-    subtitle: 'A new frontier for any seating device.',
-    description: 'Seatback embeds proprietary technology directly into office chairs. Our revolutionary seating technology guides users through more dynamic workdays and helps them achieve their best posture.',
-    image: ImageSeatbackChair,
-    alignImage: 'left',
-    link: '/',
-    linkText: 'Learn more',
-  },
-  {
-    title: 'Portable Device',
-    subtitle: 'A flexible solution for any office environment.',
-    description: 'Our proprietary technology can also be embedded directly into a portable device that can be easily shifted to any workstation.',
-    image: ImageSeatbackSeat,
-    alignImage: 'right',
-    link: '/abouts',
-    linkText: 'Learn more',
-  },
-  {
-    title: 'Smart Watch',
-    subtitle: 'Real-time feedback, measurable results.',
-    description: 'Seatback integrates with compatible smart watches to give personalized recommendations and keep users on track to achieve their daily health goals.',
-    image: ImageSeatbackWatch,
-    alignImage: 'left',
-    link: '/abouts',
-    linkText: 'Learn more',
-  },
-];
-const Description = () => {
+  const data_p = state.source.get(state.router.link);
+  const post = state.source[data_p.type][data_p.id];
+
+  const acf_blocks = post.acf.blocks;
+
+  console.log(post.acf);
 
   return (
     <>
-      {data.map(d => {
+      {acf_blocks.map(d => {
         return (
-          <Container key={d.title} alignImage={d.alignImage}>
-            <Title>
-              {d.title}
-            </Title>
-            <Image alignImage={d.alignImage}>
-              <img src={d.image} width={660} alt="image" />
-            </Image>
-            <SubTitle>
-              {d.subtitle}
-            </SubTitle>
-            <DescriptionParagraph>
-              {d.description}
-            </DescriptionParagraph>
+          <Container key={d.header} alignImage={d.alignImage}>
+            {d.header.length>0 &&
+              <Title>
+                {d.header}
+              </Title>
+            }
+            {d.image.url.length>0 &&
+              <Image alignImage={d.alignImage}>
+                <img src={d.image.url} width={660} alt="image" />
+              </Image>
+            }
+            {d.thumbnail.length>0 &&
+              <SubTitle>
+                {d.thumbnail}
+              </SubTitle>
+            }
+            {d.text.length>0 &&
+              <DescriptionParagraph>
+                {d.text}
+              </DescriptionParagraph>
+            }
             <Action>
-              {d.link && d.link !== '' && (
-                <Link link={d.link}>
-                  <Button>{d.linkText}</Button>
+              {d.link.url && d.link.url !== '' && (
+                <Link link={d.link.url}>
+                  <Button>{d.link.title}</Button>
                 </Link>
               )}
             </Action>
@@ -151,4 +127,4 @@ const Description = () => {
   );
 }
 
-export default Description;
+export default connect(Description);
