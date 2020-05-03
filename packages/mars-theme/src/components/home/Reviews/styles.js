@@ -3,14 +3,38 @@ import { styled } from 'frontity';
 
 
 export const Description = styled.div`
-
+  width: 80%;
+  padding-left: 50px;
 `;
 
 export const Picture = styled.div`
-
+  width: 20%; 
+  overflow: hidden;
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    max-width: 100%;
+  }
 `;
 export const Comment = styled.div`
+  text-align: left;
+  font-size: 18px;
+  line-height: 31px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #2E293C;
+  opacity: 1;
+  
+`;
 
+export const Status = styled.div`
+  padding-top: 18px;
+  font-size: 18px;
+  line-height: 31px;
+  letter-spacing: 0px;
+  color: #A09D9D;
+  opacity: 1;
 `;
 
 export const Item = styled.div`
@@ -18,6 +42,28 @@ export const Item = styled.div`
   margin: 0 auto;
   padding: 45px 50px;
   background-color: white;  
+`;
+
+
+export const ItemBox = styled.div`
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 4px 4px 8px #00000014;
+  border-radius: 10px;
+  opacity: 1;
+  padding: 50px 60px 30px 60px;
+  &:after {
+    content: " ";
+    position: absolute;
+    bottom: -270px;
+    right: -270px;
+    background-color: #52DE97;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+  }
 `;
  
 export const SlickContainer = styled.div`
