@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { styled, connect } from 'frontity';
-import ItemsCarousel from 'react-items-carousel';
 import Slider from "react-slick";
 import GrammarlyImage from '../../../img/grammarly.svg';
 import {
