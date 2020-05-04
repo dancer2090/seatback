@@ -87,7 +87,7 @@ const Banner = () => {
         <Button> Get a demo </Button>
     </div>
     <VideoContainer>
-    <video autoPlay loop style={{width:"130%"}}><source src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/sample.mp4?_=1"
+    <video autoPlay loop><source src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/sample.mp4?_=1"
     type="video/mp4"/></video>
     </VideoContainer>
     </Container>
