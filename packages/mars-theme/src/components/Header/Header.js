@@ -12,6 +12,7 @@ import {
   NavIcon,
   NavIconSection,
   ResposnsiveMenu,
+  Space
 } from './styles';
 
 const Header = ({ state }) => {
@@ -19,34 +20,37 @@ const Header = ({ state }) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   return (
-    <Container isMenuOpen={isMenuOpen}>
-      <MenuBox>
-        <LogoSection>
-          <img src={ImageLogo} alt="seatback logo" />
-        </LogoSection>
-        <NavSection>
-          <Nav />
-        </NavSection>
-        <ButtonSection>
-          <Button block >
-            Get a Demo
-          </Button>
-        </ButtonSection>
-        <NavIconSection>
-          <NavIcon isOpen={isMenuOpen} onClick={() => setMenuOpen(!isMenuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </NavIcon>
-        </NavIconSection>
-      </MenuBox>
-      {isMenuOpen && (
-        <ResposnsiveMenu>
-          <Nav />
-        </ResposnsiveMenu>
-      )}
-    </Container>
+    <>
+      <Container isMenuOpen={isMenuOpen}>
+        <MenuBox>
+          <LogoSection>
+            <img src={ImageLogo} alt="seatback logo" />
+          </LogoSection>
+          <NavSection>
+            <Nav />
+          </NavSection>
+          <ButtonSection>
+            <Button block >
+              Get a Demo
+            </Button>
+          </ButtonSection>
+          <NavIconSection>
+            <NavIcon isOpen={isMenuOpen} onClick={() => setMenuOpen(!isMenuOpen)}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </NavIcon>
+          </NavIconSection>
+        </MenuBox>
+        {isMenuOpen && (
+          <ResposnsiveMenu>
+            <Nav />
+          </ResposnsiveMenu>
+        )}
+      </Container>
+      <Space />
+    </>
   );
 };
 

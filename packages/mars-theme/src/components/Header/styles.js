@@ -23,11 +23,21 @@ const headerHeight = HEADER_HEIGHT;
 const headerHeightResponsive = HEADER_HEIGHT_RESPONSIVE;
 
 
+export const Space = styled.div`
+  width: 100%;
+  height: ${headerHeight}px;
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+    height: ${headerHeightResponsive}px;
+  }
+`;
+
 export const ResposnsiveMenu = styled.div`
+  display: none;
   position: absolute;
   top: ${headerHeight}px;
   right: 0;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+    display: block;
     top: ${headerHeightResponsive}px;
     right: -${PADDING_DESCTOP_SMALL}px;
     width: 300px;    

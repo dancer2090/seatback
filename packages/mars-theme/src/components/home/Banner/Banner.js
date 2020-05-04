@@ -21,13 +21,15 @@ const Container = styled.div `
   margin-bottom:225px;
 `;
 
-const Slogan = styled.div `
+const Slogan = styled.h1 `
   text-align: left;
   line-height:70px;
   opacity:1;
   font-size:50px;
   font-weight:700;
-  .kw {color: #52DE97;}
+  margin: 0;
+  .kw {color: #52DE97;
+  }
 `;
 
 const Discription = styled.p`
