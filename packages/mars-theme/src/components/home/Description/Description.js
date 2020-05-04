@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { styled, connect } from "frontity";
+import { styled, connect, fetch, URL } from "frontity";
 import ImageSeatbackPlus from '../../../img/seatback_plus@2x.png';
 import ImageSeatbackChair from '../../../img/seat-element-chair.png';
 import ImageSeatbackProcessor from '../../../img/seat-element-processor.png';
@@ -79,17 +79,53 @@ const Image = styled.div`
   justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
 `;
 
-const Description = ({state}) => {
+
+const getFromSomeAPI = async () => {
+  const response = fetch("https://seatback-admin.webbuilder.in.ua/wp-json/wp/v2/forms/114").then( res => res.json() ).then(
+      (result) => {
+       console.log(result); 
+      }
+    );
+  //console.log(Promise.resolve(response));
+  const body = response.json();
+  return body;
+};
+
+
+
+const Description = ({state, actions}) => {
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
 
   const acf_blocks = post.acf.blocks;
 
+  const form2 = getFromSomeAPI();
+
+
+  useEffect(() => {
+    //actions.source.fetch('/forms/get-a-demo');
+  }, []);
+
+  //actions.source.fetch('/forms/get-a-demo');
+  //const data1 = state.source.get('/forms/get-a-demo');
+  //const form = state.source[data1.type];
+
+
+  //+post.acf.gd_form.post_name);
+  
+  console.log(data_p.type);
+
+
+  console.log(form2.resolve);
+
+  //console.log(form);
+  console.log("post acf: ");
   console.log(post.acf);
 
   return (
-    <>
+    <> 
+
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>

@@ -27,6 +27,13 @@ const settings = {
           "api": "https://seatback-admin.webbuilder.in.ua/wp-json",
           "homepage": '/home',
           "postsPage": '/blog',
+          postTypes: [
+            {
+              type: "forms",
+              endpoint: "forms",
+              archive: "/forms"
+            }
+          ]
         }
       }
     },
