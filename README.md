@@ -49,7 +49,10 @@ npx frontity build
 ```bash 
 npx frontity serve
 ```
-
+Sometimes `serve` command returns error. If you get it, run 
+```bash 
+node index.js
+```
 
 ### Deployment strategy
 
@@ -68,6 +71,11 @@ To add the code to master:
 npx frontity build
 npx frontity serve
 ``` 
+Sometimes `serve` command returns error. If you get it, run 
+```bash 
+node index.js
+```
+
 Optional you can use PM2 for restarting application.
 
 

@@ -25,6 +25,9 @@ const StyledButton = styled.button`
   ${props => props.size === 'large' && css`
     font-size: 24px;
     line-height: 29px;
+    min-height: 75px;
+    border-radius: 38px;
+    padding: 0 63px;
   `}
 
   &:hover {

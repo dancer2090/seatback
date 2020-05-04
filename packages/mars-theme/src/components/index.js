@@ -78,4 +78,5 @@ const globalStyles = css`
 const SiteContainer = styled.div`
   width: 100%;
   min-width: 1920px;
+  overflow-x: hidden;
 `;

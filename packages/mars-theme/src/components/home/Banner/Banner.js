@@ -94,10 +94,7 @@ const Banner = () => {
   < VideoText >
   Though our Seatback device and integration with smart watches, we encourage teams to boost their personalized physical activity levels
   </VideoText>
-
-
     </GlobalContainer>
   );
 }
-
 export default Banner;
