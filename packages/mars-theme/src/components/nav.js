@@ -1,7 +1,16 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-
+import Button from "./Button";
+import  {
+  SIZE_DESCTOP_MEDIUM_2,
+  SIZE_DESCTOP_MEDIUM_1,
+  SIZE_DESCTOP_SMALL,
+  HEADER_HEIGHT,
+  HEADER_HEIGHT_RESPONSIVE,
+  getPxSize,
+  SIZE_MOBILE,
+} from '../const/responsive';
 /**
  * Navigation Component
  * 
@@ -28,10 +37,27 @@ const Nav = ({ state }) => (
         </NavItem>
       );
     })}
+    <MobileButton>
+      <Link link="/">
+        <Button>
+          Get a Demo
+        </Button>
+      </Link>
+    </MobileButton>
   </NavContainer>
 );
 
 export default connect(Nav);
+
+const MobileButton = styled.li`
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 30px;
+
+  @media (min-width: ${SIZE_MOBILE+1}px) {
+    display: none;
+  }
+`;
 
 const NavContainer = styled.ul`
   height: 100%;
@@ -39,13 +65,20 @@ const NavContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 848px;
+  width: auto;
   max-width: 100%;
   box-sizing: border-box;
   padding: 0 24px;
   margin: 0;
-  @media screen and (max-width: 560px) {
-    display: none;
+
+  @media screen and (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    flex-wrap: wrap;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 2px 2px 8px #0000000D;
+    opacity: 1;
+    padding: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 `;
 
@@ -57,8 +90,12 @@ const NavItem = styled.li`
   align-items: center;
   justify-content: center;
   text-align: center;
-  
 
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    width: 100%;
+    padding: 0;
+  }
+  
   & > a {
     padding: 10px 0; 
     position: relative;
@@ -72,6 +109,22 @@ const NavItem = styled.li`
     justify-content: center;
     height: 100%;
     transition: all 0.3s ease-in-out;
+
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+      flex-wrap: wrap;
+      width: 100%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
 
     &:hover {
       color: #52DE97;
@@ -87,7 +140,7 @@ const NavItem = styled.li`
       min-width: 200px;
       margin: 0;
       padding: 10px 25px;
-      top: 100px;
+      top: ${HEADER_HEIGHT}px;
       left: 0;
       background-color: white;
       box-shadow: 4px 4px 8px #00000014;
@@ -98,6 +151,14 @@ const NavItem = styled.li`
       & > li {
         list-style: none;
         border-bottom: 1px solid #00000014;
+        @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+          border: none;
+          &:last-child {
+            > a {
+              padding-bottom: 0;
+            }
+          }
+        }
         & > a {
           padding: 10px 0;
           display: block;
@@ -107,8 +168,24 @@ const NavItem = styled.li`
           &:hover {
             color: #52DE97;
           }
+          @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+            font-size: 16px;
+            line-height: 20px;
+          }
         }
       }
+
+      @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+        padding-top: 15px;
+        padding-bottom: 0;
+        width: 100%;
+        display: block;
+        position: static;
+        border: none;
+        box-shadow: none;
+      }
+
+      
 
     }
   }

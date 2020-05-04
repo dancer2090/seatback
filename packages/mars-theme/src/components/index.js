@@ -1,7 +1,7 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
-import Header from "./header";
+import Header from "./Header";
 import List from "./list";
 import Home from "./home";
 import Post from "./post";
@@ -77,6 +77,5 @@ const globalStyles = css`
 
 const SiteContainer = styled.div`
   width: 100%;
-  min-width: 1920px;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 `;
