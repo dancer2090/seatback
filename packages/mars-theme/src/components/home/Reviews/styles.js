@@ -87,6 +87,8 @@ export const Comment = styled.div`
   letter-spacing: 0px;
   color: #2E293C;
   opacity: 1;
+  position: relative;
+  z-index: 2;
 
   @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -106,6 +108,16 @@ export const Status = styled.div`
   letter-spacing: 0px;
   color: #A09D9D;
   opacity: 1;
+  position: relative;
+  z-index: 2;
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+  }
+  @media(max-width: ${SIZE_MOBILE}px) {
+    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+  }
 `;
 
 export const Item = styled.div`
