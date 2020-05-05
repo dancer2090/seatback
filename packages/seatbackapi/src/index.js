@@ -15,14 +15,24 @@ export default {
     seatbackapi: Root
   },
   state: {
-    seatbackapi: {}
+    seatbackapi: {
+      isFormSend: false,
+    }
   },
   actions: {
     seatbackapi: {
+      sendForm: ({ state }) => async data => {
+        console.log('action send here');
+        state.seatbackapi.isFormSend = true;
+        const res = await axios.get('https://seatback-admin.webbuilder.in.ua/wp-json/menus/v1/menus/top_menu');
+        if (res) {
+          state.seatbackapi.isFormSend = false;
+        }
+      },
       beforeSSR: async ({ state, actions, libraries }) => {
         const res = await axios.get('https://seatback-admin.webbuilder.in.ua/wp-json/menus/v1/menus/top_menu');
         state.seatbackapi.data = res.data;
-      }
+      },
     }
   }
 };

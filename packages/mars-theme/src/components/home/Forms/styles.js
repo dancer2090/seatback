@@ -1,9 +1,86 @@
-import {styled} from 'frontity';
+import { styled, css } from 'frontity';
 
 export const Main = styled.div `
   margin-top:341px;
   margin-bottom:123px;
 `;
+
+export const CustomSelectlStyles = {
+
+  container: (provided) => ({
+    ...provided,
+    outline: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    height: '88px',
+    borderRadius: '10px',
+    opacity: 1,
+    fontSize: '20px',
+    lineHeight: '24px',
+    letterSpacing: 0,
+    color: '#A09D9D',
+    opacity: 1,
+    outline: 'none',
+    backgroundColor: 'white',
+    border: 'none',
+    borderColor: '52DE97',
+    transition: 'all 0.3s ease-in-out',
+  }),
+  control: (propvided) => ({
+    ...propvided,
+    border: '1px solid #52DE97',
+  }),
+  valueContainer: (provided) => ({
+    ...provided,
+    // position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    height: '88px',
+    width: '954px',
+    borderRadius: '10px',
+    opacity: 1,
+    fontSize: '20px',
+    lineHeight: '24px',
+    letterSpacing: 0,
+    color: '#A09D9D',
+    opacity: 1,
+    paddingLeft: '32px',
+    outline: 'none',
+    backgroundColor: 'white',
+    transition: 'all 0.3s ease-in-out',
+  }),
+  placeholder: (provided, state) => ({
+    ...provided,
+    height: '100%',
+    top: 0,
+    transform: 'none',
+    display: 'flex',
+    alignItems: 'center',
+  }),
+  indicatorSeparator: () => ({
+    display: 'none',
+  }),
+  indicatorsContainer: () => ({
+    paddingRight: '40px',
+    transform: 'scale(1.5)',
+  }),
+  // option: (provided, state) => ({
+  //   ...provided,
+  //   borderBottom: '1px dotted pink',
+  //   color: state.isSelected ? 'red' : 'blue',
+  //   padding: 20,
+  // }),
+  // control: () => ({
+  //   // none of react-select's styles are passed to <Control />
+  //   width: 200,
+  // }),
+  // singleValue: (provided, state) => {
+  //   const opacity = state.isDisabled ? 0.5 : 1;
+  //   const transition = 'opacity 300ms';
+
+  //   return { ...provided, opacity, transition };
+  // }
+}
 
 export const Title = styled.h2 `
   text-align: center;
@@ -18,8 +95,8 @@ export const Title = styled.h2 `
     color: #52DE97;
   }
 `;
-export const FormContainer = styled.div `
-  width:50%;
+export const FormContainer = styled.form `
+  max-width: 954px;
   margin:0 auto;
 `;
 export const AllForms = styled.div `
@@ -28,12 +105,21 @@ export const AllForms = styled.div `
   width:954px;
 `;
 
-export const Form = styled.div `
+export const FormControl = styled.div `
   margin-top:60px;
   align-items: center;
+
+  ${props => props.error && css `
+    label {
+      color: red;
+    }
+    input {
+      background-color: #ffebeb;
+    }
+  `}
 `;
 
-export const FormLabel = styled.div `
+export const FormLabel = styled.label `
   text-align: left;
   font-weight: 500;
   font-size: 20px;
@@ -41,15 +127,13 @@ export const FormLabel = styled.div `
   letter-spacing: 0 px;
   color:#2E293C;
   opacity: 1;
-  span{
-      color: #A09D9D;
-  }
-  margin-bottom:15px;
+  padding-bottom: 15px;
+  display: block;
 `;
 
-export const FormInput = styled.div `
+export const FormInput = styled.input `
   height: 88px;
-  width: 954px;
+  width: 100%;
   border: 1px solid #52DE97;
   border-radius: 10px;
   opacity: 1;
@@ -58,13 +142,25 @@ export const FormInput = styled.div `
   letter-spacing: 0 px;
   color: #A09D9D;
   opacity: 1;
-  padding-top:32px;
   padding-left:32px;
+  outline: none;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    background-color: #fffce3;
+  }
+
+  &::placeholder {
+    color: #A09D9D;
+    font-size: 20px;
+    line-height: 24px;
+  }
 `;
 
 export const InputSymbol = styled.div `
   height: 88px;
-  width: 954px;
+  width: 100%;
   border: 1px solid #52DE97;
   border-radius: 10px;
   opacity: 1;
@@ -73,8 +169,8 @@ export const InputSymbol = styled.div `
   letter-spacing: 0 px;
   color: #A09D9D;
   opacity: 1;
-  padding-top:32px;
   padding-left:32px;
+  padding-right:32px;
 `;
 
 
