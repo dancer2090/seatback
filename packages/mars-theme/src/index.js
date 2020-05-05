@@ -41,6 +41,12 @@ const marsTheme = {
       },
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
+      },
+      beforeSSR: async ({ state, actions }) => {
+        // We fetch the initial link.
+        await actions.source.fetch('/forms/get-a-demo');
+        state.frontity.test = 'hi';
+        // NOTE: This is not needed if autoFetch is activated in your router.
       }
     }
   },

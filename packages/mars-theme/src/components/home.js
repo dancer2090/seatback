@@ -6,17 +6,32 @@ import Help from './home/Help';
 import Partners from './home/Partners';
 import Reviews from './home/Reviews';
 
-const Home = () => {
+const Home = ({ state, actions, libraries }) => {
+
+  // const { api } = libraries.source;
+  // const response = libraries.source.api.get({ endpoint: "/forms/get-a-demo" });
+  // console.log(response);
+  // libraries.source.populate({ response, state });
+
+  if(state.frontity.rendering === 'csr') {
+    console.log(state)
+  }
+
+  //get-a-demo
+  // const data = state.source.get("");
+  
+  // console.log(data);
+
 
   return (
     <>
       <Banner />
       <Description />
-      {/*<Help />
+      <Help />
       <Partners />
-      <Reviews /> */}
+      <Reviews />
     </>
   );
 };
 
-export default Home;
+export default connect(Home);
