@@ -8,88 +8,15 @@ import ImageSeatbackWatch from '../../../img/seat-element-watch.png';
 import Button from '../../Button';
 import Link from "../../link";
 
-const Container = styled.div`
-  background: #F5F6FA 0% 0% no-repeat padding-box;
-  padding-top: 205px;
-  padding-bottom: 205px;
-  padding-right: 150px;
-  padding-left: ${props => props.alignImage === 'left' ? '50%' : '150px'};
-  position: relative;
-  width: 100%;
+import { 
+  Container,
+  Title,
+  SubTitle,
+  DescriptionParagraph,
+  Action,
+  Image,
 
-`;
-
-const Title = styled.h2`
-  margin: 0;
-  padding-bottom: 15px;
-  text-align: left;
-  font-size: 50px;
-  line-height: 70px;
-  font-weight: 500;
-  letter-spacing: 0px;
-  color: #2E293C;
-  opacity: 1;
-  position: relative;
-  z-index: 2;
-`;
-
-const SubTitle = styled.h2`
-  margin: 0;
-  padding-top: 15px;
-  text-align: left;
-  font-size: 24px;
-  line-height: 40px;
-  font-weight: 600;
-  letter-spacing: 0px;
-  color: #2E293C;
-  opacity: 1;
-  position: relative;
-  z-index: 2;
-`;
-
-const DescriptionParagraph = styled.p`
-  font-size: 24px;
-  line-height: 40px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  color: #A09D9D;
-  max-width: 817px;
-  margin: 0;
-  position: relative;
-  z-index: 2;
-`;
-
-
-const Action = styled.div`
-  margin-top: 45px;
-  position: relative;
-  z-index: 2;
-`;
-
-
-const Image = styled.div`
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  right: ${props => props.alignImage === 'left' ? 'auto' : '150px'};
-  top: 0;
-  left: ${props => props.alignImage === 'left' ? '150px' : 'auto'};
-  display: flex;
-  align-items: center;
-  justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
-`;
-
-
-const getFromSomeAPI = async () => {
-  const response = fetch("https://seatback-admin.webbuilder.in.ua/wp-json/wp/v2/forms/114").then( res => res.json() ).then(
-      (result) => {
-       console.log(result); 
-      }
-    );
-  //console.log(Promise.resolve(response));
-  const body = response.json();
-  return body;
-};
+} from './styles';
 
 
 
@@ -100,26 +27,6 @@ const Description = ({state, actions}) => {
 
   const acf_blocks = post.acf.blocks;
 
-  const form2 = getFromSomeAPI();
-
-
-  useEffect(() => {
-    //actions.source.fetch('/forms/get-a-demo');
-  }, []);
-
-  //actions.source.fetch('/forms/get-a-demo');
-  //const data1 = state.source.get('/forms/get-a-demo');
-  //const form = state.source[data1.type];
-
-
-  //+post.acf.gd_form.post_name);
-  
-  console.log(data_p.type);
-
-
-  console.log(form2.resolve);
-
-  //console.log(form);
   console.log("post acf: ");
   console.log(post.acf);
 

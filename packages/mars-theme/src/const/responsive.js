@@ -5,7 +5,7 @@ export const SIZE_DESCTOP_SMALL = 1200;
 export const SIZE_LAPTOP = 992;
 export const SIZE_LAPTOP_SMALL = 768;
 export const SIZE_MOBILE = 600;
-
+ 
 
 export const PADDING_DESCTOP_LARGE = 150;
 export const PADDING_DESCTOP_MEDIUM_2 = 150;
@@ -17,5 +17,26 @@ export const PADDING_MOBILE = 15;
 
 export const HEADER_HEIGHT = 100;
 export const HEADER_HEIGHT_RESPONSIVE = 70;
+
+
+export const HEADER_FONT_SIZE_DESCTOP_LARGE = 50;
+export const HEADER_LINE_HEIGHT_DESCTOP_LARGE = 70;
+
+export const HEADER_FONT_SIZE_DESCTOP_MEDIUM_1 = 37;
+export const HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1 = 52;
+
+export const HEADER_FONT_SIZE_MOBILE = 24;
+export const HEADER_LINE_HEIGHT_MOBILE = 34;
+
+
+export const TEXT_FONT_SIZE_DESCTOP_LARGE = 24;
+export const TEXT_LINE_HEIGHT_DESCTOP_LARGE = 40;
+
+export const TEXT_FONT_SIZE_DESCTOP_MEDIUM_1 = 18;
+export const TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1 = 36;
+
+export const TEXT_FONT_SIZE_MOBILE = 12;
+export const TEXT_LINE_HEIGHT_MOBILE = 24;
+
 
 export const getPxSize = (size) => `${size}px`;
