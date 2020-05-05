@@ -17,6 +17,7 @@ import {
 
 const Header = ({ state }) => {
 
+  console.log(state);
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   return (

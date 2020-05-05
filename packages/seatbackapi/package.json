@@ -1,0 +1,14 @@
+{
+  "name": "seatbackapi",
+  "version": "1.0.0",
+  "description": "Frontity package created using the Frontity CLI.",
+  "keywords": [
+    "frontity",
+    "frontity-seatbackapi"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "frontity": "^1.5.3"
+  }
+}
