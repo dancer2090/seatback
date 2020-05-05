@@ -9,6 +9,7 @@ import {
     Form,
     FormLabel,
     FormInput,
+    InputSymbol,
     FormShare,
     BBlock,
 } from './styles';
@@ -59,6 +60,14 @@ const Forms = () => {
             Example inc.
             </FormInput>
         </Form>
+        <Form>
+            <FormLabel>
+            Company size
+            </FormLabel>
+            <FormInput>
+            Please select
+            </FormInput>
+            </Form>
         <Form>
             <FormLabel>
             Country

@@ -24,7 +24,8 @@ export const FormContainer = styled.div `
 `;
 export const AllForms = styled.div `
   margin-top:100px;
-  margin-bottom:60px; 
+  margin-bottom:60px;
+  width:954px;
 `;
 
 export const Form = styled.div `
@@ -34,7 +35,7 @@ export const Form = styled.div `
 
 export const FormLabel = styled.div `
   text-align: left;
-  font-weight: Medium;
+  font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0 px;
@@ -60,6 +61,23 @@ export const FormInput = styled.div `
   padding-top:32px;
   padding-left:32px;
 `;
+
+export const InputSymbol = styled.div `
+  height: 88px;
+  width: 954px;
+  border: 1px solid #52DE97;
+  border-radius: 10px;
+  opacity: 1;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0 px;
+  color: #A09D9D;
+  opacity: 1;
+  padding-top:32px;
+  padding-left:32px;
+`;
+
+
 
 export const FormShare = styled.div `
   height: 176px;
