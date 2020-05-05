@@ -49,9 +49,6 @@ export const Container = styled.div `
   padding-right: 150px;
   padding-left:${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_LARGE + 'px'};
   opacity:1;
-  .main-block{
-    height:500px;
-  }
   margin-bottom:225px;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
@@ -62,9 +59,6 @@ export const Container = styled.div `
     padding-left: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
     margin-bottom: 169px;
-    .main-block{
-      height:375px;
-    }
   }
   
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
@@ -83,9 +77,6 @@ export const Container = styled.div `
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
     margin-bottom: 50px;
-    .main-block{
-      height:250px;
-    }
   }
 `;
 
