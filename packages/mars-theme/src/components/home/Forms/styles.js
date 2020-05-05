@@ -2,6 +2,7 @@ import {styled} from 'frontity';
 
 export const Main = styled.div `
   margin-top:341px;
+  margin-bottom:123px;
 `;
 
 export const Title = styled.h2 `
@@ -19,12 +20,11 @@ export const Title = styled.h2 `
 `;
 export const FormContainer = styled.div `
   width:50%;
-  margin:0;
+  margin:0 auto;
 `;
 export const AllForms = styled.div `
   margin-top:100px;
-  margin-bottom:60px;
-  justify-content: space-between;
+  margin-bottom:60px; 
 `;
 
 export const Form = styled.div `
@@ -52,5 +52,30 @@ export const FormInput = styled.div `
   border: 1px solid #52DE97;
   border-radius: 10px;
   opacity: 1;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0 px;
   color: #A09D9D;
+  opacity: 1;
+  padding-top:32px;
+  padding-left:32px;
+`;
+
+export const FormShare = styled.div `
+  height: 176px;
+  width: 954px;
+  border: 1px solid #52DE97;
+  border-radius: 10px;
+  opacity: 1;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0 px;
+  color: #A09D9D;
+  opacity: 1;
+  padding-top:32px;
+  padding-left:32px;
+`;
+export const BBlock = styled.div `
+  margin:0 auto;
+  width:219px;
 `;

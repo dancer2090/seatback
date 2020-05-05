@@ -9,7 +9,8 @@ import {
     Form,
     FormLabel,
     FormInput,
-
+    FormShare,
+    BBlock,
 } from './styles';
 
 
@@ -52,7 +53,7 @@ const Forms = () => {
         </Form>
         <Form>
             <FormLabel>
-            Conpany
+            Company
             </FormLabel>
             <FormInput>
             Example inc.
@@ -70,13 +71,15 @@ const Forms = () => {
             <FormLabel>
             Anything else? <span>(optional)</span>
             </FormLabel>
-            <FormInput>
+            <FormShare>
             Feel free to share with us
-            </FormInput>
+            </FormShare>
         </Form>
         </AllForms>
         </FormContainer>
+        <BBlock>
         <Button>Get a demo</Button>
+        </BBlock>
         </Main>
     );
 }
