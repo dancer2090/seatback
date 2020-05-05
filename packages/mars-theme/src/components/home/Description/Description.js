@@ -15,7 +15,7 @@ import {
   DescriptionParagraph,
   Action,
   Image,
-
+  GlobalContainer,
 } from './styles';
 
 
@@ -31,8 +31,7 @@ const Description = ({state, actions}) => {
   console.log(post.acf);
 
   return (
-    <> 
-
+    <GlobalContainer>
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
@@ -66,7 +65,7 @@ const Description = ({state, actions}) => {
           </Container>
         );
       })}
-    </>
+    </GlobalContainer>
   );
 }
 

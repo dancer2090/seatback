@@ -30,15 +30,42 @@ import  {
   WIDTH_DESCRIPTION_SIDE_MOBILE,
 } from '../../../const/responsive';
 
-
-export const Container = styled.div `
+export const GlobalContainer = styled.div `
   background: #F5F6FA 0% 0% no-repeat padding-box;
+  position: relative;
+  background-color: #F5F6FA;
+  overflow: hidden;
+  padding-bottom: 70px;
+  &:after{
+    content: ' ';
+    background-color: #F5F6FA;
+    width: 3006px;
+    height: 2450px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 1110px);
+    z-index: 1;
+  }
+  &:before{
+    content: ' ';
+    background: #FFFFFF;
+    width: 100%;
+    height: 1272px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 0;
+  }
+`;
+export const Container = styled.div `
   padding-top: 205px;
   padding-bottom: 205px;
   padding-right: 150px;
   padding-left: ${props => props.alignImage === 'left' ? '50%' : '150px'};
   position: relative;
   width: 100%;
+  z-index: 2;
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_MEDIUM_2+'px'};

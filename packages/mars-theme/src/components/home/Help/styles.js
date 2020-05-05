@@ -29,14 +29,14 @@ import  {
 
 
 export const Container = styled.div `
-  background: #FFFFFF;
-  padding-top: 207px;
+  padding-top: 250px;
   padding-bottom: 207px;
   padding-right: ${PADDING_DESCTOP_LARGE}px;
   padding-left: ${PADDING_DESCTOP_LARGE}px;
   position: relative;
   width: 100%;
-
+  oveflow: hidden;
+  background: #FFFFFF;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;

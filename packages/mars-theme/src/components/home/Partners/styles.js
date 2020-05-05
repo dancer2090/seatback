@@ -21,6 +21,33 @@ import  {
   HEADER_LINE_HEIGHT_MOBILE,
 } from '../../../const/responsive';
 
+export const Container = styled.div`
+  padding-top: 250px;
+  position: relative;
+  overflow: hidden;
+  &:after{
+    content: ' ';
+    background-color: #F5F6FA;
+    width: 3006px;
+    height: 2450px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 1500px);
+    z-index: -1;
+  }
+  &:before{
+    content: ' ';
+    background: #FFFFFF;
+    width: 100%;
+    height: 1272px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+  }
+`;
+
 export const Title = styled.h2`
   text-align: center;
   font-size: ${HEADER_FONT_SIZE_DESCTOP_LARGE}px;
@@ -55,9 +82,6 @@ export const Title = styled.h2`
   }
 `;
 
-export const Container = styled.div`
-  overflow-x: hidden;
-`;
 
 export const CarouselContainer = styled.div`
   margin-left: -95px;
