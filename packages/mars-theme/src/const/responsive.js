@@ -38,5 +38,9 @@ export const TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1 = 36;
 export const TEXT_FONT_SIZE_MOBILE = 12;
 export const TEXT_LINE_HEIGHT_MOBILE = 24;
 
+export const WIDTH_DESCRIPTION_SIDE_LARGE = 817;
+export const WIDTH_DESCRIPTION_SIDE_MEDIUM_1 = 50;
+export const WIDTH_DESCRIPTION_SIDE_MOBILE = 100;
+
 
 export const getPxSize = (size) => `${size}px`;
