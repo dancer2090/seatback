@@ -408,14 +408,14 @@ export const SlickContainer = styled.div`
       left: 25px;
     }
 }
-[dir='rtl'] .slick-prev
+/* [dir='rtl'] .slick-prev
 {
     right: -25px;
     left: auto;
     @media (max-width: ${SIZE_LAPTOP+100}px) {
       left: 25px;
     }
-}
+} */
 .slick-prev:before
 {
     content: '<';
@@ -432,14 +432,14 @@ export const SlickContainer = styled.div`
       right: 25px;
     }
 }
-[dir='rtl'] .slick-next
+/* [dir='rtl'] .slick-next
 {
     right: auto;
     left: -25px;
     @media (max-width: ${SIZE_LAPTOP}px) {
       right: 25px;
     }
-}
+} */
 .slick-next:before
 {
     content: '>';
