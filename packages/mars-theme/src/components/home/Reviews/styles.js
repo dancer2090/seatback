@@ -1,10 +1,60 @@
 
 import { styled } from 'frontity';
 
+import {
+  SIZE_DESCTOP_MEDIUM_2,
+  SIZE_DESCTOP_MEDIUM_1,
+  SIZE_DESCTOP_SMALL,
+  SIZE_LAPTOP,
+  SIZE_LAPTOP_SMALL,
+  SIZE_MOBILE,
+  TEXT_FONT_SIZE_MOBILE,
+  TEXT_LINE_HEIGHT_MOBILE,
+  TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
+  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1
+} from '../../../const/responsive';
+
+export const ArrowIcon = styled.div`
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #52DE97 0% 0% no-repeat padding-box;
+  opacity: 1;
+`;
+
+export const Container = styled.div`
+  background-color: #F5F6FA;
+  padding-top: 230px;
+  padding-bottom: 230px;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  overflow-x: hidden;
+
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    padding-top: 180px;
+    padding-bottom: 180px;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+`;
 
 export const Description = styled.div`
   width: 80%;
   padding-left: 50px;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    width: 70%;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 export const Picture = styled.div`
@@ -16,6 +66,18 @@ export const Picture = styled.div`
     border-radius: 50%;
     max-width: 100%;
   }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    width: 30%;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    padding-bottom: 25px;
+    img {
+      margin: 0 auto;
+    }
+  }
 `;
 export const Comment = styled.div`
   text-align: left;
@@ -25,6 +87,17 @@ export const Comment = styled.div`
   letter-spacing: 0px;
   color: #2E293C;
   opacity: 1;
+  position: relative;
+  z-index: 2;
+
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+  }
+  @media(max-width: ${SIZE_MOBILE}px) {
+    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+  }
   
 `;
 
@@ -35,13 +108,40 @@ export const Status = styled.div`
   letter-spacing: 0px;
   color: #A09D9D;
   opacity: 1;
+  position: relative;
+  z-index: 2;
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+  }
+  @media(max-width: ${SIZE_MOBILE}px) {
+    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+  }
 `;
 
 export const Item = styled.div`
   max-width: 941px;
   margin: 0 auto;
-  padding: 45px 50px;
-  background-color: white;  
+  background-color: white;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    max-width: 768px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    max-width: 600px;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    max-width: 400px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    max-width: 400px;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
 `;
 
 
@@ -49,11 +149,18 @@ export const ItemBox = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  background: #FFFFFF;
   box-shadow: 4px 4px 8px #00000014;
   border-radius: 10px;
   opacity: 1;
   padding: 50px 60px 30px 60px;
+
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding: 25px 30px 15px 30px;
+  }
+
   &:after {
     content: " ";
     position: absolute;
@@ -67,11 +174,29 @@ export const ItemBox = styled.div`
 `;
  
 export const SlickContainer = styled.div`
-/* Slider */
+  /* Slider */
+  position: relative;
+  max-width: 1620px;
+  margin: 0 auto;
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2+100}px) {
+    max-width: 1240px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    max-width: 1040px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    max-width: 900px;
+  }
+  
+
 .slick-slider
 {
     position: relative;
-
+    /* padding-left: 100px;
+    padding-right: 100px; */
     display: block;
     box-sizing: border-box;
 
@@ -153,6 +278,12 @@ export const SlickContainer = styled.div`
 
     height: 100%;
     min-height: 1px;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 }
 [dir='rtl'] .slick-slide
 {
@@ -186,6 +317,9 @@ export const SlickContainer = styled.div`
 
     border: 1px solid transparent;
 }
+.slick-arrow {
+  content: " > "
+}
 .slick-arrow.slick-hidden {
     display: none;
 }
@@ -215,14 +349,28 @@ export const SlickContainer = styled.div`
     color: transparent;
     border: none;
     outline: none;
-    background: transparent;
+    background-color: rgb(82, 222, 151, 0);
+    border: 1px solid #52DE97;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    transition: all 0.3 ease-in-out;
+    color: #2E293C !important;
+    z-index: 1;
+    &:hover, &:focus {
+      background-color: rgb(82, 222, 151, 1) !important;
+
+      &:before {
+        color: white;
+      }
+    }
 }
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus
 {
-    color: transparent;
+    /* color: transparent; */
     outline: none;
     background: transparent;
 }
@@ -247,7 +395,7 @@ export const SlickContainer = styled.div`
     line-height: 1;
 
     opacity: .75;
-    color: white;
+    /* color: white; */
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -256,37 +404,49 @@ export const SlickContainer = styled.div`
 .slick-prev
 {
     left: -25px;
+    @media (max-width: ${SIZE_LAPTOP+100}px) {
+      left: 25px;
+    }
 }
-[dir='rtl'] .slick-prev
+/* [dir='rtl'] .slick-prev
 {
     right: -25px;
     left: auto;
-}
+    @media (max-width: ${SIZE_LAPTOP+100}px) {
+      left: 25px;
+    }
+} */
 .slick-prev:before
 {
-    content: 'â†';
+    content: '<';
 }
 [dir='rtl'] .slick-prev:before
 {
-    content: 'â†’';
+    content: '<';
 }
 
 .slick-next
 {
     right: -25px;
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      right: 25px;
+    }
 }
-[dir='rtl'] .slick-next
+/* [dir='rtl'] .slick-next
 {
     right: auto;
     left: -25px;
-}
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      right: 25px;
+    }
+} */
 .slick-next:before
 {
-    content: 'â†’';
+    content: '>';
 }
 [dir='rtl'] .slick-next:before
 {
-    content: 'â†';
+    content: '>';
 }
 
 /* Dots */
