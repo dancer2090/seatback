@@ -12,45 +12,6 @@ import {
 } from './styles';
 
 
-
-
-const data = [
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-  {
-    image: GrammarlyImage,
-  },
-];
-
-
 const Parthers = ({state}) => {
 
   const data_p = state.source.get(state.router.link);
@@ -63,7 +24,39 @@ const Parthers = ({state}) => {
     infinite: true,
     speed: 500,
     slidesToShow: 10,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 8
+        }
+      },
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 7
+        }
+      },
+      {
+        breakpoint: 1050,
+        settings: {
+          slidesToShow: 6
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 3
+        }
+      }
+    ]
   };
 
   return (

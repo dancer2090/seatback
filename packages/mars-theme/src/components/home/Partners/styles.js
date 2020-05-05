@@ -1,10 +1,30 @@
 import { styled } from 'frontity';
-
+import  {
+  PADDING_DESCTOP_LARGE,
+  PADDING_DESCTOP_MEDIUM_2,
+  PADDING_DESCTOP_MEDIUM_1,
+  PADDING_DESCTOP_SMALL,
+  PADDING_MOBILE,
+  SIZE_DESCTOP_LARGE,
+  SIZE_DESCTOP_MEDIUM_2,
+  SIZE_DESCTOP_MEDIUM_1,
+  SIZE_DESCTOP_SMALL,
+  getPxSize,
+  SIZE_LAPTOP,
+  SIZE_LAPTOP_SMALL,
+  SIZE_MOBILE,
+  HEADER_FONT_SIZE_DESCTOP_LARGE,
+  HEADER_LINE_HEIGHT_DESCTOP_LARGE,
+  HEADER_FONT_SIZE_DESCTOP_MEDIUM_1,
+  HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
+  HEADER_FONT_SIZE_MOBILE,
+  HEADER_LINE_HEIGHT_MOBILE,
+} from '../../../const/responsive';
 
 export const Title = styled.h2`
   text-align: center;
-  font-size: 50px;
-  line-height: 70px;
+  font-size: ${HEADER_FONT_SIZE_DESCTOP_LARGE}px;
+  line-height: ${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
   font-weight: 500;
   letter-spacing: 0px;
   opacity: 1;
@@ -13,6 +33,25 @@ export const Title = styled.h2`
 
   span {
     color: #52DE97;
+  }
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+    font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+    padding-left: ${PADDING_DESCTOP_MEDIUM_1}px;
+    padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
+  }
+  @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
+    text-align: center;
+  }
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+    padding-left: ${PADDING_DESCTOP_SMALL}px;
+    padding-right: ${PADDING_DESCTOP_SMALL}px;
+  }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    padding-left: ${PADDING_MOBILE}px;
+    padding-right: ${PADDING_MOBILE}px;
+    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
+    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
   }
 `;
 
@@ -25,6 +64,10 @@ export const CarouselContainer = styled.div`
   margin-right: -95px;
   padding-top: 125px;
   padding-bottom: 125px;
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    margin-left: -150px;
+    margin-right: -150px;
+  }
 `;
 
 export const Item = styled.div`
