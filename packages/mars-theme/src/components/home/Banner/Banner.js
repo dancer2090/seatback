@@ -97,30 +97,6 @@ const Banner = () => {
 
   return (
     <GlobalContainer>
-<<<<<<< HEAD
-    <Container>
-    <div className='main-block'>
-      <Slogan>
-        Make work dynamic,<br />
-        take wellness to <br />
-        <span className='kw'>new heights.</span>
-      </Slogan>
-      <Discription>
-        Seatback is a holistic welness system that motivates your<br /> 
-        team to stay healthy by setting and achieving health<br /> 
-        goals and improving sitting quality
-      </Discription>
-        <Button> Get a demo </Button>
-    </div>
-    <VideoContainer>
-    <video autoPlay loop><source src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/sample.mp4?_=1"
-    type="video/mp4"/></video>
-    </VideoContainer>
-    </Container>
-  < VideoText >
-  Though our Seatback device and integration with smart watches, we encourage teams to boost their personalized physical activity levels
-  </VideoText>
-=======
       <Container>
       <div className='main-block'>
         <Slogan>
@@ -147,7 +123,6 @@ const Banner = () => {
       <YouTubeVideo>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/woRcZWk0hYc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </YouTubeVideo>
->>>>>>> 4c5ef63e0cb98745d8b256420f5d6486b6384790
     </GlobalContainer>
   );
 }

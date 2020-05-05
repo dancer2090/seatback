@@ -5,6 +5,7 @@ import Description from './home/Description';
 import Help from './home/Help';
 import Partners from './home/Partners';
 import Reviews from './home/Reviews';
+import Forms from './home/Forms';
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
       <Help />
       <Partners />
       <Reviews />
+      <Forms />
     </>
   );
 };
