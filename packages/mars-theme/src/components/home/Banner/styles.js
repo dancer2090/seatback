@@ -33,6 +33,29 @@ import  {
 
 export const GlobalContainer = styled.div `
   padding-top:185px;
+  overflow: hidden;
+  position: relative;
+  &:after{
+    content: ' ';
+    background-color: #FFFFFF;
+    width: 3006px;
+    height: 2472px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 1870px);
+    z-index: -1;
+  }
+  &:before{
+    content: ' ';
+    background: #F5F6FA;
+    width: 100%;
+    height: 2450px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
+  }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-top: 139px;
   }

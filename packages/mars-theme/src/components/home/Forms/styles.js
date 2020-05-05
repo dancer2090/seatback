@@ -1,8 +1,31 @@
 import { styled, css } from 'frontity';
 
 export const Main = styled.div `
-  margin-top:341px;
+  padding-top:123px;
   margin-bottom:123px;
+  position: relative;
+  overflow: hidden;
+  &:after{
+    content: ' ';
+    background: #FFFFFF;
+    width: 3006px;
+    height: 2450px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 1480px);
+    z-index: -1;
+  }
+  &:before{
+    content: ' ';
+    background-color: #F5F6FA;
+    width: 100%;
+    height: 1272px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+  }
 `;
 
 export const CustomSelectlStyles = {

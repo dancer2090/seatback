@@ -60,11 +60,10 @@ const Parthers = ({state}) => {
   };
 
   return (
-    <>
+    <Container>
       <Title>
         Customers and partners already use Seatback to <span>lead</span> more active lives.
       </Title>
-      <Container>
         <CarouselContainer>
           <SlickContainer>
             <Slider {...settings}>
@@ -113,8 +112,7 @@ const Parthers = ({state}) => {
             
           </ItemsCarousel> */}
         </CarouselContainer>
-      </Container>
-    </>
+    </Container>
   )
 }
 
