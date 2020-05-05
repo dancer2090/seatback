@@ -19,16 +19,14 @@ const Home = ({ state, actions, libraries }) => {
 
   //get-a-demo
   // const data = state.source.get("");
-  
   // console.log(data);
-
 
   return (
     <>
-      <Banner />
-      <Description />
-      <Help />
-      <Partners />
+      {/* <Banner /> */}
+      {/* <Description /> */}
+      {/* <Help /> */}
+      {/* <Partners /> */}
       <Reviews />
     </>
   );

@@ -2,6 +2,16 @@
 import { styled } from 'frontity';
 
 
+export const Container = styled.div`
+  background-color: #F5F6FA;
+  padding-top: 230px;
+  padding-bottom: 230px;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  overflow-x: hidden;
+`;
+
 export const Description = styled.div`
   width: 80%;
   padding-left: 50px;
@@ -40,7 +50,7 @@ export const Status = styled.div`
 export const Item = styled.div`
   max-width: 941px;
   margin: 0 auto;
-  padding: 45px 50px;
+  /* padding: 45px 50px; */
   background-color: white;  
 `;
 
@@ -49,7 +59,6 @@ export const ItemBox = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
-  background: #FFFFFF;
   box-shadow: 4px 4px 8px #00000014;
   border-radius: 10px;
   opacity: 1;
@@ -153,6 +162,12 @@ export const SlickContainer = styled.div`
 
     height: 100%;
     min-height: 1px;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 }
 [dir='rtl'] .slick-slide
 {
