@@ -1,96 +1,127 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../../Button';
-import {styled} from "frontity";
+import { styled, connect } from "frontity";
+import ReactSelect from 'react-select';
+import { COUNTRIES } from '../../../const/countries';
 import {
     Main,
     Title,
     FormContainer,
     AllForms,
-    Form,
+    FormControl,
     FormLabel,
     FormInput,
     InputSymbol,
     FormShare,
     BBlock,
+    CustomSelectlStyles,
 } from './styles';
 
 
-const Forms = () => {
+const Forms = ({ state, actions }) => {
+
+    const optionsCountry = COUNTRIES.map(c => {
+      return {
+        ...c,
+        value: c.code,
+        label: c.name,
+      }
+    })
+
+    const optionsSize = [
+      {
+        label: '2-10',
+        value: '2-10',
+      },
+      {
+        label: '10-20',
+        value: '10-20',
+      },
+      {
+        label: '20-30',
+        value: '20-30',
+      },
+    ];
+
+    // const updateFormValue = () => {
+    //   state.seatbackapi.sendForm('/form/send', '');
+    // }
+
+    const [formState, setFormState] = useState([]);
+    const [preload, setPreload] = useState([]);
+
+    if (state.seatbackapi.isFormSend) {
+
+    }
+
+    if(state.frontity.rendering === 'csr') {
+
+    }
+
+    const submitForm = (formData) => {
+      actions.seatbackapi.sendForm(formData);
+    }
 
     useEffect(() => {
 
     }, []);
 
     return (
-        <Main>
+      <Main>
         <Title>
-            <span>Get</span> a demo
+          <span>Get</span> a demo
         </Title>
         <FormContainer>
-        <AllForms>
-        <Form>
+          <FormControl error>
             <FormLabel>
                 First name
             </FormLabel>
-            <FormInput>
-            Your first name
-            </FormInput>
-        </Form>
-        <Form>
+            <FormInput placeholder="Your first name" />              
+          </FormControl>
+          <FormControl>
             <FormLabel>
-            Last name
+                Last name
             </FormLabel>
-            <FormInput>
-            Your last name
-            </FormInput>
-        </Form>
-        <Form>
+            <FormInput placeholder="Your last name" />              
+          </FormControl>
+          <FormControl>
             <FormLabel>
-            Email
+                Email
             </FormLabel>
-            <FormInput>
-            example@acme.com
-            </FormInput>
-        </Form>
-        <Form>
+            <FormInput placeholder="example@acme.com" />              
+          </FormControl>
+          <FormControl>
             <FormLabel>
-            Company
+                Company
             </FormLabel>
-            <FormInput>
-            Example inc.
-            </FormInput>
-        </Form>
-        <Form>
+            <FormInput placeholder="Example Inc." />              
+          </FormControl>         
+          <FormControl>
             <FormLabel>
-            Company size
+                Company Size
             </FormLabel>
-            <FormInput>
-            Please select
-            </FormInput>
-            </Form>
-        <Form>
+            <ReactSelect
+              styles={CustomSelectlStyles} 
+              placeholder="Please select"
+              options={optionsSize} 
+            />
+          </FormControl>
+          <FormControl>
             <FormLabel>
-            Country
+                Country
             </FormLabel>
-            <FormInput>
-            Please select
-            </FormInput>
-        </Form>
-        <Form>
-            <FormLabel>
-            Anything else? <span>(optional)</span>
-            </FormLabel>
-            <FormShare>
-            Feel free to share with us
-            </FormShare>
-        </Form>
-        </AllForms>
+            <ReactSelect
+              styles={CustomSelectlStyles} 
+              placeholder="Please select"
+              options={optionsCountry} 
+            />
+          </FormControl>         
         </FormContainer>
         <BBlock>
-        <Button>Get a demo</Button>
+          <Button disabled onClick={() => submitForm()}>Get a demo</Button>
         </BBlock>
-        </Main>
+      </Main>
     );
 }
 
-export default Forms;
+export default connect(Forms);

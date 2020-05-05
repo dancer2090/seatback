@@ -29,7 +29,7 @@ const Home = ({ state, actions, libraries }) => {
       <Help />
       <Partners />
       <Reviews />
-      {/* <Forms /> */}
+      <Forms />
     </>
   );
 };
