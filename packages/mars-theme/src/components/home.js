@@ -26,8 +26,8 @@ const Home = ({ state, actions, libraries }) => {
     <>
       <Banner />
       <Description />
-      {/* <Help /> */}
-      {/* <Partners /> */}
+      <Help />
+      <Partners />
       <Reviews />
       <Forms />
     </>

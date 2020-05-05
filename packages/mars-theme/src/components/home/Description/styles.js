@@ -93,11 +93,9 @@ export const Title = styled.h2`
     font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
     line-height: ${HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
   }
-  @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
-    text-align: center;
-  }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     max-width: 100%;
+    text-align: center;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${HEADER_FONT_SIZE_MOBILE}px;
@@ -155,6 +153,7 @@ export const DescriptionParagraph = styled.p`
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     max-width: 100%;
+    text-align: center;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
@@ -199,6 +198,9 @@ export const Image = styled.div`
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_DESCTOP_MEDIUM_1+'px'};
     left: ${props => props.alignImage === 'left' ? PADDING_DESCTOP_MEDIUM_1+'px' : 'auto'};
+    & img{
+      width: 500px;
+    }
   }
   
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
@@ -212,8 +214,8 @@ export const Image = styled.div`
     }
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_MOBILE+'px'};
-    left: ${props => props.alignImage === 'left' ? PADDING_MOBILE+'px' : 'auto'};
+    right: 0px;
+    left: 0px;
     & img{
       width: 100%;
     }

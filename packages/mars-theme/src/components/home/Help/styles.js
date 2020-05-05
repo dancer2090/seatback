@@ -13,6 +13,12 @@ import  {
   SIZE_LAPTOP,
   SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
+  HEADER_FONT_SIZE_DESCTOP_LARGE,
+  HEADER_LINE_HEIGHT_DESCTOP_LARGE,
+  HEADER_FONT_SIZE_DESCTOP_MEDIUM_1,
+  HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
+  HEADER_FONT_SIZE_MOBILE,
+  HEADER_LINE_HEIGHT_MOBILE,
   TEXT_FONT_SIZE_DESCTOP_LARGE,
   TEXT_LINE_HEIGHT_DESCTOP_LARGE,
   TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
@@ -23,23 +29,23 @@ import  {
 
 
 export const Container = styled.div `
-  background: #F5F6FA 0% 0% no-repeat padding-box;
-  padding-top: 205px;
-  padding-bottom: 205px;
-  padding-right: 150px;
-  padding-left: ${props => props.alignImage === 'left' ? '50%' : '150px'};
+  background: #FFFFFF;
+  padding-top: 207px;
+  padding-bottom: 207px;
+  padding-right: ${PADDING_DESCTOP_LARGE}px;
+  padding-left: ${PADDING_DESCTOP_LARGE}px;
   position: relative;
   width: 100%;
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    padding-left: ${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_MEDIUM_2+'px'};
+    padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-top: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-bottom: ${PADDING_DESCTOP_MEDIUM_2}px;
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    padding-left: ${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_MEDIUM_1+'px'};
+    padding-left: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-top: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-bottom: ${PADDING_DESCTOP_MEDIUM_1}px;
@@ -65,21 +71,17 @@ export const Container = styled.div `
 `;
 
 export const Title = styled.h2`
-  margin: 0;
-  padding-bottom: 15px;
-  text-align: left;
+  text-align: center;
   font-size: ${HEADER_FONT_SIZE_DESCTOP_LARGE}px;
-  line-height:${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
+  line-height: ${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
   font-weight: 500;
   letter-spacing: 0px;
   color: #2E293C;
-  opacity: 1;
-  position: relative;
-  z-index: 2;
-  max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
-  @media (max-width: 1800px) {
-    max-width: ${props => props.alignImage === 'left' ? '100%' : WIDTH_DESCRIPTION_SIDE_MEDIUM_1+'%'};
-  }
+  margin: 0;
+
+  span {
+    color: #52DE97;
+  } 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
     line-height: ${HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
@@ -96,22 +98,68 @@ export const Title = styled.h2`
   }
 `;
 
-export const SubTitle = styled.h2`
-  margin: 0;
-  padding-top: 15px;
-  text-align: left;
-  font-size: ${TEXT_FONT_SIZE_DESCTOP_LARGE}px;
-  line-height: ${TEXT_LINE_HEIGHT_DESCTOP_LARGE}px;
-  font-weight: 600;
-  letter-spacing: 0px;
-  color: #2E293C;
+export const Blocks = styled.div`
+  padding-top: 180px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+    flex-wrap: wrap;
+  }
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+     padding-top: 30px;
+  }
+`;
+
+export const Block = styled.div`
+  padding-left: 13px;
+  padding-right: 13px;
+  width: 25%;
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+    width: 50%;
+    margin-top: 100px;
+  }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    width: 100%;
+  }
+`;
+
+export const BlockContent = styled.div`
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 4px 4px 8px #00000014;
+  border-radius: 10px;
   opacity: 1;
   position: relative;
-  z-index: 2;
-  max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
-  @media (max-width: 1800px) {
-    max-width: ${props => props.alignImage === 'left' ? '100%' : WIDTH_DESCRIPTION_SIDE_MEDIUM_1+'%'};
-  }
+  width: 100%;
+  height: 100%;
+  margin: 0;
+`;
+
+export const Icon = styled.div`
+  width: 110px;
+  height: 110px;
+  background: #52DE97 0% 0% no-repeat padding-box;
+  opacity: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -55px;
+  left: calc(50% - 55px);
+`;
+
+export const Description = styled.div`
+  text-align: center;
+  font-size: ${TEXT_FONT_SIZE_DESCTOP_LARGE}px;
+  line-height: ${TEXT_LINE_HEIGHT_DESCTOP_LARGE}px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: #A09D9D;
+  opacity: 1;
+  padding: 95px 10px 45px 10px;
+  width: 100%;
+  height: 100%;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
     line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
@@ -124,89 +172,5 @@ export const SubTitle = styled.h2`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     margin-bottom: 35px;
-  }
-`;
-
-export const DescriptionParagraph = styled.p`
-  font-size: ${TEXT_FONT_SIZE_DESCTOP_LARGE}px;
-  line-height: ${TEXT_LINE_HEIGHT_DESCTOP_LARGE}px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  color: #A09D9D;
-  max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
-  margin: 0;
-  position: relative;
-  z-index: 2;
-  @media (max-width: 1800px) {
-    max-width: ${props => props.alignImage === 'left' ? '100%' : WIDTH_DESCRIPTION_SIDE_MEDIUM_1+'%'};
-  }
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
-    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
-  }
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    max-width: 100%;
-  }
-  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
-    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
-    margin-bottom: 35px;
-  }
-`;
-
-
-export const Action = styled.div`
-  margin-top: 45px;
-  position: relative;
-  z-index: 2;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    & button{
-      margin: 0 auto;
-    }
-  }
-`;
-
-
-export const Image = styled.div`
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  right: ${props => props.alignImage === 'left' ? 'auto' : '150px'};
-  top: 0;
-  left: ${props => props.alignImage === 'left' ? '150px' : 'auto'};
-  display: flex;
-  align-items: center;
-  justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
-  @media (max-width: 1800px) {
-    & img{
-      width: 550px;
-    }
-  }
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_DESCTOP_MEDIUM_2+'px'};
-    left: ${props => props.alignImage === 'left' ? PADDING_DESCTOP_MEDIUM_2+'px' : 'auto'};
-  }
-
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_DESCTOP_MEDIUM_1+'px'};
-    left: ${props => props.alignImage === 'left' ? PADDING_DESCTOP_MEDIUM_1+'px' : 'auto'};
-  }
-  
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    right: 0;
-    left: 0;
-    position: relative;
-    width: 100%;
-    & img{
-      width: 480px;
-      margin: 0 auto;
-    }
-  }
-  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_MOBILE+'px'};
-    left: ${props => props.alignImage === 'left' ? PADDING_MOBILE+'px' : 'auto'};
-    & img{
-      width: 100%;
-    }
   }
 `;
