@@ -23,8 +23,8 @@ const Home = ({ state, actions, libraries }) => {
 
   return (
     <>
-      {/* <Banner /> */}
-      {/* <Description /> */}
+      <Banner />
+      <Description />
       {/* <Help /> */}
       {/* <Partners /> */}
       <Reviews />
