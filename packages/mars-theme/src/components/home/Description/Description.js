@@ -37,7 +37,7 @@ const Description = ({state, actions}) => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
             {d.header.length>0 &&
-              <Title>
+              <Title alignImage={d.alignImage}>
                 {d.header}
               </Title>
             }
@@ -47,12 +47,12 @@ const Description = ({state, actions}) => {
               </Image>
             }
             {d.thumbnail.length>0 &&
-              <SubTitle>
+              <SubTitle alignImage={d.alignImage}>
                 {d.thumbnail}
               </SubTitle>
             }
             {d.text.length>0 &&
-              <DescriptionParagraph>
+              <DescriptionParagraph alignImage={d.alignImage}>
                 {d.text}
               </DescriptionParagraph>
             }
