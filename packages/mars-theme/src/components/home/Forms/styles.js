@@ -1,10 +1,30 @@
 import { styled, css } from 'frontity';
+import {
+  SIZE_DESCTOP_MEDIUM_2,
+  SIZE_DESCTOP_MEDIUM_1,
+  SIZE_DESCTOP_SMALL,
+  SIZE_LAPTOP,
+  SIZE_LAPTOP_SMALL,
+  SIZE_MOBILE,
+  TEXT_FONT_SIZE_MOBILE,
+  TEXT_LINE_HEIGHT_MOBILE,
+  TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
+  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
+  SIZE_DESCTOP_LARGE,
+  HEADER_FONT_SIZE_DESCTOP_MEDIUM_1,
+  HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
+  HEADER_FONT_SIZE_MOBILE,
+  HEADER_LINE_HEIGHT_MOBILE,
+  getPxSize,
+} from '../../../const/responsive';
 
 export const Main = styled.div `
   padding-top:123px;
   margin-bottom:123px;
   position: relative;
   overflow: hidden;
+  padding-left: 40px;
+  padding-right: 40px;
   &:after{
     content: ' ';
     background: #FFFFFF;
@@ -35,7 +55,6 @@ export const CustomSelectlStyles = {
     outline: 'none',
     display: 'flex',
     alignItems: 'center',
-    height: '88px',
     borderRadius: '10px',
     opacity: 1,
     fontSize: '20px',
@@ -52,13 +71,15 @@ export const CustomSelectlStyles = {
   control: (propvided) => ({
     ...propvided,
     border: '1px solid #52DE97',
+    borderRadius: '10px',
+    width: '100%',
   }),
   valueContainer: (provided) => ({
     ...provided,
     display: 'flex',
     alignItems: 'center',
     height: '88px',
-    width: '954px',
+    width: '100%',
     borderRadius: '10px',
     opacity: 1,
     fontSize: '20px',
@@ -70,6 +91,20 @@ export const CustomSelectlStyles = {
     outline: 'none',
     backgroundColor: 'white',
     transition: 'all 0.3s ease-in-out',
+    "@media only screen and (max-width: 1440px)": {
+      fontSize: `${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px`,
+      lineHeight: `${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px`,
+      height: '60px',
+      paddingLeft: '25px',
+      paddingRight: '25px',
+    },
+    "@media only screen and (max-width: 600px)": {
+      fontSize: `${TEXT_FONT_SIZE_MOBILE}px`,
+      lineHeight: `${TEXT_LINE_HEIGHT_MOBILE}px`,
+      height: '45px',
+      paddingLeft: '20px',
+      paddingRight: '20px',
+    },
   }),
   placeholder: (provided, state) => ({
     ...provided,
@@ -85,6 +120,14 @@ export const CustomSelectlStyles = {
   indicatorsContainer: () => ({
     paddingRight: '40px',
     transform: 'scale(1.5)',
+    "@media only screen and (max-width: 1440px)": {
+      paddingRight: '25px',
+      transform: 'scale(1.2)',
+    },
+    "@media only screen and (max-width: 600px)": {      
+      paddingRight: '10px',
+      transform: 'scale(1)',
+    },
   }),
 }
 
@@ -99,6 +142,18 @@ export const Title = styled.h2 `
   margin: 0 auto;
   span {
     color: #52DE97;
+  }
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+    font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+  }
+  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+    max-width: 100%;
+    text-align: center;
+  }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
+    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
   }
 `;
 export const FormContainer = styled.form `
@@ -118,11 +173,22 @@ export const FormControl = styled.div `
   ${props => props.error && css `
     label {
       color: red;
+      span {
+        color: red;
+      }
     }
     input {
       background-color: #ffebeb;
     }
   `}
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    margin-top: 40px;
+  }
+  
+  @media (max-width: ${SIZE_MOBILE}px) {
+    margin-top: 20px;
+  }
 `;
 
 export const FormLabel = styled.label `
@@ -135,6 +201,20 @@ export const FormLabel = styled.label `
   opacity: 1;
   padding-bottom: 15px;
   display: block;
+  transition: all 0.3s ease-in-out;
+  span {
+    color: #A09D9D;
+    font-weight: 400;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+  }
 `;
 
 export const FormInput = styled.input `
@@ -149,6 +229,7 @@ export const FormInput = styled.input `
   color: #A09D9D;
   opacity: 1;
   padding-left:32px;
+  padding-right:32px;
   outline: none;
   background-color: white;
   transition: all 0.3s ease-in-out;
@@ -161,6 +242,32 @@ export const FormInput = styled.input `
     color: #A09D9D;
     font-size: 20px;
     line-height: 24px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+    height: 60px;
+    padding-left:25px;
+    padding-right:25px;
+
+    &::placeholder {
+      font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+      line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+    }
+  }
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    height: 45px;
+    padding-left:20px;
+    padding-right:20px;
+
+    &::placeholder {
+      font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+      line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    }
   }
 `;
 
@@ -198,4 +305,59 @@ export const FormShare = styled.div `
 export const BBlock = styled.div `
   margin:0 auto;
   width:219px;
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const FormTextarea = styled.textarea`
+  width: 100%;
+  min-height: 176px; 
+  border: 1px solid #52DE97;
+  border-radius: 10px;
+  opacity: 1;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0 px;
+  color: #A09D9D;
+  opacity: 1;
+  padding-left:32px;
+  outline: none;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  padding: 32px;
+
+  &:focus {
+    background-color: #fffce3;
+  }
+
+  &::placeholder {
+    color: #A09D9D;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+    line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+    height: 60px;
+
+    &::placeholder {
+      font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
+      line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
+    }
+  }
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    height: 45px;
+
+    &::placeholder {
+      font-size: ${TEXT_FONT_SIZE_MOBILE}px;
+      line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    }
+  }
+
 `;

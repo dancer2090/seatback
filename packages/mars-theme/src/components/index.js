@@ -64,7 +64,7 @@ const globalStyles = css`
     font-weight: 400;
     font-family: Montserrat, sans-serif;
   }
-  button, input {
+  button, input, textarea {
     font-weight: 400;
     font-family: Montserrat, sans-serif;
   }

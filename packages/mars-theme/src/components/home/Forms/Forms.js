@@ -15,6 +15,7 @@ import {
     FormShare,
     BBlock,
     CustomSelectlStyles,
+    FormTextarea,
 } from './styles';
 
 
@@ -117,10 +118,18 @@ const Forms = ({ state, actions }) => {
               options={optionsCountry} 
             />
           </FormControl>         
+          <FormControl>
+            <FormLabel>
+              Anything else? <span>(optional)</span> 
+            </FormLabel>
+            <FormTextarea
+              placeholder="Please select"
+            />
+          </FormControl>         
+          <BBlock>
+            <Button type="submit">Get a demo</Button>
+          </BBlock>
         </FormContainer>
-        <BBlock>
-          <Button type="submit">Get a demo</Button>
-        </BBlock>
       </Main>
     );
 }

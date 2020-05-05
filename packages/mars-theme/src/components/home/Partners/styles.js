@@ -46,6 +46,10 @@ export const Container = styled.div`
     left: 0px;
     z-index: -1;
   }
+
+  @media(max-width: ${SIZE_MOBILE}px) {
+    padding-top: 130px;
+  }
 `;
 
 export const Title = styled.h2`
