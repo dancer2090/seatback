@@ -32,7 +32,6 @@ export const CustomSelectlStyles = {
   }),
   valueContainer: (provided) => ({
     ...provided,
-    // position: 'relative',
     display: 'flex',
     alignItems: 'center',
     height: '88px',
@@ -64,22 +63,6 @@ export const CustomSelectlStyles = {
     paddingRight: '40px',
     transform: 'scale(1.5)',
   }),
-  // option: (provided, state) => ({
-  //   ...provided,
-  //   borderBottom: '1px dotted pink',
-  //   color: state.isSelected ? 'red' : 'blue',
-  //   padding: 20,
-  // }),
-  // control: () => ({
-  //   // none of react-select's styles are passed to <Control />
-  //   width: 200,
-  // }),
-  // singleValue: (provided, state) => {
-  //   const opacity = state.isDisabled ? 0.5 : 1;
-  //   const transition = 'opacity 300ms';
-
-  //   return { ...provided, opacity, transition };
-  // }
 }
 
 export const Title = styled.h2 `

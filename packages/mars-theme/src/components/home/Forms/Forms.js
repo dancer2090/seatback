@@ -58,8 +58,9 @@ const Forms = ({ state, actions }) => {
 
     }
 
-    const submitForm = (formData) => {
-      actions.seatbackapi.sendForm(formData);
+    const submitForm = e => {
+      e.preventDefault();
+      actions.seatbackapi.sendForm(formState);
     }
 
     useEffect(() => {
@@ -71,7 +72,7 @@ const Forms = ({ state, actions }) => {
         <Title>
           <span>Get</span> a demo
         </Title>
-        <FormContainer>
+        <FormContainer onSubmit={submitForm}>
           <FormControl error>
             <FormLabel>
                 First name
@@ -118,7 +119,7 @@ const Forms = ({ state, actions }) => {
           </FormControl>         
         </FormContainer>
         <BBlock>
-          <Button disabled onClick={() => submitForm()}>Get a demo</Button>
+          <Button type="submit">Get a demo</Button>
         </BBlock>
       </Main>
     );
