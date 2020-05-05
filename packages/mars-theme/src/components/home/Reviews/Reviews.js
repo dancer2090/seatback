@@ -9,6 +9,8 @@ import {
   Item,
   ItemBox,
   Status,
+  Container,
+  ArrowIcon,
 } from './styles';
 
 const Reviews = () => {
@@ -18,44 +20,53 @@ const Reviews = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    arrows: true,
   };
 
   const data = [
     {
       image: 'https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png',
-      
+      comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+      status: 'Eric Bernstain | President of Asset Management',
     },
     {
       image: 'https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png',
+      comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+      status: 'Eric Bernstain | President of Asset Management',
     },
     {
       image: 'https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png',
+      comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
+      status: 'Eric Bernstain | President of Asset Management',
     },
   ];
 
   return (
-    <div>
+    <Container>
+
       <SlickContainer>
         <Slider {...settings}>
-          <Item>
-            <ItemBox>
-              <Picture>
-                <img alt="user name" src="https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png" />
-              </Picture>
-              <Description>
-                <Comment>
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-                </Comment>
-                <Status>
-                  Eric Bernstain | President of Asset Management
-                </Status>
-              </Description>
-            </ItemBox>
-          </Item>
+          {data.map(d => (
+            <Item>
+              <ItemBox>
+                <Picture>
+                  <img alt="user name" src={d.image} />
+                </Picture>
+                <Description>
+                  <Comment>
+                    {d.comment}
+                  </Comment>
+                  <Status>
+                    {d.status}
+                  </Status>
+                </Description>
+              </ItemBox>
+            </Item>
+          ))}
         </Slider>
       </SlickContainer>
-    </div>
+    </Container>
   );
 }
 

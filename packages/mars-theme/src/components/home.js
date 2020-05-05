@@ -5,6 +5,7 @@ import Description from './home/Description';
 import Help from './home/Help';
 import Partners from './home/Partners';
 import Reviews from './home/Reviews';
+import Forms from './home/Forms';
 
 const Home = ({ state, actions, libraries }) => {
 
@@ -19,9 +20,7 @@ const Home = ({ state, actions, libraries }) => {
 
   //get-a-demo
   // const data = state.source.get("");
-  
   // console.log(data);
-
 
   return (
     <>
@@ -29,7 +28,8 @@ const Home = ({ state, actions, libraries }) => {
       <Description />
       <Help />
       <Partners />
-      {/*<Reviews />*/}
+      <Reviews />
+      <Forms />
     </>
   );
 };

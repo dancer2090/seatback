@@ -4,8 +4,7 @@ import axios from 'axios';
 const Root = () => {
   return (
     <>
-      You can edit your package in:
-      <pre>packages/seatbackapi/src/index.js</pre>
+     
     </>
   );
 };
