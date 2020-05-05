@@ -2,9 +2,9 @@ const settings = {
   "name": "frontity-test",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.io",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "url": "https://seatback.webbuilder.in.ua",
+      "title": "Seatback",
+      "description": "Seatback website"
     }
   },
   "packages": [
@@ -29,16 +29,24 @@ const settings = {
           "postsPage": '/blog',
           postTypes: [
             {
-              type: "forms",
-              endpoint: "forms",
-              archive: "/forms"
+              type: "forms", // type slug
+              endpoint: "forms", // REST API endpoint
+              archive: "/forms" // link where this custom posts are listed
             }
-          ]
+          ],
         }
       }
     },
     "@frontity/tiny-router",
-    "@frontity/html2react"
+    "@frontity/html2react",
+    {
+      name: "seatbackapi",
+      state: {
+        seatbackapi: {
+          start: "yes",
+        }
+      }
+    }
   ]
 };
 
