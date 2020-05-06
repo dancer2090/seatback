@@ -159,6 +159,18 @@ export const Title = styled.h2 `
 export const FormContainer = styled.form `
   max-width: 954px;
   margin:0 auto;
+  position: relative;
+  ${props => props.preload && css `
+    &:after{
+      content: ' ';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      background: url(https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif) no-repeat 50% 50%, rgba(255, 255, 255, 0.4);
+    }
+  `}
 `;
 export const AllForms = styled.div `
   margin-top:100px;
