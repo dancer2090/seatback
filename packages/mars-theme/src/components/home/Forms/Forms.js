@@ -16,6 +16,7 @@ import {
     BBlock,
     CustomSelectlStyles,
     FormTextarea,
+    FText,
 } from './styles';
 
 
@@ -68,10 +69,6 @@ const Forms = ({ state, actions }) => {
     const [formState, setFormState] = useState(preForm);
     const [preload, setPreload] = useState(false);
 
-    if (state.seatbackapi.isFormSend) {
-      //setPreload(false);
-    }
-
     if(state.frontity.rendering === 'csr') {
 
     }
@@ -94,6 +91,9 @@ const Forms = ({ state, actions }) => {
       e.preventDefault();
       if(validForm()){
         actions.seatbackapi.sendForm(formState);
+        setFormErrorState(preErrors);
+        setFormState(preForm);
+        setPreload(true);
       }
     }
 
@@ -167,6 +167,7 @@ const Forms = ({ state, actions }) => {
         </Title>
         <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
+
               return (
                  <FormControl error={formError[d.label]}>
                    <FormLabel>
@@ -193,6 +194,7 @@ const Forms = ({ state, actions }) => {
                         options={optionsSize[key]}
                         onChange={e => handleChangeSelect(e,d.label)}
                         name={d.label}
+                        value={(formState[d.label].length>0) ? {label:formState[d.label],value:formState[d.label]} : null}
                       />
                    }
                    {d.acf_fc_layout=="country" &&
@@ -203,6 +205,7 @@ const Forms = ({ state, actions }) => {
                         options={optionsCountry}
                         onChange={e => handleChangeCountry(e,d.label)}
                         name={d.label}
+                        value={(formState[d.label].length>0) ? {label:formState[d.label],value:formState[d.label]} : null}
                       />
                    }
                    {d.acf_fc_layout=="textarea" &&
@@ -219,6 +222,9 @@ const Forms = ({ state, actions }) => {
           <BBlock>
             <Button type="submit">{form_acf.submit_text}</Button>
           </BBlock>
+          <FText afterload={(preload && !state.seatbackapi.isFormSend) ? true : false}>
+            Thanks you! Your email has been sent!
+          </FText>
         </FormContainer>
       </Main>
     );
