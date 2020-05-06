@@ -22,7 +22,6 @@ export default {
   actions: {
     seatbackapi: {
       sendForm: ({ state }) => async data => {
-        console.log('action send here');
         state.seatbackapi.isFormSend = true;
         const res = await axios.get('https://seatback-admin.webbuilder.in.ua/wp-json/menus/v1/menus/top_menu');
         if (res) {

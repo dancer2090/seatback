@@ -48,7 +48,9 @@ const Forms = ({ state, actions }) => {
     //   state.seatbackapi.sendForm('/form/send', '');
     // }
 
-    const [formState, setFormState] = useState([]);
+    const [formState, setFormState] = useState({
+      country: 'val'
+    });
     const [preload, setPreload] = useState([]);
 
     if (state.seatbackapi.isFormSend) {
