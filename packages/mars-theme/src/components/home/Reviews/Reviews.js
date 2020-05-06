@@ -1,4 +1,5 @@
 import React from 'react';
+import { styled, connect, fetch, URL } from "frontity";
 import HappyImage from '../../../img/emoji-happy.svg';
 import Slider from "react-slick";
 import { 
@@ -13,7 +14,12 @@ import {
   ArrowIcon,
 } from './styles';
 
-const Reviews = () => {
+const Reviews = ({state, actions}) => {
+
+  const data_p = state.source.get(state.router.link);
+  const post = state.source[data_p.type][data_p.id];
+
+  const acf_blocks = post.acf.feedbacks;
 
   const settings = {
     dots: false,
@@ -24,41 +30,23 @@ const Reviews = () => {
     arrows: true,
   };
 
-  const data = [
-    {
-      image: 'https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png',
-      comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-      status: 'Eric Bernstain | President of Asset Management',
-    },
-    {
-      image: 'https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png',
-      comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-      status: 'Eric Bernstain | President of Asset Management',
-    },
-    {
-      image: 'https://www.kindpng.com/picc/m/24-248729_stockvader-predicted-adig-user-profile-image-png-transparent.png',
-      comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.",
-      status: 'Eric Bernstain | President of Asset Management',
-    },
-  ];
-
   return (
     <Container>
 
       <SlickContainer>
         <Slider {...settings}>
-          {data.map(d => (
+          {acf_blocks.map(d => (
             <Item>
               <ItemBox>
                 <Picture>
-                  <img alt="user name" src={d.image} />
+                  <img alt={d.name} src={d.photo.url} />
                 </Picture>
                 <Description>
                   <Comment>
-                    {d.comment}
+                    {d.text}
                   </Comment>
                   <Status>
-                    {d.status}
+                    {d.name}
                   </Status>
                 </Description>
               </ItemBox>
@@ -70,4 +58,4 @@ const Reviews = () => {
   );
 }
 
-export default Reviews;
+export default connect(Reviews);

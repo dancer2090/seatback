@@ -27,8 +27,8 @@ const Forms = ({ state, actions }) => {
 
     const form = state.source['forms'][acf_form.ID];
     const form_acf = form.acf;
-    console.log('form_acf: ');
-    console.log(form_acf);
+    //console.log('form_acf: ');
+    //console.log(form_acf);
 
     const optionsCountry = COUNTRIES.map(c => {
       return {
@@ -54,47 +54,48 @@ const Forms = ({ state, actions }) => {
     })
 
     const preForm = {};
+    const preErrors = {};
     form_acf.inputs.map((d,key) => {
       preForm[d.label] = "";
+      if(!d.optional) preErrors[d.label] = false;
     })
 
     // const updateFormValue = () => {
     //   state.seatbackapi.sendForm('/form/send', '');
     // }
 
-    const [formError, setFormErrorState] = useState({});
+    const [formError, setFormErrorState] = useState(preErrors);
     const [formState, setFormState] = useState(preForm);
-    const [preload, setPreload] = useState([]);
+    const [preload, setPreload] = useState(false);
 
     if (state.seatbackapi.isFormSend) {
-
+      //setPreload(false);
     }
 
     if(state.frontity.rendering === 'csr') {
 
     }
 
-
-
     const validForm = () => {
         var error = true;
-        for (let key in formState){
-          const errorObj = {};
-          if(formState[key]==""){
+        const errorObj = {};
+        for (let key in formError){
+          if(formState[key]=="" || formError[key]){
             errorObj[key]=true;
             error = false;
           }
           else errorObj[key]=false;
-          setFormErrorState({...formError,...errorObj});
+          //console.log(key);
         }
+        setFormErrorState(errorObj);
         return error;
     }
 
     const submitForm = e => {
       e.preventDefault();
-      if(validForm()) actions.seatbackapi.sendForm(formState);
-      console.log(formState);
-      console.log(formError);
+      if(validForm()){
+        actions.seatbackapi.sendForm(formState);
+      }
     }
 
     function validateEmail(email) {
@@ -110,8 +111,12 @@ const Forms = ({ state, actions }) => {
 
       const errorObj = {};
       const type = e.target.attributes.getNamedItem('data-type').value;
+      var optional = false;
+      if(e.target.attributes.getNamedItem('data-optional').value == "true"){
+        optional = true;
+      }
       if(type=="email") {
-        if(!validateEmail(input_value)){
+        if(!validateEmail(input_value) && !optional){
           errorObj[key] = true;
         } else {
           errorObj[key] = false;
@@ -119,29 +124,37 @@ const Forms = ({ state, actions }) => {
         setFormErrorState({...formError,...errorObj});
       }
       else {
-        if(input_value.length < 4){
+        if((input_value.length < 4) && !optional){
           errorObj[key] = true;
         } else {
           errorObj[key] = false;
         }
         setFormErrorState({...formError,...errorObj});
       }
-      console.log(formState);
-      console.log(formError);
+      //console.log(formState);
+      //console.log(optional);
     }
 
     const handleChangeSelect = (e, key) => {
       const objJ = {};
       objJ[key] = e.value;
       setFormState({...formState,...objJ});
-      console.log(formState);
+
+      const errorObj = {};
+      errorObj[key] = false;
+      setFormErrorState({...formError,...errorObj});
+      //console.log(e.value);
     }
 
     const handleChangeCountry = (e, key) => {
       const objJ = {};
       objJ[key] = e.label;
       setFormState({...formState,...objJ});
-      console.log(formState);
+
+      const errorObj = {};
+      errorObj[key] = false;
+      setFormErrorState({...formError,...errorObj});
+      //console.log(formState);
     }
 
     useEffect(() => {
@@ -153,7 +166,7 @@ const Forms = ({ state, actions }) => {
         <Title>
           <span>Get</span> a demo
         </Title>
-        <FormContainer onSubmit={submitForm}>
+        <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
               return (
                  <FormControl error={formError[d.label]}>
@@ -181,17 +194,16 @@ const Forms = ({ state, actions }) => {
                         options={optionsSize[key]}
                         onChange={e => handleChangeSelect(e,d.label)}
                         name={d.label}
-                        value={formState[d.label]}
                       />
                    }
                    {d.acf_fc_layout=="country" &&
                       <ReactSelect
                         styles={CustomSelectlStyles} 
                         placeholder={d.placeholder}
+                        data-optional={d.optional}
                         options={optionsCountry}
                         onChange={e => handleChangeCountry(e,d.label)}
                         name={d.label}
-                        value={formState[d.label]}
                       />
                    }
                    {d.acf_fc_layout=="textarea" &&
