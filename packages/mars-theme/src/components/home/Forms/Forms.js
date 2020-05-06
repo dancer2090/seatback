@@ -85,7 +85,7 @@ const Forms = ({ state, actions }) => {
             error = false;
           }
           else errorObj[key]=false;
-          setFormErrorState({...formError,...errorObj});
+          setFormErrorState({...formError, ...errorObj});
         }
         return error;
     }

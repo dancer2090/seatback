@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "frontity";
 import Nav from "../nav";
+import Link from '../link';
 import Button from '../Button';
 import ImageLogo from '../../img/sb_logo.svg';
+import { SIZE_MOBILE } from '../../const/responsive';
 import { 
   Container,
   MenuBox,
@@ -17,18 +19,22 @@ import {
 
 const Header = ({ state }) => {
 
-  console.log(state);
   const [isMenuOpen, setMenuOpen] = useState(false)
+  function menuAction() {
+    setMenuOpen(!isMenuOpen);
+  }
 
   return (
     <>
       <Container isMenuOpen={isMenuOpen}>
         <MenuBox>
           <LogoSection>
-            <img src={ImageLogo} alt="seatback logo" />
+            <Link link="/">
+              <img src={ImageLogo} alt="seatback logo" />
+            </Link>
           </LogoSection>
           <NavSection>
-            <Nav />
+            <Nav setMenuOpen={setMenuOpen} />
           </NavSection>
           <ButtonSection>
             <Button block >
@@ -36,7 +42,7 @@ const Header = ({ state }) => {
             </Button>
           </ButtonSection>
           <NavIconSection>
-            <NavIcon isOpen={isMenuOpen} onClick={() => setMenuOpen(!isMenuOpen)}>
+            <NavIcon isOpen={isMenuOpen} onClick={() => menuAction()}>
               <span></span>
               <span></span>
               <span></span>
@@ -46,7 +52,7 @@ const Header = ({ state }) => {
         </MenuBox>
         {isMenuOpen && (
           <ResposnsiveMenu>
-            <Nav />
+            <Nav setMenuOpen={setMenuOpen} />
           </ResposnsiveMenu>
         )}
       </Container>

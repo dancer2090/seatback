@@ -16,36 +16,45 @@ import  {
  * 
  * It renders the navigation links
  */
-const Nav = ({ state }) => (
-  <NavContainer>
-    {state.theme.menu.map(([name, link, sub], key) => {
-      const isCurrentPage = state.router.link === link;
-      return (
-        <NavItem key={key}>
-          <Link link={link}>
-            {name} {sub && sub.length > 0 && ' › '}
-            {sub && sub.length > 0 && (
-              <ul>
-                {sub.map(([s_name, s_link], n) => (
-                  <li key={n}>
-                    <Link link={s_link}>{s_name}</Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </Link>
-        </NavItem>
-      );
-    })}
-    <MobileButton>
-      <Link link="/">
-        <Button>
-          Get a Demo
-        </Button>
-      </Link>
-    </MobileButton>
-  </NavContainer>
-);
+const Nav = ({
+   state, 
+   setMenuOpen  = () => {console.log('set action')},
+  }) => {
+
+  const { seatbackapi: { menu: { items = [] } } } = state;
+  return (
+    <NavContainer>
+      {items && items.length > 0 && (
+        <>
+          {items.map((i, key) => (
+            <NavItem key={key} onClick={() => setMenuOpen(false)}>
+              <Link link={`/${i.slug}`}>
+                {i.title} {i.child_items && i.child_items.length > 0 && ' › '}
+              </Link>
+              {i.child_items && i.child_items.length > 0 && (
+                <ul>
+                  {i.child_items.map((i_c, n) => (
+                    <li key={n}>
+                      <Link link={`/${i_c.slug}`}>{i_c.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </NavItem>
+          ))}
+        </>
+      )}
+      <MobileButton>
+        <Link link="/">
+          <Button>
+            Get a Demo
+          </Button>
+        </Link>
+      </MobileButton>
+    </NavContainer>
+  );
+
+};
 
 export default connect(Nav);
 
@@ -71,6 +80,7 @@ const NavContainer = styled.ul`
   padding: 0 24px;
   margin: 0;
 
+
   @media screen and (max-width: ${SIZE_DESCTOP_SMALL}px) {
     flex-wrap: wrap;
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -83,6 +93,7 @@ const NavContainer = styled.ul`
 `;
 
 const NavItem = styled.li`
+  position: relative;
   padding: 0 25px;
   margin: 0;
   height: 100%;
@@ -94,11 +105,11 @@ const NavItem = styled.li`
   @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
     width: 100%;
     padding: 0;
+    flex-wrap: wrap;
   }
   
   & > a {
     padding: 10px 0; 
-    position: relative;
     color: #2E293C;
     text-align: center;
     font-size: 20px;
@@ -126,68 +137,79 @@ const NavItem = styled.li`
       padding-bottom: 15px;
     }
 
-    &:hover {
+
+  }
+  &:hover {
+
+    & > a {
       color: #52DE97;
-      & > ul {
-        display: block;
-      }
     }
-
     & > ul {
-      display: none;
-      position: absolute;
-      width: 100%;
-      min-width: 200px;
-      margin: 0;
-      padding: 10px 25px;
-      top: ${HEADER_HEIGHT}px;
-      left: 0;
-      background-color: white;
-      box-shadow: 4px 4px 8px #00000014;
-      z-index: 20;
-      padding: 0;
-      border: 1px solid #00000014;
-
-      & > li {
-        list-style: none;
-        border-bottom: 1px solid #00000014;
-        @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
-          border: none;
-          &:last-child {
-            > a {
-              padding-bottom: 0;
-            }
-          }
-        }
-        & > a {
-          padding: 10px 0;
-          display: block;
-          font-size: 18px;
-          line-height: 22px;
-          color: #2E293C;
-          &:hover {
-            color: #52DE97;
-          }
-          @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
-            font-size: 16px;
-            line-height: 20px;
-          }
-        }
-      }
-
-      @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
-        padding-top: 15px;
-        padding-bottom: 0;
-        width: 100%;
-        display: block;
-        position: static;
-        border: none;
-        box-shadow: none;
-      }
-
-      
-
+      display: block;
     }
   }
 
+  & > ul {
+    display: none;
+    position: absolute;
+    width: 100%;
+    min-width: 200px;
+    margin: 0;
+    padding: 10px 25px;
+    top: ${HEADER_HEIGHT}px;
+    left: 0;
+    background-color: white;
+    box-shadow: 4px 4px 8px #00000014;
+    z-index: 20;
+    padding: 0;
+    border: 1px solid #00000014;
+
+    & > li {
+      list-style: none;
+      border-bottom: 1px solid #00000014;
+      @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+        border: none;
+      }
+      & > a {
+        padding: 10px 0;
+        display: block;
+        font-size: 18px;
+        line-height: 22px;
+        color: #2E293C;
+        &:hover {
+          color: #52DE97;
+        }
+
+        @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
+          font-size: 18px;
+          line-height: 22px;
+        }
+        @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+
+        @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+          flex-wrap: wrap;
+          width: 100%;
+          font-size: 16px;
+          line-height: 20px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+        }
+      }
+    }
+
+    @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+      padding-bottom: 0;
+      width: 100%;
+      display: block;
+      position: static;
+      border: none;
+      box-shadow: none;
+    }
+
+    
+
+  }
 `;

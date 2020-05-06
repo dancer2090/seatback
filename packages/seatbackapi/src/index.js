@@ -28,7 +28,7 @@ export default {
         const data_p = state.source.get(state.router.link);
         const page = state.source[data_p.type][data_p.id];
         const acf_form = page.acf.gd_form;
-        
+
         state.seatbackapi.isFormSend = true;
         console.log('111');
         const data_send = data;
@@ -41,8 +41,8 @@ export default {
         }
       },
       beforeSSR: async ({ state, actions, libraries }) => {
-        const res = await axios.get('https://seatback-admin.webbuilder.in.ua/wp-json/menus/v1/menus/top_menu');
-        state.seatbackapi.data = res.data;
+        const topMenu = await axios.get(`${state.source.api}/menus/v1/menus/top_menu`);
+        state.seatbackapi.menu = topMenu.data;
       },
     }
   }

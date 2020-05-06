@@ -39,12 +39,10 @@ export const ResposnsiveMenu = styled.div`
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     display: block;
     top: ${headerHeightResponsive}px;
-    right: -${PADDING_DESCTOP_SMALL}px;
     width: 300px;    
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     width: calc(100% + ${PADDING_MOBILE*2}px); 
-    right: -${PADDING_MOBILE}px;
   }
 `;
 
@@ -158,14 +156,16 @@ export const Container = styled.div`
   opacity: 1;
 
   ${props => props.isMenuOpen && css`
-  /* @media (max-width: ${SIZE_MOBILE}px) {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-  } */
+    @media (max-width: ${SIZE_MOBILE}px) {
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      
+    }
   `}
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {

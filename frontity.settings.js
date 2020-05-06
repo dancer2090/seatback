@@ -43,6 +43,7 @@ const settings = {
       name: "seatbackapi",
       state: {
         seatbackapi: {
+          menu: {},
           start: "yes",
         }
       }
