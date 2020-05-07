@@ -1,4 +1,7 @@
-
+import LeftArrow from '../../../img/left_arrow.svg';
+import LeftArrowGreen from '../../../img/left_arrow_green.svg';
+import RightArrow from '../../../img/right_arrow.svg';
+import RightArrowGreen from '../../../img/right_arrow_green.svg';
 import { styled } from 'frontity';
 
 import {
@@ -318,7 +321,9 @@ export const SlickContainer = styled.div`
     border: 1px solid transparent;
 }
 .slick-arrow {
-  content: " > "
+  &:before{
+    display:none;
+  }
 }
 .slick-arrow.slick-hidden {
     display: none;
@@ -403,7 +408,11 @@ export const SlickContainer = styled.div`
 
 .slick-prev
 {
+    background: url(${LeftArrow}) 50% 50% / 100% auto no-repeat;
     left: -25px;
+    &:hover{
+      background: url(${LeftArrowGreen}) 50% 50% / 100% auto no-repeat;
+    }
     @media (max-width: ${SIZE_LAPTOP+100}px) {
       left: 25px;
     }
@@ -427,7 +436,11 @@ export const SlickContainer = styled.div`
 
 .slick-next
 {
+    background: url(${RightArrow}) 50% 50% / 100% auto no-repeat;
     right: -25px;
+    &:hover{
+      background: url(${RightArrowGreen}) 50% 50% / 100% auto no-repeat;
+    }
     @media (max-width: ${SIZE_LAPTOP}px) {
       right: 25px;
     }
