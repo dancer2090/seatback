@@ -179,7 +179,21 @@ export const AllForms = styled.div `
   margin-bottom:60px;
   width:954px;
 `;
+export const FText = styled.div `
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  color: #A09D9D;
+  transition: 0.2s ease all;
+  font-size:0px;
+  opacity: 0;
 
+  ${props => props.afterload && css `
+    font-size: 16px;
+    opacity: 1;
+  `}
+`;
 export const FormControl = styled.div `
   margin-top:60px;
   align-items: center;
