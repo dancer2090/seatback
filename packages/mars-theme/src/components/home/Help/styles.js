@@ -78,6 +78,7 @@ export const Title = styled.h2`
   letter-spacing: 0px;
   color: #2E293C;
   margin: 0;
+  white-space: pre-wrap;
 
   span {
     color: #52DE97;

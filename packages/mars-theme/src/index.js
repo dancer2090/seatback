@@ -1,6 +1,7 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from '@frontity/html2react/processors/iframe';
+import title from './processors/title';
 
 const marsTheme = {
   name: "@frontity/mars-theme",
@@ -45,7 +46,6 @@ const marsTheme = {
       beforeSSR: async ({ state, actions }) => {
         // We fetch the initial link.
         await actions.source.fetch('/forms/get-a-demo');
-        state.frontity.test = 'hi';
         // NOTE: This is not needed if autoFetch is activated in your router.
       }
     }
@@ -56,7 +56,7 @@ const marsTheme = {
        * Add a processor to `html2react` so it processes the `<img>` tags
        * inside the content HTML. You can add your own processors too
        */
-      processors: [image, iframe]
+      processors: [image, iframe, title]
     }
   }
 };

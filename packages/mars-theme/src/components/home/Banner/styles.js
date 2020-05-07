@@ -110,7 +110,8 @@ export const Slogan = styled.h1 `
   font-size: ${HEADER_FONT_SIZE_DESCTOP_LARGE}px;
   font-weight:700;
   margin: 0;
-  .kw {color: #52DE97;
+  white-space: pre-wrap;
+  span {color: #52DE97;
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
@@ -210,9 +211,10 @@ export const YouTubeVideo = styled.div`
   margin: 0 auto;
   overflow:  hidden;
   iframe {
+    border: none;
     border-radius: 10px;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     padding-left: ${PADDING_DESCTOP_SMALL}px;
@@ -221,6 +223,6 @@ export const YouTubeVideo = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    height: 350px;
+    height: 350px !important;
   }
 `;

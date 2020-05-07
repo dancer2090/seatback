@@ -12,12 +12,16 @@ import {
 } from './styles';
 
 
-const Parthers = ({state}) => {
+const Parthers = ({state, libraries}) => {
+
+  const Html2React = libraries.html2react.Component;
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
 
   const data1 = post.acf.customers;
+  const title = post.acf.c_header;
+
 
   const settings = {
     dots: false,
@@ -59,10 +63,11 @@ const Parthers = ({state}) => {
     ]
   };
 
+
   return (
     <Container>
       <Title>
-        Customers and partners already use Seatback to <span>lead</span> more active lives.
+        <Html2React html={title} />
       </Title>
         <CarouselContainer>
           <SlickContainer>

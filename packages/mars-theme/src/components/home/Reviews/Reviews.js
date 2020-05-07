@@ -35,8 +35,8 @@ const Reviews = ({state, actions}) => {
 
       <SlickContainer>
         <Slider {...settings}>
-          {acf_blocks.map(d => (
-            <Item>
+          {acf_blocks.map((d, key) => (
+            <Item key={key}>
               <ItemBox>
                 <Picture>
                   <img alt={d.name} src={d.photo.url} />

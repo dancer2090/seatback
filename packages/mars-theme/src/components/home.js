@@ -15,7 +15,7 @@ const Home = ({ state, actions, libraries }) => {
   // libraries.source.populate({ response, state });
 
   if(state.frontity.rendering === 'csr') {
-    console.log(state)
+    // console.log(state)
   }
 
   //get-a-demo

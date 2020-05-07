@@ -19,11 +19,12 @@ import {
 } from './styles';
 
 
-const Forms = ({ state, actions }) => {
+const Forms = ({ state, actions, libraries }) => {
 
     const data_p = state.source.get(state.router.link);
     const page = state.source[data_p.type][data_p.id];
     const acf_form = page.acf.gd_form;
+    const title = page.acf.gd_header;
 
     const form = state.source['forms'][acf_form.ID];
     const form_acf = form.acf;
@@ -37,6 +38,8 @@ const Forms = ({ state, actions }) => {
         label: c.name,
       }
     })
+
+    const Html2React = libraries.html2react.Component;
 
     const optionsSize = [];
     form_acf.inputs.map((d,key) => {
@@ -66,7 +69,7 @@ const Forms = ({ state, actions }) => {
 
     const [formError, setFormErrorState] = useState(preErrors);
     const [formState, setFormState] = useState(preForm);
-    const [preload, setPreload] = useState(false);
+    // const [preload, setPreload] = useState(false);
 
     if (state.seatbackapi.isFormSend) {
       //setPreload(false);
@@ -163,12 +166,12 @@ const Forms = ({ state, actions }) => {
     return (
       <Main>
         <Title>
-          <span>Get</span> a demo
+          <Html2React html={title}/>
         </Title>
-        <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend}>
+        <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend || false}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
               return (
-                 <FormControl error={formError[d.label]}>
+                 <FormControl key={key} error={formError[d.label]}>
                    <FormLabel>
                      {d.label}
                      {d.optional &&

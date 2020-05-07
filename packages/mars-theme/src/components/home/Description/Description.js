@@ -27,8 +27,8 @@ const Description = ({state, actions}) => {
 
   const acf_blocks = post.acf.blocks;
 
-  console.log("post acf: ");
-  console.log(post.acf);
+  // console.log("post acf: ");
+  // console.log(post.acf);
 
   return (
     <GlobalContainer>

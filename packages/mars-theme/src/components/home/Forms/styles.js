@@ -140,6 +140,8 @@ export const Title = styled.h2 `
   opacity: 1;
   max-width: 970px;
   margin: 0 auto;
+  white-space: pre-wrap;
+
   span {
     color: #52DE97;
   }

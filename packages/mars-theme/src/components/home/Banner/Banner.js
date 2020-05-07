@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Button from '../../Button';
-import { styled } from "frontity";
+import Link from '../../link';
+import { styled, connect } from "frontity";
 
 import { 
   GlobalContainer,
@@ -14,7 +15,25 @@ import {
 } from './styles';
 
 
-const Banner = () => {
+const Banner = ({ state, actions, libraries }) => {
+
+  const data_p = state.source.get(state.router.link);
+  const post = state.source[data_p.type][data_p.id];
+
+  const { acf: {
+    main_header: mainHeader,
+    main_description: mainDescriotion,
+    video: youtubeVideo,
+    video_description: youtubeVideoDescription,
+    main_button: {
+      title: mainButtonTitle,
+      url: mainButtonUrl,
+    },
+  } } = post;
+  
+
+  const Html2React = libraries.html2react.Component;
+
   
   useEffect(() => {
     
@@ -25,16 +44,14 @@ const Banner = () => {
       <Container>
       <div className='main-block'>
         <Slogan>
-          Make work dynamic,<br />
-          take wellness to <br />
-          <span className='kw'>new heights.</span>
+          <Html2React html={mainHeader} />
         </Slogan>
         <Discription>
-          Seatback is a holistic welness system that motivates your<br /> 
-          team to stay healthy by setting and achieving health<br /> 
-          goals and improving sitting quality
+          {mainDescriotion}
         </Discription>
-        <Button size="large"> Get a demo </Button>
+        <Link link={mainButtonUrl}>
+          <Button size="large">{mainButtonTitle}</Button>
+        </Link>
       </div>
       <VideoContainer>
         <video autoPlay muted loop >
@@ -43,12 +60,12 @@ const Banner = () => {
       </VideoContainer>
       </Container>
       <VideoText >
-        Through our Seatback device and integration with smart watches, we encourage teams to boost their personalized physical activity levels
+        {youtubeVideoDescription}
       </VideoText>
       <YouTubeVideo>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/woRcZWk0hYc" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <Html2React html={youtubeVideo} />
       </YouTubeVideo>
     </GlobalContainer>
   );
 }
-export default Banner;
+export default connect(Banner);

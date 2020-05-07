@@ -12,19 +12,20 @@ import {
 } from './styles';
 
 
-const Help = ({state}) => {
+const Help = ({state, libraries}) => {
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
 
   const bo = post.acf.business_outcomes;
+  const title = post.acf.bo_header;
+
+  const Html2React = libraries.html2react.Component;
 
   return (
     <Container>
       <Title>
-        Seatback can help 
-        <br />
-        <span>improve</span> business outcomes:
+        <Html2React html={title}/>
       </Title>
       <Blocks>
         {bo.length > 0 && bo.map((item, key) => {
