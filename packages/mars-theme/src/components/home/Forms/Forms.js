@@ -70,11 +70,7 @@ const Forms = ({ state, actions, libraries }) => {
 
     const [formError, setFormErrorState] = useState(preErrors);
     const [formState, setFormState] = useState(preForm);
-    // const [preload, setPreload] = useState(false);
-
-    if(state.frontity.rendering === 'csr') {
-
-    }
+    const [preload, setPreload] = useState(false);
 
     const validForm = () => {
         var error = true;
