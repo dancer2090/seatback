@@ -77,6 +77,10 @@ const globalStyles = css`
     animation-duration: 2s;
     animation-fill-mode: both;
   }
+  .slideUp{
+     animation-timing-function: ease;
+     animation-duration: 1000ms;
+  }
   @keyframes slideUp{
     from {
       transform:translateY(10%) scaleY(1.2);
@@ -85,9 +89,10 @@ const globalStyles = css`
     to {
       transform:translateY(0%) scaleY(1);
       opacity:1;
-      animation-timing-function: ease;
-      animation-duration: 1000ms;
     }
+  }
+  .fadeIn{
+    animation-duration: 900ms;
   }
   @keyframes fadeIn{
     from {
@@ -95,11 +100,12 @@ const globalStyles = css`
     }
     to {
       opacity: 1;
-      animation-duration: 900ms;
     }
   }
   .zoom{
-    transition: transform 4s linear;
+    transition: transform 8s linear;
+    animation-duration: 4s;
+    animation-timing-function: ease;
   }
   @keyframes zoom{
     from {

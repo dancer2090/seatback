@@ -32,7 +32,7 @@ const Parthers = ({state, libraries}) => {
     autoplay: true,
     autoplaySpeed: 0,
     slidesToShow: 10,
-    slidesToScroll: 10,
+    slidesToScroll: -10,
     cssEase: 'linear',
     responsive: [
       {
@@ -83,7 +83,7 @@ const Parthers = ({state, libraries}) => {
                   {data1.length > 0 && data1.map((d, n) => (
                     <Item key={n}>
                       <ImageBox>
-                        <ReactWOW animation='zoom' delay={(n*0.2)+"s"} iteration="infinite">
+                        <ReactWOW animation='zoom' delay={(n*0.3)+"s"} iteration="infinite">
                           <img src={d.url} />
                         </ReactWOW>
                       </ImageBox>
