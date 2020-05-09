@@ -41,7 +41,7 @@ const Help = ({state, libraries}) => {
                     <img src={item.image.url} alt="image" />
                   </Icon>
                   <Description>
-                    {item.text}
+                    <Html2React html={item.text}/>
                   </Description>
                 </BlockContent>
               </Block>

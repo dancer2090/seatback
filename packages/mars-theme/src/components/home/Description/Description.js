@@ -22,12 +22,14 @@ import {
 
 
 
-const Description = ({state, actions}) => {
+const Description = ({state, actions, libraries}) => {
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
 
   const acf_blocks = post.acf.blocks;
+
+  const Html2React = libraries.html2react.Component;
 
   // console.log("post acf: ");
   // console.log(post.acf);
@@ -60,7 +62,7 @@ const Description = ({state, actions}) => {
                 }
                 {d.text.length>0 &&
                   <DescriptionParagraph alignImage={d.alignImage}>
-                    {d.text}
+                    <Html2React html={d.text} />
                   </DescriptionParagraph>
                 }
                 <Action>
