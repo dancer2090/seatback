@@ -7,6 +7,8 @@ import ImageSeatbackSeat from '../../../img/seat-element-seat.png';
 import ImageSeatbackWatch from '../../../img/seat-element-watch.png';
 import Button from '../../Button';
 import Link from "../../link";
+import ReactDOM from 'react-dom';
+import ReactWOW from 'react-wow';
 
 import { 
   Container,
@@ -35,33 +37,41 @@ const Description = ({state, actions}) => {
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
-            {d.header.length>0 &&
-              <Title alignImage={d.alignImage}>
-                {d.header}
-              </Title>
-            }
-            {d.image.url.length>0 &&
-              <Image alignImage={d.alignImage}>
-                <img src={d.image.url} width={660} alt="image" />
-              </Image>
-            }
-            {d.thumbnail.length>0 &&
-              <SubTitle alignImage={d.alignImage}>
-                {d.thumbnail}
-              </SubTitle>
-            }
-            {d.text.length>0 &&
-              <DescriptionParagraph alignImage={d.alignImage}>
-                {d.text}
-              </DescriptionParagraph>
-            }
-            <Action>
-              {d.link.url && d.link.url !== '' && (
-                <Link link={d.link.url}>
-                  <Button>{d.link.title}</Button>
-                </Link>
-              )}
-            </Action>
+            <ReactWOW animation='slideUp'>
+              {d.header.length>0 &&
+                <Title alignImage={d.alignImage}>
+                  {d.header}
+                </Title>
+              }
+            </ReactWOW>
+            <ReactWOW animation='fadeIn'>
+              {d.image.url.length>0 &&
+                <Image alignImage={d.alignImage}>
+                  <img src={d.image.url} width={660} alt="image" />
+                </Image>
+              }
+            </ReactWOW>
+            <ReactWOW animation='slideUp'>
+              <div>
+                {d.thumbnail.length>0 &&
+                  <SubTitle alignImage={d.alignImage}>
+                    {d.thumbnail}
+                  </SubTitle>
+                }
+                {d.text.length>0 &&
+                  <DescriptionParagraph alignImage={d.alignImage}>
+                    {d.text}
+                  </DescriptionParagraph>
+                }
+                <Action>
+                  {d.link.url && d.link.url !== '' && (
+                    <Link link={d.link.url}>
+                      <Button>{d.link.title}</Button>
+                    </Link>
+                  )}
+                </Action>
+              </div>
+            </ReactWOW>
           </Container>
         );
       })}

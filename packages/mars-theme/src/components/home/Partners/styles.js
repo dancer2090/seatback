@@ -1,4 +1,4 @@
-import { styled } from 'frontity';
+import { styled, keyframes } from 'frontity';
 import  {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
@@ -106,6 +106,14 @@ export const Item = styled.div`
   padding-right: 20px;
 `;
 
+const zoom_center = keyframes`
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+`;
 export const ImageBox = styled.div`
   width: 175px;
   height: 175px;

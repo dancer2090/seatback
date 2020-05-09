@@ -73,6 +73,51 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+  .animated {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+  }
+  .slideUp{
+     animation-timing-function: ease;
+     animation-duration: 1000ms;
+  }
+  @keyframes slideUp{
+    from {
+      transform:translateY(10%) scaleY(1.2);
+      opacity:0;
+    }
+    to {
+      transform:translateY(0%) scaleY(1);
+      opacity:1;
+    }
+  }
+  .fadeIn{
+    animation-duration: 900ms;
+  }
+  @keyframes fadeIn{
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .zoom{
+    transition: transform 8s linear;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+  }
+  @keyframes zoom{
+    from {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 `;
 
 const SiteContainer = styled.div`

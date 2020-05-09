@@ -2,6 +2,8 @@ import React from 'react';
 import { styled, connect, fetch, URL } from "frontity";
 import HappyImage from '../../../img/emoji-happy.svg';
 import Slider from "react-slick";
+import ReactDOM from 'react-dom';
+import ReactWOW from 'react-wow';
 import { 
   SlickContainer, 
   Picture, 
@@ -32,7 +34,7 @@ const Reviews = ({state, actions}) => {
 
   return (
     <Container>
-
+     <ReactWOW animation='slideUp'>
       <SlickContainer>
         <Slider {...settings}>
           {acf_blocks.map((d, key) => (
@@ -54,6 +56,7 @@ const Reviews = ({state, actions}) => {
           ))}
         </Slider>
       </SlickContainer>
+     </ReactWOW>
     </Container>
   );
 }
