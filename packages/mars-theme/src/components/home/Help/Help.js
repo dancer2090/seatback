@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { styled, connect } from 'frontity';
+import ReactDOM from 'react-dom';
+import ReactWOW from 'react-wow';
 import { 
   Container,
   Title,
@@ -24,22 +26,26 @@ const Help = ({state, libraries}) => {
 
   return (
     <Container>
-      <Title>
-        <Html2React html={title}/>
-      </Title>
+      <ReactWOW animation='slideUp'>
+        <Title>
+          <Html2React html={title}/>
+        </Title>
+      </ReactWOW>
       <Blocks>
         {bo.length > 0 && bo.map((item, key) => {
           return (
-            <Block key={key}>
-              <BlockContent>
-                <Icon>
-                  <img src={item.image.url} alt="image" />
-                </Icon>
-                <Description>
-                  {item.text}
-                </Description>
-              </BlockContent>
-            </Block>
+            <ReactWOW animation='slideUp' delay={((key*0.3) + 0.3)+"s"}>
+              <Block key={key}>
+                <BlockContent>
+                  <Icon>
+                    <img src={item.image.url} alt="image" />
+                  </Icon>
+                  <Description>
+                    {item.text}
+                  </Description>
+                </BlockContent>
+              </Block>
+            </ReactWOW>
           );
         })}
       </Blocks>

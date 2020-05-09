@@ -1,4 +1,4 @@
-import { styled, css } from 'frontity';
+import { styled, css, keyframes } from 'frontity';
 import  {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
@@ -50,7 +50,7 @@ export const GlobalContainer = styled.div `
     content: ' ';
     background: #F5F6FA;
     width: 100%;
-    height: 2450px;
+    height: 1830px;
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -135,6 +135,7 @@ export const Discription = styled.p`
   position:relative;
   z-index:2;
   margin-bottom:50px;
+  max-width: 700px;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
     line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;

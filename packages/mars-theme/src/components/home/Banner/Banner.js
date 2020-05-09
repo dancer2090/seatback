@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import Button from '../../Button';
 import Link from '../../link';
-import { styled, connect } from "frontity";
+import { styled, connect, keyframes } from "frontity";
+import ReactDOM from 'react-dom';
+import ReactWOW from 'react-wow';
 
 import { 
   GlobalContainer,
@@ -12,6 +14,7 @@ import {
   VideoContainer,
   VideoText,
   YouTubeVideo,
+  slideUp,
 } from './styles';
 
 
@@ -42,26 +45,32 @@ const Banner = ({ state, actions, libraries }) => {
   return (
     <GlobalContainer>
       <Container>
-      <div className='main-block'>
-        <Slogan>
-          <Html2React html={mainHeader} />
-        </Slogan>
-        <Discription>
-          {mainDescriotion}
-        </Discription>
-        <Link link={mainButtonUrl}>
-          <Button size="large">{mainButtonTitle}</Button>
-        </Link>
-      </div>
-      <VideoContainer>
-        <video autoPlay muted loop >
-          <source src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/sample.mp4?_=1" type="video/mp4"/>
-        </video>
-      </VideoContainer>
+      <ReactWOW animation='slideUp'>
+        <div className='main-block'>
+          <Slogan>
+            <Html2React html={mainHeader} />
+          </Slogan>
+          <Discription>
+            {mainDescriotion}
+          </Discription>
+          <Link link={mainButtonUrl}>
+            <Button size="large">{mainButtonTitle}</Button>
+          </Link>
+        </div>
+      </ReactWOW>
+      <ReactWOW animation='fadeIn' delay="0.3s">
+        <VideoContainer>
+          <video autoPlay muted loop >
+            <source src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/sample.mp4?_=1" type="video/mp4"/>
+          </video>
+        </VideoContainer>
+      </ReactWOW>
       </Container>
-      <VideoText >
-        {youtubeVideoDescription}
-      </VideoText>
+      <ReactWOW animation='slideUp'>
+        <VideoText >
+          {youtubeVideoDescription}
+        </VideoText>
+      </ReactWOW>
       <YouTubeVideo>
         <Html2React html={youtubeVideo} />
       </YouTubeVideo>
