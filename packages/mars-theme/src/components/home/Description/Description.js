@@ -39,21 +39,21 @@ const Description = ({state, actions, libraries}) => {
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
-            <ReactWOW animation='slideUp'>
+            <ReactWOW offset={-300} animation='slideUp'>
               {d.header.length>0 &&
                 <Title alignImage={d.alignImage}>
                   {d.header}
                 </Title>
               }
             </ReactWOW>
-            <ReactWOW animation='fadeIn'>
+            <ReactWOW offset={-300} animation='fadeIn'>
               {d.image.url.length>0 &&
                 <Image alignImage={d.alignImage}>
                   <img src={d.image.url} width={660} alt="image" />
                 </Image>
               }
             </ReactWOW>
-            <ReactWOW animation='slideUp'>
+            <ReactWOW offset={-300} animation='slideUp'>
               <div>
                 {d.thumbnail.length>0 &&
                   <SubTitle alignImage={d.alignImage}>

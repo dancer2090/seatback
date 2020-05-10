@@ -66,14 +66,16 @@ const Banner = ({ state, actions, libraries }) => {
         </VideoContainer>
       </ReactWOW>
       </Container>
-      <ReactWOW animation='slideUp'>
+      <ReactWOW offset={-100} animation='slideUp'>
         <VideoText >
           {youtubeVideoDescription}
         </VideoText>
       </ReactWOW>
-      <YouTubeVideo>
-        <Html2React html={youtubeVideo} />
-      </YouTubeVideo>
+      <ReactWOW offset={-100} animation='slideUp'>
+        <YouTubeVideo>
+          <Html2React html={youtubeVideo} />
+        </YouTubeVideo>
+      </ReactWOW>
     </GlobalContainer>
   );
 }

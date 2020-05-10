@@ -26,7 +26,7 @@ const Help = ({state, libraries}) => {
 
   return (
     <Container>
-      <ReactWOW animation='slideUp'>
+      <ReactWOW offset={-200} animation='slideUp'>
         <Title>
           <Html2React html={title}/>
         </Title>
