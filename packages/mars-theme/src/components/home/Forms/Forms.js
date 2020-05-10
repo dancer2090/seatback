@@ -168,7 +168,7 @@ const Forms = ({ state, actions, libraries }) => {
             <Html2React html={title}/>
           </Title>
         </ReactWOW>
-        <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend}>
+        <FormContainer onSubmit={submitForm} preloadNew={state.seatbackapi.isFormSend}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
 
               return (
