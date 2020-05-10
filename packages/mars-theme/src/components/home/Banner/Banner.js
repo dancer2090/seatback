@@ -27,6 +27,7 @@ const Banner = ({ state, actions, libraries }) => {
     main_description: mainDescriotion,
     video: youtubeVideo,
     video_description: youtubeVideoDescription,
+    m_right_animation: m_right_animation,
     main_button: {
       title: mainButtonTitle,
       url: mainButtonUrl,
@@ -55,7 +56,7 @@ const Banner = ({ state, actions, libraries }) => {
       <Wow animation='fadeIn' delay="0.3s">
         <VideoContainer>
           <video autoPlay muted loop >
-            <source src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/sample.mp4?_=1" type="video/mp4"/>
+            <source src={m_right_animation} type="video/mp4"/>
           </video>
         </VideoContainer>
       </Wow>
