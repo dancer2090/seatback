@@ -50,7 +50,7 @@ export const Main = styled.div `
 
 export const CustomSelectlStyles = {
 
-  container: (provided) => ({
+  container: (provided, state) => ({
     ...provided,
     outline: 'none',
     display: 'flex',
@@ -63,18 +63,20 @@ export const CustomSelectlStyles = {
     color: '#A09D9D',
     opacity: 1,
     outline: 'none',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     border: 'none',
     borderColor: '52DE97',
     transition: 'all 0.3s ease-in-out',
+    backgroundColor: 'transparent',
   }),
-  control: (propvided) => ({
+  control: (propvided, state) => ({
     ...propvided,
     border: '1px solid #52DE97',
     borderRadius: '10px',
     width: '100%',
+    backgroundColor: state.selectProps.error ? '#ffebeb' : 'white',
   }),
-  valueContainer: (provided) => ({
+  valueContainer: (provided, state) => ({
     ...provided,
     display: 'flex',
     alignItems: 'center',
@@ -89,7 +91,7 @@ export const CustomSelectlStyles = {
     opacity: 1,
     paddingLeft: '32px',
     outline: 'none',
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     transition: 'all 0.3s ease-in-out',
     "@media only screen and (max-width: 1440px)": {
       fontSize: `${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px`,

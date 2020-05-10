@@ -192,6 +192,7 @@ const Forms = ({ state, actions, libraries }) => {
                    }
                    {d.acf_fc_layout=="select" &&
                       <ReactSelect
+                        error={formError[d.label]}
                         styles={CustomSelectlStyles} 
                         placeholder={d.placeholder}
                         data-optional={d.optional}
@@ -203,6 +204,7 @@ const Forms = ({ state, actions, libraries }) => {
                    }
                    {d.acf_fc_layout=="country" &&
                       <ReactSelect
+                        error={formError[d.label]}
                         styles={CustomSelectlStyles} 
                         placeholder={d.placeholder}
                         data-optional={d.optional}
