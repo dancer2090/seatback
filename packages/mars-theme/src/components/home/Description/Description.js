@@ -9,6 +9,8 @@ import Button from '../../Button';
 import Link from "../../link";
 import ReactDOM from 'react-dom';
 import ReactWOW from 'react-wow';
+import { useSpring, animated } from 'react-spring'
+
 
 import { 
   Container,
@@ -34,8 +36,13 @@ const Description = ({state, actions, libraries}) => {
   // console.log("post acf: ");
   // console.log(post.acf);
 
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+const trans2 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
+const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+
   return (
-    <GlobalContainer>
+    <GlobalContainer onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
@@ -49,7 +56,8 @@ const Description = ({state, actions, libraries}) => {
             <ReactWOW animation='fadeIn'>
               {d.image.url.length>0 &&
                 <Image alignImage={d.alignImage}>
-                  <img src={d.image.url} width={660} alt="image" />
+                  <animated.img src={d.bg.url} width={660} alt="image" class="card1" style={{ transform: props.xy.interpolate(trans1) }} />
+                  <animated.img src={d.image.url} width={660} class="card2" style={{ transform: props.xy.interpolate(trans2) }} alt="image" />
                 </Image>
               }
             </ReactWOW>
