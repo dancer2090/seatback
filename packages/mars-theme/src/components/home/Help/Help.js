@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import { styled, connect } from 'frontity';
-import ReactDOM from 'react-dom';
-import ReactWOW from 'react-wow';
+import React from 'react';
+import { connect } from 'frontity';
 import Wow from './../../Wow';
 import { 
   Container,
@@ -35,7 +33,7 @@ const Help = ({state, libraries}) => {
       <Blocks>
         {bo.length > 0 && bo.map((item, key) => {
           return (
-            <ReactWOW animation='slideUp' delay={((key*0.3) + 0.3)+"s"}>
+            <Wow animation='slideUp' delay={((key*0.3) + 0.3)+"s"}>
               <Block key={key}>
                 <BlockContent>
                   <Icon>
@@ -46,7 +44,7 @@ const Help = ({state, libraries}) => {
                   </Description>
                 </BlockContent>
               </Block>
-            </ReactWOW>
+            </Wow>
           );
         })}
       </Blocks>

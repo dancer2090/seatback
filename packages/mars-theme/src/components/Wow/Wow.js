@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactWOW from 'react-wow';
+import ReactResizeDetector from 'react-resize-detector';
+import { SIZE_LAPTOP_SMALL } from '../../const/responsive'
+
 
 const Wow = (props) => {
 
-  const resizeControl = (size) => {
-    console.log('size');
-    console.log(size);
+
+  const [isDisable, setIsDisable] = useState(false);
+
+  const resizeControl = (width) => {
+    if (width < SIZE_LAPTOP_SMALL && !isDisable) {
+      setIsDisable(true);
+    } else if (width >= SIZE_LAPTOP_SMALL && !isDisable) {
+      setIsDisable(false);
+    }
   }
 
-  return <ReactWOW onResize={resizeControl} resize={true} {...props} />
+  return (
+    <ReactResizeDetector handleWidth onResize={resizeControl}>
+      <ReactWOW disabled={isDisable} resize={true} {...props} />
+    </ReactResizeDetector>
+  )
 }
 
 export default Wow;

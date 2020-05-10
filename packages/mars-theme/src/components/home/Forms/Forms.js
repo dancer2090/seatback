@@ -3,8 +3,7 @@ import Button from '../../Button';
 import { styled, connect } from "frontity";
 import ReactSelect from 'react-select';
 import { COUNTRIES } from '../../../const/countries';
-import ReactDOM from 'react-dom';
-import ReactWOW from 'react-wow';
+import Wow from './../../Wow';
 import {
     Main,
     Title,
@@ -163,16 +162,16 @@ const Forms = ({ state, actions, libraries }) => {
 
     return (
       <Main>
-        <ReactWOW offset={-200} animation='slideUp'>
+        <Wow offset={-200} animation='slideUp'>
           <Title>
             <Html2React html={title}/>
           </Title>
-        </ReactWOW>
+        </Wow>
         <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend || false}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
 
               return (
-                <ReactWOW animation='slideUp' delay={(key*0.2)}>
+                <Wow animation='slideUp' delay={(key*0.2)}>
                  <FormControl key={key} error={formError[d.label]}>
                    <FormLabel>
                      {d.label}
@@ -223,14 +222,14 @@ const Forms = ({ state, actions, libraries }) => {
                       />
                    }
                  </FormControl>
-               </ReactWOW>
+               </Wow>
               )
           })}
-          <ReactWOW animation='slideUp' delay="0.2">
+          <Wow animation='slideUp' delay="0.2">
             <BBlock>
               <Button type="submit">{form_acf.submit_text}</Button>
             </BBlock>
-          </ReactWOW>
+          </Wow>
           <FText afterload={(preload && !state.seatbackapi.isFormSend) ? true : false}>
             Thanks you! Your email has been sent!
           </FText>

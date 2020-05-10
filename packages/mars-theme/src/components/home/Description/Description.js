@@ -7,9 +7,7 @@ import ImageSeatbackSeat from '../../../img/seat-element-seat.png';
 import ImageSeatbackWatch from '../../../img/seat-element-watch.png';
 import Button from '../../Button';
 import Link from "../../link";
-import ReactDOM from 'react-dom';
-import ReactWOW from 'react-wow';
-
+import Wow from './../../Wow';
 
 import { 
   Container,
@@ -41,14 +39,14 @@ const Description = ({state, actions, libraries}) => {
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
-            <ReactWOW offset={-300} animation='slideUp'>
+            <Wow offset={-300} animation='slideUp'>
               {d.header.length>0 &&
                 <Title alignImage={d.alignImage}>
                   {d.header}
                 </Title>
               }
-            </ReactWOW>
-            <ReactWOW offset={-300} animation='fadeIn'>
+            </Wow>
+            <Wow offset={-300} animation='fadeIn'>
               {d.image.url.length>0 &&
                 <Image alignImage={d.alignImage}>
                     {d.animated &&
@@ -64,8 +62,8 @@ const Description = ({state, actions, libraries}) => {
                     }
                 </Image>
               }
-            </ReactWOW>
-            <ReactWOW offset={-300} animation='slideUp'>
+            </Wow>
+            <Wow offset={-300} animation='slideUp'>
               <div>
                 {d.thumbnail.length>0 &&
                   <SubTitle alignImage={d.alignImage}>
@@ -85,7 +83,7 @@ const Description = ({state, actions, libraries}) => {
                   )}
                 </Action>
               </div>
-            </ReactWOW>
+            </Wow>
           </Container>
         );
       })}
