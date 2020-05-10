@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { styled, connect } from 'frontity';
-import ReactDOM from 'react-dom';
-import ReactWOW from 'react-wow';
+import React from 'react';
+import { connect } from 'frontity';
+import Wow from './../../Wow';
 import { 
   Container,
   Title,
@@ -26,16 +25,16 @@ const Help = ({state, libraries}) => {
 
   return (
     <Container>
-      <ReactWOW offset={-200} animation='slideUp'>
+      <Wow offset={-200} animation='slideUp'>
         <Title>
           <Html2React html={title}/>
         </Title>
-      </ReactWOW>
+      </Wow>
       <Blocks>
         {bo.length > 0 && bo.map((item, key) => {
           return (
-            <ReactWOW animation='slideUp' delay={((key*0.3) + 0.3)+"s"} key={key.toString()}>
-              <Block>
+            <Wow animation='slideUp' delay={((key*0.3) + 0.3)+"s"} key={key.toString()}>
+              <Block key={key}>
                 <BlockContent>
                   <Icon>
                     <img src={item.image.url} alt="image" />
@@ -45,7 +44,7 @@ const Help = ({state, libraries}) => {
                   </Description>
                 </BlockContent>
               </Block>
-            </ReactWOW>
+            </Wow>
           );
         })}
       </Blocks>

@@ -49,8 +49,16 @@ export const Main = styled.div `
 `;
 
 export const CustomSelectlStyles = {
-
-  container: (provided) => ({
+  option: (provided, state) => ({
+    ...provided,
+    "@media only screen and (max-width: 1440px)": {
+      fontSize: '16px',
+    },
+    "@media only screen and (max-width: 600px)": {      
+      fontSize: '13px',
+    },
+  }),
+  container: (provided, state) => ({
     ...provided,
     outline: 'none',
     display: 'flex',
@@ -63,18 +71,21 @@ export const CustomSelectlStyles = {
     color: '#A09D9D',
     opacity: 1,
     outline: 'none',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     border: 'none',
     borderColor: '52DE97',
     transition: 'all 0.3s ease-in-out',
+    backgroundColor: 'transparent',
   }),
-  control: (propvided) => ({
+  control: (propvided, state) => ({
     ...propvided,
-    border: '1px solid #52DE97',
+    border: '1px solid #52DE97 !important',
     borderRadius: '10px',
     width: '100%',
+    boxShadow: 'none !important',
+    backgroundColor: state.isFocused ? '#fffce3' : state.selectProps.error ? '#ffebeb' : 'white',
   }),
-  valueContainer: (provided) => ({
+  valueContainer: (provided, state) => ({
     ...provided,
     display: 'flex',
     alignItems: 'center',
@@ -89,7 +100,7 @@ export const CustomSelectlStyles = {
     opacity: 1,
     paddingLeft: '32px',
     outline: 'none',
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     transition: 'all 0.3s ease-in-out',
     "@media only screen and (max-width: 1440px)": {
       fontSize: `${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px`,
@@ -113,6 +124,7 @@ export const CustomSelectlStyles = {
     transform: 'none',
     display: 'flex',
     alignItems: 'center',
+    color: '#A09D9D',
   }),
   indicatorSeparator: () => ({
     display: 'none',
@@ -381,7 +393,7 @@ export const FormTextarea = styled.textarea`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     height: 45px;
-
+    padding: 20px;
     &::placeholder {
       font-size: ${TEXT_FONT_SIZE_MOBILE}px;
       line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;

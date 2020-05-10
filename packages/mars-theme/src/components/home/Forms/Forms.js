@@ -3,8 +3,7 @@ import Button from '../../Button';
 import { styled, connect } from "frontity";
 import ReactSelect from 'react-select';
 import { COUNTRIES } from '../../../const/countries';
-import ReactDOM from 'react-dom';
-import ReactWOW from 'react-wow';
+import Wow from './../../Wow';
 import {
     Main,
     Title,
@@ -124,7 +123,7 @@ const Forms = ({ state, actions, libraries }) => {
         setFormErrorState({...formError,...errorObj});
       }
       else {
-        if((input_value.length < 4) && !optional){
+        if((input_value.length < 2) && !optional){
           errorObj[key] = true;
         } else {
           errorObj[key] = false;
@@ -163,16 +162,16 @@ const Forms = ({ state, actions, libraries }) => {
 
     return (
       <Main>
-        <ReactWOW offset={-200} animation='slideUp'>
+        <Wow offset={-200} animation='slideUp'>
           <Title>
             <Html2React html={title}/>
           </Title>
-        </ReactWOW>
-        <FormContainer onSubmit={submitForm} preloadNew={state.seatbackapi.isFormSend}>
+        </Wow>
+        <FormContainer onSubmit={submitForm} preloadNEW={state.seatbackapi.isFormSend || false}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
 
               return (
-                <ReactWOW animation='slideUp' delay={(key*0.2)+"s"} key={key.toString()}>
+                <Wow animation='slideUp' delay={(key*0.2)+'s'} key={key.toString()}>
                  <FormControl key={key} error={formError[d.label]}>
                    <FormLabel>
                      {d.label}
@@ -192,6 +191,7 @@ const Forms = ({ state, actions, libraries }) => {
                    }
                    {d.acf_fc_layout=="select" &&
                       <ReactSelect
+                        error={formError[d.label]}
                         styles={CustomSelectlStyles} 
                         placeholder={d.placeholder}
                         data-optional={d.optional}
@@ -203,6 +203,7 @@ const Forms = ({ state, actions, libraries }) => {
                    }
                    {d.acf_fc_layout=="country" &&
                       <ReactSelect
+                        error={formError[d.label]}
                         styles={CustomSelectlStyles} 
                         placeholder={d.placeholder}
                         data-optional={d.optional}
@@ -221,14 +222,14 @@ const Forms = ({ state, actions, libraries }) => {
                       />
                    }
                  </FormControl>
-               </ReactWOW>
+               </Wow>
               )
           })}
-          <ReactWOW animation='slideUp' delay="0.2">
+          <Wow animation='slideUp' delay="0.2s">
             <BBlock>
               <Button type="submit">{form_acf.submit_text}</Button>
             </BBlock>
-          </ReactWOW>
+          </Wow>
           <FText afterload={(preload && !state.seatbackapi.isFormSend) ? true : false}>
             Thanks you! Your email has been sent!
           </FText>

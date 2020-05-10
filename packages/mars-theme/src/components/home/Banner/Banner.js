@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Button from '../../Button';
 import Link from '../../link';
-import { styled, connect, keyframes } from "frontity";
-import ReactDOM from 'react-dom';
-import ReactWOW from 'react-wow';
+import { connect } from "frontity";
+import Wow from '../../Wow';
 
 import { 
   GlobalContainer,
@@ -38,15 +37,10 @@ const Banner = ({ state, actions, libraries }) => {
 
   const Html2React = libraries.html2react.Component;
 
-  
-  useEffect(() => {
-    
-  }, []);
-
   return (
     <GlobalContainer>
       <Container>
-      <ReactWOW animation='slideUp'>
+      <Wow animation='slideUp'>
         <div className='main-block'>
           <Slogan>
             <Html2React html={mainHeader} />
@@ -58,25 +52,25 @@ const Banner = ({ state, actions, libraries }) => {
             <Button size="large">{mainButtonTitle}</Button>
           </Link>
         </div>
-      </ReactWOW>
-      <ReactWOW animation='fadeIn' delay="0.3s">
+      </Wow>
+      <Wow animation='fadeIn' delay="0.3s">
         <VideoContainer>
           <video autoPlay muted loop >
             <source src={m_right_animation} type="video/mp4"/>
           </video>
         </VideoContainer>
-      </ReactWOW>
+      </Wow>
       </Container>
-      <ReactWOW offset={-100} animation='slideUp'>
+      <Wow offset={-100} animation='slideUp'>
         <VideoText >
           {youtubeVideoDescription}
         </VideoText>
-      </ReactWOW>
-      <ReactWOW offset={-100} animation='slideUp'>
+      </Wow>
+      <Wow offset={-100} animation='slideUp'>
         <YouTubeVideo>
           <Html2React html={youtubeVideo} />
         </YouTubeVideo>
-      </ReactWOW>
+      </Wow>
     </GlobalContainer>
   );
 }

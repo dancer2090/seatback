@@ -19,7 +19,7 @@ const title = {
   test: ({ node }) => node.type === 'text' && node.content.indexOf('[GREEN]') !== -1,
   ignore: true,
   processor: ({ node }) => {
-    console.log(node);
+    //console.log(node);
     // node.type = 'element';
     // node.component = <StringComponent children={<div>{node.content.replace(/\[GREEN\]/g, '<span>').replace(/\[\/GREEN\]/g, '</span>')}</div>} />;
     // return <StringComponent children={<div>{node.content.replace(/\[GREEN\]/g, '<span>').replace(/\[\/GREEN\]/g, '</span>')}</div>} />;

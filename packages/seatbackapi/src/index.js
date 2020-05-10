@@ -17,10 +17,16 @@ export default {
   state: {
     seatbackapi: {
       isFormSend: false,
+      windowSize: 0,
+      isWow: true,
     }
   },
   actions: {
     seatbackapi: {
+      trackWindowSize: ({ state }) => {
+        state.seatbackapi.windowSize = window.innerWidth || 0;
+        state.seatbackapi.isWow = window.innerWidth > 768
+      },
       sendForm: ({ state }) => async data => {
 
         // console.log('action send here');
@@ -40,6 +46,9 @@ export default {
         const topMenu = await axios.get(`${state.source.api}/menus/v1/menus/top_menu`);
         state.seatbackapi.menu = topMenu.data;
       },
+      afterCSR: async({ state, actions, libraries }) => {
+        actions.seatbackapi.trackWindowSize();
+      }
     }
   }
 };
