@@ -211,7 +211,8 @@ export const Image = styled.div`
   justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
   & img.card1{
     position: absolute;
-    left: 0px;
+    left: ${props => props.alignImage === 'left' ? '0px' : 'auto'};;
+    right: ${props => props.alignImage === 'left' ? 'auto' : '0px'};;
     top: 0px;
   }
   @media (max-width: 1800px) {
