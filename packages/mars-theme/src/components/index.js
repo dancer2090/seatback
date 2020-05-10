@@ -80,7 +80,7 @@ const globalStyles = css`
   .slideUp{
      animation-timing-function: ease;
      animation-duration: 1000ms;
-     animation-delay: 400ms;
+     animation-delay: 150ms;
   }
   @keyframes slideUp{
     from {
@@ -94,7 +94,7 @@ const globalStyles = css`
   }
   .fadeIn{
     animation-duration: 900ms;
-    animation-delay: 400ms;
+    animation-delay: 150ms;
   }
   @keyframes fadeIn{
     from {

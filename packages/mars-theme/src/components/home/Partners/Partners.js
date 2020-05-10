@@ -71,12 +71,12 @@ const Parthers = ({state, libraries}) => {
 
   return (
     <Container>
-        <ReactWOW animation='slideUp'>
+        <ReactWOW  offset={-200} animation='slideUp'>
           <Title>
             <Html2React html={title} />
           </Title>
         </ReactWOW>
-        <ReactWOW animation='slideUp' delay="0.3s">
+        <ReactWOW offset={-200}  animation='slideUp' delay="0.3s">
           <CarouselContainer>
             <SlickContainer>
               <Slider {...settings}>

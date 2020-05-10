@@ -34,7 +34,7 @@ const Reviews = ({state, actions}) => {
 
   return (
     <Container>
-     <ReactWOW animation='slideUp'>
+     <ReactWOW offset={-200} animation='slideUp'>
       <SlickContainer>
         <Slider {...settings}>
           {acf_blocks.map((d, key) => (

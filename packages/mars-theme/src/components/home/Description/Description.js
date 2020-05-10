@@ -46,14 +46,14 @@ const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension:
       {acf_blocks.map(d => {
         return (
           <Container key={d.header} alignImage={d.alignImage}>
-            <ReactWOW animation='slideUp'>
+            <ReactWOW offset={-300} animation='slideUp'>
               {d.header.length>0 &&
                 <Title alignImage={d.alignImage}>
                   {d.header}
                 </Title>
               }
             </ReactWOW>
-            <ReactWOW animation='fadeIn'>
+            <ReactWOW offset={-300} animation='fadeIn'>
               {d.image.url.length>0 &&
                 <Image alignImage={d.alignImage}>
                   <animated.img src={d.bg.url} width={660} alt="image" class="card1" style={{ transform: props.xy.interpolate(trans1) }} />
@@ -61,7 +61,7 @@ const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension:
                 </Image>
               }
             </ReactWOW>
-            <ReactWOW animation='slideUp'>
+            <ReactWOW offset={-300} animation='slideUp'>
               <div>
                 {d.thumbnail.length>0 &&
                   <SubTitle alignImage={d.alignImage}>

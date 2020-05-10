@@ -163,7 +163,7 @@ const Forms = ({ state, actions, libraries }) => {
 
     return (
       <Main>
-        <ReactWOW animation='slideUp'>
+        <ReactWOW offset={-200} animation='slideUp'>
           <Title>
             <Html2React html={title}/>
           </Title>
