@@ -363,7 +363,6 @@ export const SlickContainer = styled.div`
     color: #2E293C !important;
     z-index: 1;
     &:hover, &:focus {
-      background-color: rgb(82, 222, 151, 1) !important;
 
       &:before {
         color: white;
@@ -377,7 +376,6 @@ export const SlickContainer = styled.div`
 {
     /* color: transparent; */
     outline: none;
-    background: transparent;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,

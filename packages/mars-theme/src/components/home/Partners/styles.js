@@ -275,7 +275,6 @@ export const SlickContainer = styled.div`
       color: transparent;
       border: none;
       outline: none;
-      background: transparent;
   }
   .slick-prev:hover,
   .slick-prev:focus,
@@ -284,7 +283,6 @@ export const SlickContainer = styled.div`
   {
       color: transparent;
       outline: none;
-      background: transparent;
   }
   .slick-prev:hover:before,
   .slick-prev:focus:before,

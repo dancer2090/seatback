@@ -120,6 +120,52 @@ const globalStyles = css`
       transform: scale(1);
     }
   }
+  .card1{
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-name: card1;
+    animation-iteration-count: infinite;
+  }
+  @keyframes card1{
+    from {
+      transform: translate(0%,0%);
+    }
+    25% {
+      transform: translate(-0.5%,-1%);
+    }
+    50% {
+      transform: translate(0%,0%);
+    }
+    75% {
+      transform: translate(0.5%,1%);
+    }
+    to {
+      transform: translate(0%,0%);
+    }
+  }
+  .card2{
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-name: card2;
+    animation-iteration-count: infinite;
+  }
+  @keyframes card2{
+    from {
+      transform: translate(0%,0%);
+    }
+    25% {
+      transform: translate(0.5%,1%);
+    }
+    50% {
+      transform: translate(0%,0%);
+    }
+    75% {
+      transform: translate(-0.5%,-1%);
+    }
+    to {
+      transform: translate(0%,0%);
+    }
+  }
 `;
 
 const SiteContainer = styled.div`
