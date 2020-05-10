@@ -81,9 +81,14 @@ const Parthers = ({state, libraries}) => {
                   {data1.length > 0 && data1.map((d, n) => (
                     <Item key={n}>
                       <ImageBox>
-                        <Wow animation='zoom' delay={(n*0.3)+"s"} iteration="infinite">
-                          <img src={d.url} />
-                        </Wow>
+                        <img className="zoom animated"  style={
+                          {
+                            animationName: 'zoom',
+                            animationDelay: (n*0.3)+"s" ,
+                            animationIterationCount: 'infinite',
+                            visibility: 'visible',
+                          }
+                        } src={d.url} />
                       </ImageBox>
                     </Item>
                   ))}

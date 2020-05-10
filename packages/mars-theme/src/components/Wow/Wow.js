@@ -1,27 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactWOW from 'react-wow';
-// import ReactResizeDetector from 'react-resize-detector';
-// import { SIZE_LAPTOP_SMALL } from '../../const/responsive'
+import { connect } from 'frontity';
 
-
-const Wow = (props) => {
-
-
-  const [isDisable, setIsDisable] = useState(false);
-
-  const resizeControl = (width) => {
-    // if (width < SIZE_LAPTOP_SMALL && !isDisable) {
-    //   setIsDisable(true);
-    // } else if (width >= SIZE_LAPTOP_SMALL && !isDisable) {
-    //   setIsDisable(false);
-    // }
-  }
-
+const Wow = ({ state, actions, libraries, offset, iteration, ...props}) => {
   return (
-    // <ReactResizeDetector handleWidth onResize={resizeControl}>
-      <ReactWOW disabled={isDisable} resize={true} {...props} />
-    // </ReactResizeDetector>
+    <ReactWOW iteration={iteration ? iteration : 1} offset={!state.seatbackapi.isWow ? 0 : offset} disabled={!state.seatbackapi.isWow} {...props} />
   )
 }
 
-export default Wow;
+export default connect(Wow);

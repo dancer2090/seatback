@@ -123,7 +123,7 @@ const Forms = ({ state, actions, libraries }) => {
         setFormErrorState({...formError,...errorObj});
       }
       else {
-        if((input_value.length < 4) && !optional){
+        if((input_value.length < 2) && !optional){
           errorObj[key] = true;
         } else {
           errorObj[key] = false;
