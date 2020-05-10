@@ -34,8 +34,8 @@ const Help = ({state, libraries}) => {
       <Blocks>
         {bo.length > 0 && bo.map((item, key) => {
           return (
-            <ReactWOW animation='slideUp' delay={((key*0.3) + 0.3)+"s"}>
-              <Block key={key}>
+            <ReactWOW animation='slideUp' delay={((key*0.3) + 0.3)+"s"} key={key.toString()}>
+              <Block>
                 <BlockContent>
                   <Icon>
                     <img src={item.image.url} alt="image" />

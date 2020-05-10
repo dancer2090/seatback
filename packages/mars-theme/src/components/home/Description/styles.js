@@ -242,12 +242,20 @@ export const Image = styled.div`
       width: 480px;
       margin: 0 auto;
     }
+    & img.card1{
+      left: calc(50% - 240px);
+      right: auto;
+    }
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     right: 0px;
     left: 0px;
     & img{
       width: 100%;
+    }
+    & img.card1{
+      left: 0px;
+      right: 0px;
     }
   }
 `;

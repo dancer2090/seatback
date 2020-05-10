@@ -168,11 +168,11 @@ const Forms = ({ state, actions, libraries }) => {
             <Html2React html={title}/>
           </Title>
         </ReactWOW>
-        <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend || false}>
+        <FormContainer onSubmit={submitForm} preload={state.seatbackapi.isFormSend}>
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
 
               return (
-                <ReactWOW animation='slideUp' delay={(key*0.2)}>
+                <ReactWOW animation='slideUp' delay={(key*0.2)+"s"} key={key.toString()}>
                  <FormControl key={key} error={formError[d.label]}>
                    <FormLabel>
                      {d.label}
