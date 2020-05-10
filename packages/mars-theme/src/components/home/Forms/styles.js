@@ -49,7 +49,15 @@ export const Main = styled.div `
 `;
 
 export const CustomSelectlStyles = {
-
+  option: (provided, state) => ({
+    ...provided,
+    "@media only screen and (max-width: 1440px)": {
+      fontSize: '16px',
+    },
+    "@media only screen and (max-width: 600px)": {      
+      fontSize: '13px',
+    },
+  }),
   container: (provided, state) => ({
     ...provided,
     outline: 'none',
@@ -71,10 +79,11 @@ export const CustomSelectlStyles = {
   }),
   control: (propvided, state) => ({
     ...propvided,
-    border: '1px solid #52DE97',
+    border: '1px solid #52DE97 !important',
     borderRadius: '10px',
     width: '100%',
-    backgroundColor: state.selectProps.error ? '#ffebeb' : 'white',
+    boxShadow: 'none !important',
+    backgroundColor: state.isFocused ? '#fffce3' : state.selectProps.error ? '#ffebeb' : 'white',
   }),
   valueContainer: (provided, state) => ({
     ...provided,
@@ -115,6 +124,7 @@ export const CustomSelectlStyles = {
     transform: 'none',
     display: 'flex',
     alignItems: 'center',
+    color: '#A09D9D',
   }),
   indicatorSeparator: () => ({
     display: 'none',
@@ -383,7 +393,7 @@ export const FormTextarea = styled.textarea`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     height: 45px;
-
+    padding: 20px;
     &::placeholder {
       font-size: ${TEXT_FONT_SIZE_MOBILE}px;
       line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
