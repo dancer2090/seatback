@@ -58,8 +58,9 @@ const StyledButton = styled.button`
   `}
 
   &:hover {
-    background: #2bad6b;
-    border: 1px solid #2bad6b;
+    background: #2E293C;
+    border: 1px solid #2E293C;
+    color: #52DE97;
   }
 `;
 
