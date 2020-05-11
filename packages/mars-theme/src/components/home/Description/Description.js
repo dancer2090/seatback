@@ -51,7 +51,7 @@ const Description = ({state, actions, libraries}) => {
                 <Image alignImage={d.alignImage}>
                     {d.animated &&
                       <>
-                        <img src={d.bg.url} width={660} alt="image" className="card1" />
+                        {/* <img src={d.bg.url} width={660} alt="image" className="card1" /> */}
                         <img src={d.image.url} width={660} className="card2" alt="image" />
                       </>
                     }
