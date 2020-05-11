@@ -154,13 +154,13 @@ const globalStyles = css`
       transform: translate(0%,0%);
     }
     25% {
-      transform: translate(0.5%,1%);
+      transform: translate(0%,1%);
     }
     50% {
       transform: translate(0%,0%);
     }
     75% {
-      transform: translate(-0.5%,-1%);
+      transform: translate(-0%,-1%);
     }
     to {
       transform: translate(0%,0%);
