@@ -55,6 +55,7 @@ const Banner = ({ state, actions, libraries }) => {
       </Wow>
       <Wow animation='fadeIn' delay="0.3s">
         <VideoContainer>
+          <iframe src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/GIF_DES-All.html" />
           <video autoPlay muted loop >
             <source src={m_right_animation} type="video/mp4"/>
           </video>

@@ -166,7 +166,37 @@ export const VideoContainer = styled.div `
   margin-top: -50px;
   margin-left: -25px;
 
+  iframe {
+    width: 600px;
+    height: 600px;
+    border: none;
+    overflow: hidden;
+    background-color: white;
+
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+      width: 500px;
+      height: 500px;
+    }
+    @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
+      width: 100%;
+    }
+    @media (max-width: ${getPxSize(SIZE_LAPTOP_SMALL)}) {
+      width: 400px;
+      height: 400px;
+    }
+    @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+      width: 300px;
+      height: 300px;
+    }
+    @media (max-width: 420px) {
+      margin-left: -60px;
+      width: 300px;
+      height: 300px;
+    }
+  }
+
   video {
+    display: none;
     width: auto;
     height: auto;
     @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
