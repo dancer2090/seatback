@@ -79,12 +79,12 @@ const globalStyles = css`
   }
   .slideUp{
      animation-timing-function: ease;
-     animation-duration: 1000ms;
+     animation-duration: 800ms;
      animation-delay: 150ms;
   }
   @keyframes slideUp{
     from {
-      transform:translateY(10%) scaleY(1.2);
+      transform:translateY(5%) scaleY(1.1);
       opacity:0;
     }
     to {

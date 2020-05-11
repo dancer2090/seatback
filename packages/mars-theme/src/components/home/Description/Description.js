@@ -63,7 +63,7 @@ const Description = ({state, actions, libraries}) => {
                 </Image>
               }
             </Wow>
-            <Wow offset={-300} animation='slideUp'>
+            <Wow offset={-150} animation='slideUp'>
               <div>
                 {d.thumbnail.length>0 &&
                   <SubTitle alignImage={d.alignImage}>

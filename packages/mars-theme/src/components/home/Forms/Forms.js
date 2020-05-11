@@ -171,7 +171,7 @@ const Forms = ({ state, actions, libraries }) => {
           {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
 
               return (
-                <Wow animation='slideUp' delay={(key*0.2)+'s'} key={key.toString()}>
+                <Wow animation='slideUp' delay={(key*0.15)+'s'} key={key.toString()}>
                  <FormControl key={key} error={formError[d.label]}>
                    <FormLabel>
                      {d.label}
