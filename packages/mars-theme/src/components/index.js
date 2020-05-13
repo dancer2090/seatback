@@ -144,9 +144,9 @@ const globalStyles = css`
     }
   }
   .card2{
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-timing-function: linear;
-    animation-name: card2;
+    animation-name: 'card2';
     animation-iteration-count: infinite;
   }
   @keyframes card2{
@@ -154,18 +154,20 @@ const globalStyles = css`
       transform: translate(0%,0%);
     }
     25% {
-      transform: translate(0%,1%);
+      transform: translate(0%, 2%);
     }
     50% {
       transform: translate(0%,0%);
     }
     75% {
-      transform: translate(-0%,-1%);
+      transform: translate(-0%,-2%);
     }
     to {
       transform: translate(0%,0%);
     }
   }
+
+
 `;
 
 const SiteContainer = styled.div`

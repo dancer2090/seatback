@@ -5,6 +5,7 @@ import ImageSeatbackChair from '../../../img/seat-element-chair.png';
 import ImageSeatbackProcessor from '../../../img/seat-element-processor.png';
 import ImageSeatbackSeat from '../../../img/seat-element-seat.png';
 import ImageSeatbackWatch from '../../../img/seat-element-watch.png';
+import Background from './Background';
 import Button from '../../Button';
 import Link from "../../link";
 import Wow from './../../Wow';
@@ -30,10 +31,6 @@ const Description = ({state, actions, libraries}) => {
 
   const Html2React = libraries.html2react.Component;
 
-  // console.log("post acf: ");
-  // console.log(post.acf);
-
-
   return (
     <GlobalContainer>
       {acf_blocks.map(d => {
@@ -46,13 +43,14 @@ const Description = ({state, actions, libraries}) => {
                 </Title>
               }
             </Wow>
-            <Wow offset={-300} animation='fadeIn'>
+            {/* <Wow offset={-300} animation='fadeIn'> */}
               {d.image.url.length>0 &&
                 <Image alignImage={d.alignImage}>
                     {d.animated &&
                       <>
-                        {/* <img src={d.bg.url} width={660} alt="image" className="card1" /> */}
+                        <Background alignImage={d.alignImage} reverse={d.alignImage === 'right'} />
                         <img src={d.image.url} width={660} className="card2" alt="image" />
+                        {/* <img src={d.bg.url} width={660} alt="image" className="card1" /> */}
                       </>
                     }
                     {!d.animated &&
@@ -62,7 +60,7 @@ const Description = ({state, actions, libraries}) => {
                     }
                 </Image>
               }
-            </Wow>
+            {/* </Wow> */}
             <Wow offset={-150} animation='slideUp'>
               <div>
                 {d.thumbnail.length>0 &&

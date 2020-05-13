@@ -204,17 +204,17 @@ export const Image = styled.div`
   width: 50%;
   height: 100%;
   right: ${props => props.alignImage === 'left' ? 'auto' : '150px'};
-  top: 0;
   left: ${props => props.alignImage === 'left' ? '150px' : 'auto'};
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
-  & img.card1{
+  /* & img.card1{
     position: absolute;
     left: ${props => props.alignImage === 'left' ? '0px' : 'auto'};;
     right: ${props => props.alignImage === 'left' ? 'auto' : '0px'};;
     top: 0px;
-  }
+  } */
   @media (max-width: 1800px) {
     & img{
       width: 550px;
