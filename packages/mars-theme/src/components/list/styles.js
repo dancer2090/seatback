@@ -16,3 +16,10 @@ import  {
   SIZE_MOBILE,
 } from '../../const/responsive';
 
+export const Action = styled.div`
+  padding-top: 66px;
+  padding-bottom: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
