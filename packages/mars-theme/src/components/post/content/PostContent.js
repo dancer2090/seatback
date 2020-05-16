@@ -31,9 +31,12 @@ const PostContent = ({ state, actions, libraries }) => {
   const author = state.source.author[post.author];
 
   const date = new Date(post.date);
+  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+  const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
+  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+  const date_string = da + "." + mo + "." + ye;
 
   const Html2React = libraries.html2react.Component;
-  console.log(post);
 
   return (
     <GlobalContainer>
@@ -47,7 +50,7 @@ const PostContent = ({ state, actions, libraries }) => {
             <img src={author.acf.user_photo.url} />
             <div>
               <HeaderAuthorName>{author.name}</HeaderAuthorName>
-              <HeaderAuthorDate>{date.toDateString()}</HeaderAuthorDate>
+              <HeaderAuthorDate>{date_string}</HeaderAuthorDate>
             </div>
           </HeaderAuthor>
           <HeaderReaderTime>
