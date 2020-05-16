@@ -22,6 +22,10 @@ export const HeaderBoxContainer = styled.div`
   display: flex;
   align-items: center;
   padding-top: 162px;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    flex-wrap: wrap;
+    padding-top: 100px;
+  }
 `;
 export const DescriptionBox = styled.div`
   display: flex;
@@ -29,6 +33,13 @@ export const DescriptionBox = styled.div`
   flex-wrap: wrap;
   padding-bottom: 45px;
   width: 50%;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    padding-right: 50px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    width: 100%;
+    padding-right: 0;
+  }
 
   h1 {
     width: 100%;
@@ -41,6 +52,20 @@ export const DescriptionBox = styled.div`
     opacity: 1;
     margin: 0;
     max-width: 423px;
+
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 45px;
+      line-height: 67px;
+    }
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 42px;
+      line-height: 60px;
+    }
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      width: 100%;
+      font-size: 32px;
+      line-height: 42px;
+    }
   }
 
   p {
@@ -55,6 +80,19 @@ export const DescriptionBox = styled.div`
     width: 100%;
     margin: 0;
     padding-top: 30px;
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 22px;
+      line-height: 36px;
+    }
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 20px;
+      line-height: 32px;
+    }
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      width: 100%;
+      font-size: 18px;
+      line-height: 32px;
+    }
   }
 `;
 
@@ -65,7 +103,6 @@ export const Scroll = styled.div`
 
   button {
     transform: rotate(90deg);
-    /* background: url(${RightArrow}) 50% 50% / 100% auto no-repeat; */
     padding: 0;
     color: transparent;
     border: none;
@@ -98,12 +135,26 @@ export const Scroll = styled.div`
         content: url(${RightArrowGreen});
       }
     }
-  }
 
+
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      transform: scale(0.95) rotate(90deg);
+    }
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    display: none;
+  }
 `;
 
 export const BannerArticlesBox = styled.div`
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 export const BannerArticlesContainer = styled.div`
@@ -114,8 +165,33 @@ export const BannerArticlesContainer = styled.div`
   background-image: url(${props => props.imgSrc ? props.imgSrc : 'https://i.picsum.photos/id/866/1200/1000.jpg'});
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
   position: relative;
   border-radius: 14px;
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    width: 600px;
+    height:400px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    width: 500px;
+    height: 350px;
+  }
+
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    width: 100%;
+    font-size: 32px;
+    line-height: 42px;
+    max-width: 770px;
+    height: 507px;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    height: 407px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    height: 350px;
+  }
 `;
 
 export const BannerArticlesDescription = styled.div`
@@ -129,6 +205,11 @@ export const BannerArticlesDescription = styled.div`
   left: 0;
   bottom: 0;
   padding: 30px;
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding: 20px;
+    height: auto;
+  }
 
   div {
     position: relative;
@@ -144,6 +225,20 @@ export const BannerArticlesDescription = styled.div`
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
+    max-width: 80%;
+
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 22px;
+      line-height: 26px;
+    }
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
   }
   p {
     margin: 0;
@@ -154,12 +249,30 @@ export const BannerArticlesDescription = styled.div`
     color: #FFFFFF;
     opacity: 1;
     padding-top: 12px;
+    max-width: 80%;
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 17px;
+      line-height: 22px;
+    }
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   a {
     position: absolute;
     right: 0;
     bottom: 0;
+    width: 58px;
+    height: 58px;
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      transform: scale(0.95);
+    }
   }
 
   button {
@@ -221,6 +334,19 @@ export const New = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 20px;
+    line-height: 32px;
+    width: 116px;
+    height: 46px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 18px;
+    line-height: 28px;
+    width: 110px;
+    height: 45px;
+  }
 `;
 
 export const Article = styled.div`
