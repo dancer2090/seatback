@@ -12,7 +12,8 @@ import {
   ClickBox
 } from './styles';
 
-const ListItem = ({ 
+const ListItem = ({
+  props,
   link = '/',
   actions,
   imageSrc="https://i.picsum.photos/id/866/1200/1000.jpg",
@@ -20,9 +21,9 @@ const ListItem = ({
   minRead="9 min read",
   date="10.04.2020",
   authorName="Laura Croft",
-  authorImage="https://i.picsum.photos/id/866/1200/1000.jpg"
+  authorImage="https://i.picsum.photos/id/866/1200/1000.jpg",
  }) => {
-
+  console.log(props);
   const followArticle = (link) => {
       actions.router.set(link);
       window.scrollTo(0, 0);

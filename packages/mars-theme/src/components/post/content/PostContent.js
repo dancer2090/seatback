@@ -33,6 +33,7 @@ const PostContent = ({ state, actions, libraries }) => {
   const date = new Date(post.date);
 
   const Html2React = libraries.html2react.Component;
+  console.log(post);
 
   return (
     <GlobalContainer>

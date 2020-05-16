@@ -15,8 +15,9 @@ const ListPosts = ({ state }) => {
           <ListBox>
             {data.items.map(({ type, id }) => {
               const item = state.source[type][id];
+              const media_obj = state.source.attachment[item.featured_media];
               // Render one Item component for each one.
-              return <ListItem key={item.id} item={item} />;
+              return <ListItem key={item.id} item={item} title={item.title.rendered} imageSrc={media_obj.source_url} link={item.link}/>;
             })}
           </ListBox>
         </Container>
