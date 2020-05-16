@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "frontity";
 import Nav from "../nav";
 import Link from '../link';
@@ -14,15 +14,51 @@ import {
   NavIcon,
   NavIconSection,
   ResposnsiveMenu,
-  Space
+  Space,
+  Progress
 } from './styles';
 
-const Header = ({ state }) => {
+const Header = ({ state, data }) => {
 
-  const [isMenuOpen, setMenuOpen] = useState(false)
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(false);
+
   function menuAction() {
     setMenuOpen(!isMenuOpen);
   }
+
+  const calculateScrollDistance = () => {
+    const scrollTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = getDocHeight();
+
+    const  totalDocScrollLength  =  docHeight  -  windowHeight;
+    const  newScrollPostion  =  Math.floor(scrollTop  /  totalDocScrollLength  *  100);
+    setScrollPosition(newScrollPostion);
+  }
+
+  const getDocHeight  =  ()  =>  {
+    return Math.max(
+      document.body.scrollHeight,  document.documentElement.scrollHeight,
+      document.body.offsetHeight,  document.documentElement.offsetHeight,
+      document.body.clientHeight,  document.documentElement.clientHeight
+    );
+  }
+
+  const listenToScrollEvent = () => {
+    document.addEventListener("scroll", () => {
+      requestAnimationFrame(() => {
+        // Calculates the scroll distance
+        calculateScrollDistance();
+      });
+    });
+  };
+
+
+  useEffect(() => {
+    calculateScrollDistance();
+    listenToScrollEvent();
+  },[])
 
   return (
     <>
@@ -55,6 +91,8 @@ const Header = ({ state }) => {
             <Nav setMenuOpen={setMenuOpen} />
           </ResposnsiveMenu>
         )}
+        {console.log(data)}
+        {data.isPostType && data.link.indexOf('/blog') !== -1 && <Progress scroll={`${scrollPosition}%`} />}
       </Container>
       <Space />
     </>

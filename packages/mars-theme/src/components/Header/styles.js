@@ -242,3 +242,16 @@ export const MenuBox = styled.div`
     height: ${headerHeightResponsive}px;
   }
 `;
+
+export const  Progress  =  styled.div`
+  position:  absolute;
+  bottom: 0;
+  left: 0;
+  background:  linear-gradient(
+    to right,
+    #52DE97 ${props => props.scroll},
+    transparent  0);
+  width:  100%;
+  height:  4px;
+  z-index:  3;
+`;

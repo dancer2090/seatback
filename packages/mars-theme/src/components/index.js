@@ -35,7 +35,7 @@ const Theme = ({ state }) => {
 
       {/* Add the header of the site. */}
       <SiteContainer>
-        <Header />
+        <Header data={data} />
 
         {/* Add the main section. It renders a different component depending
         on the type of URL we are in. */}
