@@ -20,7 +20,7 @@ const List = ({ state }) => {
         title="Blog"
         description="Learn more about the best ways to get active and stay healthy."
         scrollRef={articlesRef}
-        isArchive={true}
+        isArchive={false}
       />
       {/* {data.isTaxonomy && (
         <Header>

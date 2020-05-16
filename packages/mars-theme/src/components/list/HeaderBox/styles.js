@@ -120,7 +120,7 @@ export const Scroll = styled.div`
     transition: all 0.3s ease-in-out; 
 
     &:after {
-      content: url(${RightArrow});
+      content: url(${props => props.mode === 'dark' ? RightArrowGreen : RightArrow});
       position: absolute;
       top: 0;
       left: 0;

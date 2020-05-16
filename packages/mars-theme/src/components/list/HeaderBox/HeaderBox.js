@@ -38,7 +38,7 @@ const HeaderBox = ({
             {title != '' && (<h1>{title}</h1>)}
             {description != '' && mode === 'light' && (<p>{description}</p>)}
             {scrollRef && (
-              <Scroll>
+              <Scroll mode={mode}>
                 <button onClick={() => scrollToRef()} />
               </Scroll>
             )}
