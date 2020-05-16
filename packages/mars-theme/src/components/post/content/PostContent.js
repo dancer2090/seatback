@@ -67,7 +67,7 @@ const PostContent = ({ state, actions, libraries }) => {
               <img src={ImageLinkedIn} />
             </LinkShare>
             <LinkShare
-              href={"http://www.facebook.com/sharer.php?s=100&amp;p[url]=" + state.frontity.url + post.link + "&amp;p[title]=" + post.title.rendered + "&amp;p[summary]=&amp;p[images][0]=http://atda.ru/wp-content/uploads/2020/04/7fl6w4ey-2.jpg"}
+              href={"http://www.facebook.com/sharer.php?s=100&amp;p[url]=" + state.frontity.url + post.link + "&amp;p[title]=" + post.title.rendered + "&amp;p[summary]=&amp;"}
              >
               <img src={ImageFacebook} />
             </LinkShare>
