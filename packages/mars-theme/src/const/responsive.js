@@ -42,5 +42,9 @@ export const WIDTH_DESCRIPTION_SIDE_LARGE = 817;
 export const WIDTH_DESCRIPTION_SIDE_MEDIUM_1 = 50;
 export const WIDTH_DESCRIPTION_SIDE_MOBILE = 100;
 
+export const POST_MARGIN_LARGE = 90;
+export const POST_MARGIN_MEDIUM_1 = 60;
+export const POST_MARGIN_MOBILE = 30;
+
 
 export const getPxSize = (size) => `${size}px`;
