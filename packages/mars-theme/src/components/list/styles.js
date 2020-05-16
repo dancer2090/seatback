@@ -16,30 +16,3 @@ import  {
   SIZE_MOBILE,
 } from '../../const/responsive';
 
-export const Container = styled.div`
-  margin: 0;
-  background-color: white;
-  width: 100%;
-  padding-left: ${PADDING_DESCTOP_LARGE}px;
-  padding-right: ${PADDING_DESCTOP_LARGE}px;
-
-  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
-    padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
-    padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
-  }
-
-  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
-    padding-left: ${PADDING_DESCTOP_MEDIUM_1}px;
-    padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
-  }
-
-  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
-    padding-left: ${PADDING_DESCTOP_SMALL}px;
-    padding-right: ${PADDING_DESCTOP_SMALL}px;
-  }
-  @media (max-width: ${SIZE_MOBILE}px) {
-    padding-left: ${PADDING_MOBILE}px;
-    padding-right: ${PADDING_MOBILE}px;
-  }
-
-`;

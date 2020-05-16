@@ -59,6 +59,9 @@ const globalStyles = css`
   *, *:after, *:before {
     box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0 auto;
     font-weight: 400;

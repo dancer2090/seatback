@@ -15,29 +15,29 @@ import  {
   HEADER_HEIGHT_RESPONSIVE,
   SIZE_MOBILE,
 } from '../../../const/responsive';
-import RightArrow from '../../../img/right_arrow.svg';
-import RightArrowGreen from '../../../img/right_arrow_green.svg';
+import RightArrow from '../../../img/right_arrow_2.svg';
+import RightArrowGreen from '../../../img/right_arrow_green_2.svg';
 
 export const HeaderBoxContainer = styled.div`
   display: flex;
   align-items: center;
   padding-top: 162px;
-  ba
 `;
 export const DescriptionBox = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   padding-bottom: 45px;
+  width: 50%;
 
   h1 {
     width: 100%;
     text-align: left;
     font-size: 50px;
-    line-height: 70px;
+    line-height: ${props => props.mode === 'dark' ? '78' : '70'}px;
     font-weight: bold;
     letter-spacing: 0px;
-    color: #2E293C;
+    color: ${props => props.mode === 'dark' ? '#FFFFFF' : '#2E293C'};
     opacity: 1;
     margin: 0;
     max-width: 423px;
@@ -65,7 +65,7 @@ export const Scroll = styled.div`
 
   button {
     transform: rotate(90deg);
-    background: url(${RightArrow}) 50% 50% / 100% auto no-repeat;
+    /* background: url(${RightArrow}) 50% 50% / 100% auto no-repeat; */
     padding: 0;
     color: transparent;
     border: none;
@@ -79,9 +79,24 @@ export const Scroll = styled.div`
     color: #2E293C !important;
     z-index: 1;
     cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out; 
+
+    &:after {
+      content: url(${RightArrow});
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    } 
     
     &:hover {
-      background: url(${RightArrowGreen}) 50% 50% / 100% auto no-repeat;
+      background-color: #52DE97;
+      &:after {
+        content: url(${RightArrowGreen});
+      }
     }
   }
 
@@ -141,11 +156,16 @@ export const BannerArticlesDescription = styled.div`
     padding-top: 12px;
   }
 
-  button {
+  a {
     position: absolute;
     right: 0;
     bottom: 0;
-    background: url(${RightArrowGreen}) 50% 50% / 100% auto no-repeat;
+  }
+
+  button {
+    position: relative;
+    right: 0;
+    bottom: 0;
     padding: 0;
     color: transparent;
     border: none;
@@ -159,10 +179,22 @@ export const BannerArticlesDescription = styled.div`
     color: #2E293C !important;
     z-index: 1;
     cursor: pointer;
+    &:after {
+      content: url(${RightArrowGreen});
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    } 
     
     &:hover {
-      background: url(${RightArrowGreen}) 50% 50% / 100% auto no-repeat;
-    }
+      background-color: #52DE97;
+      &:after {
+        content: url(${RightArrow});
+      }
+    }    
   }
 `;
 
@@ -205,12 +237,12 @@ export const Article = styled.div`
 `;
 
 export const GlobalContainer = styled.div `
-  /* padding-top:185px; */
+  padding-bottom:185px;
   overflow: hidden;
   position: relative;
   &:after{
     content: ' ';
-    background-color: #FFFFFF;
+    background-color: ${props => props.mode === 'dark' ? '#2E293C' : '#FFFFFF'};
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
@@ -221,7 +253,7 @@ export const GlobalContainer = styled.div `
   }
   &:before{
     content: ' ';
-    background: #F5F6FA;
+    background: ${props => props.mode === 'dark' ? '#FFFFFF' : '#F5F6FA'};
     width: 100%;
     height: 1830px;
     position: absolute;
@@ -235,4 +267,33 @@ export const GlobalContainer = styled.div `
   @media (max-width: ${SIZE_MOBILE}px) {
     /* padding-top: 91px; */
   }
+  
+`;
+
+
+export const Container = styled.div`
+  margin: 0;
+  width: 100%;
+  padding-left: ${PADDING_DESCTOP_LARGE}px;
+  padding-right: ${PADDING_DESCTOP_LARGE}px;
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
+    padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    padding-left: ${PADDING_DESCTOP_MEDIUM_1}px;
+    padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    padding-left: ${PADDING_DESCTOP_SMALL}px;
+    padding-right: ${PADDING_DESCTOP_SMALL}px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-left: ${PADDING_MOBILE}px;
+    padding-right: ${PADDING_MOBILE}px;
+  }
+
 `;

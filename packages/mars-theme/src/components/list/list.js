@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
@@ -9,17 +9,18 @@ import {
 
 const List = ({ state }) => {
   // Get the data of the current list.
+
+  const articlesRef = useRef(null);
   const data = state.source.get(state.router.link);
 
   return (
-    <Container>
+    <>
       {/* If the list is a taxonomy, we render a title. */}
       <HeaderBox 
         title="Blog"
         description="Learn more about the best ways to get active and stay healthy."
-        scroll="#element"
-        // mode="light"
-        isArchive={false}
+        scrollRef={articlesRef}
+        isArchive={true}
       />
       {/* {data.isTaxonomy && (
         <Header>
@@ -36,13 +37,15 @@ const List = ({ state }) => {
       )} */}
 
       {/* Iterate over the items of the list. */}
-      {data.items.map(({ type, id }) => {
-        const item = state.source[type][id];
-        // Render one Item component for each one.
-        return <Item key={item.id} item={item} />;
-      })}
+      <div ref={articlesRef}>
+        {data.items.map(({ type, id }) => {
+          const item = state.source[type][id];
+          // Render one Item component for each one.
+          return <Item key={item.id} item={item} />;
+        })}
+      </div>
       <Pagination />
-    </Container>
+    </>
   );
 };
 
