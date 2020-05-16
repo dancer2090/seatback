@@ -4,7 +4,7 @@ import Link from '../../link';
 import { connect } from "frontity";
 import HeaderBox from '../../list/HeaderBox';
 import Wow from '../../Wow';
-
+import ListItem from '../../list/ListItem';
 import ImageTwiter from '../../../img/twitter.svg';
 import ImageFacebook from '../../../img/facebook.svg';
 import ImageLinkedIn from '../../../img/linkedin.svg';
@@ -21,19 +21,21 @@ import {
   SubContainer,
   LinkShare,
   LinkShareContainer,
+  ListBox,
 } from './styles';
 
 
 const PostContent = ({ state, actions, libraries }) => {
 
   const data_p = state.source.get(state.router.link);
+  // const dataPosts = state.source.get(state.source.postsPage);
   const post = state.source[data_p.type][data_p.id];
   const author = state.source.author[post.author];
-
+  const articles = [];
   const date = new Date(post.date);
-
   const Html2React = libraries.html2react.Component;
-  console.log(post);
+  const post = state.source[data_p.type][data_p.id];
+
 
   return (
     <GlobalContainer>
@@ -75,6 +77,15 @@ const PostContent = ({ state, actions, libraries }) => {
           </LinkShareContainer>
           <Html2React html={post.content.rendered} />
         </PostContentText>
+
+        
+        <ListBox>
+          {articles.map(({ type, id }) => {
+            const item = state.source[type][id];
+            // Render one Item component for each one.
+            return <ListItem key={item.id} item={item} />;
+          })}
+        </ListBox>
       </Container>
     </GlobalContainer>
   );

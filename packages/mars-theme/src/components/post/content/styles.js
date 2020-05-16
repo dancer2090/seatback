@@ -210,3 +210,13 @@ export const PostContentText = styled.div `
   }
 
 `;
+
+export const ListBox = styled.div`
+  margin-left: -40px;
+  margin-right: -40px;
+  margin-top: -40px;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+`;
