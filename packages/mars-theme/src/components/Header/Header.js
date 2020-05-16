@@ -91,7 +91,6 @@ const Header = ({ state, data }) => {
             <Nav setMenuOpen={setMenuOpen} />
           </ResposnsiveMenu>
         )}
-        {console.log(data)}
         {data.isPostType && data.link.indexOf('/blog') !== -1 && <Progress scroll={`${scrollPosition}%`} />}
       </Container>
       <Space />
