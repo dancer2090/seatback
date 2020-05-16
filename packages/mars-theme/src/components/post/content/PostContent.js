@@ -1,9 +1,6 @@
 import React from 'react';
-import Button from '../../Button';
-import Link from '../../link';
 import { connect } from "frontity";
 import HeaderBox from '../../list/HeaderBox';
-import Wow from '../../Wow';
 import ListItem from '../../list/ListItem';
 import ImageTwiter from '../../../img/twitter.svg';
 import ImageFacebook from '../../../img/facebook.svg';
@@ -18,7 +15,6 @@ import {
   HeaderAuthorDate,
   HeaderReaderTime,
   PostContentText,
-  SubContainer,
   LinkShare,
   LinkShareContainer,
   ListBox,
@@ -28,14 +24,15 @@ import {
 const PostContent = ({ state, actions, libraries }) => {
 
   const data_p = state.source.get(state.router.link);
-  // const dataPosts = state.source.get(state.source.postsPage);
   const post = state.source[data_p.type][data_p.id];
   const author = state.source.author[post.author];
   const articles = [];
   const date = new Date(post.date);
   const Html2React = libraries.html2react.Component;
-  const post = state.source[data_p.type][data_p.id];
-
+  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+  const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
+  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+  const date_string = da + "." + mo + "." + ye;
 
   return (
     <GlobalContainer>
@@ -49,7 +46,7 @@ const PostContent = ({ state, actions, libraries }) => {
             <img src={author.acf.user_photo.url} />
             <div>
               <HeaderAuthorName>{author.name}</HeaderAuthorName>
-              <HeaderAuthorDate>{date.toDateString()}</HeaderAuthorDate>
+              <HeaderAuthorDate>{date_string}</HeaderAuthorDate>
             </div>
           </HeaderAuthor>
           <HeaderReaderTime>

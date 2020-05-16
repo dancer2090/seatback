@@ -13,7 +13,6 @@ import {
 } from './styles';
 
 const ListItem = ({
-  props,
   link = '/',
   actions,
   imageSrc="https://i.picsum.photos/id/866/1200/1000.jpg",
@@ -23,7 +22,6 @@ const ListItem = ({
   authorName="Laura Croft",
   authorImage="https://i.picsum.photos/id/866/1200/1000.jpg",
  }) => {
-  console.log(props);
   const followArticle = (link) => {
       actions.router.set(link);
       window.scrollTo(0, 0);
