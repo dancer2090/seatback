@@ -3,6 +3,7 @@ import image from "@frontity/html2react/processors/image";
 import iframe from '@frontity/html2react/processors/iframe';
 import title from './processors/title';
 import linkUrls from './processors/linkUrls';
+import { anunciantesHandler } from './handlers';
 
 const marsTheme = {
   name: "@frontity/mars-theme",
@@ -38,6 +39,43 @@ const marsTheme = {
    */
   actions: {
     theme: {
+      init: ({ libraries }) => {
+        libraries.source.handlers.push(anunciantesHandler)
+      },
+      loadMore: ({ state, actions, libraries }) => async data => {
+    //const response = libraries.source.api.get({ endpoint: "posts" });
+    //libraries.source.populate({ response, state });
+    state.seatbackapi.pageNumber+=1;
+    actions.source.fetch(`posts/${state.seatbackapi.pageNumber}`, { force: true });
+
+
+
+    //console.log('resonnse after actions');
+    //console.log(response);
+    console.log('state after actions');
+    console.log(state);
+        /*
+        console.log(data);
+        var str = "";
+        for (var key in data) {
+            if (str != "") {
+                str += "&";
+            }
+            str += key + "=" + encodeURIComponent(data[key]);
+        }
+        const res = await axios.get(`${state.source.api}/wp/v2/posts?${str}`, {}).then(function (response) {
+          if (response.status==200) {
+            state.seatbackapi.pageNumber +=1;
+            state.seatbackapi.posts = response.data;
+            console.log(response.data);
+            response.data.map(d=>{
+              actions.source.fetch(`/posts/${d.slug}/`);
+              //actions.source.fetch(`/media/${d.featured_media}/`);
+            })
+          }
+        });
+        */
+      },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },

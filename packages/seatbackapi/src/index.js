@@ -20,18 +20,11 @@ export default {
       windowSize: 0,
       isWow: true,
       pageNumber: 1,
-      posts: {},
+      posts: [],
     }
   },
   actions: {
     seatbackapi: {
-      loadMore: ({ state }) => async data => {
-        const res = await axios.post(`${state.source.api}/wp/v2/posts`, {data : data}).then(function (response) {
-          if (response.status==200) {
-            state.seatbackapi.pageNumber +=1;
-          }
-        });
-      },
       trackWindowSize: ({ state }) => {
         state.seatbackapi.windowSize = window.innerWidth || 0;
         state.seatbackapi.isWow = window.innerWidth > 768

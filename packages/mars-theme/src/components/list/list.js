@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
@@ -9,7 +9,7 @@ import {
   Action,
 } from './styles';
 
-const List = ({ state, actions }) => {
+const List = ({ state, actions, libraries }) => {
   // Get the data of the current list.
 
   const articlesRef = useRef(null);
@@ -28,8 +28,18 @@ const List = ({ state, actions }) => {
   }
   const media_obj = state.source.attachment[null_item.featured_media];
 
-  const loadMore = () => {
-    actions.seatbackapi.loadMore();
+  const [newPosts, setNewPosts] = useState([]);
+
+  const { api } = libraries.source;
+
+  const loadMore1 = () => {
+    console.log(123)
+    const data_send = {
+      offset : (state.seatbackapi.pageNumber * 8 + 1),
+      per_page : 8,
+    };
+    actions.theme.loadMore(data_send);
+
   }
 
   return (
@@ -43,14 +53,12 @@ const List = ({ state, actions }) => {
         image={media_obj.source_url}
       />
       <div ref={articlesRef}>
-        <ListPosts />
+        <ListPosts/>
       </div>
 
       <Action>
-        <Button>Load More</Button>
+        <Button onClick={()=>loadMore1()}>Load More</Button>
       </Action>
-
-      <Pagination />
     </>
   );
 };

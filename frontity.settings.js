@@ -32,7 +32,7 @@ const settings = {
           "homepage": '/home',
           "postsPage": '/blog',
           params: {
-            per_page: 2,
+            per_page: 9,
             type: ["post", "page"]
           },
           postTypes: [

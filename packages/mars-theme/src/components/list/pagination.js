@@ -19,7 +19,7 @@ const Pagination = ({ state, actions }) => {
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
     if (next){
-        actions.source.fetch(next);
+        //actions.source.fetch(next);
     }
     //actions.source.fetch('/blog');
   }, []);

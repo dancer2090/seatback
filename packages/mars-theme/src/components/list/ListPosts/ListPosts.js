@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from "react";
 import { connect, styled, decode } from "frontity";
 import ListItem from '../ListItem';
 import ImageAuthor from '../../../img/user.svg';
@@ -7,13 +7,17 @@ import {
   Container,
   ListBox,
 } from './styles';
-const ListPosts = ({ state }) => {
+const ListPosts = ({ state, items=[] }) => {
   const data = state.source.get(state.router.link);
+  console.log(data.items);
+  console.log(123);
+  console.log(state.source.post);
+
   return (
     <GlobalContainer>
        <Container>
           <ListBox>
-            {data.items.slice(1).map(({ type, id }) => {
+            {Object.values(state.source.post).slice(1).map(({ type, id }) => {
               const item = state.source[type][id];
               const media_obj = state.source.attachment[item.featured_media];
               const author = state.source.author[item.author];
@@ -31,7 +35,7 @@ const ListPosts = ({ state }) => {
                 key={item.id} 
                 item={item} 
                 title={item.title.rendered} 
-                imageSrc={media_obj.source_url} 
+                //imageSrc={media_obj.source_url}
                 link={item.link} 
                 authorImage={author.acf.user_photo.url!="" ? authorPhoto : ImageAuthor}
                 authorName={author.acf.author_name} 
