@@ -1,8 +1,12 @@
+import { config } from "dotenv";
+config();
+
 const settings = {
   "name": "frontity-test",
   "state": {
     "frontity": {
-      "url": "https://seatback.webbuilder.in.ua",
+      "adminUrl": process.env.ADMIN_URL,
+      "url": process.env.SITE_URL,
       "title": "Seatback",
       "description": "Seatback website"
     }
@@ -24,7 +28,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://seatback-admin.webbuilder.in.ua/wp-json",
+          "api": process.env.WP_API,
           "homepage": '/home',
           "postsPage": '/blog',
           postTypes: [
@@ -47,7 +51,8 @@ const settings = {
           start: "yes",
         }
       }
-    }
+    },
+    "@frontity/head-tags",
   ]
 };
 

@@ -13,6 +13,7 @@ const List = ({ state }) => {
   // Get the data of the current list.
 
   const articlesRef = useRef(null);
+
   const data = state.source.get(state.router.link);
   const null_item = state.source[data.items[0].type][data.items[0].id];
 

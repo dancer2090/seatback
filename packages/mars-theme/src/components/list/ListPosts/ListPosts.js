@@ -8,7 +8,6 @@ import {
 } from './styles';
 const ListPosts = ({ state }) => {
   const data = state.source.get(state.router.link);
-
   return (
     <GlobalContainer>
        <Container>
@@ -25,7 +24,17 @@ const ListPosts = ({ state }) => {
 
 
               // Render one Item component for each one.
-              return <ListItem key={item.id} item={item} title={item.title.rendered} imageSrc={media_obj.source_url} link={item.link} authorImage={author.acf.user_photo.url} authorName={author.acf.author_name} minRead={item.acf.time_read+" min read"} date={da+"."+mo+"."+ye}/>;
+              return <ListItem 
+                key={item.id} 
+                item={item} 
+                title={item.title.rendered} 
+                imageSrc={media_obj.source_url} 
+                link={item.link} 
+                authorImage={author.acf.user_photo.url} 
+                authorName={author.acf.author_name} 
+                minRead={item.acf.time_read+" min read"} 
+                date={da+"."+mo+"."+ye}
+              />;
             })}
           </ListBox>
         </Container>

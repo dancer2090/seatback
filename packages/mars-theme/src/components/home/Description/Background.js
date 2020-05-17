@@ -419,12 +419,12 @@ const Background = (props) => {
             gradientTransform="matrix(183.69, 0, 0, -301.28, 137063.17, 213162.72)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#fff" />
-            <stop offset="0.03" stop-color="#f9f9f9" />
-            <stop offset="0.14" stop-color="#e5e5e5" />
-            <stop offset="0.27" stop-color="#d6d6d6" />
-            <stop offset="0.43" stop-color="#cecece" />
-            <stop offset="0.69" stop-color="#ccc" />
+            <stop offset="0" stopColor="#fff" />
+            <stop offset="0.03" stopColor="#f9f9f9" />
+            <stop offset="0.14" stopColor="#e5e5e5" />
+            <stop offset="0.27" stopColor="#d6d6d6" />
+            <stop offset="0.43" stopColor="#cecece" />
+            <stop offset="0.69" stopColor="#ccc" />
           </linearGradient>
           <linearGradient
             id="linear-gradient-2"
@@ -435,11 +435,11 @@ const Background = (props) => {
             gradientTransform="matrix(0, -121.05, -209.68, 0, 145352.17, -90006.09)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0" stop-color="#fff" />
-            <stop offset="0.33" stop-color="#fbfbfc" />
-            <stop offset="0.62" stop-color="#f1f0f5" />
-            <stop offset="0.9" stop-color="#dfdeea" />
-            <stop offset="1" stop-color="#d8d6e5" />
+            <stop offset="0" stopColor="#fff" />
+            <stop offset="0.33" stopColor="#fbfbfc" />
+            <stop offset="0.62" stopColor="#f1f0f5" />
+            <stop offset="0.9" stopColor="#dfdeea" />
+            <stop offset="1" stopColor="#d8d6e5" />
           </linearGradient>
         </defs>
         <g id="Layer_3" data-name="Layer 3">

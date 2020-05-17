@@ -132,6 +132,9 @@ export const ItemDescriptionBox = styled.div`
   }
 `;
 export const Date = styled.time`
+  text-align: left;
+  display: block;
+  width: 100%;
   margin: 0;
   padding-top: 12px;
   font-size: 16px;

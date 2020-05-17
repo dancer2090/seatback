@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "frontity";
 import HeaderBox from '../../list/HeaderBox';
 import ListItem from '../../list/ListItem';
@@ -15,9 +15,11 @@ import {
   HeaderAuthorDate,
   HeaderReaderTime,
   PostContentText,
+  PostContentBox,
   LinkShare,
   LinkShareContainer,
   ListBox,
+  AdditionalBlock,
 } from './styles';
 
 
@@ -33,6 +35,14 @@ const PostContent = ({ state, actions, libraries }) => {
   const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
   const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
   const date_string = da + "." + mo + "." + ye;
+
+  // actions.source.fetch('/blog/article-headline-8');
+  const dataMore = state.source.get('/blog');
+  const moreArticles = dataMore.items ? dataMore.items.filter(i => i.id !== data_p.id).filter((i,n) => n < 2) : [];
+
+  useEffect(() => {
+    actions.source.fetch('/blog');
+  }, []);
 
   return (
     <GlobalContainer>
@@ -55,7 +65,7 @@ const PostContent = ({ state, actions, libraries }) => {
             }
           </HeaderReaderTime>
         </HeaderContent>
-        <PostContentText>
+        <PostContentBox>
           <LinkShareContainer>
             <LinkShare
               href={"http://twitter.com/share?text=&amp;url="+state.frontity.url+post.link}>
@@ -72,17 +82,42 @@ const PostContent = ({ state, actions, libraries }) => {
               <img src={ImageFacebook} />
             </LinkShare>
           </LinkShareContainer>
-          <Html2React html={post.content.rendered} />
-        </PostContentText>
+          <PostContentText>          
+            <Html2React html={post.content.rendered} />
+          </PostContentText>
+        </PostContentBox>
 
-        
-        <ListBox>
-          {articles.map(({ type, id }) => {
-            const item = state.source[type][id];
-            // Render one Item component for each one.
-            return <ListItem key={item.id} item={item} />;
-          })}
-        </ListBox>
+        <AdditionalBlock>
+          <h2>
+            More Articles
+          </h2>
+          <ListBox>
+            {moreArticles.map(({ type, id }) => {
+              const item = state.source[type][id];
+              const media_obj = state.source.attachment[item.featured_media];
+              const author = state.source.author[item.author];
+              const date = new Date(item.date);
+
+              const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+              const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
+              const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+
+
+              // Render one Item component for each one.
+              return <ListItem 
+                key={item.id} 
+                item={item} 
+                title={item.title.rendered} 
+                imageSrc={media_obj.source_url} 
+                link={item.link} 
+                authorImage={author.acf.user_photo.url} 
+                authorName={author.acf.author_name} 
+                minRead={item.acf.time_read+" min read"} 
+                date={da+"."+mo+"."+ye}
+              />;
+            })}
+          </ListBox>
+        </AdditionalBlock>
       </Container>
     </GlobalContainer>
   );
