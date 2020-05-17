@@ -13,11 +13,21 @@ import PageError from "./page-error";
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
-const Theme = ({ state }) => {
+const Theme = ({ state, actions, libraries }) => {
   // Get information about the current URL.
 
+  // actions.source.fetch('/blog');
+  const { api } = libraries.source;
+  api.get({ endpoint: "posts", params: { _embed: true, categories: '2,3,4' } });
+
+  // api.get({ 
+  //   // endpoint: "/frontity/v1/discovery",
+  //   params: { slug: "/blog" }
+  // });
   const data = state.source.get(state.router.link);
 
+
+  console.log(state);
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}

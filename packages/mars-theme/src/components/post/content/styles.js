@@ -38,12 +38,6 @@ import  {
 export const GlobalContainer = styled.div `
   overflow: hidden;
   position: relative;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    padding-top: 139px;
-  }
-  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    padding-top: 91px;
-  }
 `;
 export const Container = styled.div `
   margin:0 auto;
@@ -90,6 +84,10 @@ export const HeaderContent = styled.div `
   justify-content: space-between;
   align-items: center;
   margin-top: 120px;
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    margin-top: 30px;
+  }
 `;
 export const HeaderAuthor = styled.div `
   display: flex;
@@ -100,6 +98,10 @@ export const HeaderAuthor = styled.div `
     width: 80px;
     height: 80px;
     margin-right: 14px;
+    @media (max-width: ${SIZE_MOBILE}px) {
+      width: 60px;
+      height: 60px;
+    }
   }
 `;
 export const HeaderAuthorName = styled.div `
@@ -108,20 +110,59 @@ export const HeaderAuthorName = styled.div `
   line-height: 34px;
   letter-spacing: 0px;
   color: #2E293C;
+  text-align: left;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
-export const HeaderAuthorDate = styled.div `
+export const HeaderAuthorDate = styled.time `
+  display: block;
+  text-align: left;
   margin-top: 10px;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0.6px;
   color: #A09D9D;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 export const HeaderReaderTime = styled.div `
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   color: #2E293C;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 
 
@@ -129,6 +170,13 @@ export const LinkShareContainer = styled.div `
   position: absolute;
   right: 0px;
   top: 0px;
+
+  @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 `;
 export const LinkShare = styled.a `
   width: 60px;
@@ -139,21 +187,135 @@ export const LinkShare = styled.a `
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    transform: scale(0.95);
+  }
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    transform: scale(0.9);
+  }
+  @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+    transform: scale(0.85);
+  }
+  @media(max-width: ${SIZE_LAPTOP}px) {
+    transform: scale(0.8);
+  }
+  @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+    transform: scale(0.75);    
+  }
+  @media(max-width: ${SIZE_MOBILE}px) {
+    transform: scale(0.7);
+  }
+`;
+export const PostContentBox = styled.div`
+  position: relative;
 `;
 export const PostContentText = styled.div `
-  padding-left: 273px;
-  padding-right: 273px;
+  max-width: 1074px;
+  margin: 0 auto;
   position: relative;
   font-size: 24px;
   line-height: 48px;
   font-weight: 500;
   letter-spacing: 0.29px;
   color: #707070;
+  text-align: left;
+
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 24px;
+    line-height: 48px;
+    padding-right: 70px;
+  }
+  @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 22px;
+    line-height: 48px;
+  }
+  @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+    font-size: 20px;
+    line-height: 44px;
+  }
+  @media(max-width: ${SIZE_LAPTOP}px) {
+    font-size: 18px;
+    line-height: 36px;
+  }
+  @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+    font-size: 16px;
+    line-height: 32px;
+    padding-right: 0;
+  }
+  @media(max-width: ${SIZE_MOBILE}px) {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  a {
+    color: #52DE97;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: #2E293C;
+    }
+  }
+
   & p{
-    margin-top: ${POST_MARGIN_LARGE}px;
+    margin-top: ${POST_MARGIN_LARGE - 15}px;
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 24px;
+      line-height: 48px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 22px;
+      line-height: 48px;
+      margin-top: ${POST_MARGIN_MEDIUM_1 - 15}px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+      font-size: 20px;
+      line-height: 44px;
+    }
+    @media(max-width: ${SIZE_LAPTOP}px) {
+      font-size: 18px;
+      line-height: 36px;
+    }
+    @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 16px;
+      line-height: 32px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 14px;
+      line-height: 28px;
+      margin-top: ${POST_MARGIN_MOBILE - 15}px;
+    }
   }
   & h1{
     margin-top: ${POST_MARGIN_LARGE}px;
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 50px;
+      line-height: 60px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 48px;
+      line-height: 56px;
+      margin-top: ${POST_MARGIN_MEDIUM_1}px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+      font-size: 44px;
+      line-height: 52px;
+    }
+    @media(max-width: ${SIZE_LAPTOP}px) {
+      font-size: 40px;
+      line-height: 48px;
+    }
+    @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 36px;
+      line-height: 44px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 32px;
+      line-height: 40px;
+      margin-top: ${POST_MARGIN_MOBILE}px;
+    }
+
   }
   & h2{
     margin-top: ${POST_MARGIN_LARGE}px;
@@ -162,15 +324,135 @@ export const PostContentText = styled.div `
     line-height: 48px;
     color: #2E293C;
     letter-spacing: 0.53px;
+
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 40px;
+      line-height: 60px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 36px;
+      line-height: 54px;
+      margin-top: ${POST_MARGIN_MEDIUM_1}px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+      font-size: 34px;
+      line-height: 50px;
+    }
+    @media(max-width: ${SIZE_LAPTOP}px) {
+      font-size: 32px;
+      line-height: 48px;
+    }
+    @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 28px;
+      line-height: 42px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 24px;
+      line-height: 36px;
+      margin-top: ${POST_MARGIN_MOBILE}px;
+    }
   }
   & h3{
     margin-top: ${POST_MARGIN_LARGE}px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0.53px;
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 36px;
+      line-height: 52px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 32px;
+      line-height: 48px;
+      margin-top: ${POST_MARGIN_MEDIUM_1}px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+      font-size: 28px;
+      line-height: 44px;
+    }
+    @media(max-width: ${SIZE_LAPTOP}px) {
+      font-size: 24px;
+      line-height: 40px;
+    }
+    @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 20px;
+      line-height: 36px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 18px;
+      line-height: 32px;
+      margin-top: ${POST_MARGIN_MOBILE}px;
+    }
   }
   & h4{
     margin-top: ${POST_MARGIN_LARGE}px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 0.53px;
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 30px;
+      line-height: 42px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 28px;
+      line-height: 40px;
+      margin-top: ${POST_MARGIN_MEDIUM_1}px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+    @media(max-width: ${SIZE_LAPTOP}px) {
+      font-size: 20px;
+      line-height: 32px;
+    }
+    @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 18px;
+      line-height: 36px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 16px;
+      line-height: 32px;
+      margin-top: ${POST_MARGIN_MOBILE}px;
+    }
   }
   & h5{
     margin-top: ${POST_MARGIN_LARGE}px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0.53px;
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 26px;
+      line-height: 38px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 24px;
+      line-height: 36px;
+      margin-top: ${POST_MARGIN_MEDIUM_1}px;
+    }
+    @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+      font-size: 20px;
+      line-height: 32px;
+    }
+    @media(max-width: ${SIZE_LAPTOP}px) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+    @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: ${POST_MARGIN_MOBILE}px;
+    }
+  }
+  & ul{
+    padding-left: 20px;
   }
   & ol{
     counter-reset: myCounter;
@@ -189,10 +471,41 @@ export const PostContentText = styled.div `
         line-height: 64px;
         letter-spacing: 0.53px;
         color: #2E293C;
+
+        @media(max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+          font-size: 40px;
+          line-height: 60px;
+        }
+        @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+          font-size: 36px;
+          line-height: 54px;
+        }
+        @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+          font-size: 34px;
+          line-height: 50px;
+        }
+        @media(max-width: ${SIZE_LAPTOP}px) {
+          font-size: 32px;
+          line-height: 48px;
+        }
+        @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
+          font-size: 28px;
+          line-height: 42px;
+        }
+        @media(max-width: ${SIZE_MOBILE}px) {
+          font-size: 24px;
+          line-height: 36px;
+        }
+      }
+      @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+        margin-top: ${POST_MARGIN_MEDIUM_1}px;
+      }
+      @media(max-width: ${SIZE_MOBILE}px) {
+        margin-top: ${POST_MARGIN_MOBILE}px;
       }
 
     }
-    & li:first-child{
+    & li:first-of-type{
       margin-top: 0px;
     }
     & img{
@@ -201,11 +514,24 @@ export const PostContentText = styled.div `
       height: auto;
       border-radius: 10px;
       position: relative;
+      @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+        margin-top: ${POST_MARGIN_MEDIUM_1}px;
+      }
+      @media(max-width: ${SIZE_MOBILE}px) {
+        margin-top: ${POST_MARGIN_MOBILE}px;
+      }
     }
     & span{
       width: auto;
       height: auto;
       padding-bottom: 0px;
+    }
+
+    @media(max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      margin-top: ${POST_MARGIN_MEDIUM_1}px;
+    }
+    @media(max-width: ${SIZE_MOBILE}px) {
+      margin-top: ${POST_MARGIN_MOBILE}px;
     }
   }
 
@@ -219,4 +545,37 @@ export const ListBox = styled.div`
   align-items: stretch;
   justify-content: flex-start;
   flex-wrap: wrap;
+
+  padding-top: 80px;
+`;
+
+
+export const AdditionalBlock = styled.div`
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  @media(max-width: ${SIZE_DESCTOP_SMALL}px) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  @media(max-width: ${SIZE_MOBILE}px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  > h2 {
+    text-align: left;
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 600;
+    letter-spacing: 0px;
+    color: #2E293C;
+    opacity: 1;
+
+    margin: 0;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #CCCCCC;
+  }
+
+
 `;
