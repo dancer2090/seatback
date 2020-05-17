@@ -18,7 +18,8 @@ const HeaderBox = ({
   description = "", 
   scrollRef, 
   isArchive = true,
-  image="https://i.picsum.photos/id/866/1200/1000.jpg"
+  image="https://i.picsum.photos/id/866/1200/1000.jpg",
+  postObj={title:"",read:"",link:""},
 }) => {
 
   const scrollToRef = () => scrollRef ? window.scrollTo({
@@ -50,9 +51,9 @@ const HeaderBox = ({
                   <New>New</New>
                   <BannerArticlesDescription>
                     <div>
-                      <h3>Article header</h3>
-                      <p>9 min read</p>                      
-                      <Link to="/">
+                      <h3>{postObj.title}</h3>
+                      <p>{postObj.read} min read</p>                      
+                      <Link to={postObj.link}>
                         <button />
                       </Link>
                     </div>

@@ -14,6 +14,16 @@ const List = ({ state }) => {
 
   const articlesRef = useRef(null);
   const data = state.source.get(state.router.link);
+  const null_item = state.source[data.items[0].type][data.items[0].id];
+
+const data_p = state.source.get("/blog");
+
+  console.log(state.source);
+  const banner_post = {
+    title:null_item.title.rendered,
+    read:null_item.acf.time_read+" min read",
+    link:null_item.link,
+  }
 
   return (
     <>
