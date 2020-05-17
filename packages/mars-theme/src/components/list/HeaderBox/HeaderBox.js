@@ -51,9 +51,13 @@ const HeaderBox = ({
                   <New>New</New>
                   <BannerArticlesDescription>
                     <div>
-                      <h3>{postObj.title}</h3>
+                      <h3>
+                        <Link link={postObj.link}>
+                          {postObj.title}
+                        </Link>
+                       </h3>
                       <p>{postObj.read} min read</p>                      
-                      <Link to={postObj.link}>
+                      <Link link={postObj.link}>
                         <button />
                       </Link>
                     </div>

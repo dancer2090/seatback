@@ -9,30 +9,38 @@ import {
   Action,
 } from './styles';
 
-const List = ({ state }) => {
+const List = ({ state, actions }) => {
   // Get the data of the current list.
 
   const articlesRef = useRef(null);
 
   const data = state.source.get(state.router.link);
+//  const null_item_state = data.items.shift();
+
   const null_item = state.source[data.items[0].type][data.items[0].id];
 
-const data_p = state.source.get("/blog");
+  const options = state.seatbackapi.options.acf;
 
-  console.log(state.source);
   const banner_post = {
     title:null_item.title.rendered,
-    read:null_item.acf.time_read+" min read",
+    read:null_item.acf.time_read,
     link:null_item.link,
+  }
+  const media_obj = state.source.attachment[null_item.featured_media];
+
+  const loadMore = () => {
+    actions.seatbackapi.loadMore();
   }
 
   return (
     <>
       <HeaderBox 
-        title="Blog"
-        description="Learn more about the best ways to get active and stay healthy."
+        title={options.b_title}
+        description={options.b_description}
         scrollRef={articlesRef}
         isArchive={true}
+        postObj={banner_post}
+        image={media_obj.source_url}
       />
       <div ref={articlesRef}>
         <ListPosts />

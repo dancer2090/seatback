@@ -19,10 +19,19 @@ export default {
       isFormSend: false,
       windowSize: 0,
       isWow: true,
+      pageNumber: 1,
+      posts: {},
     }
   },
   actions: {
     seatbackapi: {
+      loadMore: ({ state }) => async data => {
+        const res = await axios.post(`${state.source.api}/wp/v2/posts`, {data : data}).then(function (response) {
+          if (response.status==200) {
+            state.seatbackapi.pageNumber +=1;
+          }
+        });
+      },
       trackWindowSize: ({ state }) => {
         state.seatbackapi.windowSize = window.innerWidth || 0;
         state.seatbackapi.isWow = window.innerWidth > 768
@@ -35,7 +44,7 @@ export default {
         const page = state.source[data_p.type][data_p.id];
         const acf_form = page.acf.gd_form;
         state.seatbackapi.isFormSend = true;
-        const res = await axios.post('https://seatback-admin.webbuilder.in.ua/wp-json/seatback-api/send-forms/'+acf_form.ID, {data : data}).then(function (response) {
+        const res = await axios.post(`${state.source.api}/seatback-api/send-forms/${acf_form.ID}`, {data : data}).then(function (response) {
           // console.log(response);
           if (response.status==200) {
             state.seatbackapi.isFormSend = false;
@@ -45,6 +54,9 @@ export default {
       beforeSSR: async ({ state, actions, libraries }) => {
         const topMenu = await axios.get(`${state.source.api}/menus/v1/menus/top_menu`);
         state.seatbackapi.menu = topMenu.data;
+
+        const optionPage = await axios.get(`${state.source.api}/acf/v3/options/options`);
+        state.seatbackapi.options = optionPage.data;
       },
       afterCSR: async({ state, actions, libraries }) => {
         actions.seatbackapi.trackWindowSize();

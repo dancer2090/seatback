@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect, styled, decode } from "frontity";
 import ListItem from '../ListItem';
+import ImageAuthor from '../../../img/user.svg';
 import { 
   GlobalContainer, 
   Container,
@@ -12,7 +13,7 @@ const ListPosts = ({ state }) => {
     <GlobalContainer>
        <Container>
           <ListBox>
-            {data.items.map(({ type, id }) => {
+            {data.items.slice(1).map(({ type, id }) => {
               const item = state.source[type][id];
               const media_obj = state.source.attachment[item.featured_media];
               const author = state.source.author[item.author];
@@ -22,6 +23,8 @@ const ListPosts = ({ state }) => {
               const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
               const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 
+              const authorPhoto = author.acf.user_photo.url;
+
 
               // Render one Item component for each one.
               return <ListItem 
@@ -30,7 +33,7 @@ const ListPosts = ({ state }) => {
                 title={item.title.rendered} 
                 imageSrc={media_obj.source_url} 
                 link={item.link} 
-                authorImage={author.acf.user_photo.url} 
+                authorImage={author.acf.user_photo.url!="" ? authorPhoto : ImageAuthor}
                 authorName={author.acf.author_name} 
                 minRead={item.acf.time_read+" min read"} 
                 date={da+"."+mo+"."+ye}

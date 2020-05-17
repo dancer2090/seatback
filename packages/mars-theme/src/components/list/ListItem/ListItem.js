@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'frontity';
 import Link from '../../link';
+import ImageAuthor from '../../../img/user.svg';
 import {
   ItemBox,
   ItemContentBox,

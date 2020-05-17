@@ -223,6 +223,15 @@ export const BannerArticlesDescription = styled.div`
     color: #FFFFFF;
     opacity: 1;
     max-width: 80%;
+    & a{
+      position: relative;
+      width: auto;
+      height: auto;
+      transition: all 0.3s ease-in-out;
+      &:hover{
+        color: #52DE97;
+      }
+    }
 
     @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
       font-size: 22px;
@@ -419,4 +428,14 @@ export const Container = styled.div`
     padding-right: ${PADDING_MOBILE}px;
   }
 
+`;
+
+export const ClickBox = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  cursor: pointer;
 `;

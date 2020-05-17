@@ -3,6 +3,7 @@ import Button from '../../Button';
 import Link from '../../link';
 import { connect } from "frontity";
 import Wow from '../../Wow';
+import ImageAuthor from '../../../img/user.svg';
 
 import { 
   GlobalContainer,

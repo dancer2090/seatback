@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from "frontity";
 import HeaderBox from '../../list/HeaderBox';
 import ListItem from '../../list/ListItem';
 import ImageTwiter from '../../../img/twitter.svg';
 import ImageFacebook from '../../../img/facebook.svg';
 import ImageLinkedIn from '../../../img/linkedin.svg';
+import ImageAuthor from '../../../img/user.svg';
 
 import { 
   GlobalContainer,
@@ -25,6 +26,8 @@ import {
 
 const PostContent = ({ state, actions, libraries }) => {
 
+  const contentRef = useRef(null);
+
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
   const author = state.source.author[post.author];
@@ -40,6 +43,9 @@ const PostContent = ({ state, actions, libraries }) => {
   const dataMore = state.source.get('/blog');
   const moreArticles = dataMore.items ? dataMore.items.filter(i => i.id !== data_p.id).filter((i,n) => n < 2) : [];
 
+  const authorPhoto = author.acf.user_photo.url;
+  const media_obj = state.source.attachment[post.featured_media];
+
   useEffect(() => {
     actions.source.fetch('/blog');
   }, []);
@@ -49,13 +55,15 @@ const PostContent = ({ state, actions, libraries }) => {
       <HeaderBox 
         title={post.title.rendered}
         isArchive={false}
+        image={media_obj.source_url}
+        scrollRef={contentRef}
       />
       <Container>
-        <HeaderContent>
+        <HeaderContent ref={contentRef}>
           <HeaderAuthor>
-            <img src={author.acf.user_photo.url} />
+            <img src={author.acf.user_photo.url!="" ? authorPhoto : ImageAuthor} />
             <div>
-              <HeaderAuthorName>{author.name}</HeaderAuthorName>
+              <HeaderAuthorName>{author.acf.author_name}</HeaderAuthorName>
               <HeaderAuthorDate>{date_string}</HeaderAuthorDate>
             </div>
           </HeaderAuthor>
@@ -102,6 +110,8 @@ const PostContent = ({ state, actions, libraries }) => {
               const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
               const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 
+              const authorPhoto = author.acf.user_photo.url;
+
 
               // Render one Item component for each one.
               return <ListItem 
@@ -110,7 +120,7 @@ const PostContent = ({ state, actions, libraries }) => {
                 title={item.title.rendered} 
                 imageSrc={media_obj.source_url} 
                 link={item.link} 
-                authorImage={author.acf.user_photo.url} 
+                authorImage={author.acf.user_photo.url!="" ? authorPhoto : ImageAuthor} 
                 authorName={author.acf.author_name} 
                 minRead={item.acf.time_read+" min read"} 
                 date={da+"."+mo+"."+ye}

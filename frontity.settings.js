@@ -31,6 +31,10 @@ const settings = {
           "api": process.env.WP_API,
           "homepage": '/home',
           "postsPage": '/blog',
+          params: {
+            per_page: 2,
+            type: ["post", "page"]
+          },
           postTypes: [
             {
               type: "forms", // type slug
