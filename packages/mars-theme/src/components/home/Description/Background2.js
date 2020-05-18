@@ -36,6 +36,22 @@ const BgBox = styled.div`
 `;
 
 const SVG = styled.svg`
+
+  @keyframes bgRotate {
+    from {
+      transform: rotate(0deg);
+    }   
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* animation-name: 'bgRotate';
+  animation-duration: 360s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+   */
+
   .cls-1 {
     fill: #ccc;
   }
@@ -120,13 +136,6 @@ const SVG = styled.svg`
     stroke: #52de97;
   }
 
-  /* path {
-    animation-name: 'card2';
-    animation-duration: 4s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  } */
-
 
   @keyframes svgpathUpDown {
     from {
@@ -146,28 +155,19 @@ const SVG = styled.svg`
     }
   }
 
-  /* line.cls-13 {
-    animation-name: 'svgPathRight';
-    animation-duration: 4s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  } */
-
-
-
 
   @keyframes bg-el-1 {
     from {
       transform: translate(0%,0%);
     }
     25% {
-      transform: translate(-1%, 5%);
+      transform: translate(0, 3%);
     }
     50% {
       transform: translate(0%, 0%);
     }
     75% {
-      transform: translate(1%, -3%);
+      transform: translate(0%, -3%);
     }
     to {
       transform: translate(0%, 0%);
@@ -187,13 +187,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%);
     }
     25% {
-      transform: translate(-5%, 5%);
+      transform: translate(-2%, 2%);
     }
     50% {
       transform: translate(0%, 0%);
     }
     75% {
-      transform: translate(3%, -3%);
+      transform: translate(2%, -2%);
     }
     to {
       transform: translate(0%, 0%);
@@ -212,13 +212,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%);
     }
     25% {
-      transform: translate(-5%, 5%);
+      transform: translate(-2%, 2%);
     }
     50% {
       transform: translate(0%, 0%);
     }
     75% {
-      transform: translate(3%, -3%);
+      transform: translate(2%, -2%);
     }
     to {
       transform: translate(0%, 0%);
@@ -237,13 +237,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%) rotate(0deg);
     }
     25% {
-      transform: translate(-1%, 1%) rotate(1deg);
+      transform: translate(0%, 1%) rotate(1deg);
     }
     50% {
       transform: translate(0%, 0%) rotate(0deg);
     }
     75% {
-      transform: translate(1%, -1%) rotate(-1deg);
+      transform: translate(0, -1%) rotate(-1deg);
     }
     to {
       transform: translate(0%, 0%) rotate(0deg);
@@ -262,13 +262,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%) rotate(0deg);
     }
     25% {
-      transform: translate(-1%, 1%) rotate(1deg);
+      transform: translate(0%, 1%) rotate(1deg);
     }
     50% {
       transform: translate(0%, 0%) rotate(0deg);
     }
     75% {
-      transform: translate(1%, -1%) rotate(-1deg);
+      transform: translate(0%, -1%) rotate(-1deg);
     }
     to {
       transform: translate(0%, 0%) rotate(0deg);
@@ -287,13 +287,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%) ;
     }
     25% {
-      transform: translate(2%, -2%);
+      transform: translate(0%, -2%);
     }
     50% {
       transform: translate(0%, 0%) ;
     }
     75% {
-      transform: translate(-1%, 1%);
+      transform: translate(0%, 1%);
     }
     to {
       transform: translate(0%, 0%) ;
@@ -312,7 +312,7 @@ const SVG = styled.svg`
       transform: translate(0%,0%) ;
     }
     25% {
-      transform: translate(2%, -2%);
+      transform: translate(1%, -1%);
     }
     50% {
       transform: translate(0%, 0%) ;
@@ -337,7 +337,7 @@ const SVG = styled.svg`
       transform: translate(0%,0%) ;
     }
     25% {
-      transform: translate(3%, -2%);
+      transform: translate(2%, -1%);
     }
     50% {
       transform: translate(0%, 0%) ;
@@ -362,13 +362,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%) ;
     }
     25% {
-      transform: translate(5%, -2%);
+      transform: translate(3%, -1%);
     }
     50% {
       transform: translate(0%, 0%) ;
     }
     75% {
-      transform: translate(-4%, 1%);
+      transform: translate(-3%, 1%);
     }
     to {
       transform: translate(0%, 0%) ;
@@ -387,13 +387,13 @@ const SVG = styled.svg`
       transform: translate(0%,0%) ;
     }
     25% {
-      transform: translate(4%, -2%);
+      transform: translate(3%, 0%);
     }
     50% {
       transform: translate(0%, 0%) ;
     }
     75% {
-      transform: translate(-3%, 1%);
+      transform: translate(-3%, 0%);
     }
     to {
       transform: translate(0%, 0%) ;

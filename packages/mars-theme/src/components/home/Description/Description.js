@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
-import { styled, connect, fetch, URL } from "frontity";
-import ImageSeatbackPlus from '../../../img/seatback_plus@2x.png';
-import ImageSeatbackChair from '../../../img/seat-element-chair.png';
-import ImageSeatbackProcessor from '../../../img/seat-element-processor.png';
-import ImageSeatbackSeat from '../../../img/seat-element-seat.png';
-import ImageSeatbackWatch from '../../../img/seat-element-watch.png';
+import { connect } from "frontity";
 import Background from './Background';
+import Background2 from './Background2';
+import Background3 from './Background3';
 import Button from '../../Button';
 import Link from "../../link";
 import Wow from './../../Wow';
@@ -21,8 +18,38 @@ import {
 } from './styles';
 
 
-
+function parseURL(url) {
+  var parser = document.createElement('a'),
+      searchObject = {},
+      queries, split, i;
+  // Let the browser do the work
+  parser.href = url;
+  // Convert query string to object
+  queries = parser.search.replace(/^\?/, '').split('&');
+  for( i = 0; i < queries.length; i++ ) {
+      split = queries[i].split('=');
+      searchObject[split[0]] = split[1];
+  }
+  return {
+      protocol: parser.protocol,
+      host: parser.host,
+      hostname: parser.hostname,
+      port: parser.port,
+      pathname: parser.pathname,
+      search: parser.search,
+      searchObject: searchObject,
+      hash: parser.hash
+  };
+}
 const Description = ({state, actions, libraries}) => {
+  // ?animation=second
+  console.log(state);
+  if (state.frontity.rendering === 'csr') {
+
+    console.log(parseURL(state.router.link));
+  }
+  const urlObject = state.frontity.rendering === 'csr' ? parseURL(state.router.link) : {};
+  const aminationType = urlObject.searchObject && urlObject.searchObject.animation ? urlObject.searchObject.animation : 'first';
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
@@ -48,7 +75,9 @@ const Description = ({state, actions, libraries}) => {
                 <Image alignImage={d.alignImage}>
                     {d.animated &&
                       <>
-                        <Background alignImage={d.alignImage} reverse={d.alignImage === 'right'} />
+                      {aminationType === 'first' && <Background alignImage={d.alignImage} reverse={d.alignImage === 'right'} />}
+                      {aminationType === 'second' && <Background2 alignImage={d.alignImage} reverse={d.alignImage === 'right'} />}
+                      {aminationType === 'third' && <Background3 alignImage={d.alignImage} reverse={d.alignImage === 'right'} />}
                         <img src={d.image.url} width={660} className="card2" alt="image" />
                         {/* <img src={d.bg.url} width={660} alt="image" className="card1" /> */}
                       </>
