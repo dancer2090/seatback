@@ -160,15 +160,9 @@ const SVG = styled.svg`
     from {
       transform: translate(0%,0%);
     }
-    25% {
-      transform: translate(-1%, 5%);
-    }
     50% {
-      transform: translate(0%, 0%);
-    }
-    75% {
-      transform: translate(1%, -3%);
-    }
+      transform: translate(1%, -70%);
+    }    
     to {
       transform: translate(0%, 0%);
     }
@@ -176,7 +170,8 @@ const SVG = styled.svg`
 
   .el-1 {
     animation-name: 'bg-el-1';
-    animation-duration: 6s;
+    animation-duration: 45s;
+    animation-delay: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
@@ -185,15 +180,9 @@ const SVG = styled.svg`
   @keyframes bg-el-2 {
     from {
       transform: translate(0%,0%);
-    }
-    25% {
-      transform: translate(-5%, 5%);
-    }
+    }    
     50% {
-      transform: translate(0%, 0%);
-    }
-    75% {
-      transform: translate(3%, -3%);
+      transform: translate(50%, -50%);
     }
     to {
       transform: translate(0%, 0%);
@@ -202,7 +191,8 @@ const SVG = styled.svg`
 
   .el-2 {
     animation-name: 'bg-el-2';
-    animation-duration: 6s;
+    animation-duration: 40s;
+    animation-delay: 2s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
@@ -210,199 +200,156 @@ const SVG = styled.svg`
   @keyframes bg-el-3 {
     from {
       transform: translate(0%,0%);
-    }
-    25% {
-      transform: translate(-5%, 5%);
-    }
+    }    
     50% {
-      transform: translate(0%, 0%);
-    }
-    75% {
-      transform: translate(3%, -3%);
+      transform: translate(50%, -50%);
     }
     to {
       transform: translate(0%, 0%);
-    }
+    }    
   }
 
   .el-3 {
     animation-name: 'bg-el-3';
-    animation-duration: 6s;
+    animation-duration: 37s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-4 {
     from {
-      transform: translate(0%,0%) rotate(0deg);
-    }
-    25% {
-      transform: translate(-1%, 1%) rotate(1deg);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) rotate(0deg);
-    }
-    75% {
-      transform: translate(1%, -1%) rotate(-1deg);
+      transform: translate(50%, -50%);
     }
     to {
-      transform: translate(0%, 0%) rotate(0deg);
-    }
+      transform: translate(0%, 0%);
+    }   
   }
 
   .el-4 {
     animation-name: 'bg-el-4';
-    animation-duration: 6s;
+    animation-duration: 45s;
+    animation-delay: 3s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-5 {
     from {
-      transform: translate(0%,0%) rotate(0deg);
-    }
-    25% {
-      transform: translate(-1%, 1%) rotate(1deg);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) rotate(0deg);
-    }
-    75% {
-      transform: translate(1%, -1%) rotate(-1deg);
+      transform: translate(50%, -30%);
     }
     to {
-      transform: translate(0%, 0%) rotate(0deg);
+      transform: translate(0%, 0%);
     }
   }
 
   .el-5 {
     animation-name: 'bg-el-5';
-    animation-duration: 6s;
+    animation-duration: 44s;
+    animation-delay: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-6 {
     from {
-      transform: translate(0%,0%) ;
-    }
-    25% {
-      transform: translate(2%, -2%);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) ;
-    }
-    75% {
-      transform: translate(-1%, 1%);
+      transform: translate(0%, 50%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-6 {
     animation-name: 'bg-el-6';
-    animation-duration: 6s;
+    animation-duration: 36s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-7 {
     from {
-      transform: translate(0%,0%) ;
-    }
-    25% {
-      transform: translate(2%, -2%);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) ;
-    }
-    75% {
-      transform: translate(-1%, 1%);
+      transform: translate(-35%, 45%);
     }
     to {
-      transform: translate(0%, 0%) ;
-    }
+      transform: translate(0%, 0%);
+    } 
   }
 
   .el-7 {
     animation-name: 'bg-el-7';
-    animation-duration: 6s;
+    animation-delay: 3s;
+    animation-duration: 38s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-8 {
+
     from {
-      transform: translate(0%,0%) ;
-    }
-    25% {
-      transform: translate(3%, -2%);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) ;
-    }
-    75% {
-      transform: translate(-2%, 1%);
+      transform: translate(-15%, 50%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-8 {
     animation-name: 'bg-el-8';
-    animation-duration: 6s;
+    animation-duration: 35s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-9 {
     from {
-      transform: translate(0%,0%) ;
-    }
-    25% {
-      transform: translate(5%, -2%);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) ;
-    }
-    75% {
-      transform: translate(-4%, 1%);
+      transform: translate(-15%, 40%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-9 {
     animation-name: 'bg-el-9';
-    animation-duration: 6s;
+    animation-duration: 44s;
+    animation-delay: 8s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   @keyframes bg-el-10 {
     from {
-      transform: translate(0%,0%) ;
-    }
-    25% {
-      transform: translate(4%, -2%);
-    }
+      transform: translate(0%,0%);
+    }    
     50% {
-      transform: translate(0%, 0%) ;
-    }
-    75% {
-      transform: translate(-3%, 1%);
+      transform: translate(-55%, 1%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-10 {
     animation-name: 'bg-el-10';
-    animation-duration: 6s;
+    animation-duration: 32s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
