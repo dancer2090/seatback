@@ -15,6 +15,9 @@ const List = ({ state, actions, libraries }) => {
   const articlesRef = useRef(null);
 
   const data = state.source.get(state.router.link);
+  const { next, previous, totalPages } = state.source.get(state.router.link);
+  console.log(next);
+  //const data = state.source.get(next);
 //  const null_item_state = data.items.shift();
 
   const null_item = state.source[data.items[0].type][data.items[0].id];
@@ -29,16 +32,40 @@ const List = ({ state, actions, libraries }) => {
   const media_obj = state.source.attachment[null_item.featured_media];
 
   const [newPosts, setNewPosts] = useState([]);
+  const [loadMoreHidden, setLoadMoreHidden] = useState(false);
 
   const { api } = libraries.source;
 
+
+
+
+  //var countSlice = state.seatbackapi.pageNumber-2;
+  var per_page = state.source.params.per_page;
+  var countSlice = 0;
+  if((state.seatbackapi.pageNumber-1)!=totalPages) countSlice=state.seatbackapi.pageNumber-2;
+  //var postItems = Object.values(state.source.post).slice(countSlice).reverse().slice(1);
+
+  var megaItems = data.items.slice(1);
+  if(state.seatbackapi.pageNumber>2){
+    for(var i=2;i<state.seatbackapi.pageNumber;i++){
+      var currentData = state.source.get(`/blog/page/${i}`);
+      console.log(currentData);
+      if(currentData.isReady){
+        megaItems = megaItems.concat(currentData.items);
+      }
+    }
+    if(currentData.isReady){
+      var splice_count = megaItems.length-countSlice;
+      megaItems.splice(splice_count);
+    }
+  }
+
+  state.seatbackapi.customPostTotal = totalPages;
   const loadMore1 = () => {
-    console.log(123)
-    const data_send = {
-      offset : (state.seatbackapi.pageNumber * 8 + 1),
-      per_page : 8,
-    };
-    actions.theme.loadMore(data_send);
+    actions.source.fetch(`/blog/page/${state.seatbackapi.pageNumber}/`);
+    state.seatbackapi.pageNumber+=1;
+    if((state.seatbackapi.pageNumber-1)==totalPages) setLoadMoreHidden(true);
+    //actions.theme.loadMore();
 
   }
 
@@ -53,11 +80,11 @@ const List = ({ state, actions, libraries }) => {
         image={media_obj.source_url}
       />
       <div ref={articlesRef}>
-        <ListPosts/>
+        <ListPosts items={megaItems}/>
       </div>
 
       <Action>
-        <Button onClick={()=>loadMore1()}>Load More</Button>
+        <Button hidden={loadMoreHidden} onClick={()=>loadMore1()}>Load More</Button>
       </Action>
     </>
   );

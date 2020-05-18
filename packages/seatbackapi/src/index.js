@@ -19,7 +19,7 @@ export default {
       isFormSend: false,
       windowSize: 0,
       isWow: true,
-      pageNumber: 1,
+      pageNumber: 2,
       posts: [],
     }
   },

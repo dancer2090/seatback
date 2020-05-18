@@ -209,6 +209,7 @@ export const LinkShare = styled.a `
 `;
 export const PostContentBox = styled.div`
   position: relative;
+  min-height: 150px;
 `;
 export const PostContentText = styled.div `
   max-width: 1074px;

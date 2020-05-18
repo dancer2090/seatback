@@ -43,8 +43,9 @@ const PostContent = ({ state, actions, libraries }) => {
   const dataMore = state.source.get('/blog');
   const moreArticles = dataMore.items ? dataMore.items.filter(i => i.id !== data_p.id).filter((i,n) => n < 2) : [];
 
-  const authorPhoto = author.acf.user_photo.url;
+  const authorPhoto = (Object.keys(author.acf).length>0 && author.acf.user_photo!==false) ? author.acf.user_photo.url : ImageAuthor;
   const media_obj = state.source.attachment[post.featured_media];
+  const media_url = (typeof media_obj === 'object') ? media_obj.source_url : "";
 
   useEffect(() => {
     actions.source.fetch('/blog');
@@ -55,13 +56,13 @@ const PostContent = ({ state, actions, libraries }) => {
       <HeaderBox 
         title={post.title.rendered}
         isArchive={false}
-        image={media_obj.source_url}
+        image={media_url}
         scrollRef={contentRef}
       />
       <Container>
         <HeaderContent ref={contentRef}>
           <HeaderAuthor>
-            <img src={author.acf.user_photo.url!="" ? authorPhoto : ImageAuthor} />
+            <img src={authorPhoto} />
             <div>
               <HeaderAuthorName>{author.acf.author_name}</HeaderAuthorName>
               <HeaderAuthorDate>{date_string}</HeaderAuthorDate>
@@ -110,7 +111,7 @@ const PostContent = ({ state, actions, libraries }) => {
               const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
               const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 
-              const authorPhoto = author.acf.user_photo.url;
+              const authorPhoto = (Object.keys(author.acf).length>0 && author.acf.user_photo.url!="") ? author.acf.user_photo.url : ImageAuthor;
 
 
               // Render one Item component for each one.
@@ -120,7 +121,7 @@ const PostContent = ({ state, actions, libraries }) => {
                 title={item.title.rendered} 
                 imageSrc={media_obj.source_url} 
                 link={item.link} 
-                authorImage={author.acf.user_photo.url!="" ? authorPhoto : ImageAuthor} 
+                authorImage={authorPhoto} 
                 authorName={author.acf.author_name} 
                 minRead={item.acf.time_read+" min read"} 
                 date={da+"."+mo+"."+ye}

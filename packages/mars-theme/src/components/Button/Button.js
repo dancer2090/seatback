@@ -30,6 +30,10 @@ const StyledButton = styled.button`
   justify-content: center;
   text-align: center;
 
+  ${props => props.hidden && css`
+    display: none;
+  `}
+
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     font-size: 18px;
     line-height: 22px;

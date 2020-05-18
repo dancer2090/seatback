@@ -25,7 +25,7 @@ const Theme = ({ state, actions, libraries }) => {
   //   params: { slug: "/blog" }
   // });
   const data = state.source.get(state.router.link);
-
+  console.log(state);
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
