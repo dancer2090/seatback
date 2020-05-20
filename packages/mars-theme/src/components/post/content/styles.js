@@ -580,3 +580,38 @@ export const AdditionalBlock = styled.div`
 
 
 `;
+
+
+export const CircleContainer = styled.div`
+  position: relative;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    padding-top: 0px;
+  }
+  ${props => props.mode === 'Circle' && `
+    &:after{
+      content: ' ';
+      background-color: #FFFFFF;
+      width: 3006px;
+      height: 2472px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: calc(50% - 1150px);
+      z-index: -1;
+    }
+    &:before{
+      content: ' ';
+      background: #F5F6FA;
+      width: 100%;
+      height: 1830px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+    }
+  `}
+  ${props => props.mode === 'Grey colour' && `
+    background: #F5F6FA;
+  `}
+
+`;

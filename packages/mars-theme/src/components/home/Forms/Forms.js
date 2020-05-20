@@ -23,12 +23,12 @@ import {
 
 const Forms = ({ state, actions, libraries }) => {
 
-    const data_p = state.source.get(state.router.link);
-    const page = state.source[data_p.type][data_p.id];
-    const acf_form = page.acf.gd_form;
-    const title = page.acf.gd_header;
+    //const data_p = state.source.get(state.router.link);
+    //const page = state.source[data_p.type][data_p.id];
+    //const acf_form = page.acf.gd_form;
+    const title = "Get a demo";//page.acf.gd_header;
 
-    const form = state.source['forms'][acf_form.ID];
+    const form = state.source['forms'][114];
     const form_acf = form.acf;
     //console.log('form_acf: ');
     //console.log(form_acf);

@@ -14,11 +14,24 @@ import  {
 } from '../../../const/responsive';
 import RightArrow from '../../../img/right_arrow_2.svg';
 import RightArrowGreen from '../../../img/right_arrow_green_2.svg';
+import LinesLeft from '../../../img/lines_left.svg';
+import LinesRight from '../../../img/lines_right.svg';
+
+export const HeaderFooter = styled.div`
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+`;
 
 export const HeaderBoxContainer = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 162px;
+  padding-top: ${props => props.type_header === 'With lines' ? '300px' : '162px'};
   @media (max-width: ${SIZE_LAPTOP}px) {
     flex-wrap: wrap;
     padding-top: 100px;
@@ -30,6 +43,7 @@ export const DescriptionBox = styled.div`
   flex-wrap: wrap;
   padding-bottom: 45px;
   width: 50%;
+  position: relative;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     padding-right: 50px;
   }
@@ -37,6 +51,32 @@ export const DescriptionBox = styled.div`
     width: 100%;
     padding-right: 0;
   }
+  ${props => props.type_header === 'With lines' && `
+    &:before{
+      content:' ';
+      width: 322px;
+      height: 211px;
+      background: url(${LinesLeft}) no-repeat 50% 50% / 100% auto;
+      position: absolute;
+      bottom: 95%;
+      left: 0px;
+      @media (max-width: ${SIZE_LAPTOP}px) {
+        display: none;
+      }
+    }
+    &:after{
+      content:' ';
+      width: 322px;
+      height: 211px;
+      background: url(${LinesRight}) no-repeat 50% 50% / 100% auto;
+      position: absolute;
+      bottom: 95%;
+      right: 0px;
+      @media (max-width: ${SIZE_LAPTOP}px) {
+        display: none;
+      }
+    }
+  `}
 
   h1 {
     width: 100%;
@@ -49,6 +89,9 @@ export const DescriptionBox = styled.div`
     opacity: 1;
     margin: 0;
     max-width: 423px;
+    span{
+      color: #52DE97;
+    }
 
     @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
       font-size: 45px;
@@ -62,9 +105,15 @@ export const DescriptionBox = styled.div`
       width: 100%;
       font-size: 32px;
       line-height: 42px;
+      text-align: center;
+      max-width: 100%;
     }
   }
-
+  button{
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      margin-top: 30px;
+    }
+  }
   p {
     text-align: left;
     font-size: 24px;
@@ -89,13 +138,13 @@ export const DescriptionBox = styled.div`
       width: 100%;
       font-size: 18px;
       line-height: 32px;
+      text-align: center;
     }
   }
 `;
 
 export const Scroll = styled.div`
-
-  width: 100%;
+  display: inline-block;
   padding-top: 45px;
 
   button {
@@ -115,7 +164,7 @@ export const Scroll = styled.div`
     cursor: pointer;
     position: relative;
     transition: all 0.3s ease-in-out; 
-
+    margin-right: 15px;
     &:after {
       content: url(${props => props.mode === 'dark' ? RightArrowGreen : RightArrow});
       position: absolute;
@@ -369,7 +418,7 @@ export const Article = styled.div`
 `;
 
 export const GlobalContainer = styled.div `
-  padding-bottom:185px;
+  padding-bottom: ${props => props.type_header === 'With lines' ? '300px' : '185px'};
   overflow: hidden;
   position: relative;
   &:after{
@@ -380,7 +429,7 @@ export const GlobalContainer = styled.div `
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    left: calc(50% - 1870px);
+    left: ${props => props.type_header === 'With lines' ? 'calc(50% - 1503px)' : 'calc(50% - 1870px)'};
     z-index: -1;
   }
   &:before{
@@ -393,6 +442,35 @@ export const GlobalContainer = styled.div `
     left: 0px;
     z-index: -1;
   }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    padding-bottom: ${props => props.type_header === 'With lines' ? '50px' : '50px'};
+  }
+  ${props => props.type_header === 'With lines' && `
+    ${BannerArticlesBox}{
+      display:none;
+    }
+    ${DescriptionBox}{
+      width:100%;
+      flex-direction: column;
+      & h1{
+        text-align: center;
+        max-width: 100%;
+      }
+      & p{
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+    ${HeaderFooter}{
+      justify-content: center;
+      & button{
+        margin-top: 45px;
+      }
+    }
+    ${Scroll}{
+      display: none;
+    }
+  `}
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     /* padding-top: 139px; */
   }
