@@ -27,6 +27,7 @@ const HeaderBox = ({
   button={},
   type_header="",
   libraries,
+  bg_size="cover",
 }) => {
 
   const scrollToRef = () => scrollRef ? window.scrollTo({
@@ -63,7 +64,7 @@ const HeaderBox = ({
               </HeaderFooter>
           </DescriptionBox>
           <BannerArticlesBox>
-            <BannerArticlesContainer imgSrc={image}>
+            <BannerArticlesContainer imgSrc={image} bg_size={bg_size}>
               {(template=="standart" && isArchive) && (
                 <>
                   <New>New</New>

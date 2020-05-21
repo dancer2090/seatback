@@ -210,7 +210,7 @@ export const BannerArticlesContainer = styled.div`
   opacity: 1;
   background-image: url(${props => props.imgSrc ? props.imgSrc : 'https://i.picsum.photos/id/866/1200/1000.jpg'});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: ${props => props.bg_size};
   background-position: center center;
   position: relative;
   border-radius: 14px;

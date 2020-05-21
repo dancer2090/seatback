@@ -4,6 +4,7 @@ import HeaderBox from '../../list/HeaderBox';
 import HeaderBoxGrey from '../../OurStory/HeaderBoxGrey';
 import StoryContent from '../../OurStory/StoryContent';
 import StoryBottom from '../../OurStory/StoryBottom';
+import OurPlans from '../OurPlans';
 import ListItem from '../../list/ListItem';
 import Help from '../Help';
 import Forms from '../../home/Forms';
@@ -45,7 +46,6 @@ const PostContent = ({ state, actions, libraries }) => {
   const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
   const date_string = da + "." + mo + "." + ye;
 
-  // actions.source.fetch('/blog/article-headline-8');
   const dataMore = state.source.get('/blog');
   const moreArticles = dataMore.items ? dataMore.items.filter(i => i.id !== data_p.id).filter((i,n) => n < 2) : [];
 
@@ -66,15 +66,15 @@ const PostContent = ({ state, actions, libraries }) => {
   const description = ((typeof post.acf.description == "undefined" && post.acf.description===false) ? "" : post.acf.description);
   const title = ((typeof post.acf.header_text == "undefined" || post.acf.header_text==="") ? post.title.rendered : post.acf.header_text);
   const type_bg = ((typeof post.acf.type_background == "undefined" && post.acf.type_background===false) ? "" : post.acf.type_background);
+  const bg_size = ((typeof post.acf.bg_size == "undefined" && post.acf.bg_size===false) ? "" : post.acf.bg_size);
   const form = ((typeof post.acf.gd_form == "undefined" || post.acf.gd_form===false) ? false : true);
   const storyBottomTitle = ((typeof post.acf.header == "undefined" || post.acf.header==="") ? "" : post.acf.header);
   const storyBottomContent = ((typeof post.acf.text == "undefined" || post.acf.text==="") ? "" : post.acf.text);
   const storyBottomImage = ((typeof post.acf.image == "undefined" || post.acf.image==="") ? "" : post.acf.image);
-  console.log(storyBottomTitle);
-  console.log(storyBottomContent);
-  console.log(storyBottomImage);
 
-  console.log(post);
+  const planHeader = ((typeof post.acf.plans_header == "undefined" || post.acf.plans_header==="") ? "" : post.acf.plans_header);
+  const plans = ((typeof post.acf.plans == "undefined" || post.acf.plans==="") ? [] : post.acf.plans);
+
   return (
     <GlobalContainer>
       {template=="standart" && (
@@ -171,9 +171,36 @@ const PostContent = ({ state, actions, libraries }) => {
       )}
       {template=="page-special_page.php" && (
         <>
+          <HeaderBox 
+            title={title}
+            isArchive={isArchive}
+            image={media_url}
+            scrollRef={contentRef}
+            template={template}
+            button={button}
+            description={description}
+            type_header={type_header}
+            bg_size={bg_size}
+          />
           <CircleContainer mode={type_bg}>
-            <Help title={helpHeader} items={helpItems} />
+            <Help ref={contentRef} title={helpHeader} items={helpItems} />
           </CircleContainer>
+          {form && (
+            <Forms />
+          )}
+        </>
+      )}
+      {template=="page-plan.php" && (
+        <>
+          <HeaderBox 
+            title={title}
+            isArchive={isArchive}
+            template={template}
+            button={button}
+            description={description}
+            type_header="With lines"
+          />
+          <OurPlans title={planHeader} plans={plans} />
           {form && (
             <Forms />
           )}
