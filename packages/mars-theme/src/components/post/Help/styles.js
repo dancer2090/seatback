@@ -100,7 +100,7 @@ export const Title = styled.h2`
 `;
 
 export const Blocks = styled.div`
-  padding-top: 66px;
+  padding-top: 130px;
   display: flex;
   align-items: stretch;
   justify-content: center;
