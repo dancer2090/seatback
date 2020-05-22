@@ -19,11 +19,6 @@ const Theme = ({ state, actions, libraries }) => {
   // actions.source.fetch('/blog');
   const { api } = libraries.source;
   api.get({ endpoint: "posts", params: { _embed: true, categories: '2,3,4' } });
-
-  // api.get({ 
-  //   // endpoint: "/frontity/v1/discovery",
-  //   params: { slug: "/blog" }
-  // });
   const data = state.source.get(state.router.link);
   console.log(state);
   return (

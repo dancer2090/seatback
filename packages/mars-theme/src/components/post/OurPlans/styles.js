@@ -114,7 +114,7 @@ export const PlansContainer = styled.div`
   margin-top: 160px;
   border-radius: 24px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   @media (max-width: ${SIZE_LAPTOP}px) {
     flex-direction: column;
@@ -132,7 +132,7 @@ export const PlansColumn2 = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     margin-top: 50px;
     border-radius: 24px;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   ${props => props.active && `
     &:before{
@@ -141,10 +141,21 @@ export const PlansColumn2 = styled.div`
       height: 70px;
       border-radius: 50%;
       background: url(${Check}) no-repeat 50% 50%;
-      background-color: ${props => props.background};
       position: absolute;
       top: -35px;
       left: calc(50% - 35px);
+      z-index: 2;
+    }
+    &:after{
+      content:' ';
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      position: absolute;
+      top: -35px;
+      left: calc(50% - 35px);
+      z-index: 1;
+      background-color: ${props => props.background};
     }
     & ${Cell}{
       border: 3px solid ${props => props.background};

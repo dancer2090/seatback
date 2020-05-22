@@ -28,13 +28,17 @@ const HeaderBox = ({
   type_header="",
   libraries,
   bg_size="cover",
+  offset = 100,
 }) => {
 
-  const scrollToRef = () => scrollRef ? window.scrollTo({
-    top: scrollRef.current.offsetTop - 150,
-    left: 0,
-    behavior: 'smooth'
-  }) : null;
+  const scrollToRef = () => {
+    console.log(scrollRef);
+    scrollRef ? window.scrollTo({
+      top: scrollRef.current.offsetTop - offset,
+      left: 0,
+      behavior: 'smooth'
+    }) : null;
+  }
 
   const mode = isArchive ? 'light' : 'dark';
 
@@ -45,7 +49,7 @@ const HeaderBox = ({
       <Container>
         <HeaderBoxContainer type_header={type_header}>
           <DescriptionBox type_header={type_header} mode={mode}>
-            {(template=="standart" || !isArchive) && <Article>Article</Article>}
+            {(template==="standart" || !isArchive) && <Article>Article</Article>}
             {title != '' && (<h1><Html2React html={title} /></h1>)}
             {description != '' && mode === 'light' && (<p>{description}</p>)}
               <HeaderFooter>
@@ -54,18 +58,27 @@ const HeaderBox = ({
                   <button onClick={() => scrollToRef()} />
                 </Scroll>
               )}
+              
               {Object.keys(button).length>0 && (
-                <Link link={button.url}>
-                  <Button block >
-                    {button.title}
-                  </Button>
-                </Link>
+                <>
+                  {template !== "page-plan.php" ? (
+                    <Link link={button.url}>
+                      <Button block >
+                        {button.title}
+                      </Button>
+                    </Link>
+                  ) : (
+                    <Button block onClick={() => scrollToRef()}>
+                      {button.title}
+                    </Button>
+                  )}
+                </>
               )}
               </HeaderFooter>
           </DescriptionBox>
           <BannerArticlesBox>
             <BannerArticlesContainer imgSrc={image} bg_size={bg_size}>
-              {(template=="standart" && isArchive) && (
+              {(template==="standart" && isArchive) && (
                 <>
                   <New>New</New>
                   <BannerArticlesDescription>

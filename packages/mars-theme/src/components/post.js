@@ -1,10 +1,6 @@
-import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import React from "react";
 import PostContent from './post/content';
 
-const Post = () => {
-  // Load the post, but only if the data is ready.
-  return <PostContent />;
-};
+const Post = () => <PostContent />;
 
-export default connect(Post);
+export default Post;

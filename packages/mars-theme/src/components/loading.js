@@ -1,11 +1,11 @@
 import React from "react";
 import { styled } from "frontity";
-import Loader from "react-spinners/ScaleLoader";
+import Loader from "react-spinners/ClipLoader";
 
 const Loading = () => (
   <Container>
     <Loader
-      color="rgba(12, 17, 43, 0.3)"
+      color="#52DE97"
       radius={0}
       margin="3px"
       width={4}
@@ -17,14 +17,15 @@ const Loading = () => (
 export default Loading;
 
 const Container = styled.div`
-  width: 800px;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 800px;
   padding: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  min-height: 200px;
   & > * {
     margin-top: 24px;
   }
+  transform: scale(1.5);
 `;
