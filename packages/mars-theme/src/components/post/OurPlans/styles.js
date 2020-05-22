@@ -69,7 +69,7 @@ export const Container = styled.div `
 `;
 
 export const Title = styled.h2`
-  padding-top: 160px;
+  padding-top: 0;
   text-align: center;
   font-size: ${HEADER_FONT_SIZE_DESCTOP_LARGE}px;
   line-height: ${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
@@ -104,7 +104,7 @@ export const Title = styled.h2`
 export const GlobalContainer = styled.div`
   background: #F5F6FA;
   padding-top: 60px;
-  padding-bottom: 220px;
+  padding-bottom: 70px;
   @media (max-width: ${SIZE_LAPTOP}px) {
     padding-top: 30px;
     padding-bottom: 110px;
@@ -114,7 +114,22 @@ export const PlansContainer = styled.div`
   margin-top: 160px;
   border-radius: 24px;
   position: relative;
-  /* overflow: hidden; */
+
+
+  > div {
+    &:first-child {
+      border-top-left-radius: 24px;
+      border-bottom-left-radius: 24px;
+      overflow: hidden;
+    }
+    &:last-child {
+      & ${ColumnName} {
+        border-top-right-radius: 24px;
+        /* overflow: hidden; */
+      }
+    }
+  }
+
   display: flex;
   @media (max-width: ${SIZE_LAPTOP}px) {
     flex-direction: column;
@@ -132,9 +147,8 @@ export const PlansColumn2 = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     margin-top: 50px;
     border-radius: 24px;
-    /* overflow: hidden; */
   }
-  ${props => props.active && `
+  ${props => props.active && css`
     &:before{
       content:' ';
       width: 70px;
@@ -155,10 +169,13 @@ export const PlansColumn2 = styled.div`
       top: -35px;
       left: calc(50% - 35px);
       z-index: 1;
-      background-color: ${props => props.background};
+      background-color: ${props.background};
     }
     & ${Cell}{
-      border: 3px solid ${props => props.background};
+      border: 3px solid ${props.background};
+      @media (max-width: ${SIZE_LAPTOP}px) {
+        border: none;
+      }
     }
   `}
 `;
@@ -173,9 +190,22 @@ export const ChosePlan = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 34px;
+    line-height: 46px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    font-size: 26px;
+    line-height: 35px;
+  }
   @media (max-width: ${SIZE_LAPTOP}px) {
     display: none;
   }
+  
 `;
 export const RowName = styled.div`
   height: 164px;
@@ -190,6 +220,18 @@ export const RowName = styled.div`
   font-weight: 500;
   color: #2E293C;
   text-align: center;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 20px;
+    line-height: 36px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 19px;
+    line-height: 35px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    font-size: 18px;
+    line-height: 32px;
+  }
   @media (max-width: ${SIZE_LAPTOP}px) {
     display: none;
     height: auto;
@@ -210,18 +252,56 @@ export const ColumnName = styled.div`
   line-height: 40px;
   font-weight: 600;
   color: #fff;
+  margin-right: 4px;
+
+  span {
+    text-align: center;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      min-height: auto;
+    }
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 20px;
+    line-height: 36px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 19px;
+    line-height: 35px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    font-size: 18px;
+    line-height: 32px;
+  }
   @media (max-width: ${SIZE_LAPTOP}px) {
     height: auto;
     padding-top: 30px;
     padding-bottom: 30px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    font-size: 24px;
+    line-height: 40px;
+    margin: 0;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
   & button{
-    margin-top: 40px;
+    margin-top: 10px;
     border: 2px solid #FFFFFF;
     background: transparent;
     color: #2E293C;
+    @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+      max-width: 150px;
+    }
     @media (max-width: ${SIZE_LAPTOP}px) {
       margin-top: 20px;
+      max-width: 100%;
     }
     &:hover{
       color: #fff;
@@ -237,11 +317,29 @@ export const Cell = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: ${SIZE_LAPTOP}px) {
-    flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    padding-bottom: 20px;
+    padding-bottom: 0;
     height: auto;
     min-height: 150px;
+    margin: 0;
+    min-height: auto;
+
+    > img {
+      margin: 0 auto;
+    }
+  }
+
+  img {
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      transform: scale(0.9);
+    }
+    @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+      transform: scale(0.8);
+    }
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      transform: scale(0.7);
+    }
   }
 `;
 export const HiddenHeader = styled.div`
@@ -254,11 +352,37 @@ export const HiddenHeader = styled.div`
   font-weight: 500;
   color: #2E293C;
   text-align: center;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 20px;
+    line-height: 36px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 19px;
+    line-height: 35px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    font-size: 18px;
+    line-height: 32px;
+  }
   @media (max-width: ${SIZE_LAPTOP}px) {
     display:flex;
     width: 100%;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50%;
+    margin: 0;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 16px;
+    line-height: 28px;
+    border: 'none';
+    min-height: 60px;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 15px;
+    line-height: 26px;
+    margin: 0;
+  }
+  
 `;
