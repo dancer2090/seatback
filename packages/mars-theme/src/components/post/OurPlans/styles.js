@@ -123,10 +123,7 @@ export const PlansContainer = styled.div`
       overflow: hidden;
     }
     &:last-child {
-      & ${ColumnName} {
-        border-top-right-radius: 24px;
-        /* overflow: hidden; */
-      }
+    
     }
   }
 
