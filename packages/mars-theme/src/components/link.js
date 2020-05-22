@@ -14,6 +14,9 @@ const Link = ({
     if (link.startsWith(state.frontity.url)) {
       event.preventDefault();
       actions.router.set(link.replace(state.frontity.url, ''));
+    } else if (link.startsWith(state.frontity.adminUrl)) {
+      event.preventDefault();
+      actions.router.set(link.replace(state.frontity.adminUrl, ''));
     } else {
       if (link.startsWith("http")) return;
       event.preventDefault();
