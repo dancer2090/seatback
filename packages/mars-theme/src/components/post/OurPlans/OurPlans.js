@@ -68,25 +68,25 @@ const OurPlans = ({state, libraries, title="", plans=[]}) => {
                   </Link>
                 )}
               </ColumnName>
-              <Cell>
+              <Cell background={plan.bg}>
                 <HiddenHeader>Seatback Content SaaS Platform</HiddenHeader>
                 {plan.saas && (
                   <img src={CkeckCircle}/>
                 )}
               </Cell>
-              <Cell>
+              <Cell background={plan.bg}>
                 <HiddenHeader>Chair / Portable</HiddenHeader>
                 {plan.chair && (
                   <img src={CkeckCircle}/>
                 )}
               </Cell>
-              <Cell>
+              <Cell background={plan.bg}>
                 <HiddenHeader>Smart Watch</HiddenHeader>
                 {plan.watch && (
                   <img src={CkeckCircle}/>
                 )}
               </Cell>
-              <Cell>
+              <Cell background={plan.bg}>
                 <HiddenHeader>Wellness Class</HiddenHeader>
                 {plan.weliness && (
                   <img src={CkeckCircle}/>

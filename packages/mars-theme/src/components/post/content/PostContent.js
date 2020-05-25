@@ -4,6 +4,7 @@ import StandartTemplate from '../Templates/StardartTemplate';
 import OurStoryTemplate from '../Templates/OurStoryTemplate';
 import OurPlansTemplate from '../Templates/OurPlansTemplate';
 import SpecialTemplate from '../Templates/SpecialTemplate';
+import ProductTemplate from '../Templates/ProductTemplate';
 
 import { 
   GlobalContainer,
@@ -21,7 +22,8 @@ const PostContent = ({ state }) => {
       {template=="standart" && <StandartTemplate />}
       {template=="page-our_story.php" && <OurStoryTemplate />}
       {template=="page-special_page.php" && <SpecialTemplate />}
-      {template=="page-plan.php" && <OurPlansTemplate />}      
+      {template=="page-plan.php" && <OurPlansTemplate />}   
+      {template=="page-product.php" && <ProductTemplate />}
     </GlobalContainer>
   );
 }
