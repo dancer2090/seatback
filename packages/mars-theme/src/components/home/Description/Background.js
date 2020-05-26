@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "frontity";
-import  {
+import {
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_SMALL,
-} from '../../../const/responsive';
+} from "../../../const/responsive";
 
 const BgBox = styled.div`
   position: absolute;
@@ -12,7 +12,7 @@ const BgBox = styled.div`
   max-width: 550px;
   height: auto;
   margin: 0 auto;
-  transform: ${props => props.reverse ? 'scale(-1,1)' : 'scale(1)'};
+  transform: ${(props) => (props.reverse ? "scale(-1,1)" : "scale(1)")};
 
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     max-width: 500px;
@@ -127,22 +127,21 @@ const SVG = styled.svg`
     animation-iteration-count: infinite;
   } */
 
-
   @keyframes svgpathUpDown {
     from {
-      transform: translate(0%,0%);
+      transform: translate(0%, 0%);
     }
     25% {
-      transform: translate(0%,1%);
+      transform: translate(0%, 1%);
     }
     50% {
-      transform: translate(0%,0%);
+      transform: translate(0%, 0%);
     }
     75% {
-      transform: translate(-0%,-1%);
+      transform: translate(-0%, -1%);
     }
     to {
-      transform: translate(0%,0%);
+      transform: translate(0%, 0%);
     }
   }
 
@@ -153,12 +152,9 @@ const SVG = styled.svg`
     animation-iteration-count: infinite;
   } */
 
-
-
-
   @keyframes bg-el-1 {
     from {
-      transform: translate(0%,0%);
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(-1%, 5%);
@@ -175,16 +171,15 @@ const SVG = styled.svg`
   }
 
   .el-1 {
-    animation-name: 'bg-el-1';
+    animation-name: "bg-el-1";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
-
   @keyframes bg-el-2 {
     from {
-      transform: translate(0%,0%);
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(-5%, 5%);
@@ -201,7 +196,7 @@ const SVG = styled.svg`
   }
 
   .el-2 {
-    animation-name: 'bg-el-2';
+    animation-name: "bg-el-2";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -209,7 +204,7 @@ const SVG = styled.svg`
 
   @keyframes bg-el-3 {
     from {
-      transform: translate(0%,0%);
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(-5%, 5%);
@@ -226,7 +221,7 @@ const SVG = styled.svg`
   }
 
   .el-3 {
-    animation-name: 'bg-el-3';
+    animation-name: "bg-el-3";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -234,7 +229,7 @@ const SVG = styled.svg`
 
   @keyframes bg-el-4 {
     from {
-      transform: translate(0%,0%) rotate(0deg);
+      transform: translate(0%, 0%) rotate(0deg);
     }
     25% {
       transform: translate(-1%, 1%) rotate(1deg);
@@ -251,7 +246,7 @@ const SVG = styled.svg`
   }
 
   .el-4 {
-    animation-name: 'bg-el-4';
+    animation-name: "bg-el-4";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -259,7 +254,7 @@ const SVG = styled.svg`
 
   @keyframes bg-el-5 {
     from {
-      transform: translate(0%,0%) rotate(0deg);
+      transform: translate(0%, 0%) rotate(0deg);
     }
     25% {
       transform: translate(-1%, 1%) rotate(1deg);
@@ -276,7 +271,7 @@ const SVG = styled.svg`
   }
 
   .el-5 {
-    animation-name: 'bg-el-5';
+    animation-name: "bg-el-5";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -284,24 +279,24 @@ const SVG = styled.svg`
 
   @keyframes bg-el-6 {
     from {
-      transform: translate(0%,0%) ;
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(2%, -2%);
     }
     50% {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
     75% {
       transform: translate(-1%, 1%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-6 {
-    animation-name: 'bg-el-6';
+    animation-name: "bg-el-6";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -309,24 +304,24 @@ const SVG = styled.svg`
 
   @keyframes bg-el-7 {
     from {
-      transform: translate(0%,0%) ;
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(2%, -2%);
     }
     50% {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
     75% {
       transform: translate(-1%, 1%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-7 {
-    animation-name: 'bg-el-7';
+    animation-name: "bg-el-7";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -334,24 +329,24 @@ const SVG = styled.svg`
 
   @keyframes bg-el-8 {
     from {
-      transform: translate(0%,0%) ;
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(3%, -2%);
     }
     50% {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
     75% {
       transform: translate(-2%, 1%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-8 {
-    animation-name: 'bg-el-8';
+    animation-name: "bg-el-8";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -359,24 +354,24 @@ const SVG = styled.svg`
 
   @keyframes bg-el-9 {
     from {
-      transform: translate(0%,0%) ;
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(5%, -2%);
     }
     50% {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
     75% {
       transform: translate(-4%, 1%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-9 {
-    animation-name: 'bg-el-9';
+    animation-name: "bg-el-9";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -384,32 +379,28 @@ const SVG = styled.svg`
 
   @keyframes bg-el-10 {
     from {
-      transform: translate(0%,0%) ;
+      transform: translate(0%, 0%);
     }
     25% {
       transform: translate(4%, -2%);
     }
     50% {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
     75% {
       transform: translate(-3%, 1%);
     }
     to {
-      transform: translate(0%, 0%) ;
+      transform: translate(0%, 0%);
     }
   }
 
   .el-10 {
-    animation-name: 'bg-el-10';
+    animation-name: "bg-el-10";
     animation-duration: 6s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
-
-
-
-
 `;
 
 const Background = (props) => {
