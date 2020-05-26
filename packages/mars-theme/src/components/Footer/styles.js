@@ -12,246 +12,100 @@ import  {
   getPxSize,
   SIZE_LAPTOP,
   SIZE_LAPTOP_SMALL,
-  HEADER_HEIGHT,
-  HEADER_HEIGHT_RESPONSIVE,
   SIZE_MOBILE,
 } from '../../const/responsive';
 
 
-const navStep = 12;
-const headerHeight = HEADER_HEIGHT;
-const headerHeightResponsive = HEADER_HEIGHT_RESPONSIVE;
 
-
-export const Space = styled.div`
-  width: 100%;
-  height: ${headerHeight}px;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    height: ${headerHeightResponsive}px;
-  }
-`;
-
-export const ResposnsiveMenu = styled.div`
-  display: none;
-  position: absolute;
-  top: ${headerHeight}px;
-  right: 0;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    display: block;
-    top: ${headerHeightResponsive}px;
-    width: 300px;    
-  }
-  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    width: calc(100% + ${PADDING_MOBILE*2}px); 
-  }
-`;
-
-export const NavIconSection = styled.div`
-  height: 100%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  display: none;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    display: flex;
-  }
-`;
-
-export const NavIcon = styled.div`  
-  
-  top: 0;
-  width: 40px;
-  height: 31px;
+export const GlobalContainer = styled.div `
+  padding-bottom: 133px;
+  overflow: hidden;
   position: relative;
-  margin: 0 auto;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  cursor: pointer;
-
- 
-
-  span {
-    display: block;
+  &:after{
+    content: ' ';
+    background-color: ${props => props.circleColor};
+    width: 3006px;
+    height: 2472px;
+    border-radius: 50%;
     position: absolute;
-    height: 6px;
+    bottom: 0px;
+    left: calc(50% - 1503px);
+    z-index: -1;
+  }
+  &:before{
+    content: ' ';
+    background: ${props => props.bgColor};
     width: 100%;
-    background: #52DE97;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .25s ease-in-out;
-    -moz-transition: .25s ease-in-out;
-    -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out;
-
-    &:nth-of-type(1) {
-      top: 0px;
-    }
-    &:nth-of-type(2) {
-    top: ${navStep}px;
-    }
-    &:nth-of-type(3) {
-      top: ${navStep}px;
-    }
-    &:nth-of-type(4) {
-      top: ${navStep*2}px;
-    }
+    height: 1830px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: -1;
   }
-
-  &:hover {
-    span {
-      background: #2bad6b;
-    }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    padding-bottom: 50px;
   }
-
-  ${props => props.isOpen && css`
-    span {
-      &:nth-of-type(1) {
-        top: ${navStep}px;
-        width: 0%;
-        left: 50%;
-      }
-
-      &:nth-of-type(2) {
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
-
-      &:nth-of-type(3) {
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-      }
-      &:nth-of-type(4) {
-        top: ${navStep}px;
-        width: 0%;
-        left: 50%;
-      }
-    }
-  `}
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    /* padding-top: 139px; */
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    /* padding-top: 91px; */
+  }
+  
 `;
+
 
 export const Container = styled.div`
-  position: fixed;
-  z-index: 10;
-  background-color: white;
+  margin: 0;
   width: 100%;
   padding-left: ${PADDING_DESCTOP_LARGE}px;
   padding-right: ${PADDING_DESCTOP_LARGE}px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 2px 2px 8px #0000000D;
-  opacity: 1;
 
-  ${props => props.isMenuOpen && css`
-    @media (max-width: ${SIZE_MOBILE}px) {
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      
-    }
-  `}
-
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
   }
 
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
   }
-  
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
     padding-left: ${PADDING_DESCTOP_SMALL}px;
     padding-right: ${PADDING_DESCTOP_SMALL}px;
   }
-  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+  @media (max-width: ${SIZE_MOBILE}px) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
   }
+
 `;
 
-export const ButtonSection = styled.div`
+export const MenuContainer = styled.nav `
   display: flex;
-  align-items: center;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    width: 60%;
-    justify-content: flex-end;
-  }
-  @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
-    width: 55%;
-  }
-  @media (max-width: ${getPxSize(SIZE_LAPTOP_SMALL)}) {
-    width: 50%;
-  }
-  @media (max-width: 650px) {
-    width: 40%;
-  }
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
-export const LogoSection = styled.div`
-  display: flex;
-  align-items: center;
-
-  img {
-    width: 252px;
-    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-      width: 230px;
-    }
-    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-      width: 200px;
-    }
-  }
-`;
-
-export const NavSection = styled.div`
-  display: flex;
-  align-items: center;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    display: none;
-  }
-`;
-
-export const MenuBox = styled.div`
-  display: flex;
-  align-items: stretch;
   justify-content: space-between;
-  height: ${headerHeight}px;
-  position: relative;
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    height: ${headerHeightResponsive}px;
+  align-items: flex-start;
+`;
+export const MenuColumnHeader = styled.div `
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #2E293C;
+`;
+export const SubMenuContainer = styled.ul `
+  padding-left: 0px;
+  list-style: none;
+`;
+export const SubMenuElement = styled.li `
+  & a{
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 34px;
+    color: #A09D9D;
   }
 `;
-
-export const  Progress  =  styled.div`
-  position:  absolute;
-  bottom: 0;
-  left: 0;
-  background:  linear-gradient(
-    to right,
-    #52DE97 ${props => props.scroll},
-    transparent  0);
-  width:  100%;
-  height:  4px;
-  z-index:  3;
+export const MenuColumn = styled.div `
+  display: block;
 `;

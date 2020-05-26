@@ -29,8 +29,8 @@ import  {
 
 
 export const Container = styled.div `
-  padding-top: 250px;
-  padding-bottom: 207px;
+  padding-top: 180px;
+  padding-bottom: 227px;
   padding-right: ${PADDING_DESCTOP_LARGE}px;
   padding-left: ${PADDING_DESCTOP_LARGE}px;
   position: relative;
@@ -70,34 +70,6 @@ export const Container = styled.div `
   }
 `;
 
-export const Title = styled.h2`
-  text-align: center;
-  font-size: ${HEADER_FONT_SIZE_DESCTOP_LARGE}px;
-  line-height: ${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
-  font-weight: 500;
-  letter-spacing: 0px;
-  color: #2E293C;
-  margin: 0;
-  white-space: pre-wrap;
-
-  span {
-    color: #52DE97;
-  } 
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
-    line-height: ${HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
-  }
-  @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
-    text-align: center;
-  }
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    max-width: 100%;
-  }
-  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
-    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
-  }
-`;
 
 export const Blocks = styled.div`
   padding-top: 180px;
@@ -115,7 +87,7 @@ export const Blocks = styled.div`
 export const Block = styled.div`
   padding-left: 13px;
   padding-right: 13px;
-  width: 25%;
+  width: 33%;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     width: 50%;
     margin-top: 100px;
@@ -148,12 +120,17 @@ export const Icon = styled.div`
   position: absolute;
   top: -55px;
   left: calc(50% - 55px);
+  font-size: 34px;
+  line-height: 136px;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #FFFFFF;
 `;
 
 export const Description = styled.div`
   text-align: center;
-  font-size: ${TEXT_FONT_SIZE_DESCTOP_LARGE}px;
-  line-height: ${TEXT_LINE_HEIGHT_DESCTOP_LARGE}px;
+  font-size: 20px;
+  line-height: 34px;
   font-weight: 400;
   letter-spacing: 0px;
   color: #A09D9D;

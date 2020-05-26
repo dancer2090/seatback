@@ -1,3 +1,3 @@
-import Help from './Help';
+import HelpProduct from './HelpProduct';
 
-export default Help;
+export default HelpProduct;

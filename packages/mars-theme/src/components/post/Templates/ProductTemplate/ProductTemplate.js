@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import { connect } from 'frontity';
 import HeaderBoxProduct from '../../../Product/HeaderBoxProduct';
+import DescriptionProduct from '../../../Product/DescriptionProduct';
+import HelpProduct from '../../../Product/HelpProduct';
+import Footer from '../../../Footer';
 
 
 import { 
@@ -38,6 +41,20 @@ const ProductTemplate = ({ state }) => {
         description={description}
         offset={0}
       />
+      {content.map((d, key) => {
+        const circle_color = (key%2===0 || key===0) ? "#FFFFFF" : "#F5F6FA";
+        const bg_color = (key%2===0 && key!==0) ? "#F5F6FA" : "#FFFFFF";
+        return <DescriptionProduct
+          title={d.header}
+          description={d.decription}
+          image={d.image}
+          zIndex={(key+1)}
+          circleColor={circle_color}
+          bgColor={bg_color}
+        />
+      })}
+      <HelpProduct items={blocks} />
+      <Footer />
     </>
   );
 }

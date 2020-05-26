@@ -17,6 +17,7 @@ export default {
   state: {
     seatbackapi: {
       isFormSend: false,
+      isSubscribeSend: false,
       windowSize: 0,
       isWow: true,
       pageNumber: 2,
