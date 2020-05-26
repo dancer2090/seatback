@@ -18,7 +18,7 @@ import {
   Progress
 } from './styles';
 
-const Header = ({ state, data }) => {
+const Header = ({ data }) => {
 
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(false);
@@ -48,7 +48,6 @@ const Header = ({ state, data }) => {
   const listenToScrollEvent = () => {
     document.addEventListener("scroll", () => {
       requestAnimationFrame(() => {
-        // Calculates the scroll distance
         calculateScrollDistance();
       });
     });
