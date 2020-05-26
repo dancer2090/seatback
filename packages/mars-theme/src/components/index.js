@@ -5,7 +5,7 @@ import Header from "./Header";
 import List from "./list";
 import Home from "./home";
 import Post from "./post";
-import Loading from "./loading";
+import Loader from "./Loader";
 import Title from "./title";
 import PageError from "./page-error";
 
@@ -43,7 +43,7 @@ const Theme = ({ state, actions, libraries }) => {
         {/* Add the main section. It renders a different component depending
         on the type of URL we are in. */}
         <Switch>
-          <Loading when={data.isFetching} />          
+          <Loader when={data.isFetching} />          
           <Home when={data.isHome} />
           <Post when={data.isPostType} />
           <List when={data.isArchive} />
