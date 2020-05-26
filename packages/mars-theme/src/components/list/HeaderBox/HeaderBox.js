@@ -13,7 +13,7 @@ import {
   BannerArticlesDescription,
   New,
   Article,
-  HeaderFooter,
+  HeaderFooter,  
 } from './styles';
 
 const HeaderBox = ({
@@ -29,10 +29,11 @@ const HeaderBox = ({
   libraries,
   bg_size="cover",
   offset = 100,
+  mode=null,
+  bgColor=null,
 }) => {
 
   const scrollToRef = () => {
-    console.log(scrollRef);
     scrollRef ? window.scrollTo({
       top: scrollRef.current.offsetTop - offset,
       left: 0,
@@ -40,21 +41,25 @@ const HeaderBox = ({
     }) : null;
   }
 
-  const mode = isArchive ? 'light' : 'dark';
+  const selectedMode = mode ? mode : isArchive ? 'light' : 'dark';
 
   const Html2React = libraries.html2react.Component;
 
   return (
-    <GlobalContainer mode={mode} type_header={type_header}>
+    <GlobalContainer bgColor={bgColor} mode={selectedMode} type_header={type_header}>
       <Container>
         <HeaderBoxContainer type_header={type_header}>
-          <DescriptionBox type_header={type_header} mode={mode}>
+          <DescriptionBox type_header={type_header} mode={selectedMode}>
             {(template==="standart" || !isArchive) && <Article>Article</Article>}
             {title != '' && (<h1><Html2React html={title} /></h1>)}
-            {description != '' && mode === 'light' && (<p>{description}</p>)}
+            {description !== '' && (
+              <p>
+                {description}
+              </p>
+            )}
               <HeaderFooter>
               {scrollRef && (
-                <Scroll mode={mode}>
+                <Scroll mode={selectedMode}>
                   <button onClick={() => scrollToRef()} />
                 </Scroll>
               )}
@@ -63,12 +68,12 @@ const HeaderBox = ({
                 <>
                   {template !== "page-plan.php" ? (
                     <Link link={button.url}>
-                      <Button block >
+                      <Button mode={bgColor==="#F5F6FA" ? 'dark' : 'light'} block >
                         {button.title}
                       </Button>
                     </Link>
                   ) : (
-                    <Button block onClick={() => scrollToRef()}>
+                    <Button block mode={bgColor==="#F5F6FA" ? 'dark' : 'light'} onClick={() => scrollToRef()}>
                       {button.title}
                     </Button>
                   )}
@@ -78,7 +83,7 @@ const HeaderBox = ({
           </DescriptionBox>
           <BannerArticlesBox>
             <BannerArticlesContainer imgSrc={image} bg_size={bg_size}>
-              {(template==="standart" && isArchive) && (
+              {(template === "standart" && isArchive) && (
                 <>
                   <New>New</New>
                   <BannerArticlesDescription>

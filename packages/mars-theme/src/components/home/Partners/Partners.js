@@ -12,12 +12,13 @@ import {
 } from './styles';
 
 
-const Parthers = ({state, libraries}) => {
+const Parthers = ({state, libraries, bgColor}) => {
 
   const Html2React = libraries.html2react.Component;
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
+
 
   const data1 = post.acf.customers;
   const title = post.acf.c_header;
@@ -66,9 +67,8 @@ const Parthers = ({state, libraries}) => {
     ]
   };
 
-
   return (
-    <Container>
+    <Container bgColor={bgColor}>
         <Wow  offset={-200} animation='slideUp'>
           <Title>
             <Html2React html={title} />
@@ -78,7 +78,7 @@ const Parthers = ({state, libraries}) => {
           <CarouselContainer>
             <SlickContainer>
               <Slider {...settings}>
-                  {data1.length > 0 && data1.map((d, n) => (
+                  {data1 && data1.length > 0 && data1.map((d, n) => (
                     <Item key={n}>
                       <ImageBox>
                         <img className="zoom animated"  style={

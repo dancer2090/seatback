@@ -38,7 +38,7 @@ export const Container = styled.div`
   }
   &:before{
     content: ' ';
-    background: #FFFFFF;
+    background: ${props => props.bgColor ? props.bgColor : '#FFFFFF'};
     width: 100%;
     height: 1272px;
     position: absolute;

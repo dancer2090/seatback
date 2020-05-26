@@ -16,6 +16,8 @@ import RightArrow from '../../../img/right_arrow_2.svg';
 import RightArrowGreen from '../../../img/right_arrow_green_2.svg';
 import LinesLeft from '../../../img/lines_left.svg';
 import LinesRight from '../../../img/lines_right.svg';
+import LinesRightDark from '../../../img/lines_right_dark.svg';
+import LinesLeftDark from '../../../img/lines_left_dark.svg';
 
 export const HeaderFooter = styled.div`
   display: flex;
@@ -56,7 +58,7 @@ export const DescriptionBox = styled.div`
       content:' ';
       width: 322px;
       height: 211px;
-      background: url(${LinesLeft}) no-repeat 50% 50% / 100% auto;
+      background: url(${props.mode === 'dark' ? LinesLeftDark : LinesLeft}) no-repeat 50% 50% / 100% auto;
       position: absolute;
       bottom: 95%;
       left: 0px;
@@ -68,7 +70,7 @@ export const DescriptionBox = styled.div`
       content:' ';
       width: 322px;
       height: 211px;
-      background: url(${LinesRight}) no-repeat 50% 50% / 100% auto;
+      background: url(${props.mode === 'dark' ? LinesRightDark : LinesRight}) no-repeat 50% 50% / 100% auto;
       position: absolute;
       bottom: 95%;
       right: 0px;
@@ -120,7 +122,7 @@ export const DescriptionBox = styled.div`
     line-height: 40px;
     font-weight: 400;
     letter-spacing: 0px;
-    color: #A09D9D;
+    color: ${props => props.mode === 'dark' ? '#FFFFFF' : '#A09D9D'};
     opacity: 1;
     max-width: 564px;
     width: 100%;
@@ -434,7 +436,7 @@ export const GlobalContainer = styled.div `
   }
   &:before{
     content: ' ';
-    background: ${props => props.mode === 'dark' ? '#FFFFFF' : '#F5F6FA'};
+    background: ${props => props.bgColor ? props.bgColor : props.mode === 'dark' ? '#FFFFFF' : '#F5F6FA'};
     width: 100%;
     height: 1830px;
     position: absolute;

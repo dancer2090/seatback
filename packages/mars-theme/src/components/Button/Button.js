@@ -66,6 +66,15 @@ const StyledButton = styled.button`
     border: 1px solid #2E293C;
     color: #52DE97;
   }
+
+  ${props => props.mode === 'dark' && css`
+    color: #2E293C;
+    &:hover {
+      background: #FFFFFF;
+      border: 1px solid #FFFFFF;
+      color: #52DE97;
+    }
+  `}
 `;
 
 const Button = (props) => <StyledButton {...props} />;

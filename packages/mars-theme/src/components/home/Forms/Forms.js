@@ -21,7 +21,7 @@ import {
 } from './styles';
 
 
-const Forms = ({ state, actions, libraries }) => {
+const Forms = ({ state, actions, libraries, bgColor}) => {
 
     //const data_p = state.source.get(state.router.link);
     //const page = state.source[data_p.type][data_p.id];
@@ -161,7 +161,7 @@ const Forms = ({ state, actions, libraries }) => {
     }, []);
 
     return (
-      <Main>
+      <Main bgColor={bgColor}>
         <Wow offset={-200} animation='slideUp'>
           <Title>
             <Html2React html={title}/>
