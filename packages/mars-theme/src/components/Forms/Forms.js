@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import Button from '../../Button';
-import { styled, connect } from "frontity";
+import Button from '../Button';
+import { connect } from "frontity";
 import ReactSelect from 'react-select';
-import { COUNTRIES } from '../../../const/countries';
-import Wow from './../../Wow';
+import { COUNTRIES } from '../../const/countries';
+import Wow from '../Wow';
 import {
     Main,
     Title,
     FormContainer,
-    AllForms,
     FormControl,
     FormLabel,
     FormInput,
-    InputSymbol,
     FormShare,
     BBlock,
     CustomSelectlStyles,
@@ -20,31 +18,41 @@ import {
     FText,
 } from './styles';
 
+const optionsCountry = COUNTRIES.map(c => {
+  return {
+    ...c,
+    value: c.code,
+    label: c.name,
+  }
+});
+
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
 
 const Forms = ({ state, actions, libraries, bgColor}) => {
 
-    //const data_p = state.source.get(state.router.link);
-    //const page = state.source[data_p.type][data_p.id];
-    //const acf_form = page.acf.gd_form;
-    const title = "Get a demo";//page.acf.gd_header;
+    const data_p = state.source.get(state.router.link);
+    const page = state.source[data_p.type][data_p.id];
+    const { 
+      gd_form: {
+        ID: formId = 114,
+        post_title: title,
+      }, 
+      gd_header: formHeader = title,
+    } = page.acf;
 
-    const form = state.source['forms'][114];
-    const form_acf = form.acf;
-    //console.log('form_acf: ');
-    //console.log(form_acf);
-
-    const optionsCountry = COUNTRIES.map(c => {
-      return {
-        ...c,
-        value: c.code,
-        label: c.name,
-      }
-    })
+    const form = state.source['forms'][formId];
+    const { 
+      inputs = [], 
+      submit_text: submitText = "Submit"
+    } = form.acf;
 
     const Html2React = libraries.html2react.Component;
 
     const optionsSize = [];
-    form_acf.inputs.map((d,key) => {
+    inputs.map((d,key) => {
       if(d.acf_fc_layout=="select"){
         optionsSize[key] = [];
         d.values.map(v => {
@@ -55,19 +63,14 @@ const Forms = ({ state, actions, libraries, bgColor}) => {
           optionsSize[key].push(objVal);
         });
       }
-
     })
 
     const preForm = {};
     const preErrors = {};
-    form_acf.inputs.map((d,key) => {
+    inputs.map((d,key) => {
       preForm[d.label] = "";
       if(!d.optional) preErrors[d.label] = false;
     })
-
-    // const updateFormValue = () => {
-    //   state.seatbackapi.sendForm('/form/send', '');
-    // }
 
     const [formError, setFormErrorState] = useState(preErrors);
     const [formState, setFormState] = useState(preForm);
@@ -95,11 +98,6 @@ const Forms = ({ state, actions, libraries, bgColor}) => {
         setFormState(preForm);
         setPreload(true);
       }
-    }
-
-    function validateEmail(email) {
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
     }
 
     const handleChangeInput = (e, key) => {
@@ -130,8 +128,6 @@ const Forms = ({ state, actions, libraries, bgColor}) => {
         }
         setFormErrorState({...formError,...errorObj});
       }
-      //console.log(formState);
-      //console.log(optional);
     }
 
     const handleChangeSelect = (e, key) => {
@@ -142,7 +138,6 @@ const Forms = ({ state, actions, libraries, bgColor}) => {
       const errorObj = {};
       errorObj[key] = false;
       setFormErrorState({...formError,...errorObj});
-      //console.log(e.value);
     }
 
     const handleChangeCountry = (e, key) => {
@@ -153,22 +148,17 @@ const Forms = ({ state, actions, libraries, bgColor}) => {
       const errorObj = {};
       errorObj[key] = false;
       setFormErrorState({...formError,...errorObj});
-      //console.log(formState);
     }
-
-    useEffect(() => {
-
-    }, []);
 
     return (
       <Main bgColor={bgColor}>
         <Wow offset={-200} animation='slideUp'>
           <Title>
-            <Html2React html={title}/>
+            <Html2React html={formHeader}/>
           </Title>
         </Wow>
         <FormContainer onSubmit={submitForm} preloadNEW={state.seatbackapi.isFormSend || false}>
-          {form_acf.inputs.length>0 && form_acf.inputs.map((d,key) => {
+          {inputs.length>0 && inputs.map((d,key) => {
 
               return (
                 <Wow animation='slideUp' delay={(key*0.15)+'s'} key={key.toString()}>
@@ -227,7 +217,7 @@ const Forms = ({ state, actions, libraries, bgColor}) => {
           })}
           <Wow animation='slideUp' delay="0.2s">
             <BBlock>
-              <Button type="submit">{form_acf.submit_text}</Button>
+              <Button type="submit">{submitText}</Button>
             </BBlock>
           </Wow>
           <FText afterload={(preload && !state.seatbackapi.isFormSend) ? true : false}>

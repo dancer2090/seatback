@@ -16,7 +16,7 @@ import {
   HEADER_FONT_SIZE_MOBILE,
   HEADER_LINE_HEIGHT_MOBILE,
   getPxSize,
-} from '../../../const/responsive';
+} from '../../const/responsive';
 
 export const Main = styled.div `
   padding-top:123px;
@@ -186,11 +186,7 @@ export const FormContainer = styled.form `
     }
   `}
 `;
-export const AllForms = styled.div `
-  margin-top:100px;
-  margin-bottom:60px;
-  width:954px;
-`;
+
 export const FText = styled.div `
   margin-top: 50px;
   overflow: hidden;
@@ -310,23 +306,6 @@ export const FormInput = styled.input `
     }
   }
 `;
-
-export const InputSymbol = styled.div `
-  height: 88px;
-  width: 100%;
-  border: 1px solid #52DE97;
-  border-radius: 10px;
-  opacity: 1;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0 px;
-  color: #A09D9D;
-  opacity: 1;
-  padding-left:32px;
-  padding-right:32px;
-`;
-
-
 
 export const FormShare = styled.div `
   height: 176px;

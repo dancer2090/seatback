@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import HeaderBox from '../../../list/HeaderBox';
-import Forms from '../../../home/Forms';
+import Forms from '../../../Forms';
 import OurPlans from '../../OurPlans';
 import { connect } from 'frontity';
 
