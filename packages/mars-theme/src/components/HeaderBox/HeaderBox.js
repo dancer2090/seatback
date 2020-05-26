@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "frontity";
-import Link from '../../link';
-import Button from '../../Button';
+import Link from '../link';
+import Button from '../Button';
 import {
   GlobalContainer,
   Container,

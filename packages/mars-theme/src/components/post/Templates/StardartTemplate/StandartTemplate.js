@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import ImageAuthor from '../../../../img/user.svg';
-import HeaderBox from '../../../list/HeaderBox';
+import HeaderBox from '../../../HeaderBox';
 import ImageTwiter from '../../../../img/twitter.svg';
 import ImageFacebook from '../../../../img/facebook.svg';
 import ImageLinkedIn from '../../../../img/linkedin.svg';

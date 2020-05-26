@@ -11,13 +11,13 @@ import  {
   SIZE_LAPTOP,
   SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
-} from '../../../const/responsive';
-import RightArrow from '../../../img/right_arrow_2.svg';
-import RightArrowGreen from '../../../img/right_arrow_green_2.svg';
-import LinesLeft from '../../../img/lines_left.svg';
-import LinesRight from '../../../img/lines_right.svg';
-import LinesRightDark from '../../../img/lines_right_dark.svg';
-import LinesLeftDark from '../../../img/lines_left_dark.svg';
+} from '../../const/responsive';
+import RightArrow from '../../img/right_arrow_2.svg';
+import RightArrowGreen from '../../img/right_arrow_green_2.svg';
+import LinesLeft from '../../img/lines_left.svg';
+import LinesRight from '../../img/lines_right.svg';
+import LinesRightDark from '../../img/lines_right_dark.svg';
+import LinesLeftDark from '../../img/lines_left_dark.svg';
 
 export const HeaderFooter = styled.div`
   display: flex;

@@ -3,7 +3,7 @@ import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
 import Button from '../Button';
-import HeaderBox from './HeaderBox';
+import HeaderBox from '../HeaderBox';
 import ListPosts from './ListPosts';
 import {
   Action,

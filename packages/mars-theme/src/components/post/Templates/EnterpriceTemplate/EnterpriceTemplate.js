@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import HeaderBox from '../../../list/HeaderBox';
+import HeaderBox from '../../../HeaderBox';
 import Forms from '../../../Forms';
 import Partners from '../../../home/Partners';
 import Description from './Description';
