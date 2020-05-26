@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'frontity';
 import Slider from "react-slick";
-import Wow from '../../Wow';
+import Wow from '../Wow';
 import {
   Title,
   Container, 

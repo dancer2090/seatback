@@ -19,7 +19,7 @@ import  {
   HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
   HEADER_FONT_SIZE_MOBILE,
   HEADER_LINE_HEIGHT_MOBILE,
-} from '../../../const/responsive';
+} from '../../const/responsive';
 
 export const Container = styled.div`
   padding-top: 250px;

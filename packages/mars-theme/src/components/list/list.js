@@ -65,8 +65,6 @@ const List = ({ state, actions, libraries }) => {
     actions.source.fetch(`/blog/page/${state.seatbackapi.pageNumber}/`);
     state.seatbackapi.pageNumber+=1;
     if((state.seatbackapi.pageNumber-1)==totalPages) setLoadMoreHidden(true);
-    //actions.theme.loadMore();
-
   }
 
   return (
