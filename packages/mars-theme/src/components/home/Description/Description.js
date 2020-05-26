@@ -42,7 +42,7 @@ const Description = ({ state, libraries }) => {
                 <Title alignImage={d.alignImage}>{d.header}</Title>
               )}
             </Wow>
-            {d.image.url.length > 0 && (
+            {d.image && d.image.url && d.image.url.length > 0 && (
               <Image alignImage={d.alignImage}>
                 {d.animated && (
                   <>
