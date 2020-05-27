@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "frontity";
-import Nav from "../nav";
+/* eslint-disable camelcase */
+/* eslint-disable no-undef */
+import React, { useState, useEffect } from 'react';
+import { connect } from 'frontity';
+import Nav from '../nav';
 import Link from '../link';
 import Button from '../Button';
 import ImageLogo from '../../img/sb_logo.svg';
-import { SIZE_MOBILE } from '../../const/responsive';
-import { 
+import {
   Container,
   MenuBox,
   LogoSection,
@@ -15,12 +16,11 @@ import {
   NavIconSection,
   ResposnsiveMenu,
   Space,
-  Progress
+  Progress,
 } from './styles';
 
 const Header = ({ data, state }) => {
-
-  const { header_button={} } = state.seatbackapi.options.acf;
+  const { header_button = {} } = state.seatbackapi.options.acf;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(false);
 
@@ -28,26 +28,24 @@ const Header = ({ data, state }) => {
     setMenuOpen(!isMenuOpen);
   }
 
+  const getDocHeight = () => Math.max(
+    document.body.scrollHeight, document.documentElement.scrollHeight,
+    document.body.offsetHeight, document.documentElement.offsetHeight,
+    document.body.clientHeight, document.documentElement.clientHeight,
+  );
+
   const calculateScrollDistance = () => {
     const scrollTop = window.pageYOffset;
     const windowHeight = window.innerHeight;
     const docHeight = getDocHeight();
 
-    const  totalDocScrollLength  =  docHeight  -  windowHeight;
-    const  newScrollPostion  =  Math.floor(scrollTop  /  totalDocScrollLength  *  100);
+    const totalDocScrollLength = docHeight - windowHeight;
+    const newScrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100);
     setScrollPosition(newScrollPostion);
-  }
-
-  const getDocHeight  =  ()  =>  {
-    return Math.max(
-      document.body.scrollHeight,  document.documentElement.scrollHeight,
-      document.body.offsetHeight,  document.documentElement.offsetHeight,
-      document.body.clientHeight,  document.documentElement.clientHeight
-    );
-  }
+  };
 
   const listenToScrollEvent = () => {
-    document.addEventListener("scroll", () => {
+    document.addEventListener('scroll', () => {
       requestAnimationFrame(() => {
         calculateScrollDistance();
       });
@@ -58,7 +56,7 @@ const Header = ({ data, state }) => {
   useEffect(() => {
     calculateScrollDistance();
     listenToScrollEvent();
-  },[])
+  }, []);
 
   return (
     <>
@@ -75,22 +73,22 @@ const Header = ({ data, state }) => {
           <ButtonSection>
             {header_button ? (
               <Link link={header_button.url.replace(state.frontity.adminUrl, state.frontity.url)}>
-                <Button block >
+                <Button block>
                   {header_button.title}
                 </Button>
               </Link>
             ) : (
-              <Button block >
+              <Button block>
                 Get a Demo
               </Button>
             )}
           </ButtonSection>
           <NavIconSection>
             <NavIcon isOpen={isMenuOpen} onClick={() => menuAction()}>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span />
+              <span />
+              <span />
+              <span />
             </NavIcon>
           </NavIconSection>
         </MenuBox>

@@ -1,11 +1,10 @@
 import { styled, css } from 'frontity';
-import  {
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
@@ -42,7 +41,7 @@ export const ResposnsiveMenu = styled.div`
     width: 300px;    
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    width: calc(100% + ${PADDING_MOBILE*2}px); 
+    width: calc(100% + ${PADDING_MOBILE * 2}px); 
   }
 `;
 
@@ -104,7 +103,7 @@ export const NavIcon = styled.div`
       top: ${navStep}px;
     }
     &:nth-of-type(4) {
-      top: ${navStep*2}px;
+      top: ${navStep * 2}px;
     }
   }
 
@@ -114,7 +113,7 @@ export const NavIcon = styled.div`
     }
   }
 
-  ${props => props.isOpen && css`
+  ${(props) => props.isOpen && css`
     span {
       &:nth-of-type(1) {
         top: ${navStep}px;
@@ -155,7 +154,7 @@ export const Container = styled.div`
   box-shadow: 2px 2px 8px #0000000D;
   opacity: 1;
 
-  ${props => props.isMenuOpen && css`
+  ${(props) => props.isMenuOpen && css`
     @media (max-width: ${SIZE_MOBILE}px) {
       top: 0;
       left: 0;
@@ -243,13 +242,13 @@ export const MenuBox = styled.div`
   }
 `;
 
-export const  Progress  =  styled.div`
+export const Progress = styled.div`
   position:  absolute;
   bottom: 0;
   left: 0;
   background:  linear-gradient(
     to right,
-    #52DE97 ${props => props.scroll},
+    #52DE97 ${(props) => props.scroll},
     transparent  0);
   width:  100%;
   height:  4px;
