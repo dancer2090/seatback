@@ -1,7 +1,7 @@
+/* eslint-disable react/no-array-index-key */
+
 import React from 'react';
-import { connect } from "frontity";
-import Link from '../../link';
-import Button from '../../Button';
+import { connect } from 'frontity';
 import {
   Container,
   ImagesContainer,
@@ -11,20 +11,17 @@ import {
 
 const StoryContent = ({
   images = [],
-  content = "",
+  content = '',
   libraries,
 }) => {
-
   const Html2React = libraries.html2react.Component;
   return (
     <Container>
       {images.length > 0 && (
         <ImagesContainer>
-          {images.map((image, key) => {
-            return (
-              <Image src={image.url} />
-            )
-          })}
+          {images.map((image, key) => (
+            <Image key={key} src={image.url} />
+          ))}
         </ImagesContainer>
       )}
       <Content>
@@ -33,6 +30,6 @@ const StoryContent = ({
 
     </Container>
   );
-}
+};
 
 export default connect(StoryContent);

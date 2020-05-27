@@ -1,7 +1,5 @@
 import React from 'react';
-import { connect } from "frontity";
-import Link from '../../link';
-import Button from '../../Button';
+import { connect } from 'frontity';
 import {
   GlobalContainer,
   Container,
@@ -11,32 +9,22 @@ import {
 } from './styles';
 
 const HeaderBoxGrey = ({
-  title = "",
-  description = "",
-  button={},
+  title = '',
   libraries,
 }) => {
-
-  const scrollToRef = () => scrollRef ? window.scrollTo({
-    top: scrollRef.current.offsetTop - 150,
-    left: 0,
-    behavior: 'smooth'
-  }) : null;
-
   const Html2React = libraries.html2react.Component;
-
   return (
     <GlobalContainer>
-      <CircleBg/>
+      <CircleBg />
       <Container>
         <HeaderBoxContainer>
           <DescriptionBox>
-            {title != '' && (<h1><Html2React html={title} /></h1>)}
+            {title !== '' && (<h1><Html2React html={title} /></h1>)}
           </DescriptionBox>
         </HeaderBoxContainer>
       </Container>
     </GlobalContainer>
   );
-}
+};
 
 export default connect(HeaderBoxGrey);

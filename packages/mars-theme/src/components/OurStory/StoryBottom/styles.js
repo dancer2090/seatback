@@ -1,17 +1,5 @@
 import { styled } from 'frontity';
-import  {
-  PADDING_DESCTOP_LARGE,
-  PADDING_DESCTOP_MEDIUM_2,
-  PADDING_DESCTOP_MEDIUM_1,
-  PADDING_DESCTOP_SMALL,
-  PADDING_MOBILE,
-  SIZE_DESCTOP_MEDIUM_2,
-  SIZE_DESCTOP_MEDIUM_1,
-  SIZE_DESCTOP_SMALL,
-  SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
-  SIZE_MOBILE,
-} from '../../../const/responsive';
+import { SIZE_LAPTOP } from '../../../const/responsive';
 import LogoBig from '../../../img/logo_big.svg';
 
 export const GlobalContainer = styled.div`

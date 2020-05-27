@@ -1,5 +1,5 @@
 import { styled } from 'frontity';
-import  {
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
@@ -9,11 +9,8 @@ import  {
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
   SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
 } from '../../../const/responsive';
-import RightArrow from '../../../img/right_arrow_2.svg';
-import RightArrowGreen from '../../../img/right_arrow_green_2.svg';
 import LinesLeft from '../../../img/lines_left.svg';
 import LinesRight from '../../../img/lines_right.svg';
 
@@ -142,7 +139,7 @@ export const DescriptionBox = styled.div`
   }
 `;
 
-export const CircleBg = styled.div `
+export const CircleBg = styled.div`
   position: absolute;
   top:0px;
   left:0px;
@@ -171,7 +168,7 @@ export const CircleBg = styled.div `
   }
 `;
 
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   padding-bottom: 100px;
   overflow: visible;
   position: relative;

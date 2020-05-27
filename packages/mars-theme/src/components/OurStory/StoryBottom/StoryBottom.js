@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from "frontity";
+import { connect } from 'frontity';
 import {
   Container,
   ImageContainer,
@@ -11,24 +11,23 @@ import {
 
 const StoryBottom = ({
   image = {},
-  content = "",
-  title = "",
+  content = '',
+  title = '',
   libraries,
 }) => {
-
   const Html2React = libraries.html2react.Component;
   return (
     <GlobalContainer>
       <Container>
-        {title != '' && (
+        {title !== '' && (
           <Title><Html2React html={title} /></Title>
         )}
-        {Object.keys(image).length != '' && (
+        {Object.keys(image).length && (
           <ImageContainer>
-            <Image src={image.url}/>
+            <Image src={image.url} />
           </ImageContainer>
         )}
-        {content != '' && (
+        {content !== '' && (
           <Content>
             <Html2React html={content} />
           </Content>
@@ -36,6 +35,6 @@ const StoryBottom = ({
       </Container>
     </GlobalContainer>
   );
-}
+};
 
 export default connect(StoryBottom);
