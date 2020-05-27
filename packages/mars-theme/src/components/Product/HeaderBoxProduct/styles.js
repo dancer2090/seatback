@@ -1,5 +1,5 @@
 import { styled } from 'frontity';
-import  {
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
@@ -126,13 +126,13 @@ export const Scroll = styled.div`
     padding: 0;
     border: none;
     outline: none;
-    background-color: ${props => props.buttonColor};
+    background-color: ${(props) => props.buttonColor};
     border: 1px solid #52DE97;
     width: 58px;
     height: 58px;
     border-radius: 29px;
     transition: all 0.3 ease-in-out;
-    color: ${props => props.textColor};
+    color: ${(props) => props.textColor};
     z-index: 1;
     cursor: pointer;
     position: relative;
@@ -143,8 +143,8 @@ export const Scroll = styled.div`
     line-height: 24px;
     width: 212px;
     &:hover {
-      background-color: ${props => props.buttonColorHover};
-      color: ${props => props.textColorHover};
+      background-color: ${(props) => props.buttonColorHover};
+      color: ${(props) => props.textColorHover};
     }
   }
   @media (max-width: ${SIZE_LAPTOP}px) {
@@ -182,9 +182,9 @@ export const BannerArticlesContainer = styled.div`
   height: 507px;
   border-radius: 14px 14px 0px 0px;
   opacity: 1;
-  background-image: url(${props => props.imgSrc ? props.imgSrc : 'https://i.picsum.photos/id/866/1200/1000.jpg'});
+  background-image: url(${(props) => (props.imgSrc ? props.imgSrc : 'https://i.picsum.photos/id/866/1200/1000.jpg')});
   background-repeat: no-repeat;
-  background-size: ${props => props.bg_size};
+  background-size: ${(props) => props.bg_size};
   background-position: center center;
   position: relative;
   border-radius: 14px;
@@ -214,7 +214,7 @@ export const BannerArticlesContainer = styled.div`
   }
 `;
 
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   padding-bottom: 133px;
   overflow: hidden;
   position: relative;

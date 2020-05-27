@@ -1,29 +1,23 @@
-import React from "react";
-import { connect } from "frontity";
-import Button from "../../Button";
-import Link from "../../link";
+import React from 'react';
+import { connect } from 'frontity';
 
 import {
   Container,
   Title,
-  SubTitle,
   DescriptionParagraph,
-  Action,
   Image,
   GlobalContainer,
-} from "./styles";
+} from './styles';
 
 const DescriptionProduct = ({
-  state,
   libraries,
-  title="",
-  description="",
-  image={},
-  circleColor="#F5F6FA",
-  bgColor="transparent",
-  zIndex=1,
+  title = '',
+  description = '',
+  image = {},
+  circleColor = '#F5F6FA',
+  bgColor = 'transparent',
+  zIndex = 1,
 }) => {
-
   const Html2React = libraries.html2react.Component;
 
   return (
@@ -34,11 +28,11 @@ const DescriptionProduct = ({
         )}
         {image && image.url && image.url.length > 0 && (
           <Image>
-              <img
-                src={image.url}
-                width={660}
-                alt="image"
-              />
+            <img
+              src={image.url}
+              width={660}
+              alt="description attribute"
+            />
           </Image>
         )}
         <div>

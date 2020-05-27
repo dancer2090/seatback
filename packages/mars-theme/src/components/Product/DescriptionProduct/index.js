@@ -1,3 +1,3 @@
-import DescriptionProduct from "./DescriptionProduct";
+import DescriptionProduct from './DescriptionProduct';
 
 export default DescriptionProduct;
