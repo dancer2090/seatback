@@ -35,7 +35,6 @@ export const Container = styled.div `
   padding-left: ${PADDING_DESCTOP_LARGE}px;
   position: relative;
   width: 100%;
-  oveflow: hidden;
   background: #FFFFFF;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
