@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import PostContent from './post/content';
 
 const Post = () => <PostContent />;

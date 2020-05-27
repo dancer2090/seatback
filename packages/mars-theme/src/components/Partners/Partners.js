@@ -1,10 +1,11 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { connect } from 'frontity';
-import Slider from "react-slick";
+import Slider from 'react-slick';
 import Wow from '../Wow';
 import {
   Title,
-  Container, 
+  Container,
   CarouselContainer,
   Item,
   ImageBox,
@@ -14,25 +15,24 @@ import {
 function carouselMinCountData(data, min) {
   const newData = [];
   while (newData.length < min) {
-    data.forEach(element => {
-      newData.push(element)
+    data.forEach((element) => {
+      newData.push(element);
     });
   }
   return newData;
 }
 
-const Parthers = ({state, libraries, bgColor}) => {
-
+const Parthers = ({ state, libraries, bgColor }) => {
   const Html2React = libraries.html2react.Component;
 
-  const data_p = state.source.get(state.router.link);
-  const post = state.source[data_p.type][data_p.id];
+  const dataP = state.source.get(state.router.link);
+  const post = state.source[dataP.type][dataP.id];
 
 
-  let data1 = post.acf.customers;
+  const data1 = post.acf.customers;
   const title = post.acf.c_header;
 
-  let dataPartners = data1 && data1.length > 0 ? carouselMinCountData(data1, 12) : [];
+  const dataPartners = data1 && data1.length > 0 ? carouselMinCountData(data1, 12) : [];
 
   const settings = {
     dots: false,
@@ -47,67 +47,72 @@ const Parthers = ({state, libraries, bgColor}) => {
       {
         breakpoint: 1600,
         settings: {
-          slidesToShow: 8
-        }
+          slidesToShow: 8,
+        },
       },
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 7
-        }
+          slidesToShow: 7,
+        },
       },
       {
         breakpoint: 1050,
         settings: {
-          slidesToShow: 6
-        }
+          slidesToShow: 6,
+        },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 4
-        }
+          slidesToShow: 4,
+        },
       },
       {
         breakpoint: 320,
         settings: {
-          slidesToShow: 3
-        }
-      }
-    ]
+          slidesToShow: 3,
+        },
+      },
+    ],
   };
 
   return (
     <Container bgColor={bgColor}>
-        <Wow  offset={-200} animation='slideUp'>
-          <Title>
-            <Html2React html={title} />
-          </Title>
-        </Wow>
-        <Wow offset={-200}  animation='slideUp' delay="0.3s">
-          <CarouselContainer>
-            <SlickContainer>
-              <Slider {...settings}>
-                  {dataPartners && dataPartners.length > 0 && dataPartners.map((d, n) => (
-                    <Item key={n}>
-                      <ImageBox>
-                        <img className="zoom animated"  style={
+      <Wow offset={-200} animation="slideUp">
+        <Title>
+          <Html2React html={title} />
+        </Title>
+      </Wow>
+      <Wow offset={-200} animation="slideUp" delay="0.3s">
+        <CarouselContainer>
+          <SlickContainer>
+            <Slider {...settings}>
+              {dataPartners && dataPartners.length > 0 && dataPartners.map((d, n) => (
+                <Item key={n}>
+                  <ImageBox>
+                    <img
+                      className="zoom animated"
+                      style={
                           {
                             animationName: 'zoom',
-                            animationDelay: (n*0.3)+"s" ,
+                            animationDelay: `${n * 0.3}s`,
                             animationIterationCount: 'infinite',
                             visibility: 'visible',
                           }
-                        } src={d.url} />
-                      </ImageBox>
-                    </Item>
-                  ))}
-              </Slider>
-            </SlickContainer>
-          </CarouselContainer>
-        </Wow>
+                        }
+                      src={d.url}
+                      alt="description attribute"
+                    />
+                  </ImageBox>
+                </Item>
+              ))}
+            </Slider>
+          </SlickContainer>
+        </CarouselContainer>
+      </Wow>
     </Container>
-  )
-}
+  );
+};
 
 export default connect(Parthers);

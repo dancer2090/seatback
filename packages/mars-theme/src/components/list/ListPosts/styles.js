@@ -1,28 +1,23 @@
 import { styled } from 'frontity';
-import  {
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
-  SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
-  HEADER_HEIGHT,
-  HEADER_HEIGHT_RESPONSIVE,
   SIZE_MOBILE,
 } from '../../../const/responsive';
 
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   padding-top: 269px;
   overflow: hidden;
   position: relative;
-  &:after{
-    content: ' ';
-    background-color: #FFFFFF;
+  &:after {
+    content: " ";
+    background-color: #ffffff;
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
@@ -31,9 +26,9 @@ export const GlobalContainer = styled.div `
     left: calc(50% - 1150px);
     z-index: -1;
   }
-  &:before{
-    content: ' ';
-    background: #F5F6FA;
+  &:before {
+    content: " ";
+    background: #f5f6fa;
     width: 100%;
     height: 1830px;
     position: absolute;
@@ -47,9 +42,7 @@ export const GlobalContainer = styled.div `
   @media (max-width: ${SIZE_MOBILE}px) {
     /* padding-top: 91px; */
   }
-  
 `;
-
 
 export const Container = styled.div`
   margin: 0;
@@ -75,9 +68,7 @@ export const Container = styled.div`
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
   }
-
 `;
-
 
 export const ListBox = styled.div`
   margin-left: -40px;

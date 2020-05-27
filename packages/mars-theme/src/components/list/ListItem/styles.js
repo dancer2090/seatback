@@ -1,5 +1,5 @@
 import { styled } from 'frontity';
-import  {
+import {
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
@@ -14,7 +14,6 @@ export const ItemBox = styled.div`
   padding-right: 40px;
   width: 50%;
 
-
   @media (max-width: ${SIZE_LAPTOP}px) {
     width: 100%;
   }
@@ -23,7 +22,7 @@ export const ItemBox = styled.div`
 export const ItemContentBox = styled.div`
   height: 562px;
   width: 100%;
-  background-image: ${props => props.background ? `url(${props.background})` : ''};
+  background-image: ${(props) => (props.background ? `url(${props.background})` : '')};
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -55,13 +54,13 @@ export const ItemDescriptionBox = styled.div`
   min-height: 178px;
   height: auto;
   padding: 30px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 2px 2px 8px #00000014;
   border-radius: 0px 0px 14px 14px;
   opacity: 1;
   position: absolute;
   width: 100%;
-  left:0;
+  left: 0;
   bottom: 0;
   display: flex;
   align-items: center;
@@ -77,7 +76,7 @@ export const ItemDescriptionBox = styled.div`
   h2 {
     text-align: left;
     letter-spacing: 0px;
-    color: #2E293C;
+    color: #2e293c;
     opacity: 1;
     font-size: 24px;
     line-height: 29px;
@@ -101,7 +100,7 @@ export const ItemDescriptionBox = styled.div`
     a {
       transition: all 0.3s ease-in-out;
       &:hover {
-        color: #52DE97;
+        color: #52de97;
       }
     }
   }
@@ -109,7 +108,7 @@ export const ItemDescriptionBox = styled.div`
   p {
     text-align: left;
     letter-spacing: 0px;
-    color: #2E293C;
+    color: #2e293c;
     opacity: 1;
     font-size: 18px;
     line-height: 22px;
@@ -140,8 +139,8 @@ export const Date = styled.time`
   font-size: 16px;
   line-height: 19px;
   font-weight: 400;
-  letter-spacing: 0.64px; 
-  color: #A09D9D;
+  letter-spacing: 0.64px;
+  color: #a09d9d;
   opacity: 1;
 
   @media (max-width: ${SIZE_MOBILE}px) {
@@ -161,7 +160,7 @@ export const AuthorName = styled.div`
   font-weight: 400;
   text-align: right;
   letter-spacing: 0px;
-  color: #2E293C;
+  color: #2e293c;
   opacity: 1;
   padding-top: 14px;
 
@@ -182,7 +181,7 @@ export const AuthorImage = styled.div`
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-image: ${props => props.background ? `url(${props.background})` : ''};
+  background-image: ${(props) => (props.background ? `url(${props.background})` : '')};
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

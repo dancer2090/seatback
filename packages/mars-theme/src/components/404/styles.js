@@ -1,6 +1,5 @@
-import { styled } from "frontity";
+import { styled } from 'frontity';
 import {
-  PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
@@ -22,7 +21,7 @@ import {
   TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
   TEXT_FONT_SIZE_MOBILE,
   TEXT_LINE_HEIGHT_MOBILE,
-} from "../../const/responsive";
+} from '../../const/responsive';
 
 export const GlobalContainer = styled.div`
   padding-top: 185px;

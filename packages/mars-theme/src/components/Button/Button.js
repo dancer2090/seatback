@@ -1,10 +1,8 @@
 import React from 'react';
-import { styled, css } from "frontity";
-import  {
-  SIZE_DESCTOP_LARGE,
+import { styled, css } from 'frontity';
+import {
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
-  SIZE_DESCTOP_SMALL,
   getPxSize,
 } from '../../const/responsive';
 
@@ -30,7 +28,7 @@ const StyledButton = styled.button`
   justify-content: center;
   text-align: center;
 
-  ${props => props.hidden && css`
+  ${(props) => props.hidden && css`
     display: none;
   `}
 
@@ -47,7 +45,7 @@ const StyledButton = styled.button`
     padding: 0 42px;
   }
 
-  ${props => props.size === 'large' && css`
+  ${(props) => props.size === 'large' && css`
     font-size: 24px;
     line-height: 29px;
     min-height: 75px;
@@ -67,7 +65,7 @@ const StyledButton = styled.button`
     color: #52DE97;
   }
 
-  ${props => props.mode === 'dark' && css`
+  ${(props) => props.mode === 'dark' && css`
     color: #2E293C;
     &:hover {
       background: #FFFFFF;
