@@ -1,17 +1,12 @@
-import { styled, keyframes } from 'frontity';
-import  {
-  PADDING_DESCTOP_LARGE,
-  PADDING_DESCTOP_MEDIUM_2,
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
-  SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
   getPxSize,
   SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
   HEADER_FONT_SIZE_DESCTOP_LARGE,
   HEADER_LINE_HEIGHT_DESCTOP_LARGE,
@@ -38,7 +33,7 @@ export const Container = styled.div`
   }
   &:before{
     content: ' ';
-    background: ${props => props.bgColor ? props.bgColor : '#FFFFFF'};
+    background: ${(props) => (props.bgColor ? props.bgColor : '#FFFFFF')};
     width: 100%;
     height: 1272px;
     position: absolute;
@@ -106,14 +101,6 @@ export const Item = styled.div`
   padding-right: 20px;
 `;
 
-const zoom_center = keyframes`
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-`;
 export const ImageBox = styled.div`
   width: 175px;
   height: 175px;
