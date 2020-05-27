@@ -54,19 +54,20 @@ export const Container = styled.div `
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     padding-left: ${PADDING_DESCTOP_SMALL}px;
     padding-right: ${PADDING_DESCTOP_SMALL}px;
-    padding-top: 100px;
+    padding-top: 30px;
     padding-bottom: 100px;
   }
   @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+    padding-top: 0;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 `;
 

@@ -14,6 +14,7 @@ import {
   New,
   Article,
   HeaderFooter,
+  ImageContainer,
 } from './styles';
 
 const HeaderBoxProduct = ({
@@ -28,7 +29,6 @@ const HeaderBoxProduct = ({
 }) => {
 
   const scrollToRef = () => {
-    console.log(scrollRef);
     scrollRef ? window.scrollTo({
       top: scrollRef.current.offsetTop - offset,
       left: 0,
@@ -63,7 +63,10 @@ const HeaderBoxProduct = ({
               </HeaderFooter>
           </DescriptionBox>
           <BannerArticlesBox>
-            <BannerArticlesContainer imgSrc={image} bg_size={bg_size} />
+            {/* <BannerArticlesContainer imgSrc={image} bg_size={bg_size} /> */}
+            <ImageContainer>
+              <img src={image} />
+            </ImageContainer>
           </BannerArticlesBox>
         </HeaderBoxContainer>
       </Container>

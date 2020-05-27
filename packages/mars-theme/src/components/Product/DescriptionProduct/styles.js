@@ -89,12 +89,14 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 `;
 
@@ -179,6 +181,7 @@ export const DescriptionParagraph = styled.p`
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     max-width: 100%;
     text-align: center;
+    padding-top: 30px;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;

@@ -109,6 +109,11 @@ export const DescriptionBox = styled.div`
       font-size: 18px;
       line-height: 32px;
       text-align: center;
+      margin: 0 auto;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      font-size: 14px;
+      line-height: 24px;
     }
   }
 `;
@@ -144,11 +149,6 @@ export const Scroll = styled.div`
       background-color: #52DE97;
       color: #fff;
     }
-
-
-    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
-      transform: scale(0.95) rotate(90deg);
-    }
   }
   @media (max-width: ${SIZE_LAPTOP}px) {
     display: none;
@@ -164,6 +164,20 @@ export const BannerArticlesBox = styled.div`
     width: 100%;
     justify-content: center;
   }
+`;
+
+export const ImageContainer = styled.div`
+  width: 770px;
+  height: 507px;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    height: auto;
+  }
+
 `;
 
 export const BannerArticlesContainer = styled.div`
