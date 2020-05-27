@@ -1,5 +1,7 @@
+/* eslint-disable no-nested-ternary */
+
 import { styled } from 'frontity';
-import  {
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
@@ -33,7 +35,7 @@ export const HeaderFooter = styled.div`
 export const HeaderBoxContainer = styled.div`
   display: flex;
   align-items: center;
-  padding-top: ${props => props.type_header === 'With lines' ? '300px' : '162px'};
+  padding-top: ${(props) => (props.type_header === 'With lines' ? '300px' : '162px')};
   @media (max-width: ${SIZE_LAPTOP}px) {
     flex-wrap: wrap;
     padding-top: 100px;
@@ -53,12 +55,15 @@ export const DescriptionBox = styled.div`
     width: 100%;
     padding-right: 0;
   }
-  ${props => props.type_header === 'With lines' && `
+  ${(props) => props.type_header === 'With lines'
+    && `
     &:before{
       content:' ';
       width: 322px;
       height: 211px;
-      background: url(${props.mode === 'dark' ? LinesLeftDark : LinesLeft}) no-repeat 50% 50% / 100% auto;
+      background: url(${
+  props.mode === 'dark' ? LinesLeftDark : LinesLeft
+}) no-repeat 50% 50% / 100% auto;
       position: absolute;
       bottom: 95%;
       left: 0px;
@@ -70,7 +75,9 @@ export const DescriptionBox = styled.div`
       content:' ';
       width: 322px;
       height: 211px;
-      background: url(${props.mode === 'dark' ? LinesRightDark : LinesRight}) no-repeat 50% 50% / 100% auto;
+      background: url(${
+  props.mode === 'dark' ? LinesRightDark : LinesRight
+}) no-repeat 50% 50% / 100% auto;
       position: absolute;
       bottom: 95%;
       right: 0px;
@@ -84,15 +91,15 @@ export const DescriptionBox = styled.div`
     width: 100%;
     text-align: left;
     font-size: 50px;
-    line-height: ${props => props.mode === 'dark' ? '78' : '70'}px;
+    line-height: ${(props) => (props.mode === 'dark' ? '78' : '70')}px;
     font-weight: bold;
     letter-spacing: 0px;
-    color: ${props => props.mode === 'dark' ? '#FFFFFF' : '#2E293C'};
+    color: ${(props) => (props.mode === 'dark' ? '#FFFFFF' : '#2E293C')};
     opacity: 1;
     margin: 0;
     max-width: 423px;
-    span{
-      color: #52DE97;
+    span {
+      color: #52de97;
     }
 
     @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
@@ -111,7 +118,7 @@ export const DescriptionBox = styled.div`
       max-width: 100%;
     }
   }
-  button{
+  button {
     @media (max-width: ${SIZE_LAPTOP}px) {
       margin-top: 30px;
     }
@@ -122,7 +129,7 @@ export const DescriptionBox = styled.div`
     line-height: 40px;
     font-weight: 400;
     letter-spacing: 0px;
-    color: ${props => props.mode === 'dark' ? '#FFFFFF' : '#A09D9D'};
+    color: ${(props) => (props.mode === 'dark' ? '#FFFFFF' : '#A09D9D')};
     opacity: 1;
     max-width: 564px;
     width: 100%;
@@ -156,34 +163,33 @@ export const Scroll = styled.div`
     border: none;
     outline: none;
     background-color: rgb(82, 222, 151, 0);
-    border: 1px solid #52DE97;
+    border: 1px solid #52de97;
     width: 58px;
     height: 58px;
     border-radius: 50%;
     transition: all 0.3 ease-in-out;
-    color: #2E293C !important;
+    color: #2e293c !important;
     z-index: 1;
     cursor: pointer;
     position: relative;
-    transition: all 0.3s ease-in-out; 
+    transition: all 0.3s ease-in-out;
     margin-right: 15px;
     &:after {
-      content: url(${props => props.mode === 'dark' ? RightArrowGreen : RightArrow});
+      content: url(${(props) => (props.mode === 'dark' ? RightArrowGreen : RightArrow)});
       position: absolute;
       top: 0;
       left: 0;
       z-index: 1;
       width: 100%;
       height: 100%;
-    } 
-    
+    }
+
     &:hover {
-      background-color: #52DE97;
+      background-color: #52de97;
       &:after {
         content: url(${RightArrowGreen});
       }
     }
-
 
     @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
       transform: scale(0.95) rotate(90deg);
@@ -210,16 +216,18 @@ export const BannerArticlesContainer = styled.div`
   height: 507px;
   border-radius: 14px 14px 0px 0px;
   opacity: 1;
-  background-image: url(${props => props.imgSrc ? props.imgSrc : 'https://i.picsum.photos/id/866/1200/1000.jpg'});
+  background-image: url(${(props) => (props.imgSrc
+    ? props.imgSrc
+    : 'https://i.picsum.photos/id/866/1200/1000.jpg')});
   background-repeat: no-repeat;
-  background-size: ${props => props.bg_size};
+  background-size: ${(props) => props.bg_size};
   background-position: center center;
   position: relative;
   border-radius: 14px;
 
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     width: 600px;
-    height:400px;
+    height: 400px;
   }
 
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
@@ -243,7 +251,7 @@ export const BannerArticlesContainer = styled.div`
 `;
 
 export const BannerArticlesDescription = styled.div`
-  background: #2E293C 0% 0% no-repeat padding-box;
+  background: #2e293c 0% 0% no-repeat padding-box;
   box-shadow: 2px 2px 8px #00000014;
   border-radius: 0px 0px 14px 14px;
   opacity: 1;
@@ -271,16 +279,16 @@ export const BannerArticlesDescription = styled.div`
     line-height: 29px;
     font-weight: 400;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
     max-width: 80%;
-    & a{
+    & a {
       position: relative;
       width: auto;
       height: auto;
       transition: all 0.3s ease-in-out;
-      &:hover{
-        color: #52DE97;
+      &:hover {
+        color: #52de97;
       }
     }
 
@@ -303,7 +311,7 @@ export const BannerArticlesDescription = styled.div`
     line-height: 22px;
     font-weight: 400;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     opacity: 1;
     padding-top: 12px;
     max-width: 80%;
@@ -341,12 +349,12 @@ export const BannerArticlesDescription = styled.div`
     border: none;
     outline: none;
     background-color: rgb(82, 222, 151, 0);
-    border: 1px solid #52DE97;
+    border: 1px solid #52de97;
     width: 58px;
     height: 58px;
     border-radius: 50%;
     transition: all 0.3 ease-in-out;
-    color: #2E293C !important;
+    color: #2e293c !important;
     z-index: 1;
     cursor: pointer;
     &:after {
@@ -357,14 +365,14 @@ export const BannerArticlesDescription = styled.div`
       z-index: 1;
       width: 100%;
       height: 100%;
-    } 
-    
+    }
+
     &:hover {
-      background-color: #52DE97;
+      background-color: #52de97;
       &:after {
         content: url(${RightArrow});
       }
-    }    
+    }
   }
 `;
 
@@ -372,7 +380,7 @@ export const New = styled.div`
   content: "NEW";
   width: 126px;
   height: 51px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   border-radius: 8px;
   opacity: 0.65;
   font-size: 24px;
@@ -380,7 +388,7 @@ export const New = styled.div`
   font-weight: 600;
   text-align: center;
   letter-spacing: 0px;
-  color: #2E293C;
+  color: #2e293c;
   opacity: 1;
   padding: 0;
   position: absolute;
@@ -413,30 +421,36 @@ export const Article = styled.div`
   line-height: 24px;
   font-weight: 500;
   letter-spacing: 0px;
-  color: #52DE97;
+  color: #52de97;
   opacity: 1;
   margin: 0;
   padding-bottom: 10px;
 `;
 
-export const GlobalContainer = styled.div `
-  padding-bottom: ${props => props.type_header === 'With lines' ? '300px' : '185px'};
+export const GlobalContainer = styled.div`
+  padding-bottom: ${(props) => (props.type_header === 'With lines' ? '300px' : '185px')};
   overflow: hidden;
   position: relative;
   &:after{
     content: ' ';
-    background-color: ${props => props.mode === 'dark' ? '#2E293C' : '#FFFFFF'};
+    background-color: ${(props) => (props.mode === 'dark' ? '#2E293C' : '#FFFFFF')};
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
-    left: ${props => props.type_header === 'With lines' ? 'calc(50% - 1503px)' : 'calc(50% - 1870px)'};
+    left: ${(props) => (props.type_header === 'With lines'
+    ? 'calc(50% - 1503px)'
+    : 'calc(50% - 1870px)')};
     z-index: -1;
   }
   &:before{
     content: ' ';
-    background: ${props => props.bgColor ? props.bgColor : props.mode === 'dark' ? '#FFFFFF' : '#F5F6FA'};
+    background: ${(props) => (props.bgColor
+    ? props.bgColor
+    : props.mode === 'dark'
+      ? '#FFFFFF'
+      : '#F5F6FA')};
     width: 100%;
     height: 1830px;
     position: absolute;
@@ -445,9 +459,10 @@ export const GlobalContainer = styled.div `
     z-index: -1;
   }
   @media (max-width: ${SIZE_LAPTOP}px) {
-    padding-bottom: ${props => props.type_header === 'With lines' ? '50px' : '50px'};
+    padding-bottom: ${(props) => (props.type_header === 'With lines' ? '50px' : '50px')};
   }
-  ${props => props.type_header === 'With lines' && `
+  ${(props) => props.type_header === 'With lines'
+    && `
     ${BannerArticlesBox}{
       display:none;
     }
@@ -482,7 +497,6 @@ export const GlobalContainer = styled.div `
   
 `;
 
-
 export const Container = styled.div`
   margin: 0;
   width: 100%;
@@ -507,7 +521,6 @@ export const Container = styled.div`
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
   }
-
 `;
 
 export const ClickBox = styled.div`

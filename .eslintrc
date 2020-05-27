@@ -6,6 +6,7 @@
     "react/jsx-filename-extension": 0,
     "jsx-a11y/anchor-is-valid": 0,
     "import/no-unresolved": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "jsx-a11y/control-has-associated-label": 0
   }
 }
