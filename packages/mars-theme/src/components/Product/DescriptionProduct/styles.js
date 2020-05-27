@@ -167,7 +167,7 @@ export const DescriptionParagraph = styled.p`
   font-weight: 400;
   letter-spacing: 0px;
   color: #a09d9d;
-  max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
+  max-width: 614px;
   margin: 0;
   position: relative;
   z-index: 2;
