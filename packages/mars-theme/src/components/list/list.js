@@ -1,24 +1,16 @@
-import React, { useRef, useEffect, useState } from "react";
-import { connect, styled, decode } from "frontity";
-import Item from "./list-item";
-import Pagination from "./pagination";
+import React, { useRef, useState } from "react";
+import { connect } from "frontity";
 import Button from '../Button';
 import HeaderBox from '../HeaderBox';
 import ListPosts from './ListPosts';
-import {
-  Action,
-} from './styles';
+import { Action } from './styles';
 
 const List = ({ state, actions, libraries }) => {
-  // Get the data of the current list.
 
   const articlesRef = useRef(null);
 
   const data = state.source.get(state.router.link);
-  const { next, previous, totalPages } = state.source.get(state.router.link);
-  console.log(next);
-  //  const data = state.source.get(next);
-  //  const null_item_state = data.items.shift();
+  const { totalPages } = state.source.get(state.router.link);
 
   const null_item = state.source[data.items[0].type][data.items[0].id];
 
@@ -31,35 +23,24 @@ const List = ({ state, actions, libraries }) => {
   }
   const media_obj = state.source.attachment[null_item.featured_media];
 
-  const [newPosts, setNewPosts] = useState([]);
   const [loadMoreHidden, setLoadMoreHidden] = useState(false);
-
-  const { api } = libraries.source;
-
-
-
-
-  //var countSlice = state.seatbackapi.pageNumber-2;
-  var per_page = state.source.params.per_page;
-  var countSlice = 0;
+  let countSlice = 0;
   if((state.seatbackapi.pageNumber-1)!=totalPages) countSlice=state.seatbackapi.pageNumber-2;
-  //var postItems = Object.values(state.source.post).slice(countSlice).reverse().slice(1);
 
-  var megaItems = data.items.slice(1);
+  let megaItems = data.items.slice(1);
+  let currentData;
   if(state.seatbackapi.pageNumber>2){
-    for(var i=2;i<state.seatbackapi.pageNumber;i++){
-      var currentData = state.source.get(`/blog/page/${i}`);
-      console.log(currentData);
+    for( let i=2; i < state.seatbackapi.pageNumber; i++ ){
+      currentData = state.source.get(`/blog/page/${i}`);
       if(currentData.isReady){
         megaItems = megaItems.concat(currentData.items);
       }
     }
     if(currentData.isReady){
-      var splice_count = megaItems.length-countSlice;
+      const splice_count = megaItems.length-countSlice;
       megaItems.splice(splice_count);
     }
   }
-
   state.seatbackapi.customPostTotal = totalPages;
   const loadMore1 = () => {
     actions.source.fetch(`/blog/page/${state.seatbackapi.pageNumber}/`);

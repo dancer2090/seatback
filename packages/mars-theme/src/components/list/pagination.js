@@ -13,15 +13,11 @@ import Link from "../link";
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
   const { next, previous } = state.source.get(state.router.link);
-  console.log(next);
-  console.log('state:');
-  console.log(state);
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
     if (next){
-        //actions.source.fetch(next);
+        actions.source.fetch(next);
     }
-    //actions.source.fetch('/blog');
   }, []);
 
   return (

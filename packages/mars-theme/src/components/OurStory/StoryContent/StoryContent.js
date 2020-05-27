@@ -16,7 +16,6 @@ const StoryContent = ({
 }) => {
 
   const Html2React = libraries.html2react.Component;
-  console.log(images);
   return (
     <Container>
       {images.length > 0 && (
