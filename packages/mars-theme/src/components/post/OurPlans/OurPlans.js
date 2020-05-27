@@ -19,7 +19,7 @@ import {
 import CkeckCircle from '../../../img/checkmark-circle.svg';
 
 
-const OurPlans = ({state, libraries, title="", plans=[]}) => {
+const OurPlans = ({ libraries, title="", plans=[]}) => {
   const nullPlans = [];
   var defaultPlan = "";
   plans.map((plan,j)=>{
@@ -39,7 +39,6 @@ const OurPlans = ({state, libraries, title="", plans=[]}) => {
     setPlanActive(timePlans);
   }
 
-  console.log(plans);
   return (
     <GlobalContainer>
       <Container>

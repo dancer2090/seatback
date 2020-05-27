@@ -19,7 +19,7 @@ import  {
 const Nav = ({
    state,
    libraries,
-   setMenuOpen  = () => {console.log('set action')},
+   setMenuOpen  = () => {},
   }) => {
 
   const Html2React = libraries.html2react.Component;

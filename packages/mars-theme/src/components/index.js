@@ -13,14 +13,11 @@ import PageError from "./page-error";
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
-const Theme = ({ state, actions, libraries }) => {
-  // Get information about the current URL.
+const Theme = ({ state, libraries }) => {
 
-  // actions.source.fetch('/blog');
   const { api } = libraries.source;
   api.get({ endpoint: "posts", params: { _embed: true, categories: '2,3,4' } });
   const data = state.source.get(state.router.link);
-  console.log(state);
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
@@ -39,7 +36,6 @@ const Theme = ({ state, actions, libraries }) => {
       {/* Add the header of the site. */}
       <SiteContainer>
         <Header data={data} />
-
         {/* Add the main section. It renders a different component depending
         on the type of URL we are in. */}
         <Switch>
@@ -180,5 +176,4 @@ const SiteContainer = styled.div`
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  /* overflow-x: hidden; */
 `;
