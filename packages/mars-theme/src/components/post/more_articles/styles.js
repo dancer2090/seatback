@@ -1,11 +1,10 @@
-import { styled, css, keyframes } from 'frontity';
-import  {
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
@@ -30,8 +29,7 @@ import  {
 } from '../../../const/responsive';
 
 
-
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   padding-top:185px;
   overflow: hidden;
   position: relative;
@@ -63,14 +61,14 @@ export const GlobalContainer = styled.div `
     padding-top: 91px;
   }
 `;
-export const Container = styled.div `
+export const Container = styled.div`
   margin:0 auto;
   display:flex;
   text-align: left;
   justify-content:space-between;
   letter-spacing:0 px;
   padding-right: 150px;
-  padding-left:${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_LARGE + 'px'};
+  padding-left:${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_LARGE}px`)};
   opacity:1;
   margin-bottom:225px;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
@@ -103,7 +101,7 @@ export const Container = styled.div `
   }
 `;
 
-export const Slogan = styled.h1 `
+export const Slogan = styled.h1`
   text-align: left;
   line-height:${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
   opacity:1;
@@ -147,19 +145,19 @@ export const Discription = styled.p`
   }
 `;
 
-export const Video = styled.div `
+export const Video = styled.div`
   position: absolute;
   width: 50%;
   height: 100%;
-  right: ${props => props.alignImage === 'left' ? 'auto' : '150px'};
+  right: ${(props) => (props.alignImage === 'left' ? 'auto' : '150px')};
   top: 0;
-  left: ${props => props.alignImage === 'left' ? '150px' : 'auto'};
+  left: ${(props) => (props.alignImage === 'left' ? '150px' : 'auto')};
   display: flex;
   align-items: center;
-  justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
+  justify-content: ${(props) => (props.alignImage === 'left' ? 'flex-start' : 'flex-end')};
 `;
 
-export const VideoContainer = styled.div `
+export const VideoContainer = styled.div`
   width: 40%;
   height: 50%;
   margin:0;
@@ -209,7 +207,7 @@ export const VideoContainer = styled.div `
     width: 70%;
   }
 `;
-export const VideoText = styled.div `
+export const VideoText = styled.div`
   margin:0 auto;
   text-align: center;
   max-width:1074px;
