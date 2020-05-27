@@ -124,16 +124,15 @@ export const Scroll = styled.div`
 
   button {
     padding: 0;
-    color: transparent;
     border: none;
     outline: none;
-    background-color: rgb(82, 222, 151, 0);
+    background-color: ${props => props.buttonColor};
     border: 1px solid #52DE97;
     width: 58px;
     height: 58px;
     border-radius: 29px;
     transition: all 0.3 ease-in-out;
-    color: #2E293C;
+    color: ${props => props.textColor};
     z-index: 1;
     cursor: pointer;
     position: relative;
@@ -142,12 +141,10 @@ export const Scroll = styled.div`
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-    color: #2E293C;
     width: 212px;
-    
     &:hover {
-      background-color: #52DE97;
-      color: #fff;
+      background-color: ${props => props.buttonColorHover};
+      color: ${props => props.textColorHover};
     }
   }
   @media (max-width: ${SIZE_LAPTOP}px) {

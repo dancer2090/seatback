@@ -44,11 +44,11 @@ export const GlobalContainer = styled.div `
     left: 0px;
     z-index: -1;
   }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    padding-top: 150px;
+  }
   @media (max-width: ${SIZE_LAPTOP}px) {
     padding-bottom: 50px;
-  }
-  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
-    /* padding-top: 139px; */
   }
   @media (max-width: ${SIZE_MOBILE}px) {
     /* padding-top: 91px; */
@@ -89,6 +89,12 @@ export const MenuContainer = styled.nav `
   justify-content: space-between;
   align-items: flex-start;
   padding-bottom: 250px;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 150px;
+  }
 `;
 export const MenuColumnHeader = styled.div `
   font-size: 24px;
@@ -115,21 +121,36 @@ export const SubMenuElement = styled.li `
 `;
 export const MenuColumn = styled.div `
   display: block;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    display: block;
+    min-width: 250px;
+    margin-top: 30px;
+  }
 `;
 
 export const FooterActions = styled.div `
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 export const Socials = styled.div `
   display: block;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    margin-top: 4rem;
+  }
 `;
 export const SocialsHeader = styled.div `
   font-weight: 500;
   font-size: 24px;
   line-height: 24px;
   color: #2E293C;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    text-align: center;
+  }
 `;
 export const SocialsRow = styled.div `
   display: block;

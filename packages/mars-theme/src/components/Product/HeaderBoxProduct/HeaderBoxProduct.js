@@ -36,6 +36,11 @@ const HeaderBoxProduct = ({
     }) : null;
   }
 
+  const buttonColor = (Object.keys(button).length>0 ? 'rgb(82, 222, 151, 0)' : '#52DE97');
+  const textColor = (Object.keys(button).length>0 ? '#2E293C' : '#fff');
+  const buttonColorHover = (Object.keys(button).length>0 ? '#52DE97' : '#2E293C');
+  const textColorHover = (Object.keys(button).length>0 ? '#fff' : '#52DE97');
+
   const Html2React = libraries.html2react.Component;
 
   return (
@@ -47,7 +52,7 @@ const HeaderBoxProduct = ({
             {description != '' && (<p>{description}</p>)}
               <HeaderFooter>
               {scrollRef && (
-                <Scroll>
+                <Scroll textColor={textColor} buttonColor={buttonColor} textColorHover={textColorHover} buttonColorHover={buttonColorHover}>
                   <button onClick={() => scrollToRef()}> Discover </button>
                 </Scroll>
               )}

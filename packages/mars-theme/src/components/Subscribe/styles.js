@@ -36,7 +36,9 @@ export const Title = styled.div `
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: 20px;
-    line-height: 20px;
+    line-height: 32px;
+    text-align: center;
+    white-space: normal;
   }
 `;
 export const FormContainer = styled.form `
@@ -53,6 +55,11 @@ export const FormContainer = styled.form `
       background: url(https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif) no-repeat 50% 50%, rgba(255, 255, 255, 0.4);
     }
   `}
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const FText = styled.div `
@@ -92,7 +99,8 @@ export const FormControl = styled.div `
   `}
 
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
-    margin-top: 40px;
+    margin-top: 25px;
+    width: 100%;
   }
   
   @media (max-width: ${SIZE_MOBILE}px) {

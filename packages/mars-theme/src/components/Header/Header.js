@@ -18,8 +18,9 @@ import {
   Progress
 } from './styles';
 
-const Header = ({ data }) => {
+const Header = ({ data, state }) => {
 
+  const { button={} } = state.seatbackapi.options.acf.header_button;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(false);
 
@@ -72,9 +73,17 @@ const Header = ({ data }) => {
             <Nav setMenuOpen={setMenuOpen} />
           </NavSection>
           <ButtonSection>
-            <Button block >
-              Get a Demo
-            </Button>
+            {button ? (
+              <Link link={button.url}>
+                <Button block >
+                  {button.title}
+                </Button>
+              </Link>
+            ) : (
+              <Button block >
+                Get a Demo
+              </Button>
+            )}
           </ButtonSection>
           <NavIconSection>
             <NavIcon isOpen={isMenuOpen} onClick={() => menuAction()}>
