@@ -1,4 +1,4 @@
-import { styled, css } from "frontity";
+import { styled } from 'frontity';
 import {
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
@@ -24,8 +24,7 @@ import {
   TEXT_LINE_HEIGHT_MOBILE,
   WIDTH_DESCRIPTION_SIDE_LARGE,
   WIDTH_DESCRIPTION_SIDE_MEDIUM_1,
-  WIDTH_DESCRIPTION_SIDE_MOBILE,
-} from "../../../const/responsive";
+} from '../../../const/responsive';
 
 export const GlobalContainer = styled.div`
   background: #f5f6fa 0% 0% no-repeat padding-box;
@@ -59,22 +58,20 @@ export const Container = styled.div`
   padding-top: 205px;
   padding-bottom: 205px;
   padding-right: 150px;
-  padding-left: ${(props) => (props.alignImage === "left" ? "49%" : "150px")};
+  padding-left: ${(props) => (props.alignImage === 'left' ? '49%' : '150px')};
   position: relative;
   width: 100%;
   z-index: 2;
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    padding-left: ${(props) =>
-      props.alignImage === "left" ? "50%" : PADDING_DESCTOP_MEDIUM_2 + "px"};
+    padding-left: ${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_MEDIUM_2}px`)};
     padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-top: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-bottom: ${PADDING_DESCTOP_MEDIUM_2}px;
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    padding-left: ${(props) =>
-      props.alignImage === "left" ? "50%" : PADDING_DESCTOP_MEDIUM_1 + "px"};
+    padding-left: ${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_MEDIUM_1}px`)};
     padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-top: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-bottom: ${PADDING_DESCTOP_MEDIUM_1}px;
@@ -113,10 +110,9 @@ export const Title = styled.h2`
   z-index: 2;
   max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
   @media (max-width: 1800px) {
-    max-width: ${(props) =>
-      props.alignImage === "left"
-        ? "100%"
-        : WIDTH_DESCRIPTION_SIDE_MEDIUM_1 + "%"};
+    max-width: ${(props) => (props.alignImage === 'left'
+    ? '100%'
+    : `${WIDTH_DESCRIPTION_SIDE_MEDIUM_1}%`)};
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -146,10 +142,9 @@ export const SubTitle = styled.h2`
   z-index: 2;
   max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
   @media (max-width: 1800px) {
-    max-width: ${(props) =>
-      props.alignImage === "left"
-        ? "100%"
-        : WIDTH_DESCRIPTION_SIDE_MEDIUM_1 + "%"};
+    max-width: ${(props) => (props.alignImage === 'left'
+    ? '100%'
+    : `${WIDTH_DESCRIPTION_SIDE_MEDIUM_1}%`)};
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -177,10 +172,9 @@ export const DescriptionParagraph = styled.p`
   position: relative;
   z-index: 2;
   @media (max-width: 1800px) {
-    max-width: ${(props) =>
-      props.alignImage === "left"
-        ? "100%"
-        : WIDTH_DESCRIPTION_SIDE_MEDIUM_1 + "%"};
+    max-width: ${(props) => (props.alignImage === 'left'
+    ? '100%'
+    : `${WIDTH_DESCRIPTION_SIDE_MEDIUM_1}%`)};
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -212,13 +206,12 @@ export const Image = styled.div`
   position: absolute;
   width: 50%;
   height: 100%;
-  right: ${(props) => (props.alignImage === "left" ? "auto" : "150px")};
-  left: ${(props) => (props.alignImage === "left" ? "150px" : "auto")};
+  right: ${(props) => (props.alignImage === 'left' ? 'auto' : '150px')};
+  left: ${(props) => (props.alignImage === 'left' ? '150px' : 'auto')};
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: ${(props) =>
-    props.alignImage === "left" ? "flex-start" : "flex-end"};
+  justify-content: ${(props) => (props.alignImage === 'left' ? 'flex-start' : 'flex-end')};
 
   @media (max-width: 1800px) {
     & img{
@@ -226,17 +219,13 @@ export const Image = styled.div`
     }
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    right: ${(props) =>
-      props.alignImage === "left" ? "auto%" : PADDING_DESCTOP_MEDIUM_2 + "px"};
-    left: ${(props) =>
-      props.alignImage === "left" ? PADDING_DESCTOP_MEDIUM_2 + "px" : "auto"};
+    right: ${(props) => (props.alignImage === 'left' ? 'auto%' : `${PADDING_DESCTOP_MEDIUM_2}px`)};
+    left: ${(props) => (props.alignImage === 'left' ? `${PADDING_DESCTOP_MEDIUM_2}px` : 'auto')};
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    right: ${(props) =>
-      props.alignImage === "left" ? "auto%" : PADDING_DESCTOP_MEDIUM_1 + "px"};
-    left: ${(props) =>
-      props.alignImage === "left" ? PADDING_DESCTOP_MEDIUM_1 + "px" : "auto"};
+    right: ${(props) => (props.alignImage === 'left' ? 'auto%' : `${PADDING_DESCTOP_MEDIUM_1}px`)};
+    left: ${(props) => (props.alignImage === 'left' ? `${PADDING_DESCTOP_MEDIUM_1}px` : 'auto')};
     & img{
       width: 500px;
     }
