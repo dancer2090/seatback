@@ -46,7 +46,7 @@ const Footer = ({ state, data, libraries, bgColor="#FFFFFF", circleColor="#FFFFF
                     <SubMenuContainer>
                       {i.sub_menu.map((sub_i, j) => (
                          <SubMenuElement>
-                           <Link link={sub_i.link.url}>
+                           <Link link={sub_i.link.url.replace(state.frontity.adminUrl, state.frontity.url)}>
                              <Html2React html={sub_i.link.title}/>
                            </Link>
                          </SubMenuElement>

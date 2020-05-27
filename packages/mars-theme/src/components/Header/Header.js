@@ -20,7 +20,7 @@ import {
 
 const Header = ({ data, state }) => {
 
-  const { button={} } = state.seatbackapi.options.acf.header_button;
+  const { header_button={} } = state.seatbackapi.options.acf;
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(false);
 
@@ -73,10 +73,10 @@ const Header = ({ data, state }) => {
             <Nav setMenuOpen={setMenuOpen} />
           </NavSection>
           <ButtonSection>
-            {button ? (
-              <Link link={button.url}>
+            {header_button ? (
+              <Link link={header_button.url.replace(state.frontity.adminUrl, state.frontity.url)}>
                 <Button block >
-                  {button.title}
+                  {header_button.title}
                 </Button>
               </Link>
             ) : (
