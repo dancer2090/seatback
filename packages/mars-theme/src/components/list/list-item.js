@@ -1,7 +1,7 @@
-import React from "react";
-import { connect, styled } from "frontity";
-import Link from "../link";
-import FeaturedMedia from "../featured-media";
+import React from 'react';
+import { connect, styled } from 'frontity';
+import Link from '../link';
+import FeaturedMedia from '../featured-media';
 
 /**
  * Item Component
@@ -26,13 +26,17 @@ const Item = ({ state, item }) => {
         {author && (
           <StyledLink link={author.link}>
             <AuthorName>
-              By <b>{author.name}</b>
+              By
+              {' '}
+              <b>{author.name}</b>
             </AuthorName>
           </StyledLink>
         )}
         <PublishDate>
-          {" "}
-          on <b>{date.toDateString()}</b>
+          {' '}
+          on
+          {' '}
+          <b>{date.toDateString()}</b>
         </PublishDate>
       </div>
 
