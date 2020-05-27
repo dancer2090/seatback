@@ -1,17 +1,15 @@
-import { styled, css } from 'frontity';
-import  {
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
   getPxSize,
   SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
   HEADER_FONT_SIZE_DESCTOP_LARGE,
   HEADER_LINE_HEIGHT_DESCTOP_LARGE,
@@ -28,7 +26,7 @@ import  {
 } from '../../../const/responsive';
 
 
-export const Container = styled.div `
+export const Container = styled.div`
   padding-top: 250px;
   padding-bottom: 207px;
   padding-right: ${PADDING_DESCTOP_LARGE}px;

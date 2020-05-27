@@ -1,8 +1,8 @@
+import { styled } from 'frontity';
 import LeftArrow from '../../../img/left_arrow.svg';
 import LeftArrowGreen from '../../../img/left_arrow_green.svg';
 import RightArrow from '../../../img/right_arrow.svg';
 import RightArrowGreen from '../../../img/right_arrow_green.svg';
-import { styled } from 'frontity';
 
 import {
   SIZE_DESCTOP_MEDIUM_2,
@@ -14,7 +14,7 @@ import {
   TEXT_FONT_SIZE_MOBILE,
   TEXT_LINE_HEIGHT_MOBILE,
   TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
-  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1
+  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
 } from '../../../const/responsive';
 
 export const ArrowIcon = styled.div`
@@ -175,14 +175,14 @@ export const ItemBox = styled.div`
     border-radius: 50%;
   }
 `;
- 
+
 export const SlickContainer = styled.div`
   /* Slider */
   position: relative;
   max-width: 1620px;
   margin: 0 auto;
 
-  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2+100}px) {
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2 + 100}px) {
     max-width: 1240px;
   }
 
@@ -411,7 +411,7 @@ export const SlickContainer = styled.div`
     &:hover{
       background: url(${LeftArrowGreen}) 50% 50% / 100% auto no-repeat;
     }
-    @media (max-width: ${SIZE_LAPTOP+100}px) {
+    @media (max-width: ${SIZE_LAPTOP + 100}px) {
       left: 25px;
     }
 }
@@ -419,7 +419,7 @@ export const SlickContainer = styled.div`
 {
     right: -25px;
     left: auto;
-    @media (max-width: ${SIZE_LAPTOP+100}px) {
+    @media (max-width: ${SIZE_LAPTOP + 100}px) {
       left: 25px;
     }
 } */

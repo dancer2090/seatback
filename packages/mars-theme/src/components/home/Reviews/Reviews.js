@@ -1,26 +1,24 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
-import { styled, connect, fetch, URL } from "frontity";
-import HappyImage from '../../../img/emoji-happy.svg';
-import Slider from "react-slick";
+import { connect } from 'frontity';
+import Slider from 'react-slick';
 import Wow from '../../Wow';
-import { 
-  SlickContainer, 
-  Picture, 
-  Description, 
+import {
+  SlickContainer,
+  Picture,
+  Description,
   Comment,
   Item,
   ItemBox,
   Status,
   Container,
-  ArrowIcon,
 } from './styles';
 
-const Reviews = ({state, actions}) => {
+const Reviews = ({ state }) => {
+  const dataP = state.source.get(state.router.link);
+  const post = state.source[dataP.type][dataP.id];
 
-  const data_p = state.source.get(state.router.link);
-  const post = state.source[data_p.type][data_p.id];
-
-  const acf_blocks = post.acf.feedbacks;
+  const acfBlocks = post.acf.feedbacks;
 
   const settings = {
     dots: false,
@@ -33,31 +31,31 @@ const Reviews = ({state, actions}) => {
 
   return (
     <Container>
-     <Wow offset={-200} animation='slideUp'>
-      <SlickContainer>
-        <Slider {...settings}>
-          {acf_blocks.map((d, key) => (
-            <Item key={key}>
-              <ItemBox>
-                <Picture>
-                  <img alt={d.name} src={d.photo.url} />
-                </Picture>
-                <Description>
-                  <Comment>
-                    {d.text}
-                  </Comment>
-                  <Status>
-                    {d.name}
-                  </Status>
-                </Description>
-              </ItemBox>
-            </Item>
-          ))}
-        </Slider>
-      </SlickContainer>
-     </Wow>
+      <Wow offset={-200} animation="slideUp">
+        <SlickContainer>
+          <Slider {...settings}>
+            {acfBlocks.map((d, key) => (
+              <Item key={key}>
+                <ItemBox>
+                  <Picture>
+                    <img alt={d.name} src={d.photo.url} />
+                  </Picture>
+                  <Description>
+                    <Comment>
+                      {d.text}
+                    </Comment>
+                    <Status>
+                      {d.name}
+                    </Status>
+                  </Description>
+                </ItemBox>
+              </Item>
+            ))}
+          </Slider>
+        </SlickContainer>
+      </Wow>
     </Container>
   );
-}
+};
 
 export default connect(Reviews);

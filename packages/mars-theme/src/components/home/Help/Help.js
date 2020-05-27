@@ -1,7 +1,8 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { connect } from 'frontity';
-import Wow from './../../Wow';
-import { 
+import Wow from '../../Wow';
+import {
   Container,
   Title,
   Blocks,
@@ -13,10 +14,9 @@ import {
 } from './styles';
 
 
-const Help = ({state, libraries}) => {
-
-  const data_p = state.source.get(state.router.link);
-  const post = state.source[data_p.type][data_p.id];
+const Help = ({ state, libraries }) => {
+  const dataP = state.source.get(state.router.link);
+  const post = state.source[dataP.type][dataP.id];
 
   const bo = post.acf.business_outcomes;
   const title = post.acf.bo_header;
@@ -25,31 +25,29 @@ const Help = ({state, libraries}) => {
 
   return (
     <Container>
-      <Wow offset={-200} animation='slideUp'>
+      <Wow offset={-200} animation="slideUp">
         <Title>
-          <Html2React html={title}/>
+          <Html2React html={title} />
         </Title>
       </Wow>
       <Blocks>
-        {bo.length > 0 && bo.map((item, key) => {
-          return (
-            <Wow animation='slideUp' delay={((key*0.3) + 0.3)+"s"} key={key.toString()}>
-              <Block key={key}>
-                <BlockContent>
-                  <Icon>
-                    <img src={item.image.url} alt="image" />
-                  </Icon>
-                  <Description>
-                    <Html2React html={item.text}/>
-                  </Description>
-                </BlockContent>
-              </Block>
-            </Wow>
-          );
-        })}
+        {bo.length > 0 && bo.map((item, key) => (
+          <Wow animation="slideUp" delay={`${(key * 0.3) + 0.3}s`} key={key.toString()}>
+            <Block key={key}>
+              <BlockContent>
+                <Icon>
+                  <img src={item.image.url} alt="description attribute" />
+                </Icon>
+                <Description>
+                  <Html2React html={item.text} />
+                </Description>
+              </BlockContent>
+            </Block>
+          </Wow>
+        ))}
       </Blocks>
     </Container>
   );
-}
+};
 
 export default connect(Help);
