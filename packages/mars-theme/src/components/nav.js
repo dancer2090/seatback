@@ -17,9 +17,12 @@ import  {
  * It renders the navigation links
  */
 const Nav = ({
-   state, 
+   state,
+   libraries,
    setMenuOpen  = () => {console.log('set action')},
   }) => {
+
+  const Html2React = libraries.html2react.Component;
 
   const { seatbackapi: { menu: { items = [] } } } = state;
   return (
@@ -29,13 +32,13 @@ const Nav = ({
           {items.map((i, key) => (
             <NavItem key={key} onClick={() => setMenuOpen(false)}>
               <Link link={`/${i.slug}`}>
-                {i.title} {i.child_items && i.child_items.length > 0 && ' › '}
+                <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />        
               </Link>
               {i.child_items && i.child_items.length > 0 && (
                 <ul>
                   {i.child_items.map((i_c, n) => (
-                    <li key={n}>
-                      <Link link={`/${i_c.slug}`}>{i_c.title}</Link>
+                    <li key={n}>                      
+                      <Link link={`/${i_c.slug}`}><Html2React html={i_c.title} /></Link>
                     </li>
                   ))}
                 </ul>

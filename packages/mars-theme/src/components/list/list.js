@@ -17,8 +17,8 @@ const List = ({ state, actions, libraries }) => {
   const data = state.source.get(state.router.link);
   const { next, previous, totalPages } = state.source.get(state.router.link);
   console.log(next);
-  //const data = state.source.get(next);
-//  const null_item_state = data.items.shift();
+  //  const data = state.source.get(next);
+  //  const null_item_state = data.items.shift();
 
   const null_item = state.source[data.items[0].type][data.items[0].id];
 
