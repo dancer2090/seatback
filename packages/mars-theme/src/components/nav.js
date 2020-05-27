@@ -1,27 +1,26 @@
-import React from "react";
-import { connect, styled } from "frontity";
-import Link from "./link";
-import Button from "./Button";
-import  {
+/* eslint-disable react/no-array-index-key */
+import React from 'react';
+import { connect, styled } from 'frontity';
+import Link from './link';
+import Button from './Button';
+import {
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
   HEADER_HEIGHT,
-  HEADER_HEIGHT_RESPONSIVE,
   getPxSize,
   SIZE_MOBILE,
 } from '../const/responsive';
 /**
  * Navigation Component
- * 
+ *
  * It renders the navigation links
  */
 const Nav = ({
-   state,
-   libraries,
-   setMenuOpen  = () => {},
-  }) => {
-
+  state,
+  libraries,
+  setMenuOpen = () => {},
+}) => {
   const Html2React = libraries.html2react.Component;
 
   const { seatbackapi: { menu: { items = [] } } } = state;
@@ -32,13 +31,13 @@ const Nav = ({
           {items.map((i, key) => (
             <NavItem key={key} onClick={() => setMenuOpen(false)}>
               <Link link={`/${i.slug}`}>
-                <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />        
+                <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />
               </Link>
               {i.child_items && i.child_items.length > 0 && (
                 <ul>
-                  {i.child_items.map((i_c, n) => (
-                    <li key={n}>                      
-                      <Link link={`/${i_c.slug}`}><Html2React html={i_c.title} /></Link>
+                  {i.child_items.map((ic, n) => (
+                    <li key={n}>
+                      <Link link={`/${ic.slug}`}><Html2React html={ic.title} /></Link>
                     </li>
                   ))}
                 </ul>
@@ -56,7 +55,6 @@ const Nav = ({
       </MobileButton>
     </NavContainer>
   );
-
 };
 
 export default connect(Nav);
@@ -66,7 +64,7 @@ const MobileButton = styled.li`
   padding-top: 20px;
   padding-bottom: 30px;
 
-  @media (min-width: ${SIZE_MOBILE+1}px) {
+  @media (min-width: ${SIZE_MOBILE + 1}px) {
     display: none;
   }
 `;
