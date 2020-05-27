@@ -1,11 +1,10 @@
-import { styled, css, keyframes } from 'frontity';
-import  {
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
@@ -13,38 +12,22 @@ import  {
   SIZE_LAPTOP,
   SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
-
-  HEADER_FONT_SIZE_DESCTOP_LARGE,
-  HEADER_LINE_HEIGHT_DESCTOP_LARGE,
-  HEADER_FONT_SIZE_DESCTOP_MEDIUM_1,
-  HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  HEADER_FONT_SIZE_MOBILE,
-  HEADER_LINE_HEIGHT_MOBILE,
-
-  TEXT_FONT_SIZE_DESCTOP_LARGE,
-  TEXT_LINE_HEIGHT_DESCTOP_LARGE,
-  TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
-  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  TEXT_FONT_SIZE_MOBILE,
-  TEXT_LINE_HEIGHT_MOBILE,
-
   POST_MARGIN_LARGE,
   POST_MARGIN_MEDIUM_1,
   POST_MARGIN_MOBILE,
 } from '../../../../const/responsive';
 
 
-
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   overflow: hidden;
   position: relative;
 `;
-export const Container = styled.div `
+export const Container = styled.div`
   margin:0 auto;
   text-align: left;
   letter-spacing:0 px;
   padding-right: 150px;
-  padding-left:${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_LARGE + 'px'};
+  padding-left:${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_LARGE}px`)};
   opacity:1;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
@@ -73,10 +56,10 @@ export const Container = styled.div `
     padding-right: ${PADDING_MOBILE}px;
   }
 `;
-export const SubContainer = styled.div `
+export const SubContainer = styled.div`
   margin: 0 auto;
 `;
-export const HeaderContent = styled.div `
+export const HeaderContent = styled.div`
   width: 100%;
   border-bottom: 1px solid #cccccc;
   padding-bottom: 20px;
@@ -89,7 +72,7 @@ export const HeaderContent = styled.div `
     margin-top: 30px;
   }
 `;
-export const HeaderAuthor = styled.div `
+export const HeaderAuthor = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -104,7 +87,7 @@ export const HeaderAuthor = styled.div `
     }
   }
 `;
-export const HeaderAuthorName = styled.div `
+export const HeaderAuthorName = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 34px;
@@ -124,7 +107,7 @@ export const HeaderAuthorName = styled.div `
     line-height: 20px;
   }
 `;
-export const HeaderAuthorDate = styled.time `
+export const HeaderAuthorDate = styled.time`
   display: block;
   text-align: left;
   margin-top: 10px;
@@ -146,7 +129,7 @@ export const HeaderAuthorDate = styled.time `
     line-height: 20px;
   }
 `;
-export const HeaderReaderTime = styled.div `
+export const HeaderReaderTime = styled.div`
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
@@ -166,7 +149,7 @@ export const HeaderReaderTime = styled.div `
 `;
 
 
-export const LinkShareContainer = styled.div `
+export const LinkShareContainer = styled.div`
   position: absolute;
   right: 0px;
   top: 0px;
@@ -178,7 +161,7 @@ export const LinkShareContainer = styled.div `
     justify-content: flex-end;
   }
 `;
-export const LinkShare = styled.a `
+export const LinkShare = styled.a`
   width: 60px;
   height: 60px;
   background-color: #F5F6FA;
@@ -211,7 +194,7 @@ export const PostContentBox = styled.div`
   position: relative;
   min-height: 150px;
 `;
-export const PostContentText = styled.div `
+export const PostContentText = styled.div`
   max-width: 1074px;
   margin: 0 auto;
   position: relative;
@@ -587,7 +570,7 @@ export const CircleContainer = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     padding-top: 0px;
   }
-  ${props => props.mode === 'Circle' && `
+  ${(props) => props.mode === 'Circle' && `
     &:after{
       content: ' ';
       background-color: #FFFFFF;
@@ -610,7 +593,7 @@ export const CircleContainer = styled.div`
       z-index: -1;
     }
   `}
-  ${props => props.mode === 'Grey colour' && `
+  ${(props) => props.mode === 'Grey colour' && `
     background: #F5F6FA;
   `}
 

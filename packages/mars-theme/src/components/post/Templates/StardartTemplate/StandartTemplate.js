@@ -1,4 +1,7 @@
+/* eslint-disable no-shadow */
+/* eslint-disable max-len */
 import React, { useEffect, useRef } from 'react';
+import { connect } from 'frontity';
 import ImageAuthor from '../../../../img/user.svg';
 import HeaderBox from '../../../HeaderBox';
 import ImageTwiter from '../../../../img/twitter.svg';
@@ -6,8 +9,7 @@ import ImageFacebook from '../../../../img/facebook.svg';
 import ImageLinkedIn from '../../../../img/linkedin.svg';
 import ListItem from '../../../list/ListItem';
 
-import { 
-  GlobalContainer,
+import {
   Container,
   HeaderContent,
   HeaderAuthor,
@@ -20,98 +22,84 @@ import {
   LinkShareContainer,
   ListBox,
   AdditionalBlock,
-  CircleContainer,
 } from './styles';
-import { connect } from 'frontity';
 
 const StandartTemplate = ({ state, actions, libraries }) => {
-
   const contentRef = useRef(null);
 
-  const data_p = state.source.get(state.router.link);
-  const post = state.source[data_p.type][data_p.id];
+  const dataP = state.source.get(state.router.link);
+  const post = state.source[dataP.type][dataP.id];
   const author = state.source.author[post.author];
   const date = new Date(post.date);
   const Html2React = libraries.html2react.Component;
   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
   const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
   const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
-  const date_string = da + "." + mo + "." + ye;
+  const dateString = `${da}.${mo}.${ye}`;
 
   const dataMore = state.source.get('/blog');
-  const moreArticles = dataMore.items ? dataMore.items.filter(i => i.id !== data_p.id).filter((i,n) => n < 2) : [];
+  const moreArticles = dataMore.items ? dataMore.items.filter((i) => i.id !== dataP.id).filter((i, n) => n < 2) : [];
 
-  const authorPhoto = (Object.keys(author.acf).length>0 && author.acf.user_photo!==false) ? author.acf.user_photo.url : ImageAuthor;
-  const media_obj = state.source.attachment[post.featured_media];
-  const media_url = (typeof media_obj === 'object') ? media_obj.source_url : "";
-  const helpHeader = ((!post.acf.c_header && !post.acf.c_header) ? "" : post.acf.c_header);
-  const helpItems = ((!post.acf.content && !post.acf.content) ? "" : post.acf.content);
+  const authorPhoto = (Object.keys(author.acf).length > 0 && author.acf.user_photo !== false) ? author.acf.user_photo.url : ImageAuthor;
+  const mediaObj = state.source.attachment[post.featured_media];
+  const mediaUrl = (typeof mediaObj === 'object') ? mediaObj.source_url : '';
 
   useEffect(() => {
     actions.source.fetch('/blog');
   }, []);
 
-  const template = (post.template!="" ? post.template : "standart");
-  const type_header = ((typeof post.acf.type_section == "undefined" && post.acf.type_section===false) ? "" : post.acf.type_section);
-  const button = ((typeof post.acf.button == "undefined" && post.acf.button===false) ? {} : post.acf.button);
-  const isArchive = (post.template!="" ? true : false);
-  const description = ((typeof post.acf.description == "undefined" && post.acf.description===false) ? "" : post.acf.description);
-  const title = ((typeof post.acf.header_text == "undefined" || post.acf.header_text==="") ? post.title.rendered : post.acf.header_text);
-  const type_bg = ((typeof post.acf.type_background == "undefined" && post.acf.type_background===false) ? "" : post.acf.type_background);
-  const bg_size = ((typeof post.acf.bg_size == "undefined" && post.acf.bg_size===false) ? "" : post.acf.bg_size);
-  const form = ((typeof post.acf.gd_form == "undefined" || post.acf.gd_form===false) ? false : true);
-  const storyBottomTitle = ((typeof post.acf.header == "undefined" || post.acf.header==="") ? "" : post.acf.header);
-  const storyBottomContent = ((typeof post.acf.text == "undefined" || post.acf.text==="") ? "" : post.acf.text);
-  const storyBottomImage = ((typeof post.acf.image == "undefined" || post.acf.image==="") ? "" : post.acf.image);
-
-  const planHeader = ((typeof post.acf.plans_header == "undefined" || post.acf.plans_header==="") ? "" : post.acf.plans_header);
-  const plans = ((typeof post.acf.plans == "undefined" || post.acf.plans==="") ? [] : post.acf.plans);
+  const template = (post.template !== '' ? post.template : 'standart');
+  const typeHeader = ((typeof post.acf.type_section === 'undefined' && post.acf.type_section === false) ? '' : post.acf.type_section);
+  const button = ((typeof post.acf.button === 'undefined' && post.acf.button === false) ? {} : post.acf.button);
+  const isArchive = (post.template !== '');
+  const description = ((typeof post.acf.description === 'undefined' && post.acf.description === false) ? '' : post.acf.description);
+  const title = ((typeof post.acf.header_text === 'undefined' || post.acf.header_text === '') ? post.title.rendered : post.acf.header_text);
 
   return (
     <>
-      <HeaderBox 
+      <HeaderBox
         title={title}
         isArchive={isArchive}
-        image={media_url}
+        image={mediaUrl}
         scrollRef={contentRef}
         template={template}
         button={button}
         description={description}
-        type_header={type_header}
+        type_header={typeHeader}
       />
       <Container>
         <HeaderContent>
           <HeaderAuthor>
-            <img src={authorPhoto} />
+            <img alt="author" src={authorPhoto} />
             <div>
               <HeaderAuthorName>{author.acf.author_name}</HeaderAuthorName>
-              <HeaderAuthorDate>{date_string}</HeaderAuthorDate>
+              <HeaderAuthorDate>{dateString}</HeaderAuthorDate>
             </div>
           </HeaderAuthor>
           <HeaderReaderTime>
-            {post.acf.time_read>0 &&
-              post.acf.time_read+' min read'
-            }
+            {post.acf.time_read > 0
+              && `${post.acf.time_read} min read`}
           </HeaderReaderTime>
         </HeaderContent>
         <PostContentBox ref={contentRef}>
           <LinkShareContainer>
             <LinkShare
-              href={"http://twitter.com/share?text=&amp;url="+state.frontity.url+post.link}>
-              <img src={ImageTwiter} />
-            </LinkShare>
-            <LinkShare
-              href={"https://www.linkedin.com/shareArticle?mini=true&url=" + state.frontity.url + post.link + "&title=" + post.title.rendered + "&source=LinkedIn"}
+              href={`http://twitter.com/share?text=&amp;url=${state.frontity.url}${post.link}`}
             >
-              <img src={ImageLinkedIn} />
+              <img alt="twitter" src={ImageTwiter} />
             </LinkShare>
             <LinkShare
-              href={"http://www.facebook.com/sharer.php?s=100&amp;p[url]=" + state.frontity.url + post.link + "&amp;p[title]=" + post.title.rendered + "&amp;p[summary]=&amp;"}
-              >
-              <img src={ImageFacebook} />
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=${state.frontity.url}${post.link}&title=${post.title.rendered}&source=LinkedIn`}
+            >
+              <img alt="likedin" src={ImageLinkedIn} />
+            </LinkShare>
+            <LinkShare
+              href={`http://www.facebook.com/sharer.php?s=100&amp;p[url]=${state.frontity.url}${post.link}&amp;p[title]=${post.title.rendered}&amp;p[summary]=&amp;`}
+            >
+              <img alt="facebook" src={ImageFacebook} />
             </LinkShare>
           </LinkShareContainer>
-          <PostContentText>          
+          <PostContentText>
             <Html2React html={post.content.rendered} />
           </PostContentText>
         </PostContentBox>
@@ -123,35 +111,36 @@ const StandartTemplate = ({ state, actions, libraries }) => {
           <ListBox>
             {moreArticles.map(({ type, id }) => {
               const item = state.source[type][id];
-              const media_obj = state.source.attachment[item.featured_media];
+              const mediaObj = state.source.attachment[item.featured_media];
               const author = state.source.author[item.author];
               const date = new Date(item.date);
-
               const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
               const mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(date);
               const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
 
-              const authorPhoto = (Object.keys(author.acf).length>0 && author.acf.user_photo.url!="") ? author.acf.user_photo.url : ImageAuthor;
+              const authorPhoto = (Object.keys(author.acf).length > 0 && author.acf.user_photo.url !== '') ? author.acf.user_photo.url : ImageAuthor;
 
 
               // Render one Item component for each one.
-              return <ListItem 
-                key={item.id} 
-                item={item} 
-                title={item.title.rendered} 
-                imageSrc={media_obj.source_url} 
-                link={item.link} 
-                authorImage={authorPhoto} 
-                authorName={author.acf.author_name} 
-                minRead={item.acf.time_read+" min read"} 
-                date={da+"."+mo+"."+ye}
-              />;
+              return (
+                <ListItem
+                  key={item.id}
+                  item={item}
+                  title={item.title.rendered}
+                  imageSrc={mediaObj.source_url}
+                  link={item.link}
+                  authorImage={authorPhoto}
+                  authorName={author.acf.author_name}
+                  minRead={`${item.acf.time_read} min read`}
+                  date={`${da}.${mo}.${ye}`}
+                />
+              );
             })}
           </ListBox>
         </AdditionalBlock>
       </Container>
     </>
   );
-}
+};
 
 export default connect(StandartTemplate);

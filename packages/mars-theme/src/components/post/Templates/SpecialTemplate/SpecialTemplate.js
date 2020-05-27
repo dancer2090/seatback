@@ -22,13 +22,13 @@ const SpecialTemplate = ({ state }) => {
 
   const template = (post.template !== '' ? post.template : 'standart');
 
-  const type_header = ((typeof post.acf.type_section === 'undefined' && post.acf.type_section === false) ? '' : post.acf.type_section);
+  const typeHeader = ((typeof post.acf.type_section === 'undefined' && post.acf.type_section === false) ? '' : post.acf.type_section);
   const button = ((typeof post.acf.button === 'undefined' && post.acf.button === false) ? {} : post.acf.button);
-  const isArchive = (post.template != '');
+  const isArchive = (post.template !== '');
   const description = ((typeof post.acf.description === 'undefined' && post.acf.description === false) ? '' : post.acf.description);
   const title = ((typeof post.acf.header_text === 'undefined' || post.acf.header_text === '') ? post.title.rendered : post.acf.header_text);
-  const type_bg = ((typeof post.acf.type_background === 'undefined' && post.acf.type_background === false) ? '' : post.acf.type_background);
-  const bg_size = ((typeof post.acf.bg_size === 'undefined' && post.acf.bg_size === false) ? '' : post.acf.bg_size);
+  const typeBg = ((typeof post.acf.type_background === 'undefined' && post.acf.type_background === false) ? '' : post.acf.type_background);
+  const bgSize = ((typeof post.acf.bg_size === 'undefined' && post.acf.bg_size === false) ? '' : post.acf.bg_size);
   const form = (!((typeof post.acf.gd_form === 'undefined' || post.acf.gd_form === false)));
   const { url: buttonUrl = '' } = button;
   return (
@@ -41,11 +41,11 @@ const SpecialTemplate = ({ state }) => {
         template={template}
         button={button}
         description={description}
-        type_header={type_header}
-        bg_size={bg_size}
+        type_header={typeHeader}
+        bg_size={bgSize}
         offset={0}
       />
-      <CircleContainer ref={contentRef} mode={type_bg}>
+      <CircleContainer ref={contentRef} mode={typeBg}>
         <Help title={helpHeader} items={helpItems} />
       </CircleContainer>
       <div ref={fromRef}>
