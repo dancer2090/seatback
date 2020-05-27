@@ -11,6 +11,15 @@ import {
   SlickContainer,
 } from './styles';
 
+function carouselMinCountData(data, min) {
+  const newData = [];
+  while (newData.length < min) {
+    data.forEach(element => {
+      newData.push(element)
+    });
+  }
+  return newData;
+}
 
 const Parthers = ({state, libraries, bgColor}) => {
 
@@ -20,9 +29,10 @@ const Parthers = ({state, libraries, bgColor}) => {
   const post = state.source[data_p.type][data_p.id];
 
 
-  const data1 = post.acf.customers;
+  let data1 = post.acf.customers;
   const title = post.acf.c_header;
 
+  let dataPartners = data1 && data1.length > 0 ? carouselMinCountData(data1, 12) : [];
 
   const settings = {
     dots: false,
@@ -78,7 +88,7 @@ const Parthers = ({state, libraries, bgColor}) => {
           <CarouselContainer>
             <SlickContainer>
               <Slider {...settings}>
-                  {data1 && data1.length > 0 && data1.map((d, n) => (
+                  {dataPartners && dataPartners.length > 0 && dataPartners.map((d, n) => (
                     <Item key={n}>
                       <ImageBox>
                         <img className="zoom animated"  style={
