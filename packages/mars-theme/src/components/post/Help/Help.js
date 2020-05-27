@@ -16,7 +16,7 @@ import {
 const Help = ({state, libraries, title="", items=[]}) => {
 
   const Html2React = libraries.html2react.Component;
-  console.log(items);
+
   return (
     <Container>
       {title !== "" && (
@@ -26,7 +26,6 @@ const Help = ({state, libraries, title="", items=[]}) => {
       )}
       <Blocks>
         {items.length > 0 && items.map((item, key) => {
-          console.log(key);
           return (
             item.repeater.length > 0 && item.repeater.map((subItem, subKey) => {
               return (

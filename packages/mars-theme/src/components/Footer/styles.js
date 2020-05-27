@@ -18,7 +18,9 @@ import  {
 
 
 export const GlobalContainer = styled.div `
-  padding-bottom: 133px;
+  z-index: 100;
+  padding-top: 225px;
+  padding-bottom: 124px;
   overflow: hidden;
   position: relative;
   &:after{
@@ -28,8 +30,8 @@ export const GlobalContainer = styled.div `
     height: 2472px;
     border-radius: 50%;
     position: absolute;
-    bottom: 0px;
-    left: calc(50% - 1503px);
+    top: 0px;
+    left: calc(50% - 1800px);
     z-index: -1;
   }
   &:before{
@@ -38,7 +40,7 @@ export const GlobalContainer = styled.div `
     width: 100%;
     height: 1830px;
     position: absolute;
-    bottom: 0px;
+    top: 0px;
     left: 0px;
     z-index: -1;
   }
@@ -86,6 +88,7 @@ export const MenuContainer = styled.nav `
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding-bottom: 250px;
 `;
 export const MenuColumnHeader = styled.div `
   font-size: 24px;
@@ -104,8 +107,42 @@ export const SubMenuElement = styled.li `
     font-size: 20px;
     line-height: 34px;
     color: #A09D9D;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      color: #52DE97;
+    }
   }
 `;
 export const MenuColumn = styled.div `
   display: block;
+`;
+
+export const FooterActions = styled.div `
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+export const Socials = styled.div `
+  display: block;
+`;
+export const SocialsHeader = styled.div `
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: #2E293C;
+`;
+export const SocialsRow = styled.div `
+  display: block;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 40px;
+  & a{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: inline-block;
+    & img{
+      width: 58px;
+      height: 58px;
+    }
+  }
 `;

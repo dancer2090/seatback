@@ -30,6 +30,8 @@ const ProductTemplate = ({ state }) => {
   const isArchive = (post.template!="" ? true : false);
   const description = ((!post.acf.description && post.acf.description===false) ? "" : post.acf.description);
   const title = ((!post.acf.header|| post.acf.header==="") ? post.title.rendered : post.acf.header);
+  const footerCircleBg = (content.length%2===0) ? "#FFFFFF" : "#F5F6FA";
+  const footerBg = (content.length%2===0) ? "#F5F6FA" : "#FFFFFF";
 
   return (
     <>
@@ -41,20 +43,22 @@ const ProductTemplate = ({ state }) => {
         description={description}
         offset={0}
       />
-      {content.map((d, key) => {
-        const circle_color = (key%2===0 || key===0) ? "#FFFFFF" : "#F5F6FA";
-        const bg_color = (key%2===0 && key!==0) ? "#F5F6FA" : "#FFFFFF";
-        return <DescriptionProduct
-          title={d.header}
-          description={d.decription}
-          image={d.image}
-          zIndex={(key+1)}
-          circleColor={circle_color}
-          bgColor={bg_color}
-        />
-      })}
-      <HelpProduct items={blocks} />
-      <Footer />
+      <div ref={contentRef}>
+        {content.map((d, key) => {
+          const circle_color = (key%2===0 || key===0) ? "#FFFFFF" : "#F5F6FA";
+          const bg_color = (key%2===0 && key!==0) ? "#F5F6FA" : "#FFFFFF";
+          return <DescriptionProduct
+            title={d.header}
+            description={d.decription}
+            image={d.image}
+            zIndex={(key+1)}
+            circleColor={circle_color}
+            bgColor={bg_color}
+          />
+        })}
+      </div>
+      {blocks.length>0 && <HelpProduct items={blocks} />}
+      <Footer bgColor={footerBg} circleColor={footerCircleBg}/>
     </>
   );
 }
