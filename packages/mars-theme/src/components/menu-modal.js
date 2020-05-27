@@ -1,6 +1,6 @@
-import React from "react";
-import { styled, connect } from "frontity";
-import Link from "./link";
+import React from 'react';
+import { styled, connect } from 'frontity';
+import Link from './link';
 
 const MenuModal = ({ state }) => {
   const { menu } = state.theme;
@@ -10,12 +10,12 @@ const MenuModal = ({ state }) => {
     <>
       <MenuOverlay />
       <MenuContent as="nav">
-        {isThereLinks &&
-          menu.map(([name, link]) => (
+        {isThereLinks
+          && menu.map(([name, link]) => (
             <MenuLink
               key={name}
               link={link}
-              aria-current={state.router.link === link ? "page" : undefined}
+              aria-current={state.router.link === link ? 'page' : undefined}
             >
               {name}
             </MenuLink>
