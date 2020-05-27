@@ -1,28 +1,19 @@
 import { styled, css } from 'frontity';
 import {
-  SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
-  SIZE_DESCTOP_SMALL,
-  SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
   TEXT_FONT_SIZE_MOBILE,
   TEXT_LINE_HEIGHT_MOBILE,
   TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
   TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  SIZE_DESCTOP_LARGE,
-  HEADER_FONT_SIZE_DESCTOP_MEDIUM_1,
-  HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  HEADER_FONT_SIZE_MOBILE,
-  HEADER_LINE_HEIGHT_MOBILE,
   getPxSize,
 } from '../../const/responsive';
 
-export const Main = styled.div `
+export const Main = styled.div`
   position: relative;
 `;
 
-export const Title = styled.div `
+export const Title = styled.div`
   text-align: left;
   font-size: 24px;
   line-height: 24px;
@@ -41,10 +32,10 @@ export const Title = styled.div `
     white-space: normal;
   }
 `;
-export const FormContainer = styled.form `
+export const FormContainer = styled.form`
   position: relative;
   display: flex;
-  ${props => props.preload && css `
+  ${(props) => props.preload && css`
     &:after{
       content: ' ';
       position: absolute;
@@ -62,7 +53,7 @@ export const FormContainer = styled.form `
   }
 `;
 
-export const FText = styled.div `
+export const FText = styled.div`
   margin-top: 40px;
   display: flex;
   align-items: center;
@@ -74,19 +65,19 @@ export const FText = styled.div `
   font-size:0px;
   opacity: 0;
 
-  ${props => props.afterload && css `
+  ${(props) => props.afterload && css`
     font-size: 16px;
     opacity: 1;
   `}
 `;
-export const FormControl = styled.div `
+export const FormControl = styled.div`
   margin-top:30px;
   align-items: center;
   width: 474px;
   max-width: 100%;
   flex: 1;
 
-  ${props => props.error && css `
+  ${(props) => props.error && css`
     label {
       color: red;
       span {
@@ -108,7 +99,7 @@ export const FormControl = styled.div `
   }
 `;
 
-export const FormLabel = styled.label `
+export const FormLabel = styled.label`
   text-align: left;
   font-weight: 500;
   font-size: 20px;
@@ -134,7 +125,7 @@ export const FormLabel = styled.label `
   }
 `;
 
-export const FormInput = styled.input `
+export const FormInput = styled.input`
   height: 58px;
   width: 100%;
   max-width: 474px;
@@ -189,7 +180,7 @@ export const FormInput = styled.input `
   }
 `;
 
-export const FormShare = styled.div `
+export const FormShare = styled.div`
   height: 176px;
   width: 954px;
   border: 1px solid #52DE97;
@@ -203,7 +194,7 @@ export const FormShare = styled.div `
   padding-top:32px;
   padding-left:32px;
 `;
-export const BBlock = styled.div `
+export const BBlock = styled.div`
   width:219px;
   padding-top: 40px;
   margin-left: 10px;
