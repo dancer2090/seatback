@@ -11,6 +11,7 @@ import {
 const SpecialTemplate = ({ state }) => {
 
   const contentRef = useRef(null);
+  const fromRef = useRef(null);
 
   const data_p = state.source.get(state.router.link);
   const post = state.source[data_p.type][data_p.id];
@@ -30,14 +31,14 @@ const SpecialTemplate = ({ state }) => {
   const type_bg = ((typeof post.acf.type_background == "undefined" && post.acf.type_background===false) ? "" : post.acf.type_background);
   const bg_size = ((typeof post.acf.bg_size == "undefined" && post.acf.bg_size===false) ? "" : post.acf.bg_size);
   const form = ((typeof post.acf.gd_form == "undefined" || post.acf.gd_form===false) ? false : true);
-
+  const { url: buttonUrl = '' } = button;
   return (
     <>
       <HeaderBox 
         title={title}
         isArchive={isArchive}
         image={media_url}
-        scrollRef={contentRef}
+        scrollRef={buttonUrl === '#form' ? fromRef : contentRef}
         template={template}
         button={button}
         description={description}
@@ -48,9 +49,11 @@ const SpecialTemplate = ({ state }) => {
       <CircleContainer ref={contentRef} mode={type_bg}>
         <Help title={helpHeader} items={helpItems} />
       </CircleContainer>
-      {form && (
-        <Forms />
-      )}
+      <div ref={fromRef}>
+        {form && (
+          <Forms />
+        )}
+      </div>
     </>
   );
 }

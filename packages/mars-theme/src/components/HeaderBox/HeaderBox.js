@@ -57,7 +57,7 @@ const HeaderBox = ({
                 {description}
               </p>
             )}
-              <HeaderFooter>
+            <HeaderFooter>
               {scrollRef && (
                 <Scroll mode={selectedMode}>
                   <button onClick={() => scrollToRef()} />
@@ -66,7 +66,7 @@ const HeaderBox = ({
               
               {Object.keys(button).length>0 && (
                 <>
-                  {template !== "page-plan.php" ? (
+                  {template !== "page-plan.php" && button.url !== '#form' ? (
                     <Link link={button.url}>
                       <Button mode={bgColor==="#F5F6FA" ? 'dark' : 'light'} block >
                         {button.title}
@@ -79,7 +79,7 @@ const HeaderBox = ({
                   )}
                 </>
               )}
-              </HeaderFooter>
+            </HeaderFooter>
           </DescriptionBox>
           <BannerArticlesBox>
             <BannerArticlesContainer imgSrc={image} bg_size={bg_size}>
