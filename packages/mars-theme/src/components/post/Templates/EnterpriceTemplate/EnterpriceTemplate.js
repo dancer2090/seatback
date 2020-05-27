@@ -1,26 +1,25 @@
 import React, { useRef } from 'react';
+import { connect } from 'frontity';
 import HeaderBox from '../../../HeaderBox';
 import Forms from '../../../Forms';
 import Partners from '../../../Partners';
 import Description from './Description';
-import { connect } from 'frontity';
 
 const EnterpriceTemplate = ({ state }) => {
-
   const contentRef = useRef(null);
-  const data_p = state.source.get(state.router.link);
-  const post = state.source[data_p.type][data_p.id];  
+  const dataP = state.source.get(state.router.link);
+  const post = state.source[dataP.type][dataP.id];
   const template = (post.template !== '' ? post.template : 'standart');
-  const button = ((typeof post.acf.button == "undefined" && post.acf.button===false) ? {} : post.acf.button);
-  const isArchive = (post.template!="" ? true : false);
-  const description = ((typeof post.acf.enterprice_header == "undefined" && post.acf.enterprice_description===false) ? "" : post.acf.enterprice_description);
-  const title = ((typeof post.acf.enterprice_header == "undefined" || post.acf.enterprice_header==="") ? post.title.rendered : post.acf.enterprice_header);
-  const form = ((typeof post.acf.gd_form == "undefined" || post.acf.gd_form===false) ? false : true);
-  const { blocks = [] } = post.acf; 
+  const button = ((typeof post.acf.button === 'undefined' && post.acf.button === false) ? {} : post.acf.button);
+  const isArchive = (post.template !== '');
+  const description = ((typeof post.acf.enterprice_header === 'undefined' && post.acf.enterprice_description === false) ? '' : post.acf.enterprice_description);
+  const title = ((typeof post.acf.enterprice_header === 'undefined' || post.acf.enterprice_header === '') ? post.title.rendered : post.acf.enterprice_header);
+  const form = (!((typeof post.acf.gd_form === 'undefined' || post.acf.gd_form === false)));
+  const { blocks = [] } = post.acf;
 
   return (
     <>
-      <HeaderBox 
+      <HeaderBox
         title={title}
         isArchive={isArchive}
         template={template}
@@ -34,8 +33,8 @@ const EnterpriceTemplate = ({ state }) => {
       />
       <div ref={contentRef}>
         <Partners bgColor="#F5F6FA" />
-        <Description 
-          circleColor="#2E293C" 
+        <Description
+          circleColor="#2E293C"
           bgColor="#F5F6FA"
           blocks={blocks}
         />
@@ -45,6 +44,6 @@ const EnterpriceTemplate = ({ state }) => {
       )}
     </>
   );
-}
+};
 
 export default connect(EnterpriceTemplate);
