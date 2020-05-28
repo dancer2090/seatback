@@ -20,6 +20,7 @@ const Nav = ({
   state,
   libraries,
   setMenuOpen = () => {},
+  onClickParent = () => {},
 }) => {
   const Html2React = libraries.html2react.Component;
 
@@ -30,10 +31,16 @@ const Nav = ({
         <>
           {items.map((i, key) => (
             <NavItem key={key} onClick={() => setMenuOpen(false)}>
-              <Link link={`/${i.slug}`}>
-                <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />
-              </Link>
-              {i.child_items && i.child_items.length > 0 && (
+              {!i.child_items ? (
+                <Link link={`/${i.slug}`}>
+                  <Html2React html={`${i.title}`} />
+                </Link>
+              ) : (
+                <span onClick={() => onClickParent(i.slug)}>
+                  <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />
+                </span>
+              )}
+              {/* {i.child_items && i.child_items.length > 0 && (
                 <ul>
                   {i.child_items.map((ic, n) => (
                     <li key={n}>
@@ -41,7 +48,7 @@ const Nav = ({
                     </li>
                   ))}
                 </ul>
-              )}
+              )} */}
             </NavItem>
           ))}
         </>
@@ -103,6 +110,26 @@ const NavItem = styled.li`
   justify-content: center;
   text-align: center;
 
+  > span {
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    &:hover {
+      color: #52DE97;
+    }
+  }
+
   @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
     width: 100%;
     padding: 0;
@@ -137,8 +164,6 @@ const NavItem = styled.li`
       padding-top: 15px;
       padding-bottom: 15px;
     }
-
-
   }
   &:hover {
 

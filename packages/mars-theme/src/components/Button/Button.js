@@ -73,6 +73,16 @@ const StyledButton = styled.button`
       color: #52DE97;
     }
   `}
+
+  ${(props) => props.mode === 'transparent' && css`
+    color: #2E293C;
+    background: transparent;
+    &:hover {
+      background: #2E293C;
+      border: 1px solid #2E293C;
+      color: #52DE97;
+    }
+  `}
 `;
 
 const Button = (props) => <StyledButton {...props} />;

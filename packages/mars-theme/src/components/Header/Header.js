@@ -6,6 +6,7 @@ import Nav from '../nav';
 import Link from '../link';
 import Button from '../Button';
 import ImageLogo from '../../img/sb_logo.svg';
+import FullMenu from './FullMenu';
 import {
   Container,
   MenuBox,
@@ -19,10 +20,13 @@ import {
   Progress,
 } from './styles';
 
-const Header = ({ data, state }) => {
+const Header = ({ data, state, actions }) => {
   const { header_button = {} } = state.seatbackapi.options.acf;
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isCategoryOpen, setCategoryOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(false);
+  const { seatbackapi: { menu: { items = [] } } } = state;
+  const [categoryItems, setCategoryItems] = useState([]);
 
   function menuAction() {
     setMenuOpen(!isMenuOpen);
@@ -38,7 +42,6 @@ const Header = ({ data, state }) => {
     const scrollTop = window.pageYOffset;
     const windowHeight = window.innerHeight;
     const docHeight = getDocHeight();
-
     const totalDocScrollLength = docHeight - windowHeight;
     const newScrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100);
     setScrollPosition(newScrollPostion);
@@ -52,10 +55,32 @@ const Header = ({ data, state }) => {
     });
   };
 
+  const loadSubMenus = () => {
+    if (items.length > 0) {
+      let setItems = [];
+      items.forEach((item) => {
+        actions.source.fetch(`/${item.slug}`);
+        if (item.child_items && item.child_items.length > 0) {
+          item.child_items.forEach((cItem) => {
+            actions.source.fetch(`/${cItem.slug}`);
+          });
+          if (setItems.length === 0) setItems = item.child_items;
+        }
+      });
+      setCategoryItems(setItems);
+    }
+  };
+
+  const onClickParent = (parentSlug) => {
+    const parent = items.find((item) => item.slug === parentSlug);
+    setCategoryItems(parent.child_items);
+    setCategoryOpen(true);
+  };
 
   useEffect(() => {
     calculateScrollDistance();
     listenToScrollEvent();
+    loadSubMenus();
   }, []);
 
   return (
@@ -68,7 +93,7 @@ const Header = ({ data, state }) => {
             </Link>
           </LogoSection>
           <NavSection>
-            <Nav setMenuOpen={setMenuOpen} />
+            <Nav setMenuOpen={setMenuOpen} onClickParent={onClickParent}  />
           </NavSection>
           <ButtonSection>
             {header_button ? (
@@ -84,7 +109,10 @@ const Header = ({ data, state }) => {
             )}
           </ButtonSection>
           <NavIconSection>
-            <NavIcon isOpen={isMenuOpen} onClick={() => menuAction()}>
+            <NavIcon
+              isOpen={isMenuOpen}
+              onClick={() => menuAction()}
+            >
               <span />
               <span />
               <span />
@@ -97,6 +125,11 @@ const Header = ({ data, state }) => {
             <Nav setMenuOpen={setMenuOpen} />
           </ResposnsiveMenu>
         )}
+        <FullMenu
+          categoryItems={categoryItems}
+          isOpen={isCategoryOpen}
+          onClose={() => setCategoryOpen(false)}
+        />
         {data.isPostType && data.link.indexOf('/blog') !== -1 && <Progress scroll={`${scrollPosition}%`} />}
       </Container>
       <Space />
