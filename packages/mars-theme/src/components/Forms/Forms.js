@@ -35,13 +35,15 @@ const Forms = ({
 }) => {
   const dataP = state.source.get(state.router.link);
   const page = state.source[dataP.type][dataP.id];
+  const { acf={} } = page;
   const {
     gd_form: { ID: formId = 114, post_title: title },
     gd_header: formHeader = title,
-  } = page.acf;
+  } = acf;
 
   const form = state.source.forms[formId];
-  const { inputs = [], submit_text: submitText = 'Submit' } = form.acf;
+  const { acf : form_acf={} } = form || {};
+  const { inputs = [], submit_text: submitText = 'Submit' } = form_acf;
 
   const Html2React = libraries.html2react.Component;
 
@@ -226,11 +228,13 @@ const Forms = ({
               </FormControl>
             </Wow>
           ))}
-        <Wow animation="slideUp" delay="0.2s">
-          <BBlock>
-            <Button type="submit">{submitText}</Button>
-          </BBlock>
-        </Wow>
+        {Object.keys(form_acf).length>0 && (
+          <Wow animation="slideUp" delay="0.2s">
+            <BBlock>
+              <Button type="submit">{submitText}</Button>
+            </BBlock>
+          </Wow>
+        )}
         <FText afterload={!!(preload && !state.seatbackapi.isFormSend)}>
           Thanks you! Your email has been sent!
         </FText>

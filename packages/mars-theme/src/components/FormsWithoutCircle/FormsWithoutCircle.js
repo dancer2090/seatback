@@ -44,10 +44,11 @@ const FormsWithoutCircle = ({ state, actions, libraries, bgColor}) => {
     } = page.acf;
 
     const form = state.source['forms'][formId];
+    const { acf : form_acf={} } = form || {};
     const { 
       inputs = [], 
       submit_text: submitText = "Submit"
-    } = form.acf;
+    } = form_acf;
 
     const Html2React = libraries.html2react.Component;
 
@@ -215,11 +216,13 @@ const FormsWithoutCircle = ({ state, actions, libraries, bgColor}) => {
                </Wow>
               )
           })}
-          <Wow animation='slideUp' delay="0.2s">
-            <BBlock>
-              <Button type="submit">{submitText}</Button>
-            </BBlock>
-          </Wow>
+          {Object.keys(form_acf).length>0 && (
+            <Wow animation="slideUp" delay="0.2s">
+              <BBlock>
+                <Button type="submit">{submitText}</Button>
+              </BBlock>
+            </Wow>
+          )}
           <FText afterload={(preload && !state.seatbackapi.isFormSend) ? true : false}>
             Thanks you! Your email has been sent!
           </FText>
