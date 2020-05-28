@@ -12,6 +12,7 @@ import Post from './post';
 import Loader from './Loader';
 import Title from './title';
 import PageError from './page-error';
+import Footer from './Footer';
 import { globalStyles, SiteContainer } from './globalStyles';
 
 /**
@@ -20,6 +21,14 @@ import { globalStyles, SiteContainer } from './globalStyles';
  */
 const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
+  const post1 = ((state.source[data.type] && state.source[data.type][data.id]) ? state.source[data.type][data.id] : {});
+  if(data.isReady){
+    var {
+      footer_background_color : footerBg = "#ffffff",
+      footer_circle_color : footerCircleBg = "#F5F6FA",
+    } = post1.acf;
+  }
+
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
@@ -47,6 +56,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <PageError when={data.isError} />
         </Switch>
+        {data.isReady && Object.keys(post1).length>0 && <Footer bgColor={footerBg} circleColor={footerCircleBg} />}
       </SiteContainer>
     </>
   );
