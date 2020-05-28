@@ -27,7 +27,14 @@ const FullMenu = ({
   isOpen,
   onClose = () => {},
 }) => {
-  const { seatbackapi: { menu: { items = [] } } } = state;
+  const { seatbackapi: {
+      menu: {
+        items = [],
+      },
+      options = {},
+    }
+  } = state;
+  const { acf: optionsAcf = {}} = options;
   const [isFullMenu, setFullMenu] = useState(false);
   const Html2React = libraries.html2react.Component;
   const followLink = (link) => {
@@ -59,14 +66,22 @@ const FullMenu = ({
                 <Blocks>
                   {item.child_items && item.child_items.map((cItem) => {
                     const dataP = state.source.get(cItem.urlFrontity);
-                    const post = !dataP.isFetching && dataP.isReady
+                    let post = !dataP.isFetching && dataP.isReady
                       ? state.source[dataP.type][dataP.id]
                       : null;
                     const {
                       acf = {},
                       featured_media = null,
                     } = post || {};
-                    const media = state.source.attachment[featured_media];
+                    let media = state.source.attachment[featured_media];
+                    if (item.urlFrontity === '/blog/') {
+                      post = {};
+                      post.title = {};
+                      post.title.rendered = optionsAcf.b_title;
+                      post.title.rendered = optionsAcf.b_title;
+                      media = {};
+                      media.source_url = optionsAcf.blog_image.url;
+                    }
                     const { shortDescription = '' } = acf;
                     return post && (
                       <Block key={dataP.id}>
@@ -100,17 +115,25 @@ const FullMenu = ({
           <Blocks>
             {categoryItems.length > 0 && categoryItems.map((item) => {
               const dataP = state.source.get(item.urlFrontity);
-              const post = !dataP.isFetching && dataP.isReady
+              let post = !dataP.isFetching && dataP.isReady
                 ? state.source[dataP.type][dataP.id]
                 : null;
               const {
                 acf = {},
                 featured_media = null,
               } = post || {};
-              const media = state.source.attachment[featured_media];
+              let media = state.source.attachment[featured_media];
+              if (item.urlFrontity === '/blog/') {
+                post = {};
+                post.title = {};
+                post.title.rendered = optionsAcf.b_title;
+                post.title.rendered = optionsAcf.b_title;
+                media = {};
+                media.source_url = optionsAcf.blog_image.url;
+              }
               const { shortDescription = '' } = acf;
               return post && (
-                <Block key={dataP.id}>
+                <Block key={dataP.id || 'blog'}>
                   {!dataP.isFetching ? (
                     <Item>
                       <ItemBox>

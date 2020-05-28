@@ -23,7 +23,7 @@ const PlanFormTemplate = ({ state, actions }) => {
     if(state.seatbackapi.plans.length===0) actions.router.set('/');
   }, []);
 
-  console.log(state.seatbackapi.plans[plan_number]);
+  // console.log(state.seatbackapi.plans[plan_number]);
   const current_plan = state.seatbackapi.plans[plan_number];
 
   return (
