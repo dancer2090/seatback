@@ -155,7 +155,7 @@ export const Description = styled.div`
   line-height: 34px;
   font-weight: 400;
   letter-spacing: 0px;
-  color: #A09D9D;
+  color: #2E293C;
   opacity: 1;
   padding: 95px 10px 45px 10px;
   width: 100%;

@@ -25,7 +25,7 @@ export const Contaiter = styled.div`
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 101;
   display: ${(props) => (props.show ? 'block' : 'none')};
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {

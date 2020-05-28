@@ -33,6 +33,10 @@ const HeaderBox = ({
   offset = 100,
   mode = null,
   bgColor = null,
+  paddingBottom = '185',
+  longTitle = false,
+  horisontalImage = 'center',
+  heightImage='507',
 }) => {
   const scrollToRef = () => (
     scrollRef
@@ -53,11 +57,12 @@ const HeaderBox = ({
       bgColor={bgColor}
       mode={selectedMode}
       type_header={type_header}
+      paddingBottom={paddingBottom}
     >
       <Container>
         <HeaderBoxContainer type_header={type_header}>
-          <DescriptionBox type_header={type_header} mode={selectedMode}>
-            {(template === 'standart' || !isArchive) && (
+          <DescriptionBox longTitle={longTitle} type_header={type_header} mode={selectedMode}>
+            {(template === 'standart' && !isArchive) && (
               <Article>Article</Article>
             )}
             {title !== '' && (
@@ -98,7 +103,7 @@ const HeaderBox = ({
             </HeaderFooter>
           </DescriptionBox>
           <BannerArticlesBox>
-            <BannerArticlesContainer imgSrc={image} bg_size={bg_size}>
+            <BannerArticlesContainer heightImage={heightImage} horisontalImage={horisontalImage} imgSrc={image} bg_size={bg_size}>
               {template === 'standart' && isArchive && (
                 <>
                   <New>New</New>

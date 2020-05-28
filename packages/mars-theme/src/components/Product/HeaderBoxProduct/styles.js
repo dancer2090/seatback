@@ -92,7 +92,7 @@ export const DescriptionBox = styled.div`
     letter-spacing: 0px;
     color: #A09D9D;
     opacity: 1;
-    max-width: 564px;
+    max-width: 635px;
     width: 100%;
     margin: 0;
     padding-top: 30px;

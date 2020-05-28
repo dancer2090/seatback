@@ -42,6 +42,7 @@ const ProductTemplate = ({ state }) => {
               zIndex={(key + 1)}
               circleColor={circleColor}
               bgColor={bgColor}
+              key={d.header}
             />
           );
         })}

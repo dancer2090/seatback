@@ -97,7 +97,7 @@ export const DescriptionBox = styled.div`
     color: ${(props) => (props.mode === 'dark' ? '#FFFFFF' : '#2E293C')};
     opacity: 1;
     margin: 0;
-    max-width: 423px;
+    max-width: ${(props) => (props.longTitle ? '650' : '423')}px;
     span {
       color: #52de97;
     }
@@ -142,6 +142,7 @@ export const DescriptionBox = styled.div`
     @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
       font-size: 20px;
       line-height: 32px;
+      max-width: 100%;
     }
     @media (max-width: ${SIZE_LAPTOP}px) {
       width: 100%;
@@ -213,7 +214,7 @@ export const BannerArticlesBox = styled.div`
 
 export const BannerArticlesContainer = styled.div`
   width: 770px;
-  height: 507px;
+  height: ${(props) => props.heightImage}px;
   border-radius: 14px 14px 0px 0px;
   opacity: 1;
   background-image: url(${(props) => (props.imgSrc
@@ -221,7 +222,7 @@ export const BannerArticlesContainer = styled.div`
     : 'https://i.picsum.photos/id/866/1200/1000.jpg')});
   background-repeat: no-repeat;
   background-size: ${(props) => props.bg_size};
-  background-position: center center;
+  background-position: center ${(props) => props.horisontalImage};
   position: relative;
   border-radius: 14px;
 
@@ -428,7 +429,7 @@ export const Article = styled.div`
 `;
 
 export const GlobalContainer = styled.div`
-  padding-bottom: ${(props) => (props.type_header === 'With lines' ? '300px' : '185px')};
+  padding-bottom: ${(props) => (props.type_header === 'With lines' ? '300px' : props.paddingBottom + 'px')};
   overflow: hidden;
   position: relative;
   &:after{

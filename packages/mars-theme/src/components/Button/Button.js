@@ -27,6 +27,7 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   text-align: center;
+  white-space: nowrap;
 
   ${(props) => props.hidden && css`
     display: none;

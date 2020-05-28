@@ -145,7 +145,7 @@ export const NavIcon = styled.div`
 
 export const Container = styled.div`
   position: fixed;
-  z-index: 10;
+  z-index: 102;
   background-color: white;
   width: 100%;
   padding-left: ${PADDING_DESCTOP_LARGE}px;

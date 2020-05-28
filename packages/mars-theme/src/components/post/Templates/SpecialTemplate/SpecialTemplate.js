@@ -22,14 +22,20 @@ const SpecialTemplate = ({ state }) => {
 
   const template = (post.template !== '' ? post.template : 'standart');
 
-  const typeHeader = ((typeof post.acf.type_section === 'undefined' && post.acf.type_section === false) ? '' : post.acf.type_section);
-  const button = ((typeof post.acf.button === 'undefined' && post.acf.button === false) ? {} : post.acf.button);
   const isArchive = (post.template !== '');
-  const description = ((typeof post.acf.description === 'undefined' && post.acf.description === false) ? '' : post.acf.description);
-  const title = ((typeof post.acf.header_text === 'undefined' || post.acf.header_text === '') ? post.title.rendered : post.acf.header_text);
-  const typeBg = ((typeof post.acf.type_background === 'undefined' && post.acf.type_background === false) ? '' : post.acf.type_background);
-  const bgSize = ((typeof post.acf.bg_size === 'undefined' && post.acf.bg_size === false) ? '' : post.acf.bg_size);
   const form = (!((typeof post.acf.gd_form === 'undefined' || post.acf.gd_form === false)));
+  const {
+    type_section : typeHeader = '',
+    button : button = {},
+    description : description = '',
+    type_background : typeBg = '',
+    bg_size : bgSize = '',
+    position_image : horisontalImage = 'center',
+    long_title : longTitle = false,
+  } = post.acf;
+  const title = ((typeof post.acf.header_text === 'undefined' || post.acf.header_text === '') ? post.title.rendered : post.acf.header_text);
+  const heightImage = ((!post.acf.height_image || post.acf.height_image === '') ? '507' : post.acf.height_image);
+  const paddingBottom = ((!post.acf.padding_bottom || post.acf.padding_bottom === '') ? '185' : post.acf.padding_bottom);
   const { url: buttonUrl = '' } = button;
   return (
     <>
@@ -44,6 +50,10 @@ const SpecialTemplate = ({ state }) => {
         type_header={typeHeader}
         bg_size={bgSize}
         offset={0}
+        longTitle={longTitle}
+        heightImage={heightImage}
+        horisontalImage={horisontalImage}
+        paddingBottom={paddingBottom}
       />
       <CircleContainer ref={contentRef} mode={typeBg}>
         <Help title={helpHeader} items={helpItems} />
