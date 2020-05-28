@@ -20,8 +20,7 @@ import {
 } from './styles';
 import CkeckCircle from '../../../img/checkmark-circle.svg';
 
-
-const OurPlans = ({ libraries, title = '', plans = [] }) => {
+const OurPlans = ({ libraries, title = '', plans = [], state }) => {
   const nullPlans = [];
   let defaultPlan = '';
   plans.forEach((plan) => {
@@ -40,6 +39,8 @@ const OurPlans = ({ libraries, title = '', plans = [] }) => {
     });
     setPlanActive(timePlans);
   };
+
+  state.seatbackapi.plans = plans;
 
   return (
     <GlobalContainer>

@@ -3,7 +3,6 @@ import { connect } from 'frontity';
 import HeaderBoxProduct from '../../../Product/HeaderBoxProduct';
 import DescriptionProduct from '../../../Product/DescriptionProduct';
 import HelpProduct from '../../../Product/HelpProduct';
-import Footer from '../../../Footer';
 
 const ProductTemplate = ({ state }) => {
   const contentRef = useRef(null);
@@ -48,7 +47,6 @@ const ProductTemplate = ({ state }) => {
         })}
       </div>
       {blocks.length > 0 && <HelpProduct items={blocks} />}
-      <Footer bgColor={footerBg} circleColor={footerCircleBg} />
     </>
   );
 };

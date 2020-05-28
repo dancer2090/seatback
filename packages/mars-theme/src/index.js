@@ -59,6 +59,7 @@ const marsTheme = {
         ) {
           await actions.source.fetch("/blog");
         }
+
       },
     },
   },

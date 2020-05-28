@@ -28,6 +28,7 @@ export default {
       isWow: true,
       pageNumber: 2,
       posts: [],
+      plans: [],
     },
   },
   actions: {

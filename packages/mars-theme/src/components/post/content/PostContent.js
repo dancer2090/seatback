@@ -6,6 +6,7 @@ import OurPlansTemplate from '../Templates/OurPlansTemplate';
 import SpecialTemplate from '../Templates/SpecialTemplate';
 import ProductTemplate from '../Templates/ProductTemplate';
 import EnterpriceTemplate from '../Templates/EnterpriceTemplate';
+import PlanFormTemplate from '../Templates/PlanFormTemplate';
 import { GlobalContainer } from './styles';
 
 
@@ -22,6 +23,7 @@ const PostContent = ({ state }) => {
       {template === 'page-plan.php' && <OurPlansTemplate />}
       {template === 'page-product.php' && <ProductTemplate />}
       {template === 'page-enterprice.php' && <EnterpriceTemplate />}
+      {template === 'page-plan_form.php' && <PlanFormTemplate />}
     </GlobalContainer>
   );
 };
