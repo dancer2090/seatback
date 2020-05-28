@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 import React from 'react';
@@ -39,14 +40,14 @@ const Footer = ({
         {menu && menu.length > 0 && (
           <MenuContainer>
             {menu.map((i, key) => (
-              <MenuColumn>
+              <MenuColumn key={key}>
                 <MenuColumnHeader>
                   <Link link={i.link}><Html2React html={i.name} /></Link>
                 </MenuColumnHeader>
                 {i.sub_menu && i.sub_menu.length > 0 && (
                 <SubMenuContainer>
                   {i.sub_menu.map((subI, j) => (
-                    <SubMenuElement>
+                    <SubMenuElement key={j}>
                       <Link link={subI.link.url.replace(state.frontity.adminUrl, state.frontity.url)}>
                         <Html2React html={subI.link.title} />
                       </Link>

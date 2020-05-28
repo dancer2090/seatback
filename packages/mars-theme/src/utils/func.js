@@ -22,3 +22,13 @@ export const parseURL = (url) => {
     hash: parser.hash,
   };
 }
+
+export const linkReplace = (link, frontityUrl, adminUrl) => {
+  let newLink = '';
+  if (link.startsWith(frontityUrl)) {
+    newLink = link.replace(frontityUrl, '');
+  } else if (link.startsWith(adminUrl)) {
+    newLink = link.replace(adminUrl, '');
+  }
+  return newLink;
+}

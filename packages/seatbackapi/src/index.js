@@ -3,6 +3,16 @@
 import React from 'react';
 import axios from 'axios';
 
+const linkReplace = (link, frontityUrl, adminUrl) => {
+  let newLink = '';
+  if (link.startsWith(frontityUrl)) {
+    newLink = link.replace(frontityUrl, '');
+  } else if (link.startsWith(adminUrl)) {
+    newLink = link.replace(adminUrl, '');
+  }
+  return newLink;
+};
+
 const Root = () => (<></>);
 
 export default {
@@ -40,7 +50,16 @@ export default {
       beforeSSR: async ({ state }) => {
         const topMenu = await axios.get(`${state.source.api}/menus/v1/menus/top_menu`);
         state.seatbackapi.menu = topMenu.data;
-
+        state.seatbackapi.menu.items.map((item) => {
+          item.urlFrontity = linkReplace(item.url, state.frontity.url, state.frontity.adminUrl);
+          if (item.child_items) {
+            item.child_items = item.child_items.map((cItem) => {
+              cItem.urlFrontity = linkReplace(cItem.url, state.frontity.url, state.frontity.adminUrl);
+              return cItem;
+            });
+          }
+          return item;
+        });
         const optionPage = await axios.get(`${state.source.api}/acf/v3/options/options`);
         state.seatbackapi.options = optionPage.data;
       },

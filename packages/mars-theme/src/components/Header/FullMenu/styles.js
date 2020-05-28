@@ -10,18 +10,23 @@ import {
   SIZE_DESCTOP_SMALL,
   getPxSize,
   SIZE_MOBILE,
+  SIZE_LAPTOP,
+  SIZE_LAPTOP_SMALL,
 } from '../../../const/responsive';
 
 export const Contaiter = styled.div`
   background-color: #F5F6FA;
-  position: absolute;
+  position: fixed;
   left: 0;
   padding-left: ${PADDING_DESCTOP_LARGE}px;
   padding-right: ${PADDING_DESCTOP_LARGE}px;
-  padding-top: 134px;
+  padding-top: 54px;
   padding-bottom: 134px;
   width: 100%;
-  display: ${props => props.show ? 'block' : 'none'};
+  height: 100%;
+  overflow-y: auto;
+  z-index: 10;
+  display: ${(props) => (props.show ? 'block' : 'none')};
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
@@ -50,6 +55,19 @@ export const Blocks = styled.div`
   flex-wrap: wrap;
   margin-right: -50px;
   margin-left: -50px;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    margin-right: -40px;
+    margin-left: -40px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    margin-right: -30px;
+    margin-left: -30px;
+    justify-content: flex-start;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
 `;
 
 export const Block = styled.div`
@@ -57,6 +75,8 @@ export const Block = styled.div`
   padding-left: 50px;
   padding-right: 50px;
   position: relative;
+  margin-top: 80px;
+  min-height: 100px;
   &:before {
     content: " ";
     width: 1px;
@@ -67,7 +87,7 @@ export const Block = styled.div`
     top: 0;
   }
 
-  :nth-child(4n) {
+  :nth-of-type(4n) {
     &:before {
       display: none;
     }
@@ -76,6 +96,29 @@ export const Block = styled.div`
     &:before {
       display: none;
     }
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    width: 50%;
+    :nth-of-type(2n) {
+      &:before {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 470px) {
+    margin-top: 60px;
   }
 `;
 
@@ -97,12 +140,25 @@ export const Picture = styled.div`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-image: url(${props => props.src ? props.src : 'https://i.picsum.photos/id/866/1200/1000.jpg'});
+  background-image: url(${(props) => (props.src ? props.src : 'https://i.picsum.photos/id/866/1200/1000.jpg')});
   margin-top: 40px;
   border-radius: 10px;
   position: absolute;
   bottom: 98px;
   cursor: pointer;
+  @media (max-width: 470px) {
+    bottom: 0;
+  }
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    height: 210px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    height: 285px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    height: 210px;
+  }
 `;
 
 export const Title = styled.div`
@@ -119,6 +175,22 @@ export const Title = styled.div`
   &:hover {
     color: #52DE97;
   }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    font-size: 16px;
+    line-height: 16px;
+  }
 `;
 export const Description = styled.div`
   padding-top: 20px;
@@ -131,6 +203,32 @@ export const Description = styled.div`
   opacity: 1;
   max-width: 320px;
   padding-bottom: 423px;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    padding-bottom: 340px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 16px;
+    line-height: 28px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    padding-bottom: 423px;
+    font-size: 15px;
+    line-height: 24px;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-bottom: 340px;
+  }
+  @media (max-width: 470px) {
+    padding-bottom: 240px;
+  }
 `;
 
 export const Action = styled.div`
@@ -143,6 +241,10 @@ export const Action = styled.div`
     display: block;
     width: 100%;
     max-width: 100%;
+
+  }
+  @media (max-width: 470px) {
+    display: none;
   }
 `;
 
@@ -173,5 +275,30 @@ export const CloseBlock = styled.button`
 
   &:hover {
     background-color: #52DE97;
+  }
+`;
+
+export const LinkTitle = styled.div`
+  font-size: 24px;
+  line-height: 24px;
+  text-align: left;
+  font-weight: 500;
+  letter-spacing: 0px;
+  color: #2E293C;
+  opacity: 1;
+  max-width: 320px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 50px;
+  &:hover {
+    color: #52DE97;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    font-size: 20px;
+    line-height: 20px;
   }
 `;

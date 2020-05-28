@@ -67,7 +67,7 @@ export const Container = styled.div`
     padding-top: 0;
     padding-bottom: 0;
   }
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     margin-top: 205px;
     @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
       margin-top: ${PADDING_DESCTOP_MEDIUM_2}px;

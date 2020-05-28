@@ -32,11 +32,11 @@ const Nav = ({
           {items.map((i, key) => (
             <NavItem key={key} onClick={() => setMenuOpen(false)}>
               {!i.child_items ? (
-                <Link link={`/${i.slug}`}>
+                <Link link={`${i.urlFrontity}`}>
                   <Html2React html={`${i.title}`} />
                 </Link>
               ) : (
-                <span onClick={() => onClickParent(i.slug)}>
+                <span onClick={() => onClickParent(i.urlFrontity)}>
                   <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />
                 </span>
               )}

@@ -59,10 +59,10 @@ const Header = ({ data, state, actions }) => {
     if (items.length > 0) {
       let setItems = [];
       items.forEach((item) => {
-        actions.source.fetch(`/${item.slug}`);
+        actions.source.fetch(item.urlFrontity);
         if (item.child_items && item.child_items.length > 0) {
           item.child_items.forEach((cItem) => {
-            actions.source.fetch(`/${cItem.slug}`);
+            actions.source.fetch(cItem.urlFrontity);
           });
           if (setItems.length === 0) setItems = item.child_items;
         }
@@ -71,10 +71,15 @@ const Header = ({ data, state, actions }) => {
     }
   };
 
-  const onClickParent = (parentSlug) => {
-    const parent = items.find((item) => item.slug === parentSlug);
+  const onClickParent = (parentUrl) => {
+    const parent = items.find((item) => item.urlFrontity === parentUrl);
     setCategoryItems(parent.child_items);
     setCategoryOpen(true);
+  };
+
+  const closeFillScreen = () => {
+    setCategoryOpen(false);
+    setMenuOpen(false);
   };
 
   useEffect(() => {
@@ -93,7 +98,7 @@ const Header = ({ data, state, actions }) => {
             </Link>
           </LogoSection>
           <NavSection>
-            <Nav setMenuOpen={setMenuOpen} onClickParent={onClickParent}  />
+            <Nav setMenuOpen={setMenuOpen} onClickParent={onClickParent} />
           </NavSection>
           <ButtonSection>
             {header_button ? (
@@ -125,14 +130,15 @@ const Header = ({ data, state, actions }) => {
             <Nav setMenuOpen={setMenuOpen} />
           </ResposnsiveMenu>
         )}
-        <FullMenu
-          categoryItems={categoryItems}
-          isOpen={isCategoryOpen}
-          onClose={() => setCategoryOpen(false)}
-        />
         {data.isPostType && data.link.indexOf('/blog') !== -1 && <Progress scroll={`${scrollPosition}%`} />}
       </Container>
       <Space />
+      <FullMenu
+        categoryItems={categoryItems}
+        isFfullItems={isMenuOpen}
+        isOpen={isCategoryOpen || isMenuOpen}
+        onClose={() => closeFillScreen()}
+      />
     </>
   );
 };
