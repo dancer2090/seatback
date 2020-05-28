@@ -1,79 +1,77 @@
+/* eslint-disable camelcase */
 import React from 'react';
+import { connect } from 'frontity';
 import Button from '../../Button';
 import Link from '../../link';
-import { connect } from "frontity";
 import Wow from '../../Wow';
-import ImageAuthor from '../../../img/user.svg';
-
-import { 
+import {
   GlobalContainer,
   Container,
   Slogan,
   Discription,
-  Video,
   VideoContainer,
   VideoText,
   YouTubeVideo,
-  slideUp,
 } from './styles';
 
 
-const Banner = ({ state, actions, libraries }) => {
+const Banner = ({ state, libraries }) => {
+  const dataP = state.source.get(state.router.link);
+  const post = state.source[dataP.type][dataP.id];
 
-  const data_p = state.source.get(state.router.link);
-  const post = state.source[data_p.type][data_p.id];
-
-  const { acf: {
-    main_header: mainHeader,
-    main_description: mainDescriotion,
-    video: youtubeVideo,
-    video_description: youtubeVideoDescription,
-    m_right_animation: m_right_animation,
-    main_button: {
-      title: mainButtonTitle,
-      url: mainButtonUrl,
+  const {
+    acf: {
+      main_header: mainHeader,
+      main_description: mainDescriotion,
+      video: youtubeVideo,
+      video_description: youtubeVideoDescription,
+      m_right_animation,
+      main_button: {
+        title: mainButtonTitle,
+        url: mainButtonUrl,
+      },
     },
-  } } = post;
-  
+  } = post;
+
 
   const Html2React = libraries.html2react.Component;
 
   return (
     <GlobalContainer>
       <Container>
-      <Wow animation='slideUp'>
-        <div className='main-block'>
-          <Slogan>
-            <Html2React html={mainHeader} />
-          </Slogan>
-          <Discription>
-            {mainDescriotion}
-          </Discription>
-          <Link link={mainButtonUrl}>
-            <Button size="large">{mainButtonTitle}</Button>
-          </Link>
-        </div>
-      </Wow>
-      <Wow animation='fadeIn' delay="0.3s">
-        <VideoContainer>
-          <iframe src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/GIF_DES-All.html" />
-          <video autoPlay muted loop >
-            <source src={m_right_animation} type="video/mp4"/>
-          </video>
-        </VideoContainer>
-      </Wow>
+        <Wow animation="slideUp">
+          <div className="main-block">
+            <Slogan>
+              <Html2React html={mainHeader} />
+            </Slogan>
+            <Discription>
+              {mainDescriotion}
+            </Discription>
+            <Link link={mainButtonUrl}>
+              <Button size="large">{mainButtonTitle}</Button>
+            </Link>
+          </div>
+        </Wow>
+        <Wow animation="fadeIn" delay="0.3s">
+          <VideoContainer>
+            <iframe title="animation" src="https://seatback-admin.webbuilder.in.ua/wp-content/uploads/2020/05/GIF_DES-All.html" />
+            <video autoPlay muted loop>
+              <source src={m_right_animation} type="video/mp4" />
+            </video>
+          </VideoContainer>
+        </Wow>
       </Container>
-      <Wow offset={-100} animation='slideUp'>
-        <VideoText >
+      <Wow offset={-100} animation="slideUp">
+        <VideoText>
           {youtubeVideoDescription}
         </VideoText>
       </Wow>
-      <Wow offset={-100} animation='slideUp'>
+      <Wow offset={-100} animation="slideUp">
         <YouTubeVideo>
           <Html2React html={youtubeVideo} />
         </YouTubeVideo>
       </Wow>
     </GlobalContainer>
   );
-}
+};
 export default connect(Banner);

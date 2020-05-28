@@ -1,4 +1,4 @@
-import { styled, css } from "frontity";
+import { styled } from 'frontity';
 import {
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
@@ -24,8 +24,7 @@ import {
   TEXT_LINE_HEIGHT_MOBILE,
   WIDTH_DESCRIPTION_SIDE_LARGE,
   WIDTH_DESCRIPTION_SIDE_MEDIUM_1,
-  WIDTH_DESCRIPTION_SIDE_MOBILE,
-} from "../../../const/responsive";
+} from '../../../const/responsive';
 
 export const GlobalContainer = styled.div`
   background: #f5f6fa 0% 0% no-repeat padding-box;
@@ -33,10 +32,10 @@ export const GlobalContainer = styled.div`
   background-color: #f5f6fa;
   overflow: hidden;
   padding-bottom: 70px;
-  z-index: ${props => props.zIndex};
+  z-index: ${(props) => props.zIndex};
   &:after {
     content: " ";
-    background-color: ${props => props.circleColor};
+    background-color: ${(props) => props.circleColor};
     width: 3006px;
     height: 2450px;
     border-radius: 50%;
@@ -47,7 +46,7 @@ export const GlobalContainer = styled.div`
   }
   &:before {
     content: " ";
-    background: ${props => props.bgColor};
+    background: ${(props) => props.bgColor};
     width: 100%;
     height: 1272px;
     position: absolute;
@@ -213,7 +212,7 @@ export const Image = styled.div`
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    right: ${PADDING_DESCTOP_MEDIUM_1 + "px"};
+    right: ${`${PADDING_DESCTOP_MEDIUM_1}px`};
     left: auto;
     & img{
       width: 500px;

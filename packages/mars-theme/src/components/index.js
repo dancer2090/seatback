@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Global, 
-  connect, 
+  Global,
+  connect,
   Head,
 } from 'frontity';
 import Switch from '@frontity/components/switch';

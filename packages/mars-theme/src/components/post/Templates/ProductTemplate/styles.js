@@ -1,50 +1,29 @@
-import { styled, css, keyframes } from 'frontity';
-import  {
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
   getPxSize,
   SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
-
-  HEADER_FONT_SIZE_DESCTOP_LARGE,
-  HEADER_LINE_HEIGHT_DESCTOP_LARGE,
-  HEADER_FONT_SIZE_DESCTOP_MEDIUM_1,
-  HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  HEADER_FONT_SIZE_MOBILE,
-  HEADER_LINE_HEIGHT_MOBILE,
-
-  TEXT_FONT_SIZE_DESCTOP_LARGE,
-  TEXT_LINE_HEIGHT_DESCTOP_LARGE,
-  TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
-  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  TEXT_FONT_SIZE_MOBILE,
-  TEXT_LINE_HEIGHT_MOBILE,
-
-  POST_MARGIN_LARGE,
-  POST_MARGIN_MEDIUM_1,
-  POST_MARGIN_MOBILE,
 } from '../../../../const/responsive';
 
 
-
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   overflow: hidden;
   position: relative;
 `;
-export const Container = styled.div `
+export const Container = styled.div`
   margin:0 auto;
   text-align: left;
   letter-spacing:0 px;
   padding-right: 150px;
-  padding-left:${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_LARGE + 'px'};
+  padding-left:${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_LARGE}px`)};
   opacity:1;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
@@ -80,7 +59,7 @@ export const CircleContainer = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     padding-top: 0px;
   }
-  ${props => props.mode === 'Circle' && `
+  ${(props) => props.mode === 'Circle' && `
     &:after{
       content: ' ';
       background-color: #FFFFFF;
@@ -103,7 +82,7 @@ export const CircleContainer = styled.div`
       z-index: -1;
     }
   `}
-  ${props => props.mode === 'Grey colour' && `
+  ${(props) => props.mode === 'Grey colour' && `
     background: #F5F6FA;
   `}
 

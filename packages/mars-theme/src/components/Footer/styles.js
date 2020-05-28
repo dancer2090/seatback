@@ -1,23 +1,19 @@
-import { styled, css } from 'frontity';
-import  {
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
-  getPxSize,
   SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
 } from '../../const/responsive';
 
 
-
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   z-index: 100;
   padding-top: 225px;
   padding-bottom: 124px;
@@ -25,7 +21,7 @@ export const GlobalContainer = styled.div `
   position: relative;
   &:after{
     content: ' ';
-    background-color: ${props => props.circleColor};
+    background-color: ${(props) => props.circleColor};
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
@@ -36,7 +32,7 @@ export const GlobalContainer = styled.div `
   }
   &:before{
     content: ' ';
-    background: ${props => props.bgColor};
+    background: ${(props) => props.bgColor};
     width: 100%;
     height: 1830px;
     position: absolute;
@@ -84,7 +80,7 @@ export const Container = styled.div`
 
 `;
 
-export const MenuContainer = styled.nav `
+export const MenuContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -96,17 +92,17 @@ export const MenuContainer = styled.nav `
     padding-bottom: 150px;
   }
 `;
-export const MenuColumnHeader = styled.div `
+export const MenuColumnHeader = styled.div`
   font-size: 24px;
   line-height: 24px;
   font-weight: 500;
   color: #2E293C;
 `;
-export const SubMenuContainer = styled.ul `
+export const SubMenuContainer = styled.ul`
   padding-left: 0px;
   list-style: none;
 `;
-export const SubMenuElement = styled.li `
+export const SubMenuElement = styled.li`
   & a{
     display: block;
     margin-top: 20px;
@@ -119,7 +115,7 @@ export const SubMenuElement = styled.li `
     }
   }
 `;
-export const MenuColumn = styled.div `
+export const MenuColumn = styled.div`
   display: block;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     display: block;
@@ -128,7 +124,7 @@ export const MenuColumn = styled.div `
   }
 `;
 
-export const FooterActions = styled.div `
+export const FooterActions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,13 +133,13 @@ export const FooterActions = styled.div `
     justify-content: center;
   }
 `;
-export const Socials = styled.div `
+export const Socials = styled.div`
   display: block;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     margin-top: 4rem;
   }
 `;
-export const SocialsHeader = styled.div `
+export const SocialsHeader = styled.div`
   font-weight: 500;
   font-size: 24px;
   line-height: 24px;
@@ -152,7 +148,7 @@ export const SocialsHeader = styled.div `
     text-align: center;
   }
 `;
-export const SocialsRow = styled.div `
+export const SocialsRow = styled.div`
   display: block;
   margin-left: -20px;
   margin-right: -20px;

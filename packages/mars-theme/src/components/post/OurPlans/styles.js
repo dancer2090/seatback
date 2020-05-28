@@ -1,17 +1,15 @@
 import { styled, css } from 'frontity';
-import  {
+import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
   PADDING_MOBILE,
-  SIZE_DESCTOP_LARGE,
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
   SIZE_DESCTOP_SMALL,
   getPxSize,
   SIZE_LAPTOP,
-  SIZE_LAPTOP_SMALL,
   SIZE_MOBILE,
   HEADER_FONT_SIZE_DESCTOP_LARGE,
   HEADER_LINE_HEIGHT_DESCTOP_LARGE,
@@ -19,22 +17,15 @@ import  {
   HEADER_LINE_HEIGHT_DESCTOP_MEDIUM_1,
   HEADER_FONT_SIZE_MOBILE,
   HEADER_LINE_HEIGHT_MOBILE,
-  TEXT_FONT_SIZE_DESCTOP_LARGE,
-  TEXT_LINE_HEIGHT_DESCTOP_LARGE,
-  TEXT_FONT_SIZE_DESCTOP_MEDIUM_1,
-  TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1,
-  TEXT_FONT_SIZE_MOBILE,
-  TEXT_LINE_HEIGHT_MOBILE,
 } from '../../../const/responsive';
 import Check from '../../../img/checkmark.svg';
 
 
-export const Container = styled.div `
+export const Container = styled.div`
   padding-right: ${PADDING_DESCTOP_LARGE}px;
   padding-left: ${PADDING_DESCTOP_LARGE}px;
   position: relative;
   width: 100%;
-  oveflow: hidden;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
@@ -133,6 +124,40 @@ export const PlansContainer = styled.div`
     margin-top: 40px;
   }
 `;
+export const Cell = styled.div`
+  height: 164px;
+  background: #fff;
+  margin-right: 5px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 0;
+    height: auto;
+    min-height: 150px;
+    margin: 0;
+    min-height: auto;
+
+    > img {
+      margin: 0 auto;
+    }
+  }
+
+  img {
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      transform: scale(0.9);
+    }
+    @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+      transform: scale(0.8);
+    }
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      transform: scale(0.7);
+    }
+  }
+`;
 export const PlansColumn = styled.div`
   width: 100%;
   position: relative;
@@ -145,7 +170,7 @@ export const PlansColumn2 = styled.div`
     margin-top: 50px;
     border-radius: 24px;
   }
-  ${props => props.active && css`
+  ${(props) => props.active && css`
     &:before{
       content:' ';
       width: 70px;
@@ -240,7 +265,7 @@ export const RowName = styled.div`
 `;
 export const ColumnName = styled.div`
   height: 217px;
-  background: ${props => props.background};
+  background: ${(props) => props.background};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -305,40 +330,7 @@ export const ColumnName = styled.div`
     }
   }
 `;
-export const Cell = styled.div`
-  height: 164px;
-  background: #fff;
-  margin-right: 5px;
-  margin-top: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: ${SIZE_LAPTOP}px) {
-    align-items: center;
-    justify-content: flex-start;
-    padding-bottom: 0;
-    height: auto;
-    min-height: 150px;
-    margin: 0;
-    min-height: auto;
 
-    > img {
-      margin: 0 auto;
-    }
-  }
-
-  img {
-    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
-      transform: scale(0.9);
-    }
-    @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
-      transform: scale(0.8);
-    }
-    @media (max-width: ${SIZE_LAPTOP}px) {
-      transform: scale(0.7);
-    }
-  }
-`;
 export const HiddenHeader = styled.div`
   display: none;
   background: #EFEFEF;

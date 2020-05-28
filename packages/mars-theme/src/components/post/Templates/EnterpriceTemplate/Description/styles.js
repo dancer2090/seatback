@@ -1,5 +1,5 @@
-import { styled, css } from 'frontity';
-import  {
+import { styled } from 'frontity';
+import {
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
   PADDING_DESCTOP_SMALL,
@@ -24,10 +24,9 @@ import  {
   TEXT_LINE_HEIGHT_MOBILE,
   WIDTH_DESCRIPTION_SIDE_LARGE,
   WIDTH_DESCRIPTION_SIDE_MEDIUM_1,
-  WIDTH_DESCRIPTION_SIDE_MOBILE,
 } from '../../../../../const/responsive';
 
-export const GlobalContainer = styled.div `
+export const GlobalContainer = styled.div`
   background: #F5F6FA 0% 0% no-repeat padding-box;
   position: relative;
   background-color: #F5F6FA;
@@ -35,7 +34,7 @@ export const GlobalContainer = styled.div `
   padding-top: 314px;
   &:after{
     content: ' ';
-    background-color: ${props => props.circleColor ? props.circleColor: '#FFFFFF'};;
+    background-color: ${(props) => (props.circleColor ? props.circleColor : '#FFFFFF')};;
     width: 3006px;
     height: 2450px;
     border-radius: 50%;
@@ -46,7 +45,7 @@ export const GlobalContainer = styled.div `
   }
   &:before{
     content: ' ';
-    background: ${props => props.bgColor ? props.bgColor: '#FFFFFF'};
+    background: ${(props) => (props.bgColor ? props.bgColor : '#FFFFFF')};
     width: 100%;
     height: 1272px;
     position: absolute;
@@ -55,11 +54,11 @@ export const GlobalContainer = styled.div `
     z-index: 0;
   }
 `;
-export const Container = styled.div `
+export const Container = styled.div`
   padding-top: 205px;
   padding-bottom: 205px;
   padding-right: 150px;
-  padding-left: ${props => props.alignImage === 'left' ? '49%' : '150px'};
+  padding-left: ${(props) => (props.alignImage === 'left' ? '49%' : '150px')};
   position: relative;
   width: 100%;
   z-index: 2;
@@ -82,14 +81,14 @@ export const Container = styled.div `
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    padding-left: ${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_MEDIUM_2+'px'};
+    padding-left: ${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_MEDIUM_2}px`)};
     padding-right: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-top: ${PADDING_DESCTOP_MEDIUM_2}px;
     padding-bottom: ${PADDING_DESCTOP_MEDIUM_2}px;
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    padding-left: ${props => props.alignImage === 'left' ? '50%' : PADDING_DESCTOP_MEDIUM_1+'px'};
+    padding-left: ${(props) => (props.alignImage === 'left' ? '50%' : `${PADDING_DESCTOP_MEDIUM_1}px`)};
     padding-right: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-top: ${PADDING_DESCTOP_MEDIUM_1}px;
     padding-bottom: ${PADDING_DESCTOP_MEDIUM_1}px;
@@ -122,13 +121,13 @@ export const Title = styled.h2`
   line-height:${HEADER_LINE_HEIGHT_DESCTOP_LARGE}px;
   font-weight: 500;
   letter-spacing: 0px;
-  color: ${props => props.circleColor === '#2E293C' ? '#52DE97' : '#2E293C'} ;
+  color: ${(props) => (props.circleColor === '#2E293C' ? '#52DE97' : '#2E293C')} ;
   opacity: 1;
   position: relative;
   z-index: 2;
   max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
   @media (max-width: 1800px) {
-    max-width: ${props => props.alignImage === 'left' ? '100%' : WIDTH_DESCRIPTION_SIDE_MEDIUM_1+'%'};
+    max-width: ${(props) => (props.alignImage === 'left' ? '100%' : `${WIDTH_DESCRIPTION_SIDE_MEDIUM_1}%`)};
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${HEADER_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -158,7 +157,7 @@ export const SubTitle = styled.h2`
   z-index: 2;
   max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
   @media (max-width: 1800px) {
-    max-width: ${props => props.alignImage === 'left' ? '100%' : WIDTH_DESCRIPTION_SIDE_MEDIUM_1+'%'};
+    max-width: ${(props) => (props.alignImage === 'left' ? '100%' : `${WIDTH_DESCRIPTION_SIDE_MEDIUM_1}%`)};
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -180,13 +179,13 @@ export const DescriptionParagraph = styled.p`
   line-height: ${TEXT_LINE_HEIGHT_DESCTOP_LARGE}px;
   font-weight: 400;
   letter-spacing: 0px;
-  color: ${props => props.circleColor === '#2E293C' ? '#ffffff' : '#A09D9D'};
+  color: ${(props) => (props.circleColor === '#2E293C' ? '#ffffff' : '#A09D9D')};
   max-width: ${WIDTH_DESCRIPTION_SIDE_LARGE}px;
   margin: 0;
   position: relative;
   z-index: 2;
   @media (max-width: 1800px) {
-    max-width: ${props => props.alignImage === 'left' ? '100%' : WIDTH_DESCRIPTION_SIDE_MEDIUM_1+'%'};
+    max-width: ${(props) => (props.alignImage === 'left' ? '100%' : `${WIDTH_DESCRIPTION_SIDE_MEDIUM_1}%`)};
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
@@ -221,16 +220,16 @@ export const Image = styled.div`
   position: absolute;
   width: 50%;
   height: 100%;
-  right: ${props => props.alignImage === 'left' ? 'auto' : '150px'};
-  left: ${props => props.alignImage === 'left' ? '150px' : 'auto'};
+  right: ${(props) => (props.alignImage === 'left' ? 'auto' : '150px')};
+  left: ${(props) => (props.alignImage === 'left' ? '150px' : 'auto')};
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: ${props => props.alignImage === 'left' ? 'flex-start' : 'flex-end'};
+  justify-content: ${(props) => (props.alignImage === 'left' ? 'flex-start' : 'flex-end')};
   /* & img.card1{
     position: absolute;
-    left: ${props => props.alignImage === 'left' ? '0px' : 'auto'};;
-    right: ${props => props.alignImage === 'left' ? 'auto' : '0px'};;
+    left: ${(props) => (props.alignImage === 'left' ? '0px' : 'auto')};;
+    right: ${(props) => (props.alignImage === 'left' ? 'auto' : '0px')};;
     top: 0px;
   } */
   @media (max-width: 1800px) {
@@ -239,13 +238,13 @@ export const Image = styled.div`
     }
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
-    right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_DESCTOP_MEDIUM_2+'px'};
-    left: ${props => props.alignImage === 'left' ? PADDING_DESCTOP_MEDIUM_2+'px' : 'auto'};
+    right: ${(props) => (props.alignImage === 'left' ? 'auto%' : `${PADDING_DESCTOP_MEDIUM_2}px`)};
+    left: ${(props) => (props.alignImage === 'left' ? `${PADDING_DESCTOP_MEDIUM_2}px` : 'auto')};
   }
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
-    right: ${props => props.alignImage === 'left' ? 'auto%' : PADDING_DESCTOP_MEDIUM_1+'px'};
-    left: ${props => props.alignImage === 'left' ? PADDING_DESCTOP_MEDIUM_1+'px' : 'auto'};
+    right: ${(props) => (props.alignImage === 'left' ? 'auto%' : `${PADDING_DESCTOP_MEDIUM_1}px`)};
+    left: ${(props) => (props.alignImage === 'left' ? `${PADDING_DESCTOP_MEDIUM_1}px` : 'auto')};
     & img{
       width: 500px;
     }

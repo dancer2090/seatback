@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { connect } from "frontity";
+import React from 'react';
+import { connect } from 'frontity';
 import Button from '../../../../Button';
-import Link from "../../../../link";
-import Wow from './../../../../Wow';
+import Link from '../../../../link';
+import Wow from '../../../../Wow';
 
-import { 
+import {
   Container,
   Title,
   SubTitle,
@@ -14,43 +14,50 @@ import {
   GlobalContainer,
 } from './styles';
 
-const Description = ({ libraries, blocks, bgColor, circleColor}) => {
-
+const Description = ({
+  libraries, blocks, bgColor, circleColor,
+}) => {
   const Html2React = libraries.html2react.Component;
 
   return (
     <GlobalContainer bgColor={bgColor} circleColor={circleColor}>
-      {blocks && blocks.length > 0 && blocks.map(d => {
-        return (
+      {blocks
+        && blocks.length > 0
+        && blocks.map((d) => (
           <Container key={d.header} alignImage={d.alignimage}>
-            <Wow offset={-300} animation='slideUp'>
-              {d.header.length>0 &&
+            <Wow offset={-300} animation="slideUp">
+              {d.header.length > 0 && (
                 <Title circleColor={circleColor} alignImage={d.alignimage}>
                   {d.header}
                 </Title>
-              }
+              )}
             </Wow>
-            {d.image && d.image.url.length>0 &&
+            {d.image && d.image.url.length > 0 && (
               <Image alignImage={d.alignimage}>
-                  {!d.animated &&
-                    <>
-                      <img src={d.image.url} width={660} alt="image" />
-                    </>
-                  }
+                {!d.animated && (
+                  <>
+                    <img
+                      src={d.image.url}
+                      width={660}
+                      alt="description attribute"
+                    />
+                  </>
+                )}
               </Image>
-            }
-            <Wow offset={-150} animation='slideUp'>
+            )}
+            <Wow offset={-150} animation="slideUp">
               <div>
-                {d.thumbnail.length>0 &&
-                  <SubTitle alignImage={d.alignimage}>
-                    {d.thumbnail}
-                  </SubTitle>
-                }
-                {d.text.length>0 &&
-                  <DescriptionParagraph circleColor={circleColor} alignImage={d.alignimage}>
+                {d.thumbnail.length > 0 && (
+                  <SubTitle alignImage={d.alignimage}>{d.thumbnail}</SubTitle>
+                )}
+                {d.text.length > 0 && (
+                  <DescriptionParagraph
+                    circleColor={circleColor}
+                    alignImage={d.alignimage}
+                  >
                     <Html2React html={d.text} />
                   </DescriptionParagraph>
-                }
+                )}
                 <Action>
                   {d.link.url && d.link.url !== '' && (
                     <Link link={d.link.url}>
@@ -61,10 +68,9 @@ const Description = ({ libraries, blocks, bgColor, circleColor}) => {
               </div>
             </Wow>
           </Container>
-        );
-      })}
+        ))}
     </GlobalContainer>
   );
-}
+};
 
 export default connect(Description);
