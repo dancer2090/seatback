@@ -48,27 +48,35 @@ const Banner = ({ state, libraries }) => {
             <Discription>
               {mainDescriotion}
             </Discription>
-            <Link link={mainButtonUrl}>
-              <Button size="large">{mainButtonTitle}</Button>
-            </Link>
+            {mainButtonUrl && (
+              <Link link={mainButtonUrl}>
+                <Button size="large">{mainButtonTitle}</Button>
+              </Link>
+            )}
           </div>
         </Wow>
+        {m_right_animation && (
         <Wow animation="fadeIn" delay="0.3s">
           <VideoContainer>
             <iframe title="Animation seatback" src={m_right_animation} />
           </VideoContainer>
         </Wow>
+        )}
       </Container>
+      {youtubeVideoDescription && youtubeVideoDescription.length && (
       <Wow offset={-100} animation="slideUp">
         <VideoText>
           {youtubeVideoDescription}
         </VideoText>
       </Wow>
+      )}
+      {youtubeVideo && youtubeVideo.length>0 && (
       <Wow offset={-100} animation="slideUp">
         <YouTubeVideo>
           <Html2React html={youtubeVideo} />
         </YouTubeVideo>
       </Wow>
+      )}
     </GlobalContainer>
   );
 };

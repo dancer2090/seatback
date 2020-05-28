@@ -34,7 +34,7 @@ const Reviews = ({ state }) => {
       <Wow offset={-200} animation="slideUp">
         <SlickContainer>
           <Slider {...settings}>
-            {acfBlocks.map((d, key) => (
+            {acfBlocks && acfBlocks.length>0 && acfBlocks.map((d, key) => (
               <Item key={key}>
                 <ItemBox>
                   <Picture>

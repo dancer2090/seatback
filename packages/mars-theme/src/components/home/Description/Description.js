@@ -32,7 +32,7 @@ const Description = ({ state, libraries }) => {
 
   return (
     <GlobalContainer>
-      {acfBlocks.map((d) => (
+      {acfBlocks && acfBlocks.length>0 && acfBlocks.map((d) => (
         <Container key={d.header} alignImage={d.alignImage}>
           <Wow offset={-300} animation="slideUp">
             {d.header.length > 0 && (
