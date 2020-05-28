@@ -47,7 +47,7 @@ const HeaderBoxProduct = ({
         <HeaderBoxContainer>
           <DescriptionBox>
             {title !== '' && (<h1><Html2React html={title} /></h1>)}
-            {description !== '' && (<p>{description}</p>)}
+            {description !== '' && (<Html2React html={'<p>'+description+'</p>'} />)}
             <HeaderFooter>
               {scrollRef && (
                 <Scroll
