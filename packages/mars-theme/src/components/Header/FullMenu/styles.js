@@ -1,4 +1,4 @@
-import { styled } from 'frontity';
+import { styled, css } from 'frontity';
 import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,

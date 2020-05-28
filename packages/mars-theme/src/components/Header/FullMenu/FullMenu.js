@@ -5,6 +5,7 @@ import { connect } from 'frontity';
 import ReactResizeDetector from 'react-resize-detector';
 import Button from '../../Button';
 import Loader from '../../Loader';
+import Wow from '../../Wow';
 import {
   Contaiter,
   Blocks,
@@ -74,7 +75,7 @@ const FullMenu = ({
                       featured_media = null,
                     } = post || {};
                     let media = state.source.attachment[featured_media];
-                    if (item.urlFrontity === '/blog/') {
+                    if (cItem.urlFrontity === '/blog/') {
                       post = {};
                       post.title = {};
                       post.title.rendered = optionsAcf.b_title;
@@ -83,7 +84,7 @@ const FullMenu = ({
                       media.source_url = optionsAcf.blog_image.url;
                     }
                     const { shortDescription = '' } = acf;
-                    return post && (
+                    return (
                       <Block key={dataP.id}>
                         {!dataP.isFetching ? (
                           <Item>
@@ -132,8 +133,8 @@ const FullMenu = ({
                 media.source_url = optionsAcf.blog_image.url;
               }
               const { shortDescription = '' } = acf;
-              return post && (
-                <Block key={dataP.id || 'blog'}>
+              return (
+                <Block key={dataP.id}>
                   {!dataP.isFetching ? (
                     <Item>
                       <ItemBox>
