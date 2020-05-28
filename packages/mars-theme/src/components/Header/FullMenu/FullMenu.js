@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-undef */
 import React, { useState } from 'react';
@@ -5,6 +7,7 @@ import { connect } from 'frontity';
 import ReactResizeDetector from 'react-resize-detector';
 import Button from '../../Button';
 import Loader from '../../Loader';
+import Wow from '../../Wow';
 import {
   Contaiter,
   Blocks,
@@ -74,7 +77,7 @@ const FullMenu = ({
                       featured_media = null,
                     } = post || {};
                     let media = state.source.attachment[featured_media];
-                    if (item.urlFrontity === '/blog/') {
+                    if (cItem.urlFrontity === '/blog/') {
                       post = {};
                       post.title = {};
                       post.title.rendered = optionsAcf.b_title;
@@ -82,8 +85,8 @@ const FullMenu = ({
                       media = {};
                       media.source_url = optionsAcf.blog_image.url;
                     }
-                    const { shortDescription = '' } = acf;
-                    return post && (
+                    const { sub_title = '' } = acf;
+                    return (
                       <Block key={dataP.id}>
                         {!dataP.isFetching ? (
                           <Item>
@@ -91,7 +94,7 @@ const FullMenu = ({
                               <Title onClick={() => followLink(dataP.link)}>
                                 <Html2React html={post.title.rendered} />
                               </Title>
-                              <Description>{shortDescription}</Description>
+                              <Description>{sub_title}</Description>
                               <Picture
                                 onClick={() => followLink(dataP.link)}
                                 src={media ? media.source_url : null}
@@ -123,6 +126,7 @@ const FullMenu = ({
                 featured_media = null,
               } = post || {};
               let media = state.source.attachment[featured_media];
+              let { sub_title = '' } = acf;
               if (item.urlFrontity === '/blog/') {
                 post = {};
                 post.title = {};
@@ -130,17 +134,17 @@ const FullMenu = ({
                 post.title.rendered = optionsAcf.b_title;
                 media = {};
                 media.source_url = optionsAcf.blog_image.url;
+                sub_title = optionsAcf.b_description;
               }
-              const { shortDescription = '' } = acf;
-              return post && (
-                <Block key={dataP.id || 'blog'}>
+              return (
+                <Block key={dataP.id}>
                   {!dataP.isFetching ? (
                     <Item>
                       <ItemBox>
                         <Title onClick={() => followLink(dataP.link)}>
                           <Html2React html={post.title.rendered} />
                         </Title>
-                        <Description>{shortDescription}</Description>
+                        <Description>{sub_title}</Description>
                         <Picture
                           onClick={() => followLink(dataP.link)}
                           src={media ? media.source_url : null}

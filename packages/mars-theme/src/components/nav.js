@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { connect, styled } from 'frontity';
@@ -19,6 +21,7 @@ import {
 const Nav = ({
   state,
   libraries,
+  closeMenu = () => {},
   setMenuOpen = () => {},
   onClickParent = () => {},
 }) => {
@@ -30,25 +33,18 @@ const Nav = ({
       {items && items.length > 0 && (
         <>
           {items.map((i, key) => (
-            <NavItem key={key} onClick={() => setMenuOpen(false)}>
+            <NavItem key={key}>
               {!i.child_items ? (
-                <Link link={`${i.urlFrontity}`}>
-                  <Html2React html={`${i.title}`} />
-                </Link>
+                <span onClick={() => {closeMenu()}}>
+                  <Link link={`${i.urlFrontity}`}>
+                    <Html2React html={`${i.title}`} />
+                  </Link>
+                </span>
               ) : (
                 <span onClick={() => onClickParent(i.urlFrontity)}>
                   <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />
                 </span>
               )}
-              {/* {i.child_items && i.child_items.length > 0 && (
-                <ul>
-                  {i.child_items.map((ic, n) => (
-                    <li key={n}>
-                      <Link link={`/${ic.slug}`}><Html2React html={ic.title} /></Link>
-                    </li>
-                  ))}
-                </ul>
-              )} */}
             </NavItem>
           ))}
         </>

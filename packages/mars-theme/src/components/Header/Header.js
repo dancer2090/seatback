@@ -92,13 +92,17 @@ const Header = ({ data, state, actions }) => {
     <>
       <Container isMenuOpen={isMenuOpen}>
         <MenuBox>
-          <LogoSection>
+          <LogoSection onClick={() => closeFillScreen()}>
             <Link link="/">
               <img src={ImageLogo} alt="seatback logo" />
             </Link>
           </LogoSection>
           <NavSection>
-            <Nav setMenuOpen={setMenuOpen} onClickParent={onClickParent} />
+            <Nav
+              setMenuOpen={setMenuOpen}
+              onClickParent={onClickParent}
+              closeMenu={() => closeFillScreen()}
+            />
           </NavSection>
           <ButtonSection>
             {header_button ? (
@@ -125,11 +129,6 @@ const Header = ({ data, state, actions }) => {
             </NavIcon>
           </NavIconSection>
         </MenuBox>
-        {isMenuOpen && (
-          <ResposnsiveMenu>
-            <Nav setMenuOpen={setMenuOpen} />
-          </ResposnsiveMenu>
-        )}
         {data.isPostType && data.link.indexOf('/blog') !== -1 && <Progress scroll={`${scrollPosition}%`} />}
       </Container>
       <Space />
