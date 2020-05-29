@@ -157,9 +157,18 @@ export const SocialsRow = styled.div`
     margin-left: 20px;
     margin-right: 20px;
     display: inline-block;
-    & img{
+    & svg{
       width: 58px;
       height: 58px;
+      & path{
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover path{
+        fill: #fff;
+      }
+      &:hover .svgBg{
+        fill: #52DE97;
+      }
     }
   }
 `;
