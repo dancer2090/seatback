@@ -147,18 +147,18 @@ export const CircleBg = styled.div`
   height:900px;
   &:after{
     content: ' ';
-    background-color: #F5F6FA;
+    background-color: #FFFFFF;
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
     position: absolute;
     bottom: 0px;
     left: calc(50% - 1503px);
-    z-index: -1;
+    z-index: 0;
   }
   &:before{
     content: ' ';
-    background: #FFFFFF;
+    background: #F5F6FA;
     width: 100%;
     height: 1830px;
     position: absolute;
@@ -172,6 +172,7 @@ export const GlobalContainer = styled.div`
   padding-bottom: 100px;
   overflow: visible;
   position: relative;
+  
   @media (max-width: ${SIZE_LAPTOP}px) {
     padding-bottom: 50px;
   }

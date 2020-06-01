@@ -160,15 +160,22 @@ export const SocialsRow = styled.div`
     & svg{
       width: 58px;
       height: 58px;
+      transition: all 0.3s ease-in-out;
+      .svgBg {
+        transition: all 0.3s ease-in-out;
+      }
       & path{
         transition: all 0.3s ease-in-out;
       }
-      &:hover path{
-        fill: #fff;
-      }
-      &:hover .svgBg{
-        fill: #52DE97;
-      }
+      &:hover {
+        path{
+          fill: #fff;
+          &.svgBg{
+            fill: #52DE97;
+            stroke: #52DE97;
+          }
+        }
+      } 
     }
   }
 `;

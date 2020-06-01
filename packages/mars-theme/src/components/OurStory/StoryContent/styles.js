@@ -20,8 +20,8 @@ export const Content = styled.div`
   color: #2E293C;
   font-size: 22px;
   line-height: 40px;
-  color: #2E293C;
   letter-spacing: 0.26px;
+  background-color: #F5F6FA;
   @media (max-width: ${SIZE_LAPTOP}px) {
     font-size: 18px;
     line-height: 30px;
@@ -37,5 +37,10 @@ export const Container = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   max-width: 1134px;
+`;
 
+export const ContentBox = styled.div`
+  background-color: transparent;
+  position: relative;
+  z-index: 0;
 `;

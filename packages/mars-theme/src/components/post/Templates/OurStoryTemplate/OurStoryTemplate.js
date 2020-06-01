@@ -1,8 +1,12 @@
 import React from 'react';
-import { connect } from 'frontity';
+import { connect, styled } from 'frontity';
 import HeaderBoxGrey from '../../../OurStory/HeaderBoxGrey';
 import StoryContent from '../../../OurStory/StoryContent';
 import StoryBottom from '../../../OurStory/StoryBottom';
+
+const Container = styled.div`
+  background-color: #F5F6FA;
+`;
 
 const OurStoryTemplate = ({ state }) => {
   const dataP = state.source.get(state.router.link);
@@ -14,11 +18,11 @@ const OurStoryTemplate = ({ state }) => {
   const storyBottomImage = ((typeof post.acf.image === 'undefined' || post.acf.image === '') ? '' : post.acf.image);
 
   return (
-    <>
+    <Container>
       <HeaderBoxGrey title={title} />
       <StoryContent images={post.acf.gallery} content={post.content.rendered} />
       <StoryBottom image={storyBottomImage} content={storyBottomContent} title={storyBottomTitle} />
-    </>
+    </Container>
   );
 };
 

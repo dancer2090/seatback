@@ -7,6 +7,7 @@ import {
   ImagesContainer,
   Content,
   Image,
+  ContentBox,
 } from './styles';
 
 const StoryContent = ({
@@ -16,19 +17,21 @@ const StoryContent = ({
 }) => {
   const Html2React = libraries.html2react.Component;
   return (
-    <Container>
-      {images.length > 0 && (
-        <ImagesContainer>
-          {images.map((image, key) => (
-            <Image key={key} src={image.url} />
-          ))}
-        </ImagesContainer>
-      )}
-      <Content>
-        <Html2React html={content} />
-      </Content>
+    <ContentBox>
+      <Container>
+        {images.length > 0 && (
+          <ImagesContainer>
+            {images.map((image, key) => (
+              <Image key={key} src={image.url} />
+            ))}
+          </ImagesContainer>
+        )}
+        <Content>
+          <Html2React html={content} />
+        </Content>
 
-    </Container>
+      </Container>
+    </ContentBox>
   );
 };
 

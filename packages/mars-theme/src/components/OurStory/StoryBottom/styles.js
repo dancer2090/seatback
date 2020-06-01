@@ -6,9 +6,10 @@ export const GlobalContainer = styled.div`
   margin-top: 200px;
   padding-bottom: 200px;
   position: relative;
+  z-index: 0;
   &:after{
     content: ' ';
-    background-color: #F5F6FA;
+    background-color: #FFFFFF;
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
@@ -19,7 +20,7 @@ export const GlobalContainer = styled.div`
   }
   &:before{
     content: ' ';
-    background: #FFFFFF;
+    background: #F5F6FA;
     width: 100%;
     height: 1830px;
     position: absolute;
