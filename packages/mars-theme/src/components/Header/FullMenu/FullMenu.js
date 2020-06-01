@@ -94,7 +94,7 @@ const FullMenu = ({
                               <Title onClick={() => followLink(dataP.link)}>
                                 <Html2React html={post.title.rendered} />
                               </Title>
-                              <Description>{sub_title}</Description>
+                              <Description><Html2React html={sub_title} /></Description>
                               <Picture
                                 onClick={() => followLink(dataP.link)}
                                 src={media ? media.source_url : null}
@@ -125,8 +125,12 @@ const FullMenu = ({
                 acf = {},
                 featured_media = null,
               } = post || {};
+              let { sub_title = '', header_image = {} } = acf;
               let media = state.source.attachment[featured_media];
-              let { sub_title = '' } = acf;
+              if(Object.keys(header_image).length > 0 && header_image.url !== ''){
+                media = {};
+                media.source_url = header_image.url;
+              }
               if (item.urlFrontity === '/blog/') {
                 post = {};
                 post.title = {};
@@ -134,7 +138,7 @@ const FullMenu = ({
                 post.title.rendered = optionsAcf.b_title;
                 media = {};
                 media.source_url = optionsAcf.blog_image.url;
-                sub_title = optionsAcf.b_description;
+                sub_title = optionsAcf.sub_title;
               }
               return (
                 <Block key={dataP.id}>
@@ -144,7 +148,7 @@ const FullMenu = ({
                         <Title onClick={() => followLink(dataP.link)}>
                           <Html2React html={post.title.rendered} />
                         </Title>
-                        <Description>{sub_title}</Description>
+                        <Description><Html2React html={sub_title} /></Description>
                         <Picture
                           onClick={() => followLink(dataP.link)}
                           src={media ? media.source_url : null}

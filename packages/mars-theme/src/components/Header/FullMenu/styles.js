@@ -72,8 +72,8 @@ export const Blocks = styled.div`
 
 export const Block = styled.div`
   width: 25%;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 48px;
+  padding-right: 48px;
   position: relative;
   margin-top: 80px;
   min-height: 100px;
@@ -201,7 +201,7 @@ export const Description = styled.div`
   letter-spacing: 0px;
   color: #707070;
   opacity: 1;
-  max-width: 320px;
+  max-width: 330px;
   padding-bottom: 423px;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     padding-bottom: 340px;
