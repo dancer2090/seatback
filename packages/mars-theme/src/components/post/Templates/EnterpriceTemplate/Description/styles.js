@@ -58,7 +58,7 @@ export const Container = styled.div`
   padding-top: 205px;
   padding-bottom: 205px;
   padding-right: 150px;
-  padding-left: ${(props) => (props.alignImage === 'left' ? '49%' : '150px')};
+  padding-left: ${(props) => (props.alignImage === 'left' ? '56%' : '150px')};
   position: relative;
   width: 100%;
   z-index: 2;
