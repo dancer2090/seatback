@@ -23,10 +23,12 @@ const Theme = ({ state }) => {
   const data = state.source.get(state.router.link);
   const post1 = ((state.source[data.type] && state.source[data.type][data.id]) ? state.source[data.type][data.id] : {});
   const { acf={} } = post1;
-    const {
-      footer_background_color : footerBg = "#ffffff",
-      footer_circle_color : footerCircleBg = "#F5F6FA",
-    } = acf;
+  const {
+    footer_background_color : footerBg = "#ffffff",
+    footer_circle_color : footerCircleBg = "#F5F6FA",
+  } = acf;
+  const res_footerBg = (footerBg=="") ? "#ffffff" : footerBg;
+  const res_footerCircleBg = (footerCircleBg=="") ? "#F5F6FA" : footerCircleBg;
 
 
   return (
@@ -56,7 +58,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <PageError when={data.isError} />
         </Switch>
-        {data.isReady && <Footer bgColor={footerBg} circleColor={footerCircleBg} />}
+        {data.isReady && <Footer bgColor={res_footerBg} circleColor={res_footerCircleBg} />}
       </SiteContainer>
     </>
   );

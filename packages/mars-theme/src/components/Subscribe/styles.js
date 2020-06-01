@@ -71,7 +71,7 @@ export const FText = styled.div`
   `}
 `;
 export const FormControl = styled.div`
-  margin-top:30px;
+  margin-top: 40px;
   align-items: center;
   width: 474px;
   max-width: 100%;

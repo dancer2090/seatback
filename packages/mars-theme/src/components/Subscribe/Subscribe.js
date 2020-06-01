@@ -22,7 +22,7 @@ function validateEmail(email) {
 const Subscribe = ({ state, actions }) => {
   const inputs = [
     {
-      label: '',
+      label: 'email',
       optional: false,
       acf_fc_layout: 'email',
       placeholder: 'Your email',
@@ -56,7 +56,7 @@ const Subscribe = ({ state, actions }) => {
   const submitForm = (e) => {
     e.preventDefault();
     if (validForm()) {
-      actions.seatbackapi.sendForm(formState);
+      actions.seatbackapi.sendSubscribe(formState);
       setFormErrorState(preErrors);
       setFormState(preForm);
       setPreload(true);
@@ -103,15 +103,11 @@ const Subscribe = ({ state, actions }) => {
       </Title>
       <FormContainer
         onSubmit={submitForm}
-        preloadNEW={state.seatbackapi.isFormSend || false}
+        preloadNEW={state.seatbackapi.isSubscribeSend || false}
       >
         {inputs.length > 0
           && inputs.map((d, key) => (
             <FormControl key={key} error={formError[d.label]}>
-              <FormLabel>
-                {d.label}
-                {d.optional && <span> (optional)</span>}
-              </FormLabel>
               {(d.acf_fc_layout === 'text' || d.acf_fc_layout === 'email') && (
                 <FormInput
                   placeholder={d.placeholder}

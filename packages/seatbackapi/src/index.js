@@ -48,6 +48,16 @@ export default {
           }
         });
       },
+      sendSubscribe: ({ state }) => async (data) => {
+        const dataP = state.source.get(state.router.link);
+        const page = state.source[dataP.type][dataP.id];
+        state.seatbackapi.isSubscribeSend = true;
+        await axios.post(`${state.source.api}/seatback-api/send-subscribe`, { data }).then((response) => {
+          if (response.status === 200) {
+            state.seatbackapi.isSubscribeSend = false;
+          }
+        });
+      },
       beforeSSR: async ({ state }) => {
         const topMenu = await axios.get(`${state.source.api}/menus/v1/menus/top_menu`);
         state.seatbackapi.menu = topMenu.data;
