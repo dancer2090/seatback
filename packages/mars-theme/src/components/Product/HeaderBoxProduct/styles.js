@@ -145,6 +145,7 @@ export const Scroll = styled.div`
     &:hover {
       background-color: ${(props) => props.buttonColorHover};
       color: ${(props) => props.textColorHover};
+      border-color: ${(props) => props.buttonColorHover};
     }
   }
   @media (max-width: ${SIZE_LAPTOP}px) {
