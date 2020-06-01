@@ -1,4 +1,5 @@
-import { styled } from 'frontity';
+/* eslint-disable arrow-parens */
+import { styled, css } from 'frontity';
 import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
@@ -153,6 +154,30 @@ export const LinkShareContainer = styled.div`
   position: absolute;
   right: 0px;
   top: 0px;
+
+  ${props => props.isFixed && css`
+    position: fixed;
+    top: 230px;
+    right: 150px;
+    z-index: 10;
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
+      right: ${PADDING_DESCTOP_MEDIUM_2}px;
+    }
+
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
+      right: ${PADDING_DESCTOP_MEDIUM_1}px;
+    }
+    
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+      right: ${PADDING_DESCTOP_SMALL}px;      
+    }
+    @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
+     
+    }
+    @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+      
+    }
+  `}
 
   @media(max-width: ${SIZE_LAPTOP_SMALL}px) {
     position: static;

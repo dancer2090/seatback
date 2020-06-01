@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 /* eslint-disable max-len */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'frontity';
 import ImageAuthor from '../../../../img/user.svg';
 import HeaderBox from '../../../HeaderBox';
@@ -26,7 +27,7 @@ import {
 
 const StandartTemplate = ({ state, actions, libraries }) => {
   const contentRef = useRef(null);
-
+  const [fixedLinks, setFixedLink] = useState(false);
   const dataP = state.source.get(state.router.link);
   const post = state.source[dataP.type][dataP.id];
   const author = state.source.author[post.author];
@@ -44,7 +45,20 @@ const StandartTemplate = ({ state, actions, libraries }) => {
   const mediaObj = state.source.attachment[post.featured_media];
   const mediaUrl = (typeof mediaObj === 'object') ? mediaObj.source_url : '';
 
+  const scrollControl = () => {
+    if (contentRef) {
+      const contentTop = contentRef.current.offsetTop;
+      const contentBottom = contentTop + contentRef.current.offsetHeight;
+      if (window.pageYOffset - contentTop < -160 || contentBottom - window.pageYOffset < 400) {
+        setFixedLink(false);
+      } else if (window.pageYOffset - contentTop >= -160 && contentBottom - window.pageYOffset >= 400) {
+        setFixedLink(true);
+      }
+    }
+  };
   useEffect(() => {
+    scrollControl();
+    window.addEventListener('scroll', scrollControl);
     actions.source.fetch('/blog');
   }, []);
 
@@ -82,7 +96,7 @@ const StandartTemplate = ({ state, actions, libraries }) => {
           </HeaderReaderTime>
         </HeaderContent>
         <PostContentBox ref={contentRef}>
-          <LinkShareContainer>
+          <LinkShareContainer isFixed={fixedLinks}>
             <LinkShare
               href={`http://twitter.com/share?text=&amp;url=${state.frontity.url}${post.link}`}
             >
