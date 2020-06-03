@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
@@ -30,14 +31,15 @@ const FullMenu = ({
   isOpen,
   onClose = () => {},
 }) => {
-  const { seatbackapi: {
+  const {
+    seatbackapi: {
       menu: {
         items = [],
       },
       options = {},
-    }
+    },
   } = state;
-  const { acf: optionsAcf = {}} = options;
+  const { acf: optionsAcf = {} } = options;
   const [isFullMenu, setFullMenu] = useState(false);
   const Html2React = libraries.html2react.Component;
   const followLink = (link) => {
@@ -77,6 +79,11 @@ const FullMenu = ({
                       featured_media = null,
                     } = post || {};
                     let media = state.source.attachment[featured_media];
+                    let { sub_title = '', header_image = {} } = acf;
+                    if (Object.keys(header_image).length > 0 && header_image.url !== '') {
+                      media = {};
+                      media.source_url = header_image.url;
+                    }
                     if (cItem.urlFrontity === '/blog/') {
                       post = {};
                       post.title = {};
@@ -84,8 +91,8 @@ const FullMenu = ({
                       post.title.rendered = optionsAcf.b_title;
                       media = {};
                       media.source_url = optionsAcf.blog_image.url;
+                      sub_title = optionsAcf.sub_title;
                     }
-                    const { sub_title = '' } = acf;
                     return (
                       <Block key={dataP.id}>
                         {!dataP.isFetching ? (
@@ -127,7 +134,7 @@ const FullMenu = ({
               } = post || {};
               let { sub_title = '', header_image = {} } = acf;
               let media = state.source.attachment[featured_media];
-              if(Object.keys(header_image).length > 0 && header_image.url !== ''){
+              if (Object.keys(header_image).length > 0 && header_image.url !== '') {
                 media = {};
                 media.source_url = header_image.url;
               }
