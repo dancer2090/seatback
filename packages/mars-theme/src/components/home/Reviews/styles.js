@@ -339,8 +339,8 @@ export const SlickContainer = styled.div`
 
     position: absolute;
     top: 50%;
-
-    display: block;
+    
+    display: none !important;
 
     width: 20px;
     height: 20px;

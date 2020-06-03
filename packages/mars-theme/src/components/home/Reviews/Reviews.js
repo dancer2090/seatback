@@ -14,9 +14,11 @@ import {
   Container,
 } from './styles';
 
-const Reviews = ({ state }) => {
+const Reviews = ({ state, libraries }) => {
   const dataP = state.source.get(state.router.link);
   const post = state.source[dataP.type][dataP.id];
+
+  const Html2React = libraries.html2react.Component;
 
   const acfBlocks = post.acf.feedbacks;
 
@@ -42,10 +44,10 @@ const Reviews = ({ state }) => {
                   </Picture>
                   <Description>
                     <Comment>
-                      {d.text}
+                      <Html2React html={d.text} />                      
                     </Comment>
                     <Status>
-                      {d.name}
+                      <Html2React html={d.name} />      
                     </Status>
                   </Description>
                 </ItemBox>
