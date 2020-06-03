@@ -110,6 +110,10 @@ export const ImageBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  img {
+    max-width: 100%;
+  }
 `;
 
 
