@@ -13,13 +13,14 @@ import {
   VideoContainer,
   VideoText,
   YouTubeVideo,
+  Scroll,
+  Action
 } from './styles';
 
 
-const Banner = ({ state, libraries }) => {
+const Banner = ({ state, libraries, scrollRef = null, offset = 100 }) => {
   const dataP = state.source.get(state.router.link);
   const post = state.source[dataP.type][dataP.id];
-
   const {
     acf: {
       main_header: mainHeader,
@@ -34,8 +35,16 @@ const Banner = ({ state, libraries }) => {
     },
   } = post;
 
-
   const Html2React = libraries.html2react.Component;
+
+  const scrollToRef = () => {
+    // eslint-disable-next-line no-unused-expressions
+    scrollRef ? window.scrollTo({
+      top: scrollRef.current.offsetTop - offset,
+      left: 0,
+      behavior: 'smooth',
+    }) : null;
+  };
 
   return (
     <GlobalContainer>
@@ -48,11 +57,18 @@ const Banner = ({ state, libraries }) => {
             <Discription>
               {mainDescriotion}
             </Discription>
-            {mainButtonUrl && (
-              <Link link={mainButtonUrl}>
-                <Button size="large">{mainButtonTitle}</Button>
-              </Link>
-            )}
+            <Action>
+              {mainButtonUrl && (
+                <Link link={mainButtonUrl}>
+                  <Button size="large">{mainButtonTitle}</Button>
+                </Link>
+              )}
+              {scrollRef && (
+                <Scroll>
+                  <button type="button" onClick={() => scrollToRef()} />
+                </Scroll>
+              )}
+            </Action>
           </div>
         </Wow>
         {m_right_animation && (

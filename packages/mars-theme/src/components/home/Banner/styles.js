@@ -28,6 +28,9 @@ import {
   TEXT_LINE_HEIGHT_MOBILE,
 } from '../../../const/responsive';
 
+import RightArrow from '../../../img/right_arrow_2.svg';
+import RightArrowGreen from '../../../img/right_arrow_green_2.svg';
+
 
 export const GlobalContainer = styled.div`
   padding-top:185px;
@@ -253,5 +256,73 @@ export const YouTubeVideo = styled.div`
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
     height: 350px !important;
+  }
+`;
+
+
+export const Scroll = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  margin-left: 20px;
+
+  button {
+    transform: scale(1.25) rotate(90deg);
+    padding: 0;
+    color: transparent;
+    border: none;
+    outline: none;
+    background-color: rgb(82, 222, 151, 0);
+    border: 1px solid #52de97;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    transition: all 0.3 ease-in-out;
+    color: #2e293c !important;
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    margin-right: 15px;
+    margin-bottom: 0;
+    &:after {
+      content: url(${(props) => (props.mode === 'dark' ? RightArrowGreen : RightArrow)});
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      background-color: #52de97;
+      &:after {
+        content: url(${RightArrowGreen});
+      }
+    }
+
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      transform: scale(0.95) rotate(90deg);
+    }
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      transform: scale(0.8) rotate(90deg);
+    }
+  }
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    align-items: flex-start;
+    position: relative;
+    top: -3px;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    display: none;
+  }
+`;
+
+export const Action = styled.div`
+  display: flex;
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    justify-content: center;
   }
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'frontity';
 import Banner from './home/Banner';
 import Description from './home/Description';
@@ -8,10 +8,13 @@ import Reviews from './home/Reviews';
 import Forms from './Forms';
 
 const Home = ({ state }) => {
+    const scrollRef = useRef(null);
     return (
       <>
-        <Banner />
-        <Description />
+        <Banner scrollRef={scrollRef} />
+        <div ref={scrollRef}>
+          <Description />
+        </div>
         <Help />
         <Partners />
         <Reviews />
