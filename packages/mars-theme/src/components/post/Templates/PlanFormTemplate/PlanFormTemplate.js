@@ -46,7 +46,7 @@ const PlanFormTemplate = ({ state, actions }) => {
           </PlanInfo>
         )}
         <FormContainer>
-            <FormsWithoutCircle />
+          <FormsWithoutCircle />
         </FormContainer>
       </Container>
     </GlobalContainer>

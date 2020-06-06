@@ -6,6 +6,7 @@ import OurPlans from '../../OurPlans';
 
 const OurPlansTemplate = ({ state }) => {
   const contentRef = useRef(null);
+  const formRef = useRef(null);
   const dataP = state.source.get(state.router.link);
   const post = state.source[dataP.type][dataP.id];
   const template = (post.template !== '' ? post.template : 'standart');
@@ -30,10 +31,12 @@ const OurPlansTemplate = ({ state }) => {
         offset={0}
       />
       <div ref={contentRef}>
-        <OurPlans title={planHeader} plans={plans} />
+        <OurPlans formRef={formRef} title={planHeader} plans={plans} />
       </div>
       {form && (
-        <Forms />
+        <div ref={formRef}>
+          <Forms />
+        </div>
       )}
     </>
   );

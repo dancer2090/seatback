@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 
@@ -20,7 +21,7 @@ import {
 } from './styles';
 import CkeckCircle from '../../../img/checkmark-circle.svg';
 
-const OurPlans = ({ libraries, title = '', plans = [], state }) => {
+const OurPlans = ({ libraries, title = '', plans = [], state, formRef }) => {
   const nullPlans = [];
   let defaultPlan = '';
   plans.forEach((plan) => {
@@ -31,6 +32,15 @@ const OurPlans = ({ libraries, title = '', plans = [], state }) => {
   const [planName, setPlanName] = useState(defaultPlan);
 
   const Html2React = libraries.html2react.Component;
+  const scrollToRef = () => (
+    formRef
+      ? window.scrollTo({
+        top: formRef.current.offsetTop - 0,
+        left: 0,
+        behavior: 'smooth',
+      })
+      : null
+  );
   const setPlan = (key = 0) => {
     const timePlans = [];
     plans.forEach((plan, j) => {
@@ -38,7 +48,9 @@ const OurPlans = ({ libraries, title = '', plans = [], state }) => {
       else timePlans.push(false);
     });
     setPlanActive(timePlans);
+    scrollToRef();
   };
+
 
   state.seatbackapi.plans = plans;
 
@@ -79,13 +91,11 @@ const OurPlans = ({ libraries, title = '', plans = [], state }) => {
               <ColumnName background={plan.bg}>
                 <span>{plan.name}</span>
                 {Object.keys(plan.button).length && (
-                <Link link={plan.button.url}>
-                  <Button>
+                  <Button onClick={() => setPlan(key)}>
                     {' '}
                     {plan.button.title}
                     {' '}
                   </Button>
-                </Link>
                 )}
               </ColumnName>
               <Cell background={plan.bg}>
