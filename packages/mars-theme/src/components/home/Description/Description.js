@@ -1,11 +1,8 @@
 import React from 'react';
 import { connect } from 'frontity';
-import Background2 from './Background2';
-import Background3 from './Background3';
 import Button from '../../Button';
 import Link from '../../link';
 import Wow from '../../Wow';
-import { parseURL } from '../../../utils/func';
 
 import {
   Container,
@@ -18,11 +15,6 @@ import {
 } from './styles';
 
 const Description = ({ state, libraries }) => {
-  const urlObject = state.frontity.rendering === 'csr' ? parseURL(state.router.link) : {};
-  const aminationType = urlObject.searchObject && urlObject.searchObject.animation
-    ? urlObject.searchObject.animation
-    : 'first';
-
   const dataP = state.source.get(state.router.link);
   const post = state.source[dataP.type][dataP.id];
 
@@ -32,7 +24,7 @@ const Description = ({ state, libraries }) => {
 
   return (
     <GlobalContainer>
-      {acfBlocks && acfBlocks.length>0 && acfBlocks.map((d) => (
+      {acfBlocks && acfBlocks.length > 0 && acfBlocks.map((d) => (
         <Container key={d.header} alignImage={d.alignImage}>
           <Wow offset={-300} animation="slideUp">
             {d.header.length > 0 && (
@@ -43,24 +35,6 @@ const Description = ({ state, libraries }) => {
           <Image alignImage={d.alignImage}>
             {d.animated && (
             <>
-              {aminationType === 'first' && (
-              <Background3
-                alignImage={d.alignImage}
-                reverse={d.alignImage === 'right'}
-              />
-              )}
-              {aminationType === 'second' && (
-              <Background2
-                alignImage={d.alignImage}
-                reverse={d.alignImage === 'right'}
-              />
-              )}
-              {aminationType === 'third' && (
-              <Background3
-                alignImage={d.alignImage}
-                reverse={d.alignImage === 'right'}
-              />
-              )}
               <img
                 src={d.image.url}
                 width={660}
