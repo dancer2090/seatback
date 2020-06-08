@@ -108,13 +108,10 @@ export const PlansContainer = styled.div`
 
 
   > div {
-    &:first-child {
+    &:first-of-type {
       border-top-left-radius: 24px;
       border-bottom-left-radius: 24px;
       overflow: hidden;
-    }
-    &:last-child {
-    
     }
   }
 

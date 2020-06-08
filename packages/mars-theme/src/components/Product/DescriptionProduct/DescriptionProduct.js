@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'frontity';
+import Wow from '../../Wow';
 
 import {
   Container,
@@ -27,13 +28,15 @@ const DescriptionProduct = ({
           <Title>{title}</Title>
         )}
         {image && image.url && image.url.length > 0 && (
-          <Image>
-            <img
-              src={image.url}
-              width={660}
-              alt="description attribute"
-            />
-          </Image>
+          <Wow animation="fadeIn" offset={-200}>
+            <Image>
+              <img
+                src={image.url}
+                width={660}
+                alt="description attribute"
+              />
+            </Image>
+          </Wow>
         )}
         <div>
           {description.length > 0 && (
