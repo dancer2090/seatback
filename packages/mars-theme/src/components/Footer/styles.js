@@ -128,6 +128,10 @@ export const FooterActions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
+  }
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     flex-wrap: wrap;
     justify-content: center;
@@ -136,7 +140,11 @@ export const FooterActions = styled.div`
 export const Socials = styled.div`
   display: block;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
-    margin-top: 4rem;
+    margin-top: 0;
+    margin-left: 100px; 
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    margin-left: 0;
   }
 `;
 export const SocialsHeader = styled.div`

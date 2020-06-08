@@ -256,7 +256,8 @@ export const SlickContainer = styled.div`
     top: 0;
     left: 0;
 
-    display: block;
+    display: flex;
+    align-items: center;
 }
 .slick-track:before,
 .slick-track:after
@@ -340,7 +341,7 @@ export const SlickContainer = styled.div`
     position: absolute;
     top: 50%;
     
-    display: none !important;
+    display: block;
 
     width: 20px;
     height: 20px;

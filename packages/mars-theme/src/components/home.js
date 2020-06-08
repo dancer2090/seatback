@@ -7,20 +7,15 @@ import Partners from './Partners';
 import Reviews from './home/Reviews';
 import Forms from './Forms';
 
-const Home = ({ state }) => {
-    const scrollRef = useRef(null);
-    return (
-      <>
-        <Banner scrollRef={scrollRef} />
-        <div ref={scrollRef}>
-          <Description />
-        </div>
-        <Help />
-        <Partners />
-        <Reviews />
-        <Forms />
-      </>
-    )
-}
+const Home = () => (
+  <>
+    <Banner />
+    <Description />
+    <Help />
+    <Partners />
+    <Reviews />
+    <Forms />
+  </>
+);
 
 export default connect(Home);

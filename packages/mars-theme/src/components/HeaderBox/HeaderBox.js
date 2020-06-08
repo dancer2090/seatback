@@ -80,6 +80,16 @@ const HeaderBox = ({
 
               {Object.keys(button).length > 0 && (
                 <>
+                  {template === 'page-enterprice.php' && (
+                    <Button
+                      block
+                      mode="transparent-light"
+                      onClick={() => scrollToRef()}
+                      style={{ marginRight: '15px' }}
+                    >
+                      Discover
+                    </Button>
+                  )}
                   {template !== 'page-plan.php' && button.url !== '#form' ? (
                     <Link link={button.url}>
                       <Button

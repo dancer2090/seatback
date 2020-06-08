@@ -1,6 +1,7 @@
 import { styled, css } from 'frontity';
 import {
   SIZE_DESCTOP_MEDIUM_1,
+  SIZE_DESCTOP_MEDIUM_2,
   SIZE_MOBILE,
   TEXT_FONT_SIZE_MOBILE,
   TEXT_LINE_HEIGHT_MOBILE,
@@ -69,6 +70,10 @@ export const FText = styled.div`
     font-size: 16px;
     opacity: 1;
   `}
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    justify-content: center;
+  }
 `;
 export const FormControl = styled.div`
   margin-top: 40px;

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React from 'react';
+import React, {  useRef } from 'react';
 import { connect } from 'frontity';
 import Button from '../../Button';
 import Link from '../../link';
@@ -18,7 +18,7 @@ import {
 } from './styles';
 
 
-const Banner = ({ state, libraries, scrollRef = null, offset = 100 }) => {
+const Banner = ({ state, libraries, offset = 100 }) => {
   const dataP = state.source.get(state.router.link);
   const post = state.source[dataP.type][dataP.id];
   const {
@@ -36,7 +36,7 @@ const Banner = ({ state, libraries, scrollRef = null, offset = 100 }) => {
   } = post;
 
   const Html2React = libraries.html2react.Component;
-
+  const scrollRef = useRef(null);
   const scrollToRef = () => {
     // eslint-disable-next-line no-unused-expressions
     scrollRef ? window.scrollTo({
@@ -81,7 +81,7 @@ const Banner = ({ state, libraries, scrollRef = null, offset = 100 }) => {
       </Container>
       {youtubeVideoDescription && youtubeVideoDescription.length && (
       <Wow offset={-100} animation="slideUp">
-        <VideoText>
+        <VideoText ref={scrollRef}>
           {youtubeVideoDescription}
         </VideoText>
       </Wow>

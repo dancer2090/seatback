@@ -45,10 +45,10 @@ const HeaderBoxProduct = ({
     <GlobalContainer>
       <Container>
         <HeaderBoxContainer>
-          <Wow animation="slideUp">
+          <Wow animation="slideUp" forceUpdate>
             <DescriptionBox>
               {title !== '' && (<h1><Html2React html={title} /></h1>)}
-              {description !== '' && (<Html2React html={'<p>'+description+'</p>'} />)}
+              {description !== '' && (<Html2React html={`<p>${description}</p>`} />)}
               <HeaderFooter>
                 {scrollRef && (
                   <Scroll
@@ -72,7 +72,7 @@ const HeaderBoxProduct = ({
               </HeaderFooter>
             </DescriptionBox>
           </Wow>
-          <Wow animation="fadeIn" delay="0.3s">
+          <Wow animation="fadeIn" delay="0.3s" forceUpdate>
             <BannerArticlesBox>
               <ImageContainer>
                 <img alt="description attribute" src={image} />

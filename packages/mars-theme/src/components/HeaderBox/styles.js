@@ -26,6 +26,7 @@ export const HeaderFooter = styled.div`
   align-items: flex-end;
   width: 100%;
   @media (max-width: ${SIZE_LAPTOP}px) {
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-align: center;

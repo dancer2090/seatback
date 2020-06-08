@@ -3,15 +3,25 @@ import ReactWOW from 'react-wow';
 import { connect } from 'frontity';
 
 const Wow = ({
-  state, actions, libraries, offset, iteration, ...props
+  state,
+  actions,
+  libraries,
+  offset,
+  iteration,
+  forceUpdate = false,
+  ...props
 }) => {
-  const [isDone, setDone] = useState(false);
+  const [isDone, setDone] = useState(!!forceUpdate);
   const onAnimateDone = () => {
-    setDone(true);
+    if (forceUpdate) {
+      setDone(true);
+    }
   };
 
   useEffect(() => {
-    setDone(false);
+    if (forceUpdate) {
+      setDone(false);
+    }
   }, [state.router.link]);
 
   const { children } = props;

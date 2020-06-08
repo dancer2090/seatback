@@ -21,7 +21,7 @@ const HelpProduct = ({ libraries, items = [] }) => {
     <Container>
       <Blocks>
         {items.length > 0 && items.map((item, key) => (
-          <Wow animation="fadeIn" offset={-100} delay={`${0.2 * key}s`}>
+          <Wow animation="fadeIn" forceUpdate offset={-100} delay={`${0.2 * key}s`}>
             <Block key={key}>
               <BlockContent>
                 <Icon>{key + 1}</Icon>

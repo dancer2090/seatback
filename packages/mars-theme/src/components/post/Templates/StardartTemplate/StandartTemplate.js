@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'frontity';
 import ImageAuthor from '../../../../img/user.svg';
 import HeaderBox from '../../../HeaderBox';
-import ImageTwiter from '../../../../img/twitter.svg';
 import ImageFacebook from '../../../../img/facebook.svg';
 import ImageLinkedIn from '../../../../img/linkedin.svg';
 import ListItem from '../../../list/ListItem';
@@ -97,11 +96,6 @@ const StandartTemplate = ({ state, actions, libraries }) => {
         </HeaderContent>
         <PostContentBox ref={contentRef}>
           <LinkShareContainer isFixed={fixedLinks}>
-            <LinkShare
-              href={`http://twitter.com/share?text=&amp;url=${state.frontity.url}${post.link}`}
-            >
-              <img alt="twitter" src={ImageTwiter} />
-            </LinkShare>
             <LinkShare
               href={`https://www.linkedin.com/shareArticle?mini=true&url=${state.frontity.url}${post.link}&title=${post.title.rendered}&source=LinkedIn`}
             >

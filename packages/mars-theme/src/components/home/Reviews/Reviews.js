@@ -36,7 +36,7 @@ const Reviews = ({ state, libraries }) => {
       <Wow offset={-200} animation="slideUp">
         <SlickContainer>
           <Slider {...settings}>
-            {acfBlocks && acfBlocks.length>0 && acfBlocks.map((d, key) => (
+            {acfBlocks && acfBlocks.length > 0 && acfBlocks.map((d, key) => (
               <Item key={key}>
                 <ItemBox>
                   <Picture>
@@ -44,10 +44,10 @@ const Reviews = ({ state, libraries }) => {
                   </Picture>
                   <Description>
                     <Comment>
-                      <Html2React html={d.text} />                      
+                      <Html2React html={d.text} />
                     </Comment>
                     <Status>
-                      <Html2React html={d.name} />      
+                      <Html2React html={d.name} />
                     </Status>
                   </Description>
                 </ItemBox>

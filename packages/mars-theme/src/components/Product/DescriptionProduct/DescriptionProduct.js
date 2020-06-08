@@ -28,7 +28,7 @@ const DescriptionProduct = ({
           <Title>{title}</Title>
         )}
         {image && image.url && image.url.length > 0 && (
-          <Wow animation="fadeIn" offset={-200}>
+          <Wow forceUpdate animation="fadeIn" offset={-200}>
             <Image>
               <img
                 src={image.url}
