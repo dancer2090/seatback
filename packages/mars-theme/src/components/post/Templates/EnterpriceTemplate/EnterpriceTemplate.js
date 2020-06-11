@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { connect } from 'frontity';
 import HeaderBox from '../../../HeaderBox';
 import Forms from '../../../Forms';
-import Partners from '../../../Partners';
+// Hide temporary
+// import Partners from '../../../Partners';
 import Description from './Description';
 
 const EnterpriceTemplate = ({ state }) => {
@@ -32,7 +33,8 @@ const EnterpriceTemplate = ({ state }) => {
         bgColor="#F5F6FA"
       />
       <div ref={contentRef}>
-        <Partners bgColor="#F5F6FA" />
+        {/* Hide temporary */}
+        {/* <Partners bgColor="#F5F6FA" /> */}
         <Description
           circleColor="#2E293C"
           bgColor="#F5F6FA"
