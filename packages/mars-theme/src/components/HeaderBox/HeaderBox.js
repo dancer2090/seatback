@@ -83,7 +83,7 @@ const HeaderBox = ({
                   {template === 'page-enterprice.php' && (
                     <Button
                       block
-                      mode="transparent-light"
+                      mode="transparent-dark"
                       onClick={() => scrollToRef()}
                       style={{ marginRight: '15px' }}
                     >

@@ -7,7 +7,7 @@ import {
 } from '../../const/responsive';
 
 const StyledButton = styled.button`
-  background: #52DE97 0% 0% no-repeat padding-box;
+  background: #52DE97;
   border: 1px solid #52DE97;
   border-radius: 29px;
   opacity: 1;
@@ -91,6 +91,15 @@ const StyledButton = styled.button`
       background: #FFFFFF;
       border: 1px solid #FFFFFF;
       color: #52DE97;
+    }
+  `}
+  ${(props) => props.mode === 'transparent-dark' && css`
+    color: #FFFFFF;
+    background: transparent;
+    &:hover {
+      background: #52DE97;
+      border: 1px solid #52DE97;
+      color: #2E293C;
     }
   `}
 `;

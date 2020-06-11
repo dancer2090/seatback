@@ -50,7 +50,7 @@ export const Container = styled.div`
 
 export const Description = styled.div`
   width: 80%;
-  padding-left: 50px;
+  padding-left: 20px;
   @media (max-width: ${SIZE_LAPTOP}px) {
     width: 70%;
   }
@@ -84,12 +84,12 @@ export const Picture = styled.div`
 `;
 export const Comment = styled.div`
   text-align: left;
-  font-size: 18px;
-  line-height: 31px;
-  font-weight: 500;
+  font-size: 20px;
+  line-height: 35px;
   letter-spacing: 0px;
   color: #2E293C;
   opacity: 1;
+  font-weight: 500;
   position: relative;
   z-index: 2;
 
@@ -106,10 +106,10 @@ export const Comment = styled.div`
 
 export const Status = styled.div`
   padding-top: 18px;
-  font-size: 18px;
-  line-height: 31px;
   letter-spacing: 0px;
   color: #A09D9D;
+  font-size: 20px;
+  line-height: 35px;
   opacity: 1;
   position: relative;
   z-index: 2;
@@ -155,7 +155,7 @@ export const ItemBox = styled.div`
   box-shadow: 4px 4px 8px #00000014;
   border-radius: 10px;
   opacity: 1;
-  padding: 50px 60px 30px 60px;
+  padding: 50px 50px 30px 50px;
 
   @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
     flex-wrap: wrap;
@@ -167,12 +167,14 @@ export const ItemBox = styled.div`
   &:after {
     content: " ";
     position: absolute;
-    bottom: -270px;
-    right: -270px;
+    bottom: -255px;
+    right: -255px;
     background-color: #52DE97;
     width: 400px;
     height: 400px;
     border-radius: 50%;
+    background: #52DE97 0% 0% no-repeat padding-box;
+    opacity: 1;
   }
 `;
 
@@ -356,7 +358,7 @@ export const SlickContainer = styled.div`
     border: none;
     outline: none;
     background-color: rgb(82, 222, 151, 0);
-    border: 1px solid #52DE97;
+    border: none;
     width: 58px;
     height: 58px;
     border-radius: 50%;
