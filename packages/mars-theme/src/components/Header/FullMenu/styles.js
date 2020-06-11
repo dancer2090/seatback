@@ -72,8 +72,8 @@ export const Blocks = styled.div`
 
 export const Block = styled.div`
   width: 25%;
-  padding-left: 48px;
-  padding-right: 48px;
+  padding-left: 46px;
+  padding-right: 46px;
   position: relative;
   margin-top: 80px;
   min-height: 100px;

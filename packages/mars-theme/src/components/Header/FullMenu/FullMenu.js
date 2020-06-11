@@ -99,7 +99,7 @@ const FullMenu = ({
                           <Item>
                             <ItemBox>
                               <Title onClick={() => followLink(dataP.link)}>
-                                <Html2React html={post.title.rendered} />
+                                <Html2React html={cItem.title || post.title.rendered} />
                               </Title>
                               <Description><Html2React html={sub_title} /></Description>
                               <Picture
@@ -153,7 +153,7 @@ const FullMenu = ({
                     <Item>
                       <ItemBox>
                         <Title onClick={() => followLink(dataP.link)}>
-                          <Html2React html={post.title.rendered} />
+                          <Html2React html={item.title || post.title.rendered} />
                         </Title>
                         <Description><Html2React html={sub_title} /></Description>
                         <Picture
