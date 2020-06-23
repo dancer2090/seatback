@@ -1,5 +1,9 @@
 import { styled } from 'frontity';
-import { SIZE_LAPTOP } from '../../../const/responsive';
+import {
+  SIZE_LAPTOP,
+  SIZE_MOBILE,
+  SIZE_LAPTOP_SMALL,
+} from '../../../const/responsive';
 import LogoBig from '../../../img/logo_big.svg';
 
 export const GlobalContainer = styled.div`
@@ -28,6 +32,14 @@ export const GlobalContainer = styled.div`
     left: 0px;
     z-index: -1;
   }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    margin-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    margin-top: 50px;
+    padding-bottom: 50px;
+  }
 `;
 
 
@@ -50,11 +62,29 @@ export const ImageContainer = styled.div`
     content: ' ';
     position: absolute;
     background: url(${LogoBig}) no-repeat 50% 50% / 100% auto;
+    max-width: 540px;
     left: calc(50% - 270px);
     top: 0px;
     bottom: 0px;
-    width: 540px;
+    width: 100%;
     z-index: 2;
+
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      max-width: 460px;
+      left: calc(50% - 230px);
+    }
+    @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+      max-width: 400px;
+      left: calc(50% - 200px);
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      max-width: 300px;
+      left: calc(50% - 150px);
+    }
+    @media (max-width: 450px) {
+      max-width: 200px;
+      left: calc(50% - 100px);
+    }
   }
 
 `;
@@ -73,6 +103,14 @@ export const Title = styled.h2`
     font-size: 37px;
     line-height: 50px;
   }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 `;
 
 export const Content = styled.div`
@@ -87,6 +125,16 @@ export const Content = styled.div`
   }
   p{
     margin-top: 100px;
+    @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+      margin-top: 50px;
+      font-size: 16px;
+      line-height: 28px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      margin-top: 30px;
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 `;
 

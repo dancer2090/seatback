@@ -10,6 +10,7 @@ import {
   SIZE_DESCTOP_SMALL,
   SIZE_LAPTOP,
   SIZE_MOBILE,
+  SIZE_LAPTOP_SMALL,
 } from '../../const/responsive';
 
 
@@ -97,6 +98,19 @@ export const MenuColumnHeader = styled.div`
   line-height: 24px;
   font-weight: 500;
   color: #2E293C;
+
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 18px;
+    line-height: 20px;
+  }
 `;
 export const SubMenuContainer = styled.ul`
   padding-left: 0px;
@@ -112,6 +126,19 @@ export const SubMenuElement = styled.li`
     transition: all 0.3s ease-in-out;
     &:hover{
       color: #52DE97;
+    }
+
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      font-size: 18px;
+      line-height: 30px;
+    }
+    @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+      font-size: 16px;
+      line-height: 26px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      font-size: 14px;
+      line-height: 22px;
     }
   }
 `;

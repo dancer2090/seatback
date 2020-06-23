@@ -1,5 +1,5 @@
 import { styled } from 'frontity';
-import { SIZE_LAPTOP } from '../../../const/responsive';
+import { SIZE_LAPTOP, SIZE_LAPTOP_SMALL, SIZE_MOBILE } from '../../../const/responsive';
 
 export const ImagesContainer = styled.div`
   margin-left: -30px;
@@ -14,6 +14,17 @@ export const Image = styled.img`
   width: calc(50% - 60px);
   margin-left: 30px;
   margin-right: 30px;
+
+  @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+    width: calc(50%);
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+  }
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -28,7 +39,18 @@ export const Content = styled.div`
   }
   p{
     margin-top: 100px;
+    @media (max-width: ${SIZE_LAPTOP_SMALL}px) {
+      margin-top: 50px;
+      font-size: 16px;
+      line-height: 28px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      margin-top: 30px;
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
+
 `;
 
 export const Container = styled.div`

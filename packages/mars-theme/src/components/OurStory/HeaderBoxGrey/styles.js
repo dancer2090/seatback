@@ -166,6 +166,10 @@ export const CircleBg = styled.div`
     left: 0px;
     z-index: -1;
   }
+
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    display: none;
+  }
 `;
 
 export const GlobalContainer = styled.div`
