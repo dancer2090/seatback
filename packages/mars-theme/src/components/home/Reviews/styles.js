@@ -81,6 +81,12 @@ export const Picture = styled.div`
       margin: 0 auto;
     }
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
 `;
 export const Comment = styled.div`
   text-align: left;
@@ -142,8 +148,8 @@ export const Item = styled.div`
   @media (max-width: ${SIZE_MOBILE}px) {
     max-width: 400px;
     width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 `;
 
@@ -371,6 +377,11 @@ export const SlickContainer = styled.div`
         color: white;
       }
     }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      transform: scale(0.7);
+      top: auto;
+      bottom: -70px;
+    }
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -417,6 +428,9 @@ export const SlickContainer = styled.div`
     @media (max-width: ${SIZE_LAPTOP + 100}px) {
       left: 25px;
     }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      left: calc(50% - 100px);
+    }
 }
 /* [dir='rtl'] .slick-prev
 {
@@ -444,6 +458,9 @@ export const SlickContainer = styled.div`
     }
     @media (max-width: ${SIZE_LAPTOP}px) {
       right: 25px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      right: calc(50% - 100px);
     }
 }
 /* [dir='rtl'] .slick-next

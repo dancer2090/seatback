@@ -56,7 +56,7 @@ export const Container = styled.div`
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 30px;
   }
 `;
 
@@ -70,7 +70,10 @@ export const Blocks = styled.div`
     flex-wrap: wrap;
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-     padding-top: 30px;
+    padding-top: 30px;
+    &:first-child {
+      padding-top: 0;
+    }
   }
 `;
 
@@ -115,6 +118,9 @@ export const Icon = styled.div`
   font-weight: 500;
   letter-spacing: 0px;
   color: #FFFFFF;
+  @media (max-width: ${SIZE_MOBILE}px) {
+    transform: scale(0.7);
+  }
 `;
 
 export const Description = styled.div`
@@ -140,5 +146,6 @@ export const Description = styled.div`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     margin-bottom: 35px;
+    padding: 55px 5px 25px 5px;
   }
 `;

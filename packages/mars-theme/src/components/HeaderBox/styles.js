@@ -1,6 +1,7 @@
+/* eslint-disable arrow-parens */
 /* eslint-disable no-nested-ternary */
 
-import { styled } from 'frontity';
+import { styled, css } from 'frontity';
 import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
@@ -31,6 +32,33 @@ export const HeaderFooter = styled.div`
     justify-content: center;
     text-align: center;
   }
+
+  ${props => props.template === 'page-enterprice.php' && css`
+    button {
+      height: 58px;
+      margin-right: 15px;
+      @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+        height: 50px;
+      }
+      @media (max-width: ${SIZE_MOBILE}px) {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        height: 46px;
+      }
+    }
+    a {
+      @media (max-width: ${SIZE_MOBILE}px) {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      button {
+        margin-right: 0;
+      }
+    }
+  `}
 `;
 
 export const HeaderBoxContainer = styled.div`
@@ -248,7 +276,7 @@ export const BannerArticlesContainer = styled.div`
     height: 407px;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    height: 350px;
+    height: 250px;
   }
 `;
 

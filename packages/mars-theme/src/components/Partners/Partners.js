@@ -63,13 +63,19 @@ const Parthers = ({ state, libraries, bgColor }) => {
         },
       },
       {
+        breakpoint: 920,
+        settings: {
+          slidesToShow: 5,
+        },
+      },
+      {
         breakpoint: 768,
         settings: {
           slidesToShow: 4,
         },
       },
       {
-        breakpoint: 320,
+        breakpoint: 440,
         settings: {
           slidesToShow: 3,
         },

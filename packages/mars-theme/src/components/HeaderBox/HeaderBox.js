@@ -71,13 +71,12 @@ const HeaderBox = ({
               </h1>
             )}
             {description !== '' && <p>{description}</p>}
-            <HeaderFooter>
+            <HeaderFooter template={template}>
               {scrollRef && (
                 <Scroll mode={selectedMode}>
                   <button type="button" onClick={() => scrollToRef()} />
                 </Scroll>
               )}
-
               {Object.keys(button).length > 0 && (
                 <>
                   {template === 'page-enterprice.php' && (
@@ -85,7 +84,6 @@ const HeaderBox = ({
                       block
                       mode="transparent-dark"
                       onClick={() => scrollToRef()}
-                      style={{ marginRight: '15px' }}
                     >
                       Discover
                     </Button>

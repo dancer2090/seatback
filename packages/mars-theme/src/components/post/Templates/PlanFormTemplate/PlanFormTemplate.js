@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { connect, URL } from 'frontity';
-import FormsWithoutCircle from '../../../FormsWithoutCircle';
+// import FormsWithoutCircle from '../../../FormsWithoutCircle';
 import Link from '../../../link';
 import Button from '../../../Button';
 
@@ -46,7 +46,7 @@ const PlanFormTemplate = ({ state, actions }) => {
           </PlanInfo>
         )}
         <FormContainer>
-          <FormsWithoutCircle />
+          {/* <FormsWithoutCircle /> */}
         </FormContainer>
       </Container>
     </GlobalContainer>

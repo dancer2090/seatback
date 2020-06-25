@@ -92,6 +92,9 @@ export const CarouselContainer = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     margin-left: -150px;
     margin-right: -150px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    transform: scale(0.6);
   }
 `;
 

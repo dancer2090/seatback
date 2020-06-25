@@ -71,6 +71,9 @@ export const ItemDescriptionBox = styled.div`
     width: 100%;
     height: 100%;
     padding-right: 100px;
+    @media (max-width: ${SIZE_MOBILE}px) {
+      padding-right: 80px;
+    }
   }
 
   h2 {
@@ -173,7 +176,7 @@ export const AuthorName = styled.div`
     line-height: 20px;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 20px;
   }
 `;
@@ -186,4 +189,9 @@ export const AuthorImage = styled.div`
   background-position: center center;
   background-size: cover;
   margin-left: auto;
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    width: 50px;
+    height: 50px;
+  }
 `;

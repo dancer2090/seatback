@@ -42,11 +42,11 @@ const Footer = ({
             {menu.map((i, key) => (
               <MenuColumn key={key}>
                 <MenuColumnHeader>
-                    {i.link && i.link.length>0 ? (
-                      <Link link={i.link}><Html2React html={i.name}/></Link>
-                    ) : (
-                      <Html2React html={i.name}/>
-                    )}
+                  {i.link && i.link.length > 0 ? (
+                    <Link link={i.link}><Html2React html={i.name} /></Link>
+                  ) : (
+                    <Html2React html={i.name} />
+                  )}
                 </MenuColumnHeader>
                 {i.sub_menu && i.sub_menu.length > 0 && (
                 <SubMenuContainer>

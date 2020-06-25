@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-useless-escape */
 import React, { useState } from 'react';
@@ -35,14 +36,14 @@ const Forms = ({
 }) => {
   const dataP = state.source.get(state.router.link);
   const page = state.source[dataP.type][dataP.id];
-  const { acf={} } = page;
+  const { acf = {} } = page;
   const {
     gd_form: { ID: formId = 114, post_title: title },
     gd_header: formHeader = title,
   } = acf;
 
   const form = state.source.forms[formId];
-  const { acf : form_acf={} } = form || {};
+  const { acf: form_acf = {} } = form || {};
   const { inputs = [], submit_text: submitText = 'Submit' } = form_acf;
 
   const Html2React = libraries.html2react.Component;
@@ -228,7 +229,7 @@ const Forms = ({
               </FormControl>
             </Wow>
           ))}
-        {Object.keys(form_acf).length>0 && (
+        {Object.keys(form_acf).length > 0 && (
           <Wow animation="slideUp" delay="0.2s">
             <BBlock>
               <Button type="submit">{submitText}</Button>
