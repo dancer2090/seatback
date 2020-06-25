@@ -63,7 +63,7 @@ export const Container = styled.div`
   width: 100%;
   z-index: 2;
 
-  &:first-child {
+  &:first-of-type {
     padding-top: 0;
     padding-bottom: 0;
   }

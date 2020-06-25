@@ -32,7 +32,7 @@ const Help = ({ state, libraries }) => {
       </Wow>
       <Blocks>
         {bo.length > 0 && bo.map((item, key) => (
-          <Wow animation="slideUp" delay={`${(key * 0.3) + 0.3}s`} key={key.toString()}>
+          <Wow animation="slideUp" delay={`${(key * 0.3) + 0.3}s`} key={key}>
             <Block key={key}>
               <BlockContent>
                 <Icon>

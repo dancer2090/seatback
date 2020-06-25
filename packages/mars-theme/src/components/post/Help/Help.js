@@ -30,7 +30,7 @@ const Help = ({
       <Blocks>
         {items.length > 0 && items.map((item, key) => (
           item.repeater.length > 0 && item.repeater.map((subItem, n) => (
-            <Wow key={n} offset={-100} delay={`${0.3 * n}s`} forceUpdate animation="fadeIn">
+            <Wow key={(key + 1) * n} offset={-100} delay={`${0.3 * n}s`} forceUpdate animation="fadeIn">
               <Block>
                 <BlockContent>
                   <Icon type={item.acf_fc_layout}>

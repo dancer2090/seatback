@@ -69,7 +69,7 @@ const FullMenu = ({
                   {item.title}
                 </LinkTitle>
                 <Blocks>
-                  {item.child_items && item.child_items.map((cItem) => {
+                  {item.child_items && item.child_items.map((cItem, ckey) => {
                     const dataP = state.source.get(cItem.urlFrontity);
                     let post = !dataP.isFetching && dataP.isReady
                       ? state.source[dataP.type][dataP.id]
@@ -94,7 +94,7 @@ const FullMenu = ({
                       sub_title = optionsAcf.sub_title;
                     }
                     return (
-                      <Block key={dataP.id}>
+                      <Block key={ckey}>
                         {!dataP.isFetching ? (
                           <Item>
                             <ItemBox>
@@ -123,7 +123,7 @@ const FullMenu = ({
           </>
         ) : (
           <Blocks>
-            {categoryItems.length > 0 && categoryItems.map((item) => {
+            {categoryItems.length > 0 && categoryItems.map((item, key) => {
               const dataP = state.source.get(item.urlFrontity);
               let post = !dataP.isFetching && dataP.isReady
                 ? state.source[dataP.type][dataP.id]
@@ -148,7 +148,7 @@ const FullMenu = ({
                 sub_title = optionsAcf.sub_title;
               }
               return (
-                <Block key={dataP.id}>
+                <Block key={key}>
                   {!dataP.isFetching ? (
                     <Item>
                       <ItemBox>

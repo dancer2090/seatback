@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useRef } from 'react';
 import { connect } from 'frontity';
 import HeaderBoxProduct from '../../../Product/HeaderBoxProduct';
@@ -42,7 +43,7 @@ const ProductTemplate = ({ state }) => {
               zIndex={(key + 1)}
               circleColor={circleColor}
               bgColor={bgColor}
-              key={d.header}
+              key={key}
             />
           );
         })}

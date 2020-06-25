@@ -71,7 +71,7 @@ export const Blocks = styled.div`
   }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     padding-top: 30px;
-    &:first-child {
+    &:first-of-type {
       padding-top: 0;
     }
   }
