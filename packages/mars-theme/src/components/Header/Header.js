@@ -7,6 +7,7 @@ import Link from '../link';
 import Button from '../Button';
 import ImageLogo from '../../img/sb_logo.svg';
 import FullMenu from './FullMenu';
+import MobileMenu from './MobileMenu';
 import {
   Container,
   MenuBox,
@@ -130,6 +131,10 @@ const Header = ({ data, state, actions }) => {
           </NavIconSection>
         </MenuBox>
         {data.isPostType && data.link.indexOf('/blog') !== -1 && <Progress scroll={`${scrollPosition}%`} />}
+        <MobileMenu
+          isOpen={isCategoryOpen || isMenuOpen}
+          closeMenu={() => closeFillScreen()}
+        />
       </Container>
       <Space />
       <FullMenu

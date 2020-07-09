@@ -17,7 +17,7 @@ import {
 } from '../../const/responsive';
 
 
-const navStep = 12;
+const navStep = 9;
 const headerHeight = HEADER_HEIGHT;
 const headerHeightResponsive = HEADER_HEIGHT_RESPONSIVE;
 
@@ -59,8 +59,8 @@ export const NavIconSection = styled.div`
 export const NavIcon = styled.div`  
   
   top: 0;
-  width: 40px;
-  height: 31px;
+  width: 28px;
+  height: 21px;
   position: relative;
   margin: 0 auto;
   -webkit-transform: rotate(0deg);
@@ -78,9 +78,9 @@ export const NavIcon = styled.div`
   span {
     display: block;
     position: absolute;
-    height: 6px;
+    height: 2px;
     width: 100%;
-    background: #52DE97;
+    background: #2E293C;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -97,7 +97,7 @@ export const NavIcon = styled.div`
       top: 0px;
     }
     &:nth-of-type(2) {
-    top: ${navStep}px;
+      top: ${navStep}px;
     }
     &:nth-of-type(3) {
       top: ${navStep}px;
@@ -109,7 +109,7 @@ export const NavIcon = styled.div`
 
   &:hover {
     span {
-      background: #2bad6b;
+      background: #2E293C;
     }
   }
 
@@ -163,7 +163,7 @@ export const Container = styled.div`
       width: 100%;
       height: 100%;
       overflow-y: auto;
-      
+      z-index: 105;
     }
   `}
 
@@ -182,8 +182,8 @@ export const Container = styled.div`
     padding-right: ${PADDING_DESCTOP_SMALL}px;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    padding-left: ${PADDING_MOBILE}px;
-    padding-right: ${PADDING_MOBILE}px;
+    padding-left: ${20}px;
+    padding-right: ${20}px;
   }
 `;
 
@@ -219,6 +219,9 @@ export const LogoSection = styled.div`
     }
     @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_1)}) {
       width: 200px;
+    }
+    @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+      width: 134px;
     }
   }
 `;

@@ -45,6 +45,7 @@ export const Contaiter = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
+    display: none;
   }
 `;
 

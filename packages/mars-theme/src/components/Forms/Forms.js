@@ -182,6 +182,7 @@ const Forms = ({
                 )}
                 {d.acf_fc_layout === 'select' && (
                   <ReactSelect
+                    instanceId={`acf-form-select-${key}`}
                     error={formError[d.label]}
                     styles={CustomSelectlStyles}
                     placeholder={d.placeholder}
@@ -201,6 +202,7 @@ const Forms = ({
                 )}
                 {d.acf_fc_layout === 'country' && (
                   <ReactSelect
+                    instanceId={`acf-form-select-${key}`}
                     error={formError[d.label]}
                     styles={CustomSelectlStyles}
                     placeholder={d.placeholder}

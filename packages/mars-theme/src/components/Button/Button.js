@@ -3,6 +3,7 @@ import { styled, css } from 'frontity';
 import {
   SIZE_DESCTOP_MEDIUM_2,
   SIZE_DESCTOP_MEDIUM_1,
+  SIZE_MOBILE,
   getPxSize,
 } from '../../const/responsive';
 
@@ -102,6 +103,15 @@ const StyledButton = styled.button`
       color: #2E293C;
     }
   `}
+
+  ${(props) => props.mobile && css`
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 12px;
+      line-height: 15px;
+      width: 100%;
+      height: 47px;
+    }
+  `};
 `;
 
 const Button = (props) => <StyledButton {...props} />;

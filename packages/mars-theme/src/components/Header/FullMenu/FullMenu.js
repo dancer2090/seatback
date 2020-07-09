@@ -8,7 +8,6 @@ import { connect } from 'frontity';
 import ReactResizeDetector from 'react-resize-detector';
 import Button from '../../Button';
 import Loader from '../../Loader';
-import Wow from '../../Wow';
 import {
   Contaiter,
   Blocks,
