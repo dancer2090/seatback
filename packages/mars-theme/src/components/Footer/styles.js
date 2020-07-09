@@ -30,6 +30,10 @@ export const GlobalContainer = styled.div`
     top: 0px;
     left: calc(50% - 1800px);
     z-index: -1;
+
+    @media (max-width: ${SIZE_MOBILE}px) {
+      left: calc(50% - 1500px);
+    }
   }
   &:before{
     content: ' ';
@@ -48,7 +52,7 @@ export const GlobalContainer = styled.div`
     padding-bottom: 50px;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    /* padding-top: 91px; */
+    padding-top: 30px;
   }
   
 `;
@@ -108,13 +112,16 @@ export const MenuColumnHeader = styled.div`
     line-height: 20px;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 42px;
   }
 `;
 export const SubMenuContainer = styled.ul`
   padding-left: 0px;
   list-style: none;
+  @media (max-width: ${SIZE_MOBILE}px) {
+    margin: 0;
+  }
 `;
 export const SubMenuElement = styled.li`
   & a{
@@ -137,8 +144,9 @@ export const SubMenuElement = styled.li`
       line-height: 26px;
     }
     @media (max-width: ${SIZE_MOBILE}px) {
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 12px;
+      line-height: 42px;
+      margin-top: 0;
     }
   }
 `;
@@ -148,6 +156,10 @@ export const MenuColumn = styled.div`
     display: block;
     min-width: 250px;
     margin-top: 30px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    width: 100%;
+    margin-top: 10px;
   }
 `;
 
@@ -173,6 +185,9 @@ export const Socials = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     margin-left: 0;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 40px;
+  }
 `;
 export const SocialsHeader = styled.div`
   font-weight: 500;
@@ -181,6 +196,10 @@ export const SocialsHeader = styled.div`
   color: #2E293C;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     text-align: center;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 14px;
+    line-height: 18px;
   }
 `;
 export const SocialsRow = styled.div`
@@ -192,9 +211,20 @@ export const SocialsRow = styled.div`
     margin-left: 20px;
     margin-right: 20px;
     display: inline-block;
+    @media (max-width: ${SIZE_MOBILE}px) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
     & svg{
       width: 58px;
       height: 58px;
+
+      @media (max-width: ${SIZE_MOBILE}px) {
+        width: 47px;
+        height: 47px;
+      }
+
       transition: all 0.3s ease-in-out;
       .svgBg {
         transition: all 0.3s ease-in-out;
@@ -212,5 +242,8 @@ export const SocialsRow = styled.div`
         }
       } 
     }
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    margin-top: 20px;
   }
 `;

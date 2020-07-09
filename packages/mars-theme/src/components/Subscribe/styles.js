@@ -12,6 +12,7 @@ import {
 
 export const Main = styled.div`
   position: relative;
+  width: 100%;
 `;
 
 export const Title = styled.div`
@@ -32,6 +33,10 @@ export const Title = styled.div`
     text-align: center;
     white-space: normal;
   }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    font-size: 14px;
+    line-height: 14px;
+  }
 `;
 export const FormContainer = styled.form`
   position: relative;
@@ -51,6 +56,9 @@ export const FormContainer = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    width: 100%;
   }
 `;
 
@@ -153,7 +161,7 @@ export const FormInput = styled.input`
   }
 
   &::placeholder {
-    color: #A09D9D;
+    color: #2E293C;
     font-size: 20px;
     line-height: 24px;
   }
@@ -177,6 +185,7 @@ export const FormInput = styled.input`
     height: 45px;
     padding-left:20px;
     padding-right:20px;
+    border-radius: 8px;
 
     &::placeholder {
       font-size: ${TEXT_FONT_SIZE_MOBILE}px;
@@ -206,6 +215,15 @@ export const BBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    margin: 0;
+    padding-top: 20px;
+    width: 100%;
+    button {
+      width: 100%;
+    }
+  }
 `;
 
 export const FormTextarea = styled.textarea`

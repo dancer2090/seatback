@@ -121,7 +121,7 @@ const Subscribe = ({ state, actions }) => {
             </FormControl>
           ))}
         <BBlock>
-          <Button type="submit">Subscribe</Button>
+          <Button mobile type="submit">Subscribe</Button>
         </BBlock>
       </FormContainer>
       <FText afterload={!!(preload && !state.seatbackapi.isSubscribeSend)}>

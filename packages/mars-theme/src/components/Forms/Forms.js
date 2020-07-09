@@ -234,7 +234,7 @@ const Forms = ({
         {Object.keys(form_acf).length > 0 && (
           <Wow animation="slideUp" delay="0.2s">
             <BBlock>
-              <Button type="submit">{submitText}</Button>
+              <Button mobile type="submit">{submitText}</Button>
             </BBlock>
           </Wow>
         )}

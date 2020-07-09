@@ -43,6 +43,11 @@ export const Main = styled.div`
     left: 0px;
     z-index: -1;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+  }
 `;
 
 export const CustomSelectlStyles = {
@@ -217,7 +222,7 @@ export const FormControl = styled.div`
   }
   
   @media (max-width: ${SIZE_MOBILE}px) {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 `;
 
@@ -244,6 +249,7 @@ export const FormLabel = styled.label`
   @media (max-width: ${SIZE_MOBILE}px) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    padding-bottom: 7px;
   }
 `;
 
@@ -322,6 +328,10 @@ export const BBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 30px;
+    width: 100%;
+  }
 `;
 
 export const FormTextarea = styled.textarea`
