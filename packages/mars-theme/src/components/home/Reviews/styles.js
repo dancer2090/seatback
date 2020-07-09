@@ -43,7 +43,7 @@ export const Container = styled.div`
     padding-bottom: 120px;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    padding-top: 100px;
+    padding-top: 120px;
     padding-bottom: 100px;
   }
 `;
@@ -76,15 +76,15 @@ export const Picture = styled.div`
     width: 100%;
     padding: 0;
     text-align: center;
-    padding-bottom: 25px;
+    padding-bottom: 30px;
     img {
       margin: 0 auto;
     }
   }
   @media (max-width: ${SIZE_MOBILE}px) {
     img {
-      width: 100px;
-      height: 100px;
+      width: 74px;
+      height: 74px;
     }
   }
 `;
@@ -106,6 +106,8 @@ export const Comment = styled.div`
   @media(max-width: ${SIZE_MOBILE}px) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    font-weight: 400;
+    text-align: center;
   }
   
 `;
@@ -126,6 +128,7 @@ export const Status = styled.div`
   @media(max-width: ${SIZE_MOBILE}px) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    text-align: center;
   }
 `;
 
@@ -148,8 +151,8 @@ export const Item = styled.div`
   @media (max-width: ${SIZE_MOBILE}px) {
     max-width: 400px;
     width: 70%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 `;
 
@@ -167,7 +170,7 @@ export const ItemBox = styled.div`
     flex-wrap: wrap;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    padding: 25px 30px 15px 30px;
+    padding: 30px 30px 82px 30px;
   }
 
   &:after {
@@ -181,6 +184,19 @@ export const ItemBox = styled.div`
     border-radius: 50%;
     background: #52DE97 0% 0% no-repeat padding-box;
     opacity: 1;
+
+    @media (max-width: ${SIZE_MOBILE}px) {
+      bottom: -350px;
+      right: -400;
+      width: 900px;
+      height: 400px;
+    }
+    @media (max-width: 400px) {
+      bottom: -350px;
+      right: -400;
+      width: 800px;
+      height: 400px;
+    }
   }
 `;
 
@@ -381,6 +397,7 @@ export const SlickContainer = styled.div`
       transform: scale(0.7);
       top: auto;
       bottom: -70px;
+      display: none !important;
     }
 }
 .slick-prev:hover,
@@ -489,7 +506,7 @@ export const SlickContainer = styled.div`
 .slick-dots
 {
     position: absolute;
-    bottom: -25px;
+    bottom: -45px;
 
     display: block;
 
@@ -507,8 +524,10 @@ export const SlickContainer = styled.div`
 
     display: inline-block;
 
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #CCCCCC;
     margin: 0 5px;
     padding: 0;
 
@@ -516,6 +535,7 @@ export const SlickContainer = styled.div`
 }
 .slick-dots li button
 {
+    opacity: 0;
     font-size: 0;
     line-height: 0;
 
@@ -568,5 +588,9 @@ export const SlickContainer = styled.div`
 {
     opacity: .75;
     color: black;
+}
+.slick-dots li.slick-active
+{
+  background-color: #2E293C;
 }
 `;

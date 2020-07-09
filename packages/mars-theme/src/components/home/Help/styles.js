@@ -94,6 +94,8 @@ export const Title = styled.h2`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${HEADER_FONT_SIZE_MOBILE}px;
     line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+
+    font-weight: 700;
   }
 `;
 
@@ -120,6 +122,7 @@ export const Block = styled.div`
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     width: 100%;
+    margin-top: 80px;
   }
 `;
 
@@ -147,9 +150,8 @@ export const Icon = styled.div`
   top: -55px;
   left: calc(50% - 55px);
 
-
   @media (max-width: ${SIZE_MOBILE}px) {
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
 `;
 

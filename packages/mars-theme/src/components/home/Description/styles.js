@@ -91,8 +91,11 @@ export const Container = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 120px;
+    padding-bottom: 0;
+    justify-content: flex-start;
+    text-align: left;
+    display: flex;
   }
 `;
 
@@ -125,6 +128,11 @@ export const Title = styled.h2`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${HEADER_FONT_SIZE_MOBILE}px;
     line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+    text-align: left;
+    font-weight: 700;
+    order: 0;
+    padding-bottom: 0;
+    width: 100%;
   }
 `;
 
@@ -157,7 +165,10 @@ export const SubTitle = styled.h2`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
-    margin-bottom: 35px;
+    margin-bottom: 0;
+    padding-top: 10px;
+    order: 1;
+    text-align: left;
   }
 `;
 
@@ -187,17 +198,27 @@ export const DescriptionParagraph = styled.p`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
+    text-align: left;
+    order: 2;
   }
 `;
 
 export const Action = styled.div`
-  margin-top: 45px;
+  margin-top: 40px;
   position: relative;
   z-index: 2;
+  order: 6;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     & button {
       margin: 0 auto;
+    }
+  }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    width: 100%;
+    & button {
+      width: 100%;
+      max-width: 100%;
     }
   }
 `;
@@ -246,6 +267,7 @@ export const Image = styled.div`
     }
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    order: 4;
     right: 0px;
     left: 0px;
     & img{
@@ -256,4 +278,11 @@ export const Image = styled.div`
       right: 0px;
     }
   }
+`;
+
+export const DescriptionBox = styled.div`
+    @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+      order: 3;
+      padding-top: 20px;
+    }
 `;

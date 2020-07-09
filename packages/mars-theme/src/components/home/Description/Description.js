@@ -12,6 +12,7 @@ import {
   Action,
   Image,
   GlobalContainer,
+  DescriptionBox,
 } from './styles';
 
 const Description = ({ state, libraries }) => {
@@ -51,23 +52,23 @@ const Description = ({ state, libraries }) => {
           </Image>
           )}
           <Wow offset={-150} animation="slideUp">
-            <div>
-              {d.thumbnail.length > 0 && (
+            {d.thumbnail.length > 0 && (
               <SubTitle alignImage={d.alignImage}>{d.thumbnail}</SubTitle>
-              )}
+            )}
+            <DescriptionBox>
               {d.text.length > 0 && (
               <DescriptionParagraph alignImage={d.alignImage}>
                 <Html2React html={d.text} />
               </DescriptionParagraph>
               )}
-              <Action>
-                {d.link.url && d.link.url !== '' && (
-                <Link link={d.link.url}>
-                  <Button>{d.link.title}</Button>
-                </Link>
-                )}
-              </Action>
-            </div>
+            </DescriptionBox>
+            <Action>
+              {d.link.url && d.link.url !== '' && (
+              <Link link={d.link.url}>
+                <Button mobile>{d.link.title}</Button>
+              </Link>
+              )}
+            </Action>
           </Wow>
         </Container>
       ))}

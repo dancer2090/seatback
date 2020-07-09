@@ -23,7 +23,7 @@ const Reviews = ({ state, libraries }) => {
   const acfBlocks = post.acf.feedbacks;
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,

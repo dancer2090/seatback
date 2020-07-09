@@ -60,7 +60,7 @@ const Banner = ({ state, libraries, offset = 100 }) => {
             <Action>
               {mainButtonUrl && (
                 <Link link={mainButtonUrl}>
-                  <Button size="large">{mainButtonTitle}</Button>
+                  <Button mobile size="large">{mainButtonTitle}</Button>
                 </Link>
               )}
               {scrollRef && (

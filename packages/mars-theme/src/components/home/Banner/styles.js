@@ -61,7 +61,7 @@ export const GlobalContainer = styled.div`
     padding-top: 139px;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    padding-top: 91px;
+    padding-top: 40px;
   }
 `;
 export const Container = styled.div`
@@ -101,6 +101,9 @@ export const Container = styled.div`
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
     margin-bottom: 50px;
+    .main-block button {
+      max-width: 140px;
+    }
   }
 `;
 
@@ -125,6 +128,9 @@ export const Slogan = styled.h1`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${HEADER_FONT_SIZE_MOBILE}px;
     line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+    text-align: left;
+    font-sie: 26px;
+    line-height: 36px;
   }
 `;
 
@@ -145,6 +151,10 @@ export const Discription = styled.p`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     margin-bottom: 35px;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: left;
+    margin-top: 20px;
   }
 `;
 
@@ -190,9 +200,12 @@ export const VideoContainer = styled.div`
       height: 300px;
     }
     @media (max-width: 420px) {
-      margin-left: -60px;
-      width: 300px;
-      height: 300px;
+      margin-left: -30px;
+      position: relative;
+      top: -30px;
+      z-index: 0;
+      width: 290px;
+      height: 290px;
     }
   }
 
@@ -207,6 +220,12 @@ export const VideoContainer = styled.div`
   @media (max-width: ${getPxSize(SIZE_LAPTOP)}) {
     margin-top: 50px;
     margin-left: 0px;
+    width: 70%;
+  }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    margin-top: 0;
+    margin-left: 0px;
+    margin-right: -50px;
     width: 70%;
   }
 `;
@@ -230,8 +249,10 @@ export const VideoText = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
-    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    font-size: 26px;
+    line-height: 36px;
+    text-align: left;
+    font-weight: 700;
   }
 `;
 
@@ -255,7 +276,11 @@ export const YouTubeVideo = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    height: 350px !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 40px;
+    height: 280px !important;
+    border-radius: 8px;
   }
 `;
 
@@ -322,7 +347,12 @@ export const Scroll = styled.div`
 
 export const Action = styled.div`
   display: flex;
+  position: relative;
+  z-index: 1;
   @media (max-width: ${SIZE_LAPTOP}px) {
     justify-content: center;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    justify-content: flex-start;
   }
 `;
