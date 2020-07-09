@@ -243,6 +243,14 @@ export const MenuBox = styled.div`
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     height: ${headerHeightResponsive}px;
   }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    box-shadow: 2px 2px 8px #0000000D;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
 `;
 
 export const Progress = styled.div`
