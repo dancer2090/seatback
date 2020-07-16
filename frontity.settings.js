@@ -57,6 +57,15 @@ const settings = {
       }
     },
     "@frontity/head-tags",
+    {
+      name: "@frontity/google-analytics",
+      state: {
+        googleAnalytics: {
+          // If you only specify a single tracking ID
+          trackingId: "UA-128652467-1",
+        }
+      }
+    },
   ]
 };
 
