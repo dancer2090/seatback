@@ -1,5 +1,6 @@
 import { styled, css } from 'frontity';
 import {
+  SIZE_DESCTOP_LARGE,
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
   PADDING_DESCTOP_MEDIUM_1,
@@ -154,6 +155,11 @@ export const Container = styled.div`
   box-shadow: 2px 2px 8px #0000000D;
   opacity: 1;
 
+  @media (min-width: ${SIZE_DESCTOP_MEDIUM_2 + 1}px) {
+    left: 0;
+    top: 0;
+  }
+
   ${(props) => props.isMenuOpen && css`
     @media (max-width: ${SIZE_MOBILE}px) {
       top: 0;
@@ -166,6 +172,7 @@ export const Container = styled.div`
       z-index: 105;
     }
   `}
+
 
   @media (max-width: ${getPxSize(SIZE_DESCTOP_MEDIUM_2)}) {
     padding-left: ${PADDING_DESCTOP_MEDIUM_2}px;
@@ -240,6 +247,10 @@ export const MenuBox = styled.div`
   justify-content: space-between;
   height: ${headerHeight}px;
   position: relative;
+  @media (min-width: ${SIZE_DESCTOP_MEDIUM_2 + 1}px) {
+    max-width: 1640px;
+    margin: 0 auto;
+  }
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     height: ${headerHeightResponsive}px;
   }
