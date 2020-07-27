@@ -22,6 +22,9 @@ export const HeaderFooter = styled.div`
     justify-content: center;
     text-align: center;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const HeaderBoxContainer = styled.div`
@@ -31,6 +34,9 @@ export const HeaderBoxContainer = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     flex-wrap: wrap;
     padding-top: 100px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 40px;
   }
 `;
 export const DescriptionBox = styled.div`
@@ -46,6 +52,9 @@ export const DescriptionBox = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     width: 100%;
     padding-right: 0;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-bottom: 40px;
   }
 
   h1 {
@@ -78,10 +87,22 @@ export const DescriptionBox = styled.div`
       text-align: center;
       max-width: 100%;
     }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      font-size: 26px;
+      line-height: 27px;
+    }
   }
   button{
     @media (max-width: ${SIZE_LAPTOP}px) {
       margin-top: 30px;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      margin-top: 20px;
+    }
+  }
+  a {
+    @media (max-width: ${SIZE_MOBILE}px) {
+      width: 100%;
     }
   }
   p {
@@ -114,6 +135,16 @@ export const DescriptionBox = styled.div`
     @media (max-width: ${SIZE_MOBILE}px) {
       font-size: 14px;
       line-height: 24px;
+      br {
+        content: " ";  
+        float:right;
+        display: none;
+      }      
+    }
+    @media (max-width: 340px) {
+      margin-left: -10px;
+      margin-right: -10px;
+      width: 120%;
     }
   }
 `;
@@ -147,9 +178,39 @@ export const Scroll = styled.div`
       color: ${(props) => props.textColorHover};
       border-color: ${(props) => props.buttonColorHover};
     }
+
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+      font-size: 18px;
+      line-height: 22px;
+      min-height: 50px;
+      padding: 0 45px;
+      height: auto;
+    }
+    @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+      font-size: 16px;
+      line-height: 20px;
+      min-height: 46px;
+      padding: 0 42px;
+    }
+
+    @media (max-width: ${SIZE_LAPTOP}px) {
+      margin-top: 0 !important;
+    }
+
+    @media(max-width: ${SIZE_MOBILE}px) {
+      font-size: 12px;
+      line-height: 15px;
+      width: 100%;
+      height: 47px;
+    }
   }
   @media (max-width: ${SIZE_LAPTOP}px) {
-    display: none;
+    margin-top: 0;
+    padding-top: 30px;   
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    width: 100%;
+    margin: 0;   
   }
 `;
 
@@ -229,6 +290,12 @@ export const GlobalContainer = styled.div`
     bottom: 0px;
     left: calc(50% - 1503px);
     z-index: -1;
+
+    @media (max-width: ${SIZE_MOBILE}px) {
+      width: 1506px;
+      bottom: 200px;
+      left: calc(50% - 750px);
+    }
   }
   &:before{
     content: ' ';

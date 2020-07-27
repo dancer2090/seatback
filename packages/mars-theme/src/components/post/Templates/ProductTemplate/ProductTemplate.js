@@ -18,8 +18,6 @@ const ProductTemplate = ({ state }) => {
   const blocks = ((!post.acf.blocks && post.acf.blocks.length > 0) ? {} : post.acf.blocks);
   const description = ((!post.acf.description && post.acf.description === false) ? '' : post.acf.description);
   const title = ((!post.acf.header || post.acf.header === '') ? post.title.rendered : post.acf.header);
-  const footerCircleBg = (content.length % 2 === 0) ? '#FFFFFF' : '#F5F6FA';
-  const footerBg = (content.length % 2 === 0) ? '#F5F6FA' : '#FFFFFF';
 
   return (
     <>

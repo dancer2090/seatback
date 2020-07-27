@@ -8,6 +8,7 @@ import {
   DescriptionParagraph,
   Image,
   GlobalContainer,
+  DescriptionParagraphBox,
 } from './styles';
 
 const DescriptionProduct = ({
@@ -38,13 +39,13 @@ const DescriptionProduct = ({
             </Image>
           </Wow>
         )}
-        <div>
+        <DescriptionParagraphBox>
           {description.length > 0 && (
             <DescriptionParagraph>
               <Html2React html={description} />
             </DescriptionParagraph>
           )}
-        </div>
+        </DescriptionParagraphBox>
       </Container>
     </GlobalContainer>
   );

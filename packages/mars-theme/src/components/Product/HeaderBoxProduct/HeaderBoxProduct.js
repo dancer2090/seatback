@@ -63,7 +63,7 @@ const HeaderBoxProduct = ({
                 {Object.keys(button).length > 0 && (
                   <>
                     <Link link={button.url}>
-                      <Button block>
+                      <Button mobile block>
                         {button.title}
                       </Button>
                     </Link>

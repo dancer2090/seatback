@@ -94,8 +94,12 @@ export const Container = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 `;
 
@@ -124,8 +128,12 @@ export const Title = styled.h2`
     text-align: center;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
-    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 0;
+    width: 60%;
   }
 `;
 
@@ -180,12 +188,19 @@ export const DescriptionParagraph = styled.p`
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     max-width: 100%;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
-    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    font-size: 14px;
+    line-height: 24px;
     margin-bottom: 35px;
+    text-align: left;
+
+    br {
+      content: " ";  
+      float:right;
+      display: none;
+    }  
   }
 `;
 
@@ -234,6 +249,7 @@ export const Image = styled.div`
     }
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+    order: 3;
     right: 0px;
     left: 0px;
     & img{
@@ -243,5 +259,11 @@ export const Image = styled.div`
       left: 0px;
       right: 0px;
     }
+  }
+`;
+
+export const DescriptionParagraphBox = styled.div`
+  @media (max-width: ${SIZE_MOBILE}px) {
+    order: 2;
   }
 `;
