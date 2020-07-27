@@ -32,6 +32,16 @@ export const Main = styled.div`
     top: 0px;
     left: calc(50% - 1480px);
     z-index: -1;
+
+    @media (max-width: ${600}px) {
+      width: 2506px;
+      left: calc(50% - 1250px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1606px;
+      left: calc(50% - 800px);
+    }
   }
   &:before{
     content: ' ';

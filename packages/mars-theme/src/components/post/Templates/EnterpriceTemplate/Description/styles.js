@@ -42,6 +42,16 @@ export const GlobalContainer = styled.div`
     top: 0px;
     left: calc(50% - 1503px);
     z-index: 1;
+
+    @media (max-width: ${600}px) {
+      width: 2506px;
+      left: calc(50% - 1250px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1606px;
+      left: calc(50% - 800px);
+    }
   }
   &:before{
     content: ' ';
@@ -52,6 +62,10 @@ export const GlobalContainer = styled.div`
     top: 0px;
     left: 0px;
     z-index: 0;
+  }
+
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 120px;
   }
 `;
 export const Container = styled.div`
@@ -110,6 +124,9 @@ export const Container = styled.div`
     padding-right: ${PADDING_MOBILE}px;
     padding-top: 50px;
     padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 `;
 
@@ -138,8 +155,12 @@ export const Title = styled.h2`
     text-align: center;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
-    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+    font-size: ${26}px;
+    line-height: ${36}px;
+    max-width: 60%;
+    font-weight: bold;
+    text-align:  left;
+    padding-bottom: 0;
   }
 `;
 
@@ -197,9 +218,16 @@ export const DescriptionParagraph = styled.p`
     padding-top: 30px;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
-    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
-    margin-bottom: 35px;
+    font-size: ${14}px;
+    line-height: ${24}px;
+    margin-bottom: 0;
+    padding-top: 20px;
+    text-align: left;
+    br {
+      content: " ";  
+      float:right;
+      display: none;
+    }  
   }
 `;
 
@@ -226,12 +254,6 @@ export const Image = styled.div`
   display: flex;
   align-items: center;
   justify-content: ${(props) => (props.alignImage === 'left' ? 'flex-start' : 'flex-end')};
-  /* & img.card1{
-    position: absolute;
-    left: ${(props) => (props.alignImage === 'left' ? '0px' : 'auto')};;
-    right: ${(props) => (props.alignImage === 'left' ? 'auto' : '0px')};;
-    top: 0px;
-  } */
   @media (max-width: 1800px) {
     & img{
       width: 550px;
@@ -274,5 +296,12 @@ export const Image = styled.div`
       left: 0px;
       right: 0px;
     }
+    order: 2;
   }
+`;
+
+export const BoxDescription = styled.div`
+  @media (max-width: ${SIZE_MOBILE}px) {
+    order: 1
+  } 
 `;

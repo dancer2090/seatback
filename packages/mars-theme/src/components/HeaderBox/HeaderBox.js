@@ -81,6 +81,7 @@ const HeaderBox = ({
                 <>
                   {template === 'page-enterprice.php' && (
                     <Button
+                      mobile
                       block
                       mode="transparent-dark"
                       onClick={() => scrollToRef()}
@@ -91,6 +92,7 @@ const HeaderBox = ({
                   {template !== 'page-plan.php' && button.url !== '#form' ? (
                     <Link link={button.url}>
                       <Button
+                        mobile
                         mode={bgColor === '#F5F6FA' ? 'dark' : 'light'}
                         block
                       >
@@ -99,6 +101,7 @@ const HeaderBox = ({
                     </Link>
                   ) : (
                     <Button
+                      mobile
                       block
                       mode={bgColor === '#F5F6FA' ? 'dark' : 'light'}
                       onClick={() => scrollToRef()}

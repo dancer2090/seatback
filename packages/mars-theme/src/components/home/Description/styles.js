@@ -163,12 +163,13 @@ export const SubTitle = styled.h2`
     text-align: center;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
-    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    font-size: ${14}px;
+    line-height: ${24}px;
     margin-bottom: 0;
     padding-top: 10px;
     order: 1;
     text-align: left;
+    
   }
 `;
 
@@ -196,8 +197,8 @@ export const DescriptionParagraph = styled.p`
     text-align: center;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${TEXT_FONT_SIZE_MOBILE}px;
-    line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
+    font-size: ${14}px;
+    line-height: ${24}px;
     margin-bottom: 40px;
     text-align: left;
     order: 2;

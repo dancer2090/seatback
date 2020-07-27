@@ -37,12 +37,12 @@ export const GlobalContainer = styled.div`
 
     @media (max-width: ${600}px) {
       width: 2506px;
-      left: calc(50% - 1300px);
+      left: calc(50% - 1250px);
     }
 
     @media (max-width: ${450}px) {
-      width: 1506px;
-      left: calc(50% - 750px);
+      width: 1606px;
+      left: calc(50% - 800px);
     }
 
     
@@ -107,6 +107,9 @@ export const MenuContainer = styled.nav`
     justify-content: center;
     align-items: flex-start;
     padding-bottom: 150px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-bottom: 80px;
   }
 `;
 export const MenuColumnHeader = styled.div`

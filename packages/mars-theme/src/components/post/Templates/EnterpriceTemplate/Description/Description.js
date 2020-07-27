@@ -12,6 +12,7 @@ import {
   Action,
   Image,
   GlobalContainer,
+  BoxDescription,
 } from './styles';
 
 const Description = ({
@@ -45,7 +46,7 @@ const Description = ({
                 </Image>
               )}
             </Wow>
-            <div>
+            <BoxDescription>
               {d.thumbnail.length > 0 && (
                 <SubTitle alignImage={d.alignimage}>{d.thumbnail}</SubTitle>
               )}
@@ -64,7 +65,7 @@ const Description = ({
                   </Link>
                 )}
               </Action>
-            </div>
+            </BoxDescription>
           </Container>
         ))}
     </GlobalContainer>

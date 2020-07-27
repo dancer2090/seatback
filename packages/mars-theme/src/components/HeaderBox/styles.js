@@ -52,10 +52,15 @@ export const HeaderFooter = styled.div`
       @media (max-width: ${SIZE_MOBILE}px) {
         margin-left: auto;
         margin-right: auto;
+        width: 100%;
       }
 
       button {
         margin-right: 0;
+        @media (max-width: ${SIZE_MOBILE}px) {
+          width: 100%;
+          margin-top: 20px !important;
+        }
       }
     }
   `}
@@ -68,6 +73,9 @@ export const HeaderBoxContainer = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     flex-wrap: wrap;
     padding-top: 100px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 40px;
   }
 `;
 export const DescriptionBox = styled.div`
@@ -145,6 +153,9 @@ export const DescriptionBox = styled.div`
       line-height: 42px;
       text-align: center;
       max-width: 100%;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      color: ${(props) => (props.mode === 'dark' ? '#52DE97' : '#2E293C')};
     }
   }
   button {
@@ -473,6 +484,16 @@ export const GlobalContainer = styled.div`
     ? 'calc(50% - 1503px)'
     : 'calc(50% - 1870px)')};
     z-index: -1;
+
+    @media (max-width: ${600}px) {
+      width: 2506px;
+      left: calc(50% - 1250px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1606px;
+      left: calc(50% - 800px);
+    }
   }
   &:before{
     content: ' ';

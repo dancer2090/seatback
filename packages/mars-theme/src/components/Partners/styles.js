@@ -43,7 +43,7 @@ export const Container = styled.div`
   }
 
   @media(max-width: ${SIZE_MOBILE}px) {
-    padding-top: 130px;
+    padding-top: 80px;
   }
 `;
 
@@ -78,8 +78,9 @@ export const Title = styled.h2`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
-    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
-    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+    font-size: ${26}px;
+    line-height: ${36}px;
+    font-weight: bold;
   }
 `;
 
