@@ -68,7 +68,7 @@ const List = ({ state, actions }) => {
       </div>
 
       <Action>
-        <Button hidden={loadMoreHidden} onClick={() => loadMore1()}>
+        <Button mobile hidden={loadMoreHidden} onClick={() => loadMore1()}>
           Load More
         </Button>
       </Action>

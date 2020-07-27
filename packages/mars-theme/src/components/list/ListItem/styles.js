@@ -17,6 +17,10 @@ export const ItemBox = styled.div`
   @media (max-width: ${SIZE_LAPTOP}px) {
     width: 100%;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 `;
 
 export const ItemContentBox = styled.div`
@@ -37,6 +41,7 @@ export const ItemContentBox = styled.div`
   }
   @media (max-width: ${SIZE_MOBILE}px) {
     height: 380px;
+    border-radius: 8px 8px 8px 8px;
   }
 `;
 
@@ -66,13 +71,20 @@ export const ItemDescriptionBox = styled.div`
   align-items: center;
   z-index: 1;
 
+  @media (max-width: ${SIZE_MOBILE}px) {
+    border-radius: 0px 0px 7px 7px;
+    padding: 16px;
+    min-height: auto;
+  }
   > div {
     position: relative;
     width: 100%;
     height: 100%;
     padding-right: 100px;
+    display: flex;
+    flex-wrap: wrap;
     @media (max-width: ${SIZE_MOBILE}px) {
-      padding-right: 80px;
+      padding-right: 40px;      
     }
   }
 
@@ -86,6 +98,7 @@ export const ItemDescriptionBox = styled.div`
     font-weight: 400;
     margin: 0;
     padding-top: 12px;
+    width: 100%;
 
     @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
       font-size: 22px;
@@ -96,8 +109,12 @@ export const ItemDescriptionBox = styled.div`
       line-height: 24px;
     }
     @media (max-width: ${SIZE_MOBILE}px) {
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 14px;
+      line-height: 24px;
+      order: 2;
+      color: #2E293C;
+      font-weight: bold;
+      padding-top: 8px;
     }
 
     a {
@@ -109,6 +126,7 @@ export const ItemDescriptionBox = styled.div`
   }
 
   p {
+    width: 100%;
     text-align: left;
     letter-spacing: 0px;
     color: #2e293c;
@@ -128,12 +146,15 @@ export const ItemDescriptionBox = styled.div`
       line-height: 20px;
     }
     @media (max-width: ${SIZE_MOBILE}px) {
-      font-size: 14px;
-      line-height: 20px;
+      font-size: 12px;
+      line-height: 15px;
+      order: 1;
+      padding-top: 0;
     }
   }
 `;
 export const Date = styled.time`
+  width: 100%;
   text-align: left;
   display: block;
   width: 100%;
@@ -148,7 +169,10 @@ export const Date = styled.time`
 
   @media (max-width: ${SIZE_MOBILE}px) {
     font-size: 12px;
-    line-height: 20px;
+    line-height: 15px;
+    order: 3;
+    color: #2E293C;
+    padding-top: 38px;
   }
 `;
 export const Author = styled.div`
@@ -156,6 +180,9 @@ export const Author = styled.div`
   right: 0;
   bottom: -10px;
   width: 320px;
+  @media (max-width: ${SIZE_MOBILE}px) {
+    bottom: 0;
+  }
 `;
 export const AuthorName = styled.div`
   font-size: 20px;
@@ -177,7 +204,7 @@ export const AuthorName = styled.div`
   }
   @media (max-width: ${SIZE_MOBILE}px) {
     font-size: 12px;
-    line-height: 20px;
+    line-height: 15px;
   }
 `;
 export const AuthorImage = styled.div`
@@ -193,5 +220,6 @@ export const AuthorImage = styled.div`
   @media (max-width: ${SIZE_MOBILE}px) {
     width: 50px;
     height: 50px;
+    display: none;
   }
 `;

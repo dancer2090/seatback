@@ -25,6 +25,16 @@ export const GlobalContainer = styled.div`
     top: 0;
     left: calc(50% - 1150px);
     z-index: -1;
+    
+    @media (max-width: ${600}px) {
+      width: 2506px;
+      left: calc(50% - 1250px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1606px;
+      left: calc(50% - 800px);
+    }
   }
   &:before {
     content: " ";
@@ -40,7 +50,7 @@ export const GlobalContainer = styled.div`
     /* padding-top: 139px; */
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    /* padding-top: 91px; */
+    padding-top: 40px;
   }
 `;
 

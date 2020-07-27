@@ -156,6 +156,8 @@ export const DescriptionBox = styled.div`
     }
     @media (max-width: ${SIZE_MOBILE}px) {
       color: ${(props) => (props.mode === 'dark' ? '#52DE97' : '#2E293C')};
+      font-size: 26px;
+      line-height: 36px;
     }
   }
   button {
@@ -186,10 +188,14 @@ export const DescriptionBox = styled.div`
     }
     @media (max-width: ${SIZE_LAPTOP}px) {
       width: 100%;
-      font-size: 18px;
-      line-height: 32px;
+      font-size: 14px;
+      line-height: 24px;
       text-align: center;
+      padding-top: 20px;
     }
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-bottom: 40px;
   }
 `;
 
@@ -304,7 +310,7 @@ export const BannerArticlesDescription = styled.div`
   padding: 30px;
 
   @media (max-width: ${SIZE_MOBILE}px) {
-    padding: 20px;
+    padding: 16px;
     height: auto;
   }
 
@@ -342,8 +348,9 @@ export const BannerArticlesDescription = styled.div`
       line-height: 24px;
     }
     @media (max-width: ${SIZE_MOBILE}px) {
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: 800;
     }
   }
   p {
@@ -367,6 +374,7 @@ export const BannerArticlesDescription = styled.div`
     @media (max-width: ${SIZE_MOBILE}px) {
       font-size: 14px;
       line-height: 20px;
+      display: none;
     }
   }
 
@@ -414,6 +422,9 @@ export const BannerArticlesDescription = styled.div`
         content: url(${RightArrow});
       }
     }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      display: none;
+    }
   }
 `;
 
@@ -452,6 +463,14 @@ export const New = styled.div`
     line-height: 28px;
     width: 110px;
     height: 45px;
+  }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 4px;
+    width: 64px;
+    height: 26px;
+    opacity: 0.65;
   }
 `;
 
