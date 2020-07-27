@@ -31,9 +31,21 @@ export const GlobalContainer = styled.div`
     left: calc(50% - 1800px);
     z-index: -1;
 
-    @media (max-width: ${SIZE_MOBILE}px) {
+    /* @media (max-width: ${SIZE_MOBILE}px) {
       left: calc(50% - 1500px);
+    } */
+
+    @media (max-width: ${600}px) {
+      width: 2506px;
+      left: calc(50% - 1300px);
     }
+
+    @media (max-width: ${450}px) {
+      width: 1506px;
+      left: calc(50% - 750px);
+    }
+
+    
   }
   &:before{
     content: ' ';
@@ -166,12 +178,16 @@ export const MenuColumn = styled.div`
 export const FooterActions = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
     /* flex-wrap: wrap; */
     /* justify-content: space-between; */
   }
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -203,7 +219,7 @@ export const SocialsHeader = styled.div`
   }
 `;
 export const SocialsRow = styled.div`
-  display: block;
+  display: flex;
   margin-left: -20px;
   margin-right: -20px;
   margin-top: 40px;

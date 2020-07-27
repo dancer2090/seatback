@@ -41,6 +41,7 @@ export const Title = styled.div`
 export const FormContainer = styled.form`
   position: relative;
   display: flex;
+  max-width: 700px;
   ${(props) => props.preload && css`
     &:after{
       content: ' ';
@@ -53,11 +54,11 @@ export const FormContainer = styled.form`
     }
   `}
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
-    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   @media (max-width: ${SIZE_MOBILE}px) {
+    flex-direction: column;
     width: 100%;
   }
 `;
@@ -169,7 +170,7 @@ export const FormInput = styled.input`
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_1}px) {
     font-size: ${TEXT_FONT_SIZE_DESCTOP_MEDIUM_1}px;
     line-height: ${TEXT_LINE_HEIGHT_DESCTOP_MEDIUM_1}px;
-    height: 60px;
+    height: 52px;
     padding-left:25px;
     padding-right:25px;
 
@@ -215,6 +216,10 @@ export const BBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
+    padding-top: 35px;
+  }
 
   @media (max-width: ${SIZE_MOBILE}px) {
     margin: 0;

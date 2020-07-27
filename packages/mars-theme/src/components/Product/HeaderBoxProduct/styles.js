@@ -291,9 +291,14 @@ export const GlobalContainer = styled.div`
     left: calc(50% - 1503px);
     z-index: -1;
 
-    @media (max-width: ${SIZE_MOBILE}px) {
-      width: 1506px;
+    @media (max-width: ${600}px) {
       bottom: 200px;
+      width: 2506px;
+      left: calc(50% - 1300px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1506px;
       left: calc(50% - 750px);
     }
   }

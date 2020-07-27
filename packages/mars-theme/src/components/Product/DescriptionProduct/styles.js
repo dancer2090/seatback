@@ -43,6 +43,16 @@ export const GlobalContainer = styled.div`
     top: 0px;
     left: calc(50% - 1800px);
     z-index: 1;
+
+    @media (max-width: ${600}px) {
+      width: 2506px;
+      left: calc(50% - 1300px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1506px;
+      left: calc(50% - 750px);
+    }
   }
   &:before {
     content: " ";
