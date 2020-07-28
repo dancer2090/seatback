@@ -20,6 +20,7 @@ const marsTheme = {
      * relevant state. It is scoped to the `theme` namespace.
      */
     theme: {
+      screenWidth: 1440,
       isMobileMenuOpen: false,
       featured: {
         showOnList: false,
@@ -33,6 +34,9 @@ const marsTheme = {
    */
   actions: {
     theme: {
+      setScreenWidth: ({ state }) => (width) => {
+        state.theme.screenWidth = width;
+      },
       init: ({ libraries }) => {
         libraries.source.handlers.push(anunciantesHandler);
       },

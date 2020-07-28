@@ -26,9 +26,11 @@ const Wow = ({
 
   const { children } = props;
 
+  const isMobile = state.theme.screenWidth <= 600;
+
   return (
     <>
-      {!isDone ? (
+      {!isDone && !isMobile ? (
         <ReactWOW
           animateClass="animated"
           iteration={iteration || '1'}

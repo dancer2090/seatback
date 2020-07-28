@@ -178,6 +178,11 @@ export const Description = styled.div`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     margin-bottom: 35px;
-    padding: 55px 5px 25px 5px;
+    padding: 55px 30px 25px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 `;

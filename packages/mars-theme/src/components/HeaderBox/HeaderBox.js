@@ -58,6 +58,7 @@ const HeaderBox = ({
       mode={selectedMode}
       type_header={type_header}
       paddingBottom={paddingBottom}
+      template={template}
     >
       <Container>
         <HeaderBoxContainer type_header={type_header}>

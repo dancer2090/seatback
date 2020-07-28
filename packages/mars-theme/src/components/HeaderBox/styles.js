@@ -33,6 +33,22 @@ export const HeaderFooter = styled.div`
     text-align: center;
   }
 
+  a {
+    @media (max-width: ${SIZE_MOBILE}px) {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    button {
+      margin-right: 0;
+      @media (max-width: ${SIZE_MOBILE}px) {
+        width: 100%;
+        margin-top: 28px !important;
+      }
+    }
+  }
+
   ${props => props.template === 'page-enterprice.php' && css`
     button {
       height: 58px;
@@ -513,6 +529,19 @@ export const GlobalContainer = styled.div`
       width: 1606px;
       left: calc(50% - 800px);
     }
+
+    ${props => props.template === 'page-special_page.php' && css`
+      @media (max-width: ${600}px) {
+        bottom: 150px;
+        width: 2506px;
+        left: calc(50% - 1250px);
+      }
+
+      @media (max-width: ${450}px) {
+        width: 1606px;
+        left: calc(50% - 800px);
+      }
+    `}
   }
   &:before{
     content: ' ';

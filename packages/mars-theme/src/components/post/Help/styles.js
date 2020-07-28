@@ -22,7 +22,6 @@ import {
   TEXT_FONT_SIZE_MOBILE,
   TEXT_LINE_HEIGHT_MOBILE,
 } from '../../../const/responsive';
-import { ItemBox } from '../../list/ListItem/styles';
 
 
 export const Container = styled.div`
@@ -91,8 +90,10 @@ export const Title = styled.h2`
     max-width: 100%;
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-    font-size: ${HEADER_FONT_SIZE_MOBILE}px;
-    line-height: ${HEADER_LINE_HEIGHT_MOBILE}px;
+    font-size: ${26}px;
+    line-height: ${36}px;
+    font-weight: bold;
+    padding-top: 20px;
   }
 `;
 
@@ -104,6 +105,9 @@ export const Blocks = styled.div`
   flex-wrap: wrap;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
      padding-top: 30px;
+  }
+  @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
+     padding-top: 0;
   }
 `;
 
@@ -118,6 +122,9 @@ export const Block = styled.div`
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     width: 100%;
+    margin-top: 82px;
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
@@ -150,7 +157,7 @@ export const Icon = styled.div`
   color: #fff;
 
   @media (max-width: ${SIZE_MOBILE}px) {
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
 `;
 
@@ -177,6 +184,18 @@ export const Description = styled.div`
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;
     margin-bottom: 35px;
-    padding: 55px 5px 25px 5px;
+    padding: 55px 30px 25px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    br {
+      content: " ";  
+      float:right;
+      display: none;
+    }  
+
   }
 `;

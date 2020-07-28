@@ -10,6 +10,8 @@ import ImageLinkedIn from '../../../../img/linkedin.svg';
 import ListItem from '../../../list/ListItem';
 
 import {
+  HeaderBoxSection,
+  HeaderBoxSectionMobile,
   Container,
   HeaderContent,
   HeaderAuthor,
@@ -22,6 +24,13 @@ import {
   LinkShareContainer,
   ListBox,
   AdditionalBlock,
+  MobileDateTime,
+  MobileDate,
+  MobileTime,
+  MobileTitle,
+  MobileAuthor,
+  MobileSocial,
+  MobilePicture,
 } from './styles';
 
 const StandartTemplate = ({ state, actions, libraries }) => {
@@ -45,7 +54,7 @@ const StandartTemplate = ({ state, actions, libraries }) => {
   const mediaUrl = (typeof mediaObj === 'object') ? mediaObj.source_url : '';
 
   const scrollControl = () => {
-    if (contentRef) {
+    if (contentRef && contentRef.current) {
       const contentTop = contentRef.current.offsetTop;
       const contentBottom = contentTop + contentRef.current.offsetHeight;
       if (window.pageYOffset - contentTop < -160 || contentBottom - window.pageYOffset < 400) {
@@ -70,16 +79,48 @@ const StandartTemplate = ({ state, actions, libraries }) => {
 
   return (
     <>
-      <HeaderBox
-        title={title}
-        isArchive={isArchive}
-        image={mediaUrl}
-        scrollRef={contentRef}
-        template={template}
-        button={button}
-        description={description}
-        type_header={typeHeader}
-      />
+      <HeaderBoxSection>
+        <HeaderBox
+          title={title}
+          isArchive={isArchive}
+          image={mediaUrl}
+          scrollRef={contentRef}
+          template={template}
+          button={button}
+          description={description}
+          type_header={typeHeader}
+        />
+      </HeaderBoxSection>
+      <HeaderBoxSectionMobile>
+        <MobileDateTime>
+          <MobileTime>
+            {post.acf.time_read > 0
+              && `${post.acf.time_read} min read`}
+          </MobileTime>
+          <MobileDate>
+            {dateString}
+          </MobileDate>
+        </MobileDateTime>
+        <MobileTitle>
+          {post.title.rendered}
+        </MobileTitle>
+        <MobileAuthor>
+          {author.acf && author.acf.author_name}
+        </MobileAuthor>
+        <MobileSocial>
+          <LinkShare
+            href={`https://www.linkedin.com/shareArticle?mini=true&url=${state.frontity.url}${post.link}&title=${post.title.rendered}&source=LinkedIn`}
+          >
+            <img alt="likedin" src={ImageLinkedIn} />
+          </LinkShare>
+          <LinkShare
+            href={`http://www.facebook.com/sharer.php?s=100&amp;p[url]=${state.frontity.url}${post.link}&amp;p[title]=${post.title.rendered}&amp;p[summary]=&amp;`}
+          >
+            <img alt="facebook" src={ImageFacebook} />
+          </LinkShare>
+        </MobileSocial>
+        <MobilePicture src={mediaUrl} />
+      </HeaderBoxSectionMobile>
       <Container>
         <HeaderContent>
           <HeaderAuthor>

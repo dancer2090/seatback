@@ -46,7 +46,11 @@ const FullMenu = ({
     actions.router.set(link);
     window.scrollTo(0, 0);
   };
-  const updateWidth = (width) => (width < 1200 ? setFullMenu(true) : setFullMenu(false));
+  const updateWidth = (width) => {
+    const isDesctop = width < 1200;
+    setFullMenu(isDesctop);
+    actions.theme.setScreenWidth(width);
+  }
   return (
     <ReactResizeDetector
       handleWidth

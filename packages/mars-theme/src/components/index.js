@@ -20,6 +20,7 @@ import { globalStyles, SiteContainer } from './globalStyles';
  * in roots.
  */
 const Theme = ({ state }) => {
+  console.log(state.theme.screenWidth);
   const data = state.source.get(state.router.link);
   const post1 = ((state.source[data.type] && state.source[data.type][data.id]) ? state.source[data.type][data.id] : {});
   const { acf={} } = post1;

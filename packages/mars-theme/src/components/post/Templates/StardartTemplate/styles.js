@@ -71,6 +71,7 @@ export const HeaderContent = styled.div`
 
   @media (max-width: ${SIZE_MOBILE}px) {
     margin-top: 30px;
+    display: none;
   }
 `;
 export const HeaderAuthor = styled.div`
@@ -175,7 +176,6 @@ export const LinkShareContainer = styled.div`
      
     }
     @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-      
     }
   `}
 
@@ -184,6 +184,10 @@ export const LinkShareContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  }
+
+  @media(max-width: ${SIZE_MOBILE}px) {
+    display: none;
   }
 `;
 export const LinkShare = styled.a`
@@ -254,7 +258,8 @@ export const PostContentText = styled.div`
   }
   @media(max-width: ${SIZE_MOBILE}px) {
     font-size: 14px;
-    line-height: 28px;
+    line-height: 24px;
+    padding-top: 80px;
   }
 
   a {
@@ -356,7 +361,7 @@ export const PostContentText = styled.div`
       line-height: 42px;
     }
     @media(max-width: ${SIZE_MOBILE}px) {
-      font-size: 24px;
+      font-size: 26px;
       line-height: 36px;
       margin-top: ${POST_MARGIN_MOBILE}px;
     }
@@ -622,4 +627,91 @@ export const CircleContainer = styled.div`
     background: #F5F6FA;
   `}
 
+`;
+
+
+export const HeaderBoxSection = styled.div`
+  @media (max-width: ${SIZE_MOBILE}px) {
+    display: none;
+  }
+`;
+
+export const HeaderBoxSectionMobile = styled.div`
+  display: none;
+
+
+  
+  @media (max-width: ${SIZE_MOBILE}px) {
+    display: block;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+`;
+
+export const MobileDateTime = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+`;
+
+export const MobileDate = styled.div`
+  font-size: 14px;
+  line-height: 24px;
+  color: #A09D9D;
+  font-weight: 400;
+`;
+
+export const MobileTime = styled.div`
+  font-size: 14px;
+  line-height: 24px;
+  color: #A09D9D;
+  font-weight: 400;
+`;
+
+export const MobileTitle = styled.h1`
+  color: #2E293C;
+  font-size: 26px;
+  line-height: 36px;
+  padding-top: 10px;
+  margin: 0;
+`;
+
+export const MobileAuthor = styled.div`
+  color: #A09D9D;
+  font-size: 14px;
+  line-height: 24px;
+  padding-top: 10px;
+`;
+
+
+export const MobileSocial = styled.div`
+  padding-top: 18px;
+  display: flex;
+
+  ${LinkShare} {
+    margin-left: 10px;
+    margin-top: 0;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+    transform: scale(1);
+    img {
+      width: 30px;
+    }
+  }
+
+`;
+
+export const MobilePicture = styled.div`
+  margin-top: 19px;
+  width: 100%;
+  height: 226px;
+  border-radius: 8px !important;
+  background-size: cover;
+  background-image: url(${(props) => (props.src
+    ? props.src
+    : 'https://i.picsum.photos/id/866/1200/1000.jpg')});
 `;

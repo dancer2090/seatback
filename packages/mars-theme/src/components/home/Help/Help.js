@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { connect } from 'frontity';
+import Equalizer from 'react-equalizer';
 import Wow from '../../Wow';
 import {
   Container,
@@ -31,20 +32,22 @@ const Help = ({ state, libraries }) => {
         </Title>
       </Wow>
       <Blocks>
-        {bo.length > 0 && bo.map((item, key) => (
-          <Wow animation="slideUp" delay={`${(key * 0.3) + 0.3}s`} key={key}>
-            <Block key={key}>
-              <BlockContent>
-                <Icon>
-                  <img src={item.image.url} alt="description attribute" />
-                </Icon>
-                <Description>
-                  <Html2React html={item.text} />
-                </Description>
-              </BlockContent>
-            </Block>
-          </Wow>
-        ))}
+        <Equalizer byRow={false}>
+          {bo.length > 0 && bo.map((item, key) => (
+            <Wow animation="slideUp" delay={`${(key * 0.3) + 0.3}s`} key={key}>
+              <Block key={key}>
+                <BlockContent>
+                  <Icon>
+                    <img src={item.image.url} alt="description attribute" />
+                  </Icon>
+                  <Description>
+                    <Html2React html={item.text} />
+                  </Description>
+                </BlockContent>
+              </Block>
+            </Wow>
+          ))}
+        </Equalizer>
       </Blocks>
     </Container>
   );
