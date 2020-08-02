@@ -17,6 +17,7 @@ export const MobileButton = styled.li`
   padding-top: 40px;
   padding-bottom: 40px;
   width: 100%;
+  padding-right: 20px;
 `;
 
 export const NavContainer = styled.ul`
@@ -99,7 +100,7 @@ export const NavItem = styled.li`
     }
   }
 
-  & > ul {
+  & > div > ul {
     width: 100%;
     min-width: 200px;
     margin: 0;
@@ -148,13 +149,9 @@ export const NavItem = styled.li`
 `;
 
 export const ResposnsiveMenu = styled.div`
-  position: static;
-  top: ${HEADER_HEIGHT}px;
-  right: 0;
-  z-index: 102;
+  position: initial;
   display: block; 
-  top: ${HEADER_HEIGHT}px;
-  width: 100%;
+  margin-right: -20px;
 `;
 
 export const SubMenu = styled.ul`
@@ -162,6 +159,7 @@ export const SubMenu = styled.ul`
   height: 0;
   opacity: 0;
   z-index: -1;
+  padding-top: 10px !important;
   ${props => props.isOpen && css`
     height: auto;
     opacity: 1;

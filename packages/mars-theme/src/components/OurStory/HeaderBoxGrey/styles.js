@@ -33,6 +33,9 @@ export const HeaderBoxContainer = styled.div`
     flex-wrap: wrap;
     padding-top: 100px;
   }
+  @media (max-width: ${SIZE_MOBILE}px) {
+    padding-top: 40px;
+  }
 `;
 export const DescriptionBox = styled.div`
   display: flex;
@@ -49,6 +52,9 @@ export const DescriptionBox = styled.div`
     padding-right: 0;
   }
 
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    padding-bottom: 0;
+  }
   &:before{
     content:' ';
     width: 322px;
@@ -103,6 +109,12 @@ export const DescriptionBox = styled.div`
       line-height: 42px;
       text-align: center;
       max-width: 100%;
+    }
+    @media (max-width: ${SIZE_MOBILE}px) {
+      font-size: 26px;
+      line-height: 27px;
+      text-align: left;
+      justify-content: flex-start;
     }
   }
   button{
@@ -186,6 +198,9 @@ export const GlobalContainer = styled.div`
     & h1{
       text-align: center;
       max-width: 100%;
+      @media (max-width: ${SIZE_MOBILE}px) {
+        text-align: left; 
+      }
     }
     & p{
       text-align: center;
@@ -193,10 +208,10 @@ export const GlobalContainer = styled.div`
     }
   }
   @media (max-width: ${SIZE_DESCTOP_MEDIUM_2}px) {
-    /* padding-top: 139px; */
+
   }
   @media (max-width: ${SIZE_MOBILE}px) {
-    /* padding-top: 91px; */
+    padding-bottom: 20px;
   }
   
 `;

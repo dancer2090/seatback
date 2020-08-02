@@ -1,4 +1,4 @@
-import { styled } from 'frontity';
+import { styled, css } from 'frontity';
 import {
   PADDING_DESCTOP_LARGE,
   PADDING_DESCTOP_MEDIUM_2,
@@ -61,6 +61,10 @@ export const Container = styled.div`
     padding-right: ${PADDING_MOBILE}px;
     padding-top: 50px;
     padding-bottom: 50px;
+
+    ${(props) => props.isDemoPage && css`
+      padding-top: 0;
+    `}
   }
 `;
 
@@ -105,9 +109,20 @@ export const Blocks = styled.div`
   flex-wrap: wrap;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
      padding-top: 30px;
+     flex-wrap: wrap;
   }
   @media (max-width: ${SIZE_DESCTOP_SMALL}px) {
      padding-top: 0;
+  }
+
+  > div {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+     padding-top: 30px;
+     flex-wrap: wrap;
+    }
   }
 `;
 
@@ -180,6 +195,15 @@ export const Description = styled.div`
     max-width: 100%;
     text-align: center;
   }
+
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    br {
+      content: " ";  
+      float:right;
+      display: none;
+    }  
+  }
+  
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;

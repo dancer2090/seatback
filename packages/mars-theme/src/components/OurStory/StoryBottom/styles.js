@@ -21,6 +21,17 @@ export const GlobalContainer = styled.div`
     top: 230px;
     left: calc(50% - 1503px);
     z-index: -1;
+
+    @media (max-width: ${600}px) {
+      top: 130px;
+      width: 2506px;
+      left: calc(50% - 1250px);
+    }
+
+    @media (max-width: ${450}px) {
+      width: 1606px;
+      left: calc(50% - 800px);
+    }
   }
   &:before{
     content: ' ';
@@ -87,10 +98,19 @@ export const ImageContainer = styled.div`
     }
   }
 
+  @media (max-width: ${SIZE_MOBILE}px) {
+    height: 266px;
+  }
+
 `;
 
 export const Image = styled.img`
   width: 100%;
+  @media (max-width: 500px) {
+    margin-left: -150px;
+    width: calc(100% + 300px);
+  }
+
 `;
 
 export const Title = styled.h2`

@@ -145,6 +145,13 @@ export const Description = styled.div`
     max-width: 100%;
     text-align: center;
   }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    br {
+      content: " ";  
+      float:right;
+      display: none;
+    }  
+  }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;
     line-height: ${TEXT_LINE_HEIGHT_MOBILE}px;

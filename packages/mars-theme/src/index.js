@@ -20,7 +20,7 @@ const marsTheme = {
      * relevant state. It is scoped to the `theme` namespace.
      */
     theme: {
-      screenWidth: 1440,
+      screenWidth: 0,
       isMobileMenuOpen: false,
       featured: {
         showOnList: false,

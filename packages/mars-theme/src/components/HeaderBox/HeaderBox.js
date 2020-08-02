@@ -36,7 +36,8 @@ const HeaderBox = ({
   paddingBottom = '185',
   longTitle = false,
   horisontalImage = 'center',
-  heightImage='507',
+  heightImage = '507',
+  isDemoPage = false,
 }) => {
   const scrollToRef = () => (
     scrollRef
@@ -59,6 +60,7 @@ const HeaderBox = ({
       type_header={type_header}
       paddingBottom={paddingBottom}
       template={template}
+      isDemoPage={isDemoPage}
     >
       <Container>
         <HeaderBoxContainer type_header={type_header}>

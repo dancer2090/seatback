@@ -541,7 +541,12 @@ export const GlobalContainer = styled.div`
         width: 1606px;
         left: calc(50% - 800px);
       }
-    `}
+    `};
+    ${props => props.isDemoPage && css`
+      @media (max-width: ${600}px) {
+        bottom: 0px;
+      }
+    `};
   }
   &:before{
     content: ' ';
@@ -593,7 +598,11 @@ export const GlobalContainer = styled.div`
   @media (max-width: ${SIZE_MOBILE}px) {
     /* padding-top: 91px; */
   }
-  
+  ${props => props.isDemoPage && css`
+    @media (max-width: ${SIZE_MOBILE}px) {
+      padding-bottom: 10px;
+    }
+  `}
 `;
 
 export const Container = styled.div`

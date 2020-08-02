@@ -26,7 +26,7 @@ const Wow = ({
 
   const { children } = props;
 
-  const isMobile = state.theme.screenWidth <= 600;
+  const isMobile = state.theme.screenWidth <= 768;
 
   return (
     <>
@@ -41,7 +41,7 @@ const Wow = ({
         />
       ) : (
         <>
-          {children}
+          {state.theme.screenWidth > 0 && children}
         </>
       )}
     </>

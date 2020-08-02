@@ -54,9 +54,10 @@ const SpecialTemplate = ({ state }) => {
         heightImage={heightImage}
         horisontalImage={horisontalImage}
         paddingBottom={paddingBottom}
+        isDemoPage
       />
       <CircleContainer ref={contentRef} mode={typeBg}>
-        <Help title={helpHeader} items={helpItems} />
+        <Help isDemoPage title={helpHeader} items={helpItems} />
       </CircleContainer>
       <div ref={fromRef}>
         {form && (

@@ -93,6 +93,7 @@ export const Container = styled.div`
   @media (max-width: ${SIZE_MOBILE}px) {
     padding-left: ${PADDING_MOBILE}px;
     padding-right: ${PADDING_MOBILE}px;
+    padding-top: 20px;
   }
 
 `;

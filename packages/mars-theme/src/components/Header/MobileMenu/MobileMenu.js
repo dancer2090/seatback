@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'frontity';
 import Link from '../../link';
 import Button from '../../Button';
+import Collapse from './Collapse';
 import {
   NavContainer,
   NavItem,
@@ -57,20 +58,21 @@ const MobileMenu = ({
                     </Link>
                   </span>
                 ) : (
-                  <span onClick={() => clickSubMenu(key)}>
-                    <Html2React html={`${i.title} ${i.child_items && i.child_items.length > 0 ? ' › ' : ''}`} />
-                  </span>
-                )}
-                {i.child_items && i.child_items.length > 0 && (
-                  <SubMenu isOpen={activeMenu === key}>
-                    {i.child_items.map((cItem, ckey) => (
-                      <li key={ckey} onClick={() => clickLink(cItem.urlFrontity)}>
-                        <Link link={cItem.urlFrontity}>
-                          <Html2React html={`${cItem.title}`} />
-                        </Link>
-                      </li>
-                    ))}
-                  </SubMenu>
+                  <>
+                    {i.child_items && i.child_items.length > 0 && (
+                      <Collapse i={i} key={key}>
+                        <SubMenu isOpen>
+                          {i.child_items.map((cItem, ckey) => (
+                            <li key={ckey} onClick={() => clickLink(cItem.urlFrontity)}>
+                              <Link link={cItem.urlFrontity}>
+                                <Html2React html={`${cItem.title}`} />
+                              </Link>
+                            </li>
+                          ))}
+                        </SubMenu>
+                      </Collapse>
+                    )}
+                  </>
                 )}
               </NavItem>
             ))}

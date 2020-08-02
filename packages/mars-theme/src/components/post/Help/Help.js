@@ -19,13 +19,14 @@ const Help = ({
   libraries,
   title = '',
   items = [],
+  isDemoPage = false,
 }) => {
   const Html2React = libraries.html2react.Component;
 
   
 
   return (
-    <Container>
+    <Container isDemoPage>
       {title !== '' && (
         <Title>
           <Html2React html={title} />

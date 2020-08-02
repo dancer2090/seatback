@@ -105,10 +105,20 @@ export const Blocks = styled.div`
   align-items: stretch;
   justify-content: center;
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
-    flex-wrap: wrap;
-  }
-  @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
      padding-top: 30px;
+     flex-wrap: wrap;
+  }
+  @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
+  }
+
+  > div {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
+     padding-top: 30px;
+     flex-wrap: wrap;
+    }
   }
 `;
 
@@ -173,6 +183,13 @@ export const Description = styled.div`
   @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
     max-width: 100%;
     text-align: center;
+  }
+  @media (max-width: ${SIZE_LAPTOP}px) {
+    br {
+      content: " ";  
+      float:right;
+      display: none;
+    }  
   }
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     font-size: ${TEXT_FONT_SIZE_MOBILE}px;

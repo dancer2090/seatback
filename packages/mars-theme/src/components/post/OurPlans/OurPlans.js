@@ -2,10 +2,11 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'frontity';
-import Link from '../../link';
+import Slider from 'react-slick';
 import Button from '../../Button';
+import CkeckCircle from '../../../img/checkmark-circle.svg';
 import {
   GlobalContainer,
   Container,
@@ -18,8 +19,12 @@ import {
   ColumnName,
   Cell,
   HiddenHeader,
+  PlansContainerMobile,
+  SlickContainer,
+  Item,
+  ItemTitleBox,
+  CheckboxConteiner,
 } from './styles';
-import CkeckCircle from '../../../img/checkmark-circle.svg';
 
 const OurPlans = ({ libraries, title = '', plans = [], state, formRef }) => {
   const nullPlans = [];
@@ -41,16 +46,32 @@ const OurPlans = ({ libraries, title = '', plans = [], state, formRef }) => {
       })
       : null
   );
-  const setPlan = (key = 0) => {
+  const setPlan = (key = 0, isSlider = false) => {
     const timePlans = [];
     plans.forEach((plan, j) => {
       if (key === j) timePlans.push(true);
       else timePlans.push(false);
     });
     setPlanActive(timePlans);
-    scrollToRef();
+    if (!isSlider) scrollToRef();
   };
 
+  useEffect(() => {
+    setPlan(2, true);
+  }, []);
+
+  const settings = {
+    initialSlide: 2,
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    centerMode: true,
+    centerPadding: '29px',
+    beforeChange: (current, next) => setPlan(next, true),
+  };
 
   state.seatbackapi.plans = plans;
 
@@ -94,7 +115,7 @@ const OurPlans = ({ libraries, title = '', plans = [], state, formRef }) => {
                   <Button onClick={() => setPlan(key)}>
                     {' '}
                     {plan.button.title}
-                    {' '}
+                    {' '} 
                   </Button>
                 )}
               </ColumnName>
@@ -125,6 +146,65 @@ const OurPlans = ({ libraries, title = '', plans = [], state, formRef }) => {
             </PlansColumn2>
           ))}
         </PlansContainer>
+        <PlansContainerMobile>
+          <SlickContainer>
+            <Slider {...settings}>
+              {plans.length > 0 && plans.map((plan, key) => (
+                <Item
+                  active={planActive[key]}
+                  background={plan.bg}
+                  onClick={() => setPlan(key)}
+                  key={key}
+                >
+                  <ItemTitleBox
+                    active={planActive[key]}
+                    background={plan.bg}
+                  >
+                    <h3>{plan.name}</h3>
+                    <Button
+                      onClick={() => setPlan(key)}
+                      mobile
+                    >
+                      {plan.button.title}
+                    </Button>
+                  </ItemTitleBox>
+                  <Cell background={plan.bg}>
+                    <HiddenHeader>Seatback Content SaaS Platform</HiddenHeader>
+                    <CheckboxConteiner>
+                      {plan.saas && (
+                        <img alt="description attribute" src={CkeckCircle} />
+                      )}
+                    </CheckboxConteiner>
+                  </Cell>
+                  <Cell background={plan.bg}>
+                    <HiddenHeader>Chair / Portable</HiddenHeader>
+                    <CheckboxConteiner>
+                      {plan.chair && (
+                        <img alt="description attribute" src={CkeckCircle} />
+                      )}
+                    </CheckboxConteiner>
+                  </Cell>
+                  <Cell background={plan.bg}>
+                    <HiddenHeader>Smart Watch</HiddenHeader>
+                    <CheckboxConteiner>
+                      {plan.watch && (
+                        <img alt="description attribute" src={CkeckCircle} />
+                      )}
+                    </CheckboxConteiner>
+                  </Cell>
+                  <Cell background={plan.bg}>
+                    <HiddenHeader>Wellness Class</HiddenHeader>
+                    <CheckboxConteiner>
+                      {plan.weliness && (
+                        <img alt="description attribute" src={CkeckCircle} />
+                      )}
+                    </CheckboxConteiner>
+                  </Cell>
+                </Item>
+              ))}
+            </Slider>
+          </SlickContainer>
+        </PlansContainerMobile>
       </Container>
     </GlobalContainer>
   );
