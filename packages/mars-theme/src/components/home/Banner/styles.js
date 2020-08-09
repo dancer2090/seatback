@@ -196,16 +196,21 @@ export const VideoContainer = styled.div`
       height: 400px;
     }
     @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
-      width: 300px;
-      height: 300px;
+      width: 350px;
+      height: 350px;
     }
     @media (max-width: 420px) {
-      margin-left: -30px;
+      margin-left: -20px;
       position: relative;
-      top: -30px;
+      /* top: -30px; */
       z-index: 0;
-      width: 290px;
-      height: 290px;
+      /* width: 290px; */
+      /* height: 290px; */
+    }
+    @media (max-width: 360px) {
+      margin-left: -40px;
+      position: relative;
+      z-index: 0;
     }
   }
 
@@ -225,8 +230,11 @@ export const VideoContainer = styled.div`
   @media (max-width: ${getPxSize(SIZE_MOBILE)}) {
     margin-top: 0;
     margin-left: 0px;
-    margin-right: -50px;
-    width: 70%;
+    /* margin-right: -50px; */
+    width: 100%;
+  }
+  @media (max-width: ${getPxSize(500)}) {
+    
   }
 `;
 export const VideoText = styled.div`
