@@ -576,7 +576,8 @@ export const CircleContainer = styled.div`
   ${(props) => props.mode === 'Circle' && css`
     &:after{
       content: ' ';
-      background-color: #FFFFFF;
+      /* background-color: #FFFFFF; */
+      background-color: props.isTransparent ? transparent : #FFFFFF;
       width: 3006px;
       height: 2472px;
       border-radius: 50%;

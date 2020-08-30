@@ -37,6 +37,9 @@ const SpecialTemplate = ({ state }) => {
   const heightImage = ((!post.acf.height_image || post.acf.height_image === '') ? '507' : post.acf.height_image);
   const paddingBottom = ((!post.acf.padding_bottom || post.acf.padding_bottom === '') ? '185' : post.acf.padding_bottom);
   const { url: buttonUrl = '' } = button;
+
+  const isTransparent = false;
+
   return (
     <>
       <HeaderBox
@@ -56,7 +59,7 @@ const SpecialTemplate = ({ state }) => {
         paddingBottom={paddingBottom}
         isDemoPage
       />
-      <CircleContainer ref={contentRef} mode={typeBg}>
+      <CircleContainer ref={contentRef} mode={typeBg} isTransparent={isTransparent}>
         <Help isDemoPage title={helpHeader} items={helpItems} />
       </CircleContainer>
       <div ref={fromRef}>

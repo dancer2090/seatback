@@ -23,6 +23,8 @@ import {
 const Footer = ({
   state, libraries, bgColor = '#FFFFFF', circleColor = '#FFFFFF',
 }) => {
+  const dataP = state.source.get(state.router.link);
+
   const {
     menu = [],
     // eslint-disable-next-line no-unused-vars
@@ -34,8 +36,23 @@ const Footer = ({
 
   const Html2React = libraries.html2react.Component;
 
+  const expraColors = {};
+  if (
+    dataP && (
+      dataP.route === '/challenges-incentives/' ||
+      dataP.route === '/gamitification/' ||
+      dataP.route === '/motivators/'
+    )
+  ) {
+    expraColors.bgColor = '#F5F6FA';
+    expraColors.circleColor = '#FFFFFF';
+  }
+
   return (
-    <GlobalContainer bgColor={bgColor} circleColor={circleColor}>
+    <GlobalContainer
+      bgColor={expraColors.bgColor ? expraColors.bgColor : bgColor}
+      circleColor={expraColors.circleColor ? expraColors.circleColor : circleColor}
+    >
       <Container>
         {menu && menu.length > 0 && (
           <MenuContainer>
