@@ -577,7 +577,7 @@ export const CircleContainer = styled.div`
     &:after{
       content: ' ';
       /* background-color: #FFFFFF; */
-      background-color: props.isTransparent ? transparent : #FFFFFF;
+      background-color: ${props.isMobileUnique ? '#F5F6FA' : '#FFFFFF'};
       width: 3006px;
       height: 2472px;
       border-radius: 50%;

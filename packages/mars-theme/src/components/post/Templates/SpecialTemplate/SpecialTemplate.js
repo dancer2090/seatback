@@ -38,7 +38,17 @@ const SpecialTemplate = ({ state }) => {
   const paddingBottom = ((!post.acf.padding_bottom || post.acf.padding_bottom === '') ? '185' : post.acf.padding_bottom);
   const { url: buttonUrl = '' } = button;
 
-  const isTransparent = false;
+  let isMobileUnique = false;
+  if (
+    dataP && (
+      dataP.route === '/challenges-incentives/' ||
+      dataP.route === '/gamitification/' ||
+      dataP.route === '/motivators/'
+    )
+    && state.seatbackapi.windowSize <= 600
+  ) {
+    isMobileUnique = true;
+  }
 
   return (
     <>
@@ -59,7 +69,7 @@ const SpecialTemplate = ({ state }) => {
         paddingBottom={paddingBottom}
         isDemoPage
       />
-      <CircleContainer ref={contentRef} mode={typeBg} isTransparent={isTransparent}>
+      <CircleContainer ref={contentRef} mode={typeBg} isMobileUnique={isMobileUnique}>
         <Help isDemoPage title={helpHeader} items={helpItems} />
       </CircleContainer>
       <div ref={fromRef}>

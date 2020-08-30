@@ -43,6 +43,7 @@ const Footer = ({
       dataP.route === '/gamitification/' ||
       dataP.route === '/motivators/'
     )
+    && state.seatbackapi.windowSize <= 600
   ) {
     expraColors.bgColor = '#F5F6FA';
     expraColors.circleColor = '#FFFFFF';
