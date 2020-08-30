@@ -17,7 +17,7 @@ export const GlobalContainer = styled.div`
   position: relative;
   &:after {
     content: " ";
-    /* background-color: #ffffff; */
+    background-color: ${props => props.isMobileUnique ? '#f5f6fa' : '#ffffff'};
     width: 3006px;
     height: 2472px;
     border-radius: 50%;
