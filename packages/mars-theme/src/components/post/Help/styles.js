@@ -119,6 +119,7 @@ export const Blocks = styled.div`
     display: flex;
     align-items: stretch;
     justify-content: center;
+    flex-wrap: wrap;
     @media (max-width: ${getPxSize(SIZE_DESCTOP_SMALL)}) {
      padding-top: 30px;
      flex-wrap: wrap;

@@ -41,7 +41,7 @@ const Help = ({
                   <BlockContent>
                     <Icon type={item.acf_fc_layout}>
                       {item.acf_fc_layout === 'blocks_with_icons' && (
-                      <img src={subItem.icon.url} alt="description attribute" />
+                        <img src={subItem.icon.url} alt="description attribute" />
                       )}
                       {item.acf_fc_layout === 'blocks_with_text' && subItem.header}
                     </Icon>
