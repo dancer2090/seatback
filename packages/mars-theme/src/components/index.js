@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Global,
   connect,
@@ -29,7 +29,6 @@ const Theme = ({ state }) => {
   } = acf;
   const res_footerBg = (footerBg=="") ? "#ffffff" : footerBg;
   const res_footerCircleBg = (footerCircleBg=="") ? "#F5F6FA" : footerCircleBg;
-
 
   return (
     <>
