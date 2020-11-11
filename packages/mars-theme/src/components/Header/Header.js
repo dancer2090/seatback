@@ -49,13 +49,6 @@ const Header = ({ data, state, actions }) => {
     setScrollPosition(newScrollPostion);
   };
 
-  const calculateHeaderAfter = async () => {
-    const headerAfterData = await axios.post(`${state.source.api}/seatback-api/top-menu-after`);
-    var z = document.createElement('div');
-    z.innerHTML = headerAfterData.data['top-menu-after'];
-    document.body.appendChild(z);
-  }
-
   const listenToScrollEvent = () => {
     document.addEventListener('scroll', () => {
       requestAnimationFrame(() => {
@@ -95,7 +88,6 @@ const Header = ({ data, state, actions }) => {
     calculateScrollDistance();
     listenToScrollEvent();
     loadSubMenus();
-    calculateHeaderAfter();
   }, []);
 
   return (
