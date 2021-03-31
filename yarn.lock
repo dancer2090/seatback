@@ -5447,6 +5447,18 @@ react-dom@^16.0.0, react-dom@^16.13.1, react-dom@^16.8.3:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-equal-height@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-equal-height/-/react-equal-height-1.1.1.tgz#594f684d87c87618c7bf79353489c31e5f7582f5"
+  integrity sha512-OVTEiAvuxc3bGfPONSxWkW3fTJ07FCm8pB+dAbeXKzM1aIxFoSTHlGCafd1sDa980lbuGhGXs/LlZcP7BDD0Ng==
+
+react-equalizer@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-equalizer/-/react-equalizer-1.3.0.tgz#1d247fc2bb4a157ed8557ce6591d6fccd10cda6a"
+  integrity sha1-HSR/wrtKFX7YVXzmWR1vzNEM2mo=
+  dependencies:
+    prop-types "^15.5.10"
+
 react-fast-compare@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
@@ -6957,9 +6969,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
-  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
+  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
 yallist@^3.0.0, yallist@^3.0.2, yallist@^3.0.3:
   version "3.1.1"
