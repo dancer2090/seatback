@@ -4470,9 +4470,9 @@ lodash.throttle@^4.1.1:
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.16:
-  version "4.17.19"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
-  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -5446,6 +5446,18 @@ react-dom@^16.0.0, react-dom@^16.13.1, react-dom@^16.8.3:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-equal-height@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-equal-height/-/react-equal-height-1.1.1.tgz#594f684d87c87618c7bf79353489c31e5f7582f5"
+  integrity sha512-OVTEiAvuxc3bGfPONSxWkW3fTJ07FCm8pB+dAbeXKzM1aIxFoSTHlGCafd1sDa980lbuGhGXs/LlZcP7BDD0Ng==
+
+react-equalizer@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-equalizer/-/react-equalizer-1.3.0.tgz#1d247fc2bb4a157ed8557ce6591d6fccd10cda6a"
+  integrity sha1-HSR/wrtKFX7YVXzmWR1vzNEM2mo=
+  dependencies:
+    prop-types "^15.5.10"
 
 react-fast-compare@^2.0.4:
   version "2.0.4"
