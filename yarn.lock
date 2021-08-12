@@ -5154,9 +5154,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@0.1.7:
   version "0.1.7"
@@ -5446,6 +5446,18 @@ react-dom@^16.0.0, react-dom@^16.13.1, react-dom@^16.8.3:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-equal-height@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-equal-height/-/react-equal-height-1.1.1.tgz#594f684d87c87618c7bf79353489c31e5f7582f5"
+  integrity sha512-OVTEiAvuxc3bGfPONSxWkW3fTJ07FCm8pB+dAbeXKzM1aIxFoSTHlGCafd1sDa980lbuGhGXs/LlZcP7BDD0Ng==
+
+react-equalizer@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-equalizer/-/react-equalizer-1.3.0.tgz#1d247fc2bb4a157ed8557ce6591d6fccd10cda6a"
+  integrity sha1-HSR/wrtKFX7YVXzmWR1vzNEM2mo=
+  dependencies:
+    prop-types "^15.5.10"
 
 react-fast-compare@^2.0.4:
   version "2.0.4"
