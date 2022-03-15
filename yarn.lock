@@ -4455,9 +4455,9 @@ locate-path@^3.0.0:
     path-exists "^3.0.0"
 
 lodash-es@^4.17.11, lodash-es@^4.17.15:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
-  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
@@ -5446,6 +5446,18 @@ react-dom@^16.0.0, react-dom@^16.13.1, react-dom@^16.8.3:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-equal-height@^1.1.1:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-equal-height/-/react-equal-height-1.2.2.tgz#438b8170fa8b98f64f705f517e6c4d6889c9bd9b"
+  integrity sha512-iRL2Gcem5fwtsOzxMVwmCUiaaKyQ4Ba/jf4AIEGImIId8ub4Vop0kieg22yO0nt2HYW3+AfrJGIVid091lm2/A==
+
+react-equalizer@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-equalizer/-/react-equalizer-1.3.0.tgz#1d247fc2bb4a157ed8557ce6591d6fccd10cda6a"
+  integrity sha1-HSR/wrtKFX7YVXzmWR1vzNEM2mo=
+  dependencies:
+    prop-types "^15.5.10"
 
 react-fast-compare@^2.0.4:
   version "2.0.4"
